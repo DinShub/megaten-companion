@@ -1,0 +1,50 @@
+<p-toolbar class="app-bar">
+  <ng-template #start>
+    <h1 class="app-bar__brand">
+      <i class="pi pi-bolt"></i>
+      {{ title() }}
+    </h1>
+  </ng-template>
+
+  <ng-template #end>
+    <p-button
+      [label]="dark() ? 'Light' : 'Dark'"
+      [icon]="dark() ? 'pi pi-sun' : 'pi pi-moon'"
+      severity="secondary"
+      [text]="true"
+      (onClick)="toggleDark()"
+    />
+  </ng-template>
+</p-toolbar>
+
+<main class="app-main">
+  @if (licenseMissing) {
+    <p-message severity="warn" icon="pi pi-key">
+      Add your PrimeUI licence key to <code>src/environments/license.ts</code> to clear the
+      watermark. See the README for details.
+    </p-message>
+  }
+
+  <p-card header="PrimeNG is wired up" subheader="Lara preset · purple primary · dark by default">
+    <p class="app-card__copy">
+      Edit <code>src/app/app.html</code> to start building. The primary ramp lives in
+      <code>src/app/theme/lara-purple.ts</code>.
+    </p>
+
+    <div class="app-row">
+      <p-tag value="Angular 22" icon="pi pi-check" />
+      <p-tag value="Lara Purple" severity="secondary" icon="pi pi-palette" />
+      <p-tag value="Dark mode" severity="secondary" icon="pi pi-moon" />
+    </div>
+
+    <p-divider />
+
+    <div class="app-row">
+      <input pInputText placeholder="A themed input" aria-label="Demo input" />
+      <p-button label="Primary" icon="pi pi-sparkles" />
+      <p-button label="Secondary" severity="secondary" [outlined]="true" />
+    </div>
+  </p-card>
+
+  <router-outlet />
+</main>

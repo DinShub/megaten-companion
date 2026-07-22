@@ -1,0 +1,16 @@
+/* Global styles. Every --p-* custom property below is emitted by the Lara Purple
+   preset configured in src/app/app.config.ts, and swaps automatically when the
+   `.app-dark` class is toggled on <html>. */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--p-content-background);
+  color: var(--p-text-color);
+  font-family: var(--p-font-family, system-ui, -apple-system, 'Segoe UI', sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
