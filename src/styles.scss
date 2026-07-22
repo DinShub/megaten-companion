@@ -14,3 +14,330 @@ body {
   font-family: var(--p-font-family, system-ui, -apple-system, 'Segoe UI', sans-serif);
   -webkit-font-smoothing: antialiased;
 }
+
+/* ---- App shell frame (moved from app.scss so it is not subject to the
+   per-component style budget; the shell is the root singleton) ---------- */
+app-root {
+  --app-bar-h: 3.5rem;
+  --app-tabbar-h: 3.75rem;
+  --app-border: var(--p-content-border-color, rgba(127, 127, 127, 0.25));
+  display: block;
+  min-height: 100%;
+}
+
+/* ---- Visibility helpers (768px breakpoint, §10) ------------------------- */
+
+.app-mobile-only {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .app-desktop-only {
+    display: none !important;
+  }
+  .app-mobile-only {
+    display: inline-flex;
+  }
+}
+
+/* ---- Icon buttons ------------------------------------------------------- */
+
+.app-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--p-text-color);
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--p-surface-700, rgba(127, 127, 127, 0.18));
+  }
+  &:focus-visible {
+    outline: 2px solid var(--p-primary-color);
+    outline-offset: 2px;
+  }
+}
+
+/* ---- Alerts ------------------------------------------------------------- */
+
+.app-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+
+  .app-alert__text {
+    flex: 1 1 auto;
+  }
+}
+
+.app-alert--warn {
+  background: color-mix(in srgb, #f59e0b 22%, transparent);
+  color: #fcd34d;
+}
+
+.app-alert--info {
+  background: var(--p-surface-800, rgba(127, 127, 127, 0.14));
+  color: var(--p-text-muted-color);
+}
+
+/* ---- Top bar ------------------------------------------------------------ */
+
+.app-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: var(--app-bar-h);
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--app-border);
+  background: var(--p-content-background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-bar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--p-text-color);
+  white-space: nowrap;
+
+  .pi {
+    color: var(--p-primary-color);
+  }
+}
+
+.app-bar__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+/* ---- Desktop nav with hover/focus dropdowns ----------------------------- */
+
+.app-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0.15rem;
+  height: 100%;
+}
+
+.app-nav__group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.app-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.7rem;
+  border-radius: var(--p-border-radius, 6px);
+  color: var(--p-text-color);
+  text-decoration: none;
+  font-size: 0.92rem;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--p-surface-700, rgba(127, 127, 127, 0.14));
+  }
+  &.is-active {
+    color: var(--p-primary-color);
+  }
+}
+
+.app-nav__caret {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.app-nav__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 12rem;
+  display: none;
+  flex-direction: column;
+  padding: 0.35rem;
+  border: 1px solid var(--app-border);
+  border-radius: var(--p-border-radius, 8px);
+  background: var(--p-content-background);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  z-index: 110;
+}
+
+.app-nav__group:hover .app-nav__menu,
+.app-nav__group:focus-within .app-nav__menu {
+  display: flex;
+}
+
+.app-nav__menuitem {
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--p-border-radius-sm, 4px);
+  color: var(--p-text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: var(--p-surface-700, rgba(127, 127, 127, 0.16));
+  }
+  &.is-active {
+    color: var(--p-primary-color);
+  }
+}
+
+/* ---- Main --------------------------------------------------------------- */
+
+.app-main {
+  display: block;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+  .app-main {
+    padding-bottom: calc(var(--app-tabbar-h) + 1.5rem);
+  }
+}
+
+/* ---- Mobile bottom tab bar ---------------------------------------------- */
+
+.app-tabbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  height: var(--app-tabbar-h);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  border-top: 1px solid var(--app-border);
+  background: var(--p-content-background);
+  z-index: 100;
+}
+
+.app-tabbar__item {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.35rem 0.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--p-text-muted-color);
+  font-size: 0.7rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  .pi {
+    font-size: 1.15rem;
+  }
+  &.is-active {
+    color: var(--p-primary-color);
+  }
+}
+
+/* ---- Drawer ------------------------------------------------------------- */
+
+.app-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.app-drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(20rem, 85vw);
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+  background: var(--p-content-background);
+  border-left: 1px solid var(--app-border);
+  z-index: 210;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-drawer {
+    transition: none;
+  }
+}
+
+.app-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.app-drawer__title {
+  font-weight: 700;
+}
+
+.app-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.app-drawer__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-drawer__link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.5rem;
+  border-radius: var(--p-border-radius-sm, 4px);
+  text-decoration: none;
+  color: var(--p-text-color);
+
+  &.is-active {
+    color: var(--p-primary-color);
+    background: var(--p-highlight-background, rgba(127, 127, 127, 0.12));
+  }
+}
+
+.app-drawer__link--head {
+  font-weight: 600;
+}
+
+.app-drawer__link--child {
+  padding-left: 2rem;
+  font-size: 0.92rem;
+  color: var(--p-text-muted-color);
+}
+
+code {
+  padding: 0.1em 0.35em;
+  border-radius: var(--p-border-radius-sm, 4px);
+  background: var(--p-surface-800, rgba(127, 127, 127, 0.2));
+  color: var(--p-primary-color);
+  font-size: 0.9em;
+}

@@ -1,0 +1,52 @@
+import { TestBed } from '@angular/core/testing';
+
+import type { StorageBackend } from '../../../../core/storage/storage-envelope';
+import { STORAGE_BACKEND } from '../../../../core/storage/storage.service';
+import { SettingsStore } from '../../settings/settings.store';
+import { SettingsPage } from './settings-page';
+
+class FakeBackend implements StorageBackend {
+  private readonly map = new Map<string, string>();
+  getItem(k: string): string | null {
+    return this.map.get(k) ?? null;
+  }
+  setItem(k: string, v: string): void {
+    this.map.set(k, v);
+  }
+  removeItem(k: string): void {
+    this.map.delete(k);
+  }
+}
+
+describe('SettingsPage', () => {
+  afterEach(() => TestBed.resetTestingModule());
+
+  function mount() {
+    TestBed.configureTestingModule({
+      providers: [{ provide: STORAGE_BACKEND, useValue: new FakeBackend() }],
+    });
+    const fixture = TestBed.createComponent(SettingsPage);
+    fixture.detectChanges();
+    return fixture;
+  }
+
+  it('renders every settings section (§4.8)', () => {
+    const text = (mount().nativeElement as HTMLElement).textContent ?? '';
+    expect(text).toContain('Protagonist level');
+    expect(text).toContain('Fusion Alarm');
+    expect(text).toContain('Unlock groups');
+    expect(text).toContain('Downloadable Content');
+    expect(text).toContain('Theme');
+    expect(text).toContain('Reset all local data');
+  });
+
+  it('reset restores defaults through the store', () => {
+    const fixture = mount();
+    const store = TestBed.inject(SettingsStore);
+    store.setUnlockGroup('dlc', true);
+    expect(store.unlockGroups().dlc).toBe(true);
+
+    fixture.componentInstance['reset']();
+    expect(store.unlockGroups().dlc).toBe(false);
+  });
+});

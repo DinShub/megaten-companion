@@ -1,50 +1,142 @@
-<p-toolbar class="app-bar">
-  <ng-template #start>
-    <h1 class="app-bar__brand">
-      <i class="pi pi-bolt"></i>
-      {{ title() }}
-    </h1>
-  </ng-template>
+@if (storageFailure()) {
+  <div class="app-alert app-alert--warn" role="alert">
+    <i class="pi pi-exclamation-triangle" aria-hidden="true"></i>
+    <span class="app-alert__text">{{ storageFailure() }}</span>
+    <button class="app-iconbtn" type="button" aria-label="Dismiss" (click)="dismissStorageBanner()">
+      <i class="pi pi-times" aria-hidden="true"></i>
+    </button>
+  </div>
+}
 
-  <ng-template #end>
-    <p-button
-      [label]="dark() ? 'Light' : 'Dark'"
-      [icon]="dark() ? 'pi pi-sun' : 'pi pi-moon'"
-      severity="secondary"
-      [text]="true"
-      (onClick)="toggleDark()"
-    />
-  </ng-template>
-</p-toolbar>
+@if (licenseMissing) {
+  <div class="app-alert app-alert--info">
+    <i class="pi pi-key" aria-hidden="true"></i>
+    <span class="app-alert__text">
+      Add a PrimeUI licence key to <code>src/environments/license.ts</code> to clear the watermark.
+    </span>
+  </div>
+}
+
+<header class="app-bar">
+  <a class="app-bar__brand" [routerLink]="link([])">
+    <i class="pi pi-bolt" aria-hidden="true"></i>
+    <span>{{ game().shortTitle }} Companion</span>
+  </a>
+
+  <nav class="app-nav app-desktop-only" aria-label="Sections">
+    @for (entry of navEntries(); track entry.feature) {
+      @if (entry.children) {
+        <div class="app-nav__group">
+          <a
+            class="app-nav__link"
+            [routerLink]="link(entry.segments)"
+            routerLinkActive="is-active"
+            [attr.aria-haspopup]="true"
+          >
+            <i [class]="entry.icon" aria-hidden="true"></i>
+            <span>{{ entry.label }}</span>
+            <i class="pi pi-angle-down app-nav__caret" aria-hidden="true"></i>
+          </a>
+          <div class="app-nav__menu">
+            @for (child of entry.children; track child.label) {
+              <a
+                class="app-nav__menuitem"
+                [routerLink]="link(child.segments)"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                {{ child.label }}
+              </a>
+            }
+          </div>
+        </div>
+      } @else {
+        <a class="app-nav__link" [routerLink]="link(entry.segments)" routerLinkActive="is-active">
+          <i [class]="entry.icon" aria-hidden="true"></i>
+          <span>{{ entry.label }}</span>
+        </a>
+      }
+    }
+  </nav>
+
+  <div class="app-bar__actions">
+    <button
+      class="app-iconbtn"
+      type="button"
+      [attr.aria-label]="theme.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+      (click)="theme.toggle()"
+    >
+      <i class="pi" [class.pi-sun]="theme.isDark()" [class.pi-moon]="!theme.isDark()" aria-hidden="true"></i>
+    </button>
+    <a class="app-iconbtn app-desktop-only" [routerLink]="settingsLink()" aria-label="Settings">
+      <i class="pi pi-cog" aria-hidden="true"></i>
+    </a>
+    <button class="app-iconbtn app-mobile-only" type="button" aria-label="Open menu" (click)="drawerOpen.set(true)">
+      <i class="pi pi-bars" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
 
 <main class="app-main">
-  @if (licenseMissing) {
-    <p-message severity="warn" icon="pi pi-key">
-      Add your PrimeUI licence key to <code>src/environments/license.ts</code> to clear the
-      watermark. See the README for details.
-    </p-message>
-  }
-
-  <p-card header="PrimeNG is wired up" subheader="Lara preset · purple primary · dark by default">
-    <p class="app-card__copy">
-      Edit <code>src/app/app.html</code> to start building. The primary ramp lives in
-      <code>src/app/theme/lara-purple.ts</code>.
-    </p>
-
-    <div class="app-row">
-      <p-tag value="Angular 22" icon="pi pi-check" />
-      <p-tag value="Lara Purple" severity="secondary" icon="pi pi-palette" />
-      <p-tag value="Dark mode" severity="secondary" icon="pi pi-moon" />
-    </div>
-
-    <p-divider />
-
-    <div class="app-row">
-      <input pInputText placeholder="A themed input" aria-label="Demo input" />
-      <p-button label="Primary" icon="pi pi-sparkles" />
-      <p-button label="Secondary" severity="secondary" [outlined]="true" />
-    </div>
-  </p-card>
-
   <router-outlet />
 </main>
+
+<nav class="app-tabbar app-mobile-only" aria-label="Primary">
+  @for (entry of primaryNav(); track entry.feature) {
+    <a class="app-tabbar__item" [routerLink]="link(entry.segments)" routerLinkActive="is-active">
+      <i [class]="entry.icon" aria-hidden="true"></i>
+      <span>{{ entry.label }}</span>
+    </a>
+  }
+  <button class="app-tabbar__item" type="button" (click)="drawerOpen.set(true)">
+    <i class="pi pi-ellipsis-h" aria-hidden="true"></i>
+    <span>More</span>
+  </button>
+</nav>
+
+@if (drawerOpen()) {
+  <div class="app-scrim" (click)="drawerOpen.set(false)"></div>
+}
+<aside class="app-drawer" [class.is-open]="drawerOpen()" aria-label="All sections">
+  <div class="app-drawer__head">
+    <span class="app-drawer__title">{{ game().title }}</span>
+    <button class="app-iconbtn" type="button" aria-label="Close menu" (click)="drawerOpen.set(false)">
+      <i class="pi pi-times" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <nav class="app-drawer__nav">
+    @for (entry of navEntries(); track entry.feature) {
+      <div class="app-drawer__group">
+        <a
+          class="app-drawer__link app-drawer__link--head"
+          [routerLink]="link(entry.segments)"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: !entry.children }"
+        >
+          <i [class]="entry.icon" aria-hidden="true"></i>
+          <span>{{ entry.label }}</span>
+        </a>
+        @if (entry.children) {
+          @for (child of entry.children; track child.label) {
+            <a
+              class="app-drawer__link app-drawer__link--child"
+              [routerLink]="link(child.segments)"
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              {{ child.label }}
+            </a>
+          }
+        }
+      </div>
+    }
+
+    <div class="app-drawer__group">
+      <a class="app-drawer__link app-drawer__link--head" [routerLink]="settingsLink()" routerLinkActive="is-active">
+        <i class="pi pi-cog" aria-hidden="true"></i>
+        <span>Settings</span>
+      </a>
+    </div>
+  </nav>
+</aside>
