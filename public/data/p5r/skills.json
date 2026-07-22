@@ -1,0 +1,8329 @@
+[
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Exp earned +15%",
+    "element": "passive",
+    "id": "15-exp",
+    "inheritElement": null,
+    "name": "+15% EXP",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "loa",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "awakened-god",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% Despair",
+    "element": "ailment",
+    "id": "abysmal-surge",
+    "inheritElement": "ailment",
+    "name": "Abysmal Surge",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 50
+    },
+    "description": "√220 pwr",
+    "element": "almighty",
+    "id": "abyssal-eye",
+    "inheritElement": null,
+    "name": "Abyssal Eye",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "√210 pwr",
+    "element": "curse",
+    "id": "abyssal-wings",
+    "inheritElement": "curse",
+    "name": "Abyssal Wings",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Adds SP Restore + Charge to Moral Support",
+    "element": "passive",
+    "id": "active-support",
+    "inheritElement": null,
+    "name": "Active Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "battle-fiend",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Crit rate +20% when Surrounded",
+    "element": "passive",
+    "id": "adverse-resolve",
+    "inheritElement": null,
+    "name": "Adverse Resolve",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "cait-sith",
+        "kind": "itemization"
+      },
+      {
+        "from": "crypt-dwelling-pyromaniac",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr, 25% Burn",
+    "element": "fire",
+    "id": "agi",
+    "inheritElement": "fire",
+    "name": "Agi",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "orpheus-picaro",
+        "kind": "itemization"
+      },
+      {
+        "from": "decarabia",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr, 25% Burn",
+    "element": "fire",
+    "id": "agidyne",
+    "inheritElement": "fire",
+    "name": "Agidyne",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "orthrus",
+        "kind": "itemization"
+      },
+      {
+        "from": "girl-of-the-hanging-tree",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr, 25% Burn",
+    "element": "fire",
+    "id": "agilao",
+    "inheritElement": "fire",
+    "name": "Agilao",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "asterius-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 24
+    },
+    "description": "√110 pwr, 1-3 hits, 80% acc",
+    "element": "phys",
+    "id": "agneyastra",
+    "inheritElement": "phys",
+    "name": "Agneyastra",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Fusion Accident (36)"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ailment affliction rate x1.25",
+    "element": "passive",
+    "id": "ailment-boost",
+    "inheritElement": null,
+    "name": "Ailment Boost",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√300 pwr, 1-2 hits, 80% acc, 30% crit",
+    "element": "phys",
+    "id": "akashic-arts",
+    "inheritElement": "phys",
+    "name": "Akashic Arts",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Jazz 1/15 Foggy Day 50"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Incoming hit rate x0.5",
+    "element": "passive",
+    "id": "ali-dance",
+    "inheritElement": null,
+    "name": "Ali Dance",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "All-out Attack dmg dealt x0",
+    "element": "passive",
+    "id": "all-out-attack-boost",
+    "inheritElement": null,
+    "name": "All-Out Attack Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Network Fusion"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Almighty dmg dealt x1.5",
+    "element": "passive",
+    "id": "almighty-amp",
+    "inheritElement": null,
+    "name": "Almighty Amp",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Network Fusion"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Almighty dmg dealt x1.25",
+    "element": "passive",
+    "id": "almighty-boost",
+    "inheritElement": null,
+    "name": "Almighty Boost",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ailment x1.3 affliction rate during special weather events",
+    "element": "passive",
+    "id": "ambient-aid",
+    "inheritElement": null,
+    "name": "Ambient Aid",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Patra + Energy Drop + Baisudi",
+    "element": "healing",
+    "id": "amrita-drop",
+    "inheritElement": "healing",
+    "name": "Amrita Drop",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Fusion Accident (56)"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Amrita",
+    "element": "healing",
+    "id": "amrita-shower",
+    "inheritElement": "healing",
+    "name": "Amrita Shower",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Displays previously discovered resistances",
+    "element": "passive",
+    "id": "analysis",
+    "inheritElement": null,
+    "name": "Analysis",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Fusion Accident (56)"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Non-Almighty magic evasion x1.15",
+    "element": "passive",
+    "id": "angelic-grace",
+    "inheritElement": null,
+    "name": "Angelic Grace",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Gym Trickster 50"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Crit rate x2",
+    "element": "passive",
+    "id": "apt-pupil",
+    "inheritElement": null,
+    "name": "Apt Pupil",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 1/22"
+    ],
+    "cardSources": [
+      {
+        "from": "tsukiyomi-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "HP costs x0.5",
+    "element": "passive",
+    "id": "arms-master",
+    "inheritElement": null,
+    "name": "Arms Master",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "bicorn",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "√130 pwr, 20% crit",
+    "element": "phys",
+    "id": "assault-dive",
+    "inheritElement": "phys",
+    "name": "Assault Dive",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "bishamonten",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "nuke",
+    "id": "atomic-flare",
+    "inheritElement": "nuke",
+    "name": "Atomic Flare",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Begins battle with Tarukaja",
+    "element": "passive",
+    "id": "attack-master",
+    "inheritElement": null,
+    "name": "Attack Master",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ariadne-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Begins battle with Marakukaja",
+    "element": "passive",
+    "id": "auto-maraku",
+    "inheritElement": null,
+    "name": "Auto-Maraku",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "jatayu",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Begins battle with Masukukaja",
+    "element": "passive",
+    "id": "auto-masuku",
+    "inheritElement": null,
+    "name": "Auto-Masuku",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ariadne-picaro",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Begins battle with Matarukaja",
+    "element": "passive",
+    "id": "auto-mataru",
+    "inheritElement": null,
+    "name": "Auto-Mataru",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√100 pwr, 3 hits, 10% crit",
+    "element": "phys",
+    "id": "ayamur",
+    "inheritElement": "phys",
+    "name": "Ayamur",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 21
+    },
+    "description": "√110 pwr, 80% acc, 25% Despair",
+    "element": "phys",
+    "id": "bad-beat",
+    "inheritElement": "phys",
+    "name": "Bad Beat",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Removes Burn, Freeze, Shock",
+    "element": "healing",
+    "id": "baisudi",
+    "inheritElement": "healing",
+    "name": "Baisudi",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√1200 pwr, dmg dealt x0.1 for rest of battle",
+    "element": "phys",
+    "id": "beast-weaver",
+    "inheritElement": "phys",
+    "name": "Beast Weaver",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√230 pwr",
+    "element": "almighty",
+    "id": "black-viper",
+    "inheritElement": null,
+    "name": "Black Viper",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "√180 pwr, 24% Burn",
+    "element": "fire",
+    "id": "blazing-hell",
+    "inheritElement": "fire",
+    "name": "Blazing Hell",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "Drains next non-Almighty attack, removes innate weaknesses",
+    "element": "support",
+    "id": "bleeding-dry-brush",
+    "inheritElement": null,
+    "name": "Bleeding Dry Brush",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "power",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Bless dmg dealt x1.5",
+    "element": "passive",
+    "id": "bless-amp",
+    "inheritElement": null,
+    "name": "Bless Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "power",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Bless dmg dealt x1.25",
+    "element": "passive",
+    "id": "bless-boost",
+    "inheritElement": null,
+    "name": "Bless Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "macabre",
+        "kind": "itemization"
+      },
+      {
+        "from": "kumbhanda",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "the-black-avenger",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√120 pwr, 80% acc, 25% Fear",
+    "element": "phys",
+    "id": "bloodbath",
+    "inheritElement": "phys",
+    "name": "Bloodbath",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "monk-of-the-valley",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√120 pwr, 80% acc, 25% Brainwash",
+    "element": "phys",
+    "id": "brain-buster",
+    "inheritElement": "phys",
+    "name": "Brain Buster",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "nebiros",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "rhetorician-of-the-sea",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% Brainwash",
+    "element": "ailment",
+    "id": "brain-jack",
+    "inheritElement": "ailment",
+    "name": "Brain Jack",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "possessing-dog-ghost",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√80 pwr, 35% Brainwash",
+    "element": "phys",
+    "id": "brain-shake",
+    "inheritElement": "phys",
+    "name": "Brain Shake",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Brainwash affliction rate x1.25",
+    "element": "passive",
+    "id": "brainwash-boost",
+    "inheritElement": null,
+    "name": "Brainwash Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "atavaka",
+        "kind": "itemization"
+      },
+      {
+        "from": "infuriated-wisdom-king",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 24
+    },
+    "description": "√600 pwr, 35% crit",
+    "element": "phys",
+    "id": "brave-blade",
+    "inheritElement": "phys",
+    "name": "Brave Blade",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "Rebellion",
+    "element": "support",
+    "id": "brave-step",
+    "inheritElement": null,
+    "name": "Brave Step",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "koropokkuru",
+        "kind": "itemization"
+      },
+      {
+        "from": "mocking-snowman",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr, 25% Freeze",
+    "element": "ice",
+    "id": "bufu",
+    "inheritElement": "ice",
+    "name": "Bufu",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "baphomet",
+        "kind": "itemization"
+      },
+      {
+        "from": "belphegor",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "monarch-of-snow",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr, 25% Freeze",
+    "element": "ice",
+    "id": "bufudyne",
+    "inheritElement": "ice",
+    "name": "Bufudyne",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "sui-ki",
+        "kind": "itemization"
+      },
+      {
+        "from": "ambassador-of-filth",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr, 25% Freeze",
+    "element": "ice",
+    "id": "bufula",
+    "inheritElement": "ice",
+    "name": "Bufula",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Burn affliction rate x1.25",
+    "element": "passive",
+    "id": "burn-boost",
+    "inheritElement": null,
+    "name": "Burn Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "50% HP restore + Sukukaja",
+    "element": "healing",
+    "id": "cadenza",
+    "inheritElement": "healing",
+    "name": "Cadenza",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Diarama + Tarukaja",
+    "element": "healing",
+    "id": "champions-cup",
+    "inheritElement": "healing",
+    "name": "Champion's Cup",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Jazz 9/4"
+    ],
+    "cardSources": [
+      {
+        "from": "athena-picaro",
+        "kind": "itemization"
+      },
+      {
+        "from": "bloodthirsty-demoness",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Dmg dealt by next Phys or Gun attack x2.5",
+    "element": "support",
+    "id": "charge",
+    "inheritElement": null,
+    "name": "Charge",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 90
+    },
+    "description": "Debilitate",
+    "element": "support",
+    "id": "checkmate",
+    "inheritElement": null,
+    "name": "Checkmate",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "berith",
+        "kind": "itemization"
+      },
+      {
+        "from": "hunting-puss-in-boots",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 6
+    },
+    "description": "√65 pwr, 20% crit",
+    "element": "phys",
+    "id": "cleave",
+    "inheritElement": "phys",
+    "name": "Cleave",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Evasion x2 during special weather events",
+    "element": "passive",
+    "id": "climate-decorum",
+    "inheritElement": null,
+    "name": "Climate Decorum",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Changes of being targeted x1.3 for 3 turns",
+    "element": "support",
+    "id": "concealment",
+    "inheritElement": null,
+    "name": "Concealment",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 9/25"
+    ],
+    "cardSources": [
+      {
+        "from": "athena-picaro",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "decadent-false-god",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Dmg dealt by next magic attack x2.5",
+    "element": "support",
+    "id": "concentrate",
+    "inheritElement": null,
+    "name": "Concentrate",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Confuse affliction rate x1.25",
+    "element": "passive",
+    "id": "confuse-boost",
+    "inheritElement": null,
+    "name": "Confuse Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "shiisaa",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√225 pwr, 85% acc, 35% crit, only usable when Surrounded",
+    "element": "phys",
+    "id": "cornered-fang",
+    "inheritElement": "phys",
+    "name": "Cornered Fang",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "√180 pwr",
+    "element": "nuke",
+    "id": "cosmic-flare",
+    "inheritElement": "nuke",
+    "name": "Cosmic Flare",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "naga",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "10% chance to repel Phys or Gun dmg taken",
+    "element": "passive",
+    "id": "counter",
+    "inheritElement": null,
+    "name": "Counter",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ose",
+        "kind": "itemization"
+      },
+      {
+        "from": "naga",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "funerary-warrior",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "15% chance to repel Phys or Gun dmg taken",
+    "element": "passive",
+    "id": "counterstrike",
+    "inheritElement": null,
+    "name": "Counterstrike",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Gun dmg dealt x1.5",
+    "element": "passive",
+    "id": "cripple",
+    "inheritElement": null,
+    "name": "Cripple",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√160 pwr, 2 hits, 20% crit",
+    "element": "phys",
+    "id": "cross-slash",
+    "inheritElement": "phys",
+    "name": "Cross Slash",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Curse dmg dealt x1.5",
+    "element": "passive",
+    "id": "curse-amp",
+    "inheritElement": null,
+    "name": "Curse Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Curse dmg dealt x1.25",
+    "element": "passive",
+    "id": "curse-boost",
+    "inheritElement": null,
+    "name": "Curse Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "narcissus",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Dizzy",
+    "element": "ailment",
+    "id": "dazzler",
+    "inheritElement": "ailment",
+    "name": "Dazzler",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "valkyrie",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "quaking-lady-of-shadow",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√220 pwr, dmg dealt x1.5 after Baton Pass",
+    "element": "phys",
+    "id": "deadly-fury",
+    "inheritElement": "phys",
+    "name": "Deadly Fury",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "macabre",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√300 pwr, 55% Fear",
+    "element": "phys",
+    "id": "death-scythe",
+    "inheritElement": "phys",
+    "name": "Death Scythe",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "girimehkala",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "rebellious-elephant",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√100 pwr, 1-2 hits, 80% acc, 10% crit",
+    "element": "phys",
+    "id": "deathbound",
+    "inheritElement": "phys",
+    "name": "Deathbound",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 12/11"
+    ],
+    "cardSources": [
+      {
+        "from": "magatsu-izanagi-picaro",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "hedonistic-braggart",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Tarunda + Rakunda + Sukunda",
+    "element": "support",
+    "id": "debilitate",
+    "inheritElement": null,
+    "name": "Debilitate",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Begins battle with Rakukaja",
+    "element": "passive",
+    "id": "defense-master",
+    "inheritElement": null,
+    "name": "Defense Master",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Maid Cafe"
+    ],
+    "cardSources": [
+      {
+        "from": "mokoi",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes -kaja effects",
+    "element": "support",
+    "id": "dekaja",
+    "inheritElement": null,
+    "name": "Dekaja",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Maid Cafe"
+    ],
+    "cardSources": [
+      {
+        "from": "mokoi",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes -kunda effects",
+    "element": "support",
+    "id": "dekunda",
+    "inheritElement": null,
+    "name": "Dekunda",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "belial",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "thanatos-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "Reduces current HP by 50%",
+    "element": "curse",
+    "id": "demonic-decree",
+    "inheritElement": "curse",
+    "name": "Demonic Decree",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Despair affliction rate x1.25",
+    "element": "passive",
+    "id": "despair-boost",
+    "inheritElement": null,
+    "name": "Despair Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "beguiling-girl",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "√50 pwr, HP restore",
+    "element": "healing",
+    "id": "dia",
+    "inheritElement": "healing",
+    "name": "Dia",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "alilat",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr, 26% Freeze",
+    "element": "ice",
+    "id": "diamond-dust",
+    "inheritElement": "ice",
+    "name": "Diamond Dust",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kaguya-picaro",
+        "kind": "itemization"
+      },
+      {
+        "from": "sarasvati",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "final-assessor",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "100% HP restore",
+    "element": "healing",
+    "id": "diarahan",
+    "inheritElement": "healing",
+    "name": "Diarahan",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Chain 20"
+    ],
+    "cardSources": [
+      {
+        "from": "apsaras",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "prankster-leader",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "√160 pwr, HP restore",
+    "element": "healing",
+    "id": "diarama",
+    "inheritElement": "healing",
+    "name": "Diarama",
+    "rank": 3,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "70% instakill",
+    "element": "curse",
+    "id": "die-for-me",
+    "inheritElement": "curse",
+    "name": "Die For Me!",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Fusion Accident"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "HP restore skill pwr x1.5",
+    "element": "passive",
+    "id": "divine-grace",
+    "inheritElement": null,
+    "name": "Divine Grace",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dominion",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "Reduces current HP by 50%",
+    "element": "bless",
+    "id": "divine-judgement",
+    "inheritElement": "bless",
+    "name": "Divine Judgement",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Dizzy affliction rate x1.25",
+    "element": "passive",
+    "id": "dizzy-boost",
+    "inheritElement": null,
+    "name": "Dizzy Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Bless evasion x1.15",
+    "element": "passive",
+    "id": "dodge-bless",
+    "inheritElement": null,
+    "name": "Dodge Bless",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Curse evasion x1.15",
+    "element": "passive",
+    "id": "dodge-curse",
+    "inheritElement": null,
+    "name": "Dodge Curse",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Elec evasion x1.15",
+    "element": "passive",
+    "id": "dodge-elec",
+    "inheritElement": null,
+    "name": "Dodge Elec",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Fire evasion x1.15",
+    "element": "passive",
+    "id": "dodge-fire",
+    "inheritElement": null,
+    "name": "Dodge Fire",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Trial 20"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ice evasion x1.15",
+    "element": "passive",
+    "id": "dodge-ice",
+    "inheritElement": null,
+    "name": "Dodge Ice",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Nuke evasion x1.15",
+    "element": "passive",
+    "id": "dodge-nuke",
+    "inheritElement": null,
+    "name": "Dodge Nuke",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Phys evasion x1.15",
+    "element": "passive",
+    "id": "dodge-phys",
+    "inheritElement": null,
+    "name": "Dodge Phys",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Psy evasion x1.15",
+    "element": "passive",
+    "id": "dodge-psy",
+    "inheritElement": null,
+    "name": "Dodge Psy",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Wind evasion x1.15",
+    "element": "passive",
+    "id": "dodge-wind",
+    "inheritElement": null,
+    "name": "Dodge Wind",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 32
+    },
+    "description": "√160 pwr, 60% Curse instakill",
+    "element": "almighty",
+    "id": "door-of-hades",
+    "inheritElement": null,
+    "name": "Door of Hades",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "incubus",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√80 pwr, 80% acc, 25% Sleep",
+    "element": "phys",
+    "id": "dormin-rush",
+    "inheritElement": "phys",
+    "name": "Dormin Rush",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "sandman",
+        "kind": "itemization"
+      },
+      {
+        "from": "envoy-of-slumber",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Sleep",
+    "element": "ailment",
+    "id": "dormina",
+    "inheritElement": "ailment",
+    "name": "Dormina",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "shiisaa",
+        "kind": "itemization"
+      },
+      {
+        "from": "twin-headed-guardian",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√40 pwr, 2 hits",
+    "element": "phys",
+    "id": "double-fangs",
+    "inheritElement": "phys",
+    "name": "Double Fangs",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "shiki-ouji",
+        "kind": "itemization"
+      },
+      {
+        "from": "bringer-of-misfortune",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√50 pwr, 2 hits",
+    "element": "gun",
+    "id": "double-shot",
+    "inheritElement": "gun",
+    "name": "Double Shot",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Bless dmg taken",
+    "element": "passive",
+    "id": "drain-bless",
+    "inheritElement": null,
+    "name": "Drain Bless",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "attis",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Drains Curse dmg taken",
+    "element": "passive",
+    "id": "drain-curse",
+    "inheritElement": null,
+    "name": "Drain Curse",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Foggy Day ???"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Elec dmg taken",
+    "element": "passive",
+    "id": "drain-elec",
+    "inheritElement": null,
+    "name": "Drain Elec",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Full Moon ???"
+    ],
+    "cardSources": [
+      {
+        "from": "chimera",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Drains Fire dmg taken",
+    "element": "passive",
+    "id": "drain-fire",
+    "inheritElement": null,
+    "name": "Drain Fire",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Ice dmg taken",
+    "element": "passive",
+    "id": "drain-ice",
+    "inheritElement": null,
+    "name": "Drain Ice",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Nuke dmg taken",
+    "element": "passive",
+    "id": "drain-nuke",
+    "inheritElement": null,
+    "name": "Drain Nuke",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "chi-you",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Drains Phys dmg taken",
+    "element": "passive",
+    "id": "drain-phys",
+    "inheritElement": null,
+    "name": "Drain Phys",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Psy dmg taken",
+    "element": "passive",
+    "id": "drain-psy",
+    "inheritElement": null,
+    "name": "Drain Psy",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Wind dmg taken",
+    "element": "passive",
+    "id": "drain-wind",
+    "inheritElement": null,
+    "name": "Drain Wind",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "incubus",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√70 pwr, 35% Sleep",
+    "element": "gun",
+    "id": "dream-needle",
+    "inheritElement": "gun",
+    "name": "Dream Needle",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "nue",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "gathering-devil",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√120 pwr",
+    "element": "curse",
+    "id": "eiga",
+    "inheritElement": "curse",
+    "name": "Eiga",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "rangda",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "wandering-reviver",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√190 pwr",
+    "element": "curse",
+    "id": "eigaon",
+    "inheritElement": "curse",
+    "name": "Eigaon",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√50 pwr",
+    "element": "curse",
+    "id": "eiha",
+    "inheritElement": "curse",
+    "name": "Eiha",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "thunderbird",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Elec dmg dealt x1.5",
+    "element": "passive",
+    "id": "elec-amp",
+    "inheritElement": null,
+    "name": "Elec Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "thunderbird",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Elec dmg dealt x1.25",
+    "element": "passive",
+    "id": "elec-boost",
+    "inheritElement": null,
+    "name": "Elec Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Elec resistance for 3 turns",
+    "element": "support",
+    "id": "elec-break",
+    "inheritElement": null,
+    "name": "Elec Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "waterside-nymph",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Elec resistance for 3 turns",
+    "element": "support",
+    "id": "elec-wall",
+    "inheritElement": null,
+    "name": "Elec Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Chance to swap current party with backups when 2+ KO'd",
+    "element": "passive",
+    "id": "emergency-shift",
+    "inheritElement": null,
+    "name": "Emergency Shift",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Full Moon 50"
+    ],
+    "cardSources": [
+      {
+        "from": "orpheus-f-picaro",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Survive with 1 HP after a mortal blow once per battle",
+    "element": "passive",
+    "id": "endure",
+    "inheritElement": null,
+    "name": "Endure",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "L Leblanc"
+    ],
+    "cardSources": [
+      {
+        "from": "orpheus-f-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Survive with 100% HP after a mortal blow once per battle",
+    "element": "passive",
+    "id": "enduring-soul",
+    "inheritElement": null,
+    "name": "Enduring Soul",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kikuri-hime",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Removes Confuse, Fear, Rage, Despair, Brainwash",
+    "element": "healing",
+    "id": "energy-drop",
+    "inheritElement": "healing",
+    "name": "Energy Drop",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kikuri-hime",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "destructive-beauty",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Energy Drop",
+    "element": "healing",
+    "id": "energy-shower",
+    "inheritElement": "healing",
+    "name": "Energy Shower",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Bless evasion x1.4",
+    "element": "passive",
+    "id": "evade-bless",
+    "inheritElement": null,
+    "name": "Evade Bless",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Curse evasion x1.4",
+    "element": "passive",
+    "id": "evade-curse",
+    "inheritElement": null,
+    "name": "Evade Curse",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Elec evasion x1.4",
+    "element": "passive",
+    "id": "evade-elec",
+    "inheritElement": null,
+    "name": "Evade Elec",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Fire evasion x1.4",
+    "element": "passive",
+    "id": "evade-fire",
+    "inheritElement": null,
+    "name": "Evade Fire",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ice evasion x1.4",
+    "element": "passive",
+    "id": "evade-ice",
+    "inheritElement": null,
+    "name": "Evade Ice",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Nuke evasion x1.4",
+    "element": "passive",
+    "id": "evade-nuke",
+    "inheritElement": null,
+    "name": "Evade Nuke",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Phys evasion x1.4",
+    "element": "passive",
+    "id": "evade-phys",
+    "inheritElement": null,
+    "name": "Evade Phys",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Psy evasion x1.4",
+    "element": "passive",
+    "id": "evade-psy",
+    "inheritElement": null,
+    "name": "Evade Psy",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Wind evasion x1.4",
+    "element": "passive",
+    "id": "evade-wind",
+    "inheritElement": null,
+    "name": "Evade Wind",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "andras",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "40% Fear",
+    "element": "ailment",
+    "id": "evil-smile",
+    "inheritElement": "ailment",
+    "name": "Evil Smile",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "andras",
+        "kind": "itemization"
+      },
+      {
+        "from": "menacing-owlman",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Fear",
+    "element": "ailment",
+    "id": "evil-touch",
+    "inheritElement": "ailment",
+    "name": "Evil Touch",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% Hunger",
+    "element": "ailment",
+    "id": "famines-scream",
+    "inheritElement": "ailment",
+    "name": "Famine's Scream",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ailment recovery time x0.5",
+    "element": "passive",
+    "id": "fast-heal",
+    "inheritElement": null,
+    "name": "Fast Heal",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Fear affliction rate x1.25",
+    "element": "passive",
+    "id": "fear-boost",
+    "inheritElement": null,
+    "name": "Fear Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 80
+    },
+    "description": "Charge",
+    "element": "support",
+    "id": "fighting-spirit",
+    "inheritElement": null,
+    "name": "Fighting Spirit",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Chance to nullify a mortal blow for the entire party",
+    "element": "passive",
+    "id": "final-guard",
+    "inheritElement": null,
+    "name": "Final Guard",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "deformed-lion-god",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Fire dmg dealt x1.5",
+    "element": "passive",
+    "id": "fire-amp",
+    "inheritElement": null,
+    "name": "Fire Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "midnight-queen",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Fire dmg dealt x1.25",
+    "element": "passive",
+    "id": "fire-boost",
+    "inheritElement": null,
+    "name": "Fire Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "equine-sage",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Fire resistance for 3 turns",
+    "element": "support",
+    "id": "fire-break",
+    "inheritElement": null,
+    "name": "Fire Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "leafy-old-man",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Fire resistance for 3 turns",
+    "element": "support",
+    "id": "fire-wall",
+    "inheritElement": null,
+    "name": "Fire Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "messiah-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Dmg taken x0.5 but cannot dodge",
+    "element": "passive",
+    "id": "firm-stance",
+    "inheritElement": null,
+    "name": "Firm Stance",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ippon-datara",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 19
+    },
+    "description": "√100 pwr, 80% acc, 25% Dizzy",
+    "element": "phys",
+    "id": "flash-bomb",
+    "inheritElement": "phys",
+    "name": "Flash Bomb",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Forget affliction rate x1.25",
+    "element": "passive",
+    "id": "forget-boost",
+    "inheritElement": null,
+    "name": "Forget Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Crit rate +15% after successful Ambush",
+    "element": "passive",
+    "id": "fortified-moxy",
+    "inheritElement": null,
+    "name": "Fortified Moxy",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Fusion Accident (56)"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ailment susceptibility x0.5",
+    "element": "passive",
+    "id": "fortify-spirit",
+    "inheritElement": null,
+    "name": "Fortify Spirit",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "legion",
+        "kind": "itemization"
+      },
+      {
+        "from": "pulsing-mud",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Raises ailment susceptibility for 3 turns",
+    "element": "almighty",
+    "id": "foul-breath",
+    "inheritElement": null,
+    "name": "Foul Breath",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Spaceport Infiltrated"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "fox-panther-showtime",
+    "inheritElement": null,
+    "name": "Fox-Panther Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "heretic-goat",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Freeze affliction rate x1.25",
+    "element": "passive",
+    "id": "freeze-boost",
+    "inheritElement": null,
+    "name": "Freeze Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Theater"
+    ],
+    "cardSources": [
+      {
+        "from": "makami",
+        "kind": "itemization"
+      },
+      {
+        "from": "rooftop-lion",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr",
+    "element": "nuke",
+    "id": "frei",
+    "inheritElement": "nuke",
+    "name": "Frei",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "titania",
+        "kind": "itemization"
+      },
+      {
+        "from": "thoth",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "scandalous-queen",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr",
+    "element": "nuke",
+    "id": "freidyne",
+    "inheritElement": "nuke",
+    "name": "Freidyne",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr",
+    "element": "nuke",
+    "id": "freila",
+    "inheritElement": "nuke",
+    "name": "Freila",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "Sukukaja, begins battle with Concentrate",
+    "element": "support",
+    "id": "gamblers-foresight",
+    "inheritElement": null,
+    "name": "Gambler's Foresight",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kelpie",
+        "kind": "itemization"
+      },
+      {
+        "from": "mad-marsh-horse",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "√40 pwr",
+    "element": "wind",
+    "id": "garu",
+    "inheritElement": "wind",
+    "name": "Garu",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "garuda",
+        "kind": "itemization"
+      },
+      {
+        "from": "arrogant-vulture",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√160 pwr",
+    "element": "wind",
+    "id": "garudyne",
+    "inheritElement": "wind",
+    "name": "Garudyne",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "anzu",
+        "kind": "itemization"
+      },
+      {
+        "from": "high-pixie",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "tornado-devil",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "garula",
+    "inheritElement": "wind",
+    "name": "Garula",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√30 pwr, 3-4 hits",
+    "element": "phys",
+    "id": "gattling-blows",
+    "inheritElement": "phys",
+    "name": "Gattling Blows",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dancer-of-death",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 28
+    },
+    "description": "100% instakill when Fear",
+    "element": "almighty",
+    "id": "ghastly-wail",
+    "inheritElement": null,
+    "name": "Ghastly Wail",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "inugami",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√90 pwr, 30% crit, dmg dealt x1.5 after Baton Pass",
+    "element": "phys",
+    "id": "giant-slice",
+    "inheritElement": "phys",
+    "name": "Giant Slice",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "asterius-picaro",
+        "kind": "itemization"
+      },
+      {
+        "from": "evil-voracious-dragon",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√350 pwr, 85% acc",
+    "element": "phys",
+    "id": "gigantomachia",
+    "inheritElement": "phys",
+    "name": "Gigantomachia",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "cerberus",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√800 pwr, 15% crit",
+    "element": "phys",
+    "id": "gods-hand",
+    "inheritElement": "phys",
+    "name": "God's Hand",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "25% exp gained when not active",
+    "element": "passive",
+    "id": "growth-1",
+    "inheritElement": null,
+    "name": "Growth 1",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Beach"
+    ],
+    "cardSources": [
+      {
+        "from": "izanagi-picaro",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "50% exp gained when not active",
+    "element": "passive",
+    "id": "growth-2",
+    "inheritElement": null,
+    "name": "Growth 2",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "izanagi-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "100% exp gained when not active",
+    "element": "passive",
+    "id": "growth-3",
+    "inheritElement": null,
+    "name": "Growth 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "3 hits, 90% crit, 100% Down, Life Aid",
+    "element": "almighty",
+    "id": "guiding-tendril",
+    "inheritElement": null,
+    "name": "Guiding Tendril",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Gun acc +5%",
+    "element": "passive",
+    "id": "gun-accuracy-5",
+    "inheritElement": null,
+    "name": "Gun Accuracy +5%",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "white-rider",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Gun dmg dealt x1.5",
+    "element": "passive",
+    "id": "gun-amp",
+    "inheritElement": null,
+    "name": "Gun Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "white-rider",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Gun dmg dealt x1.25",
+    "element": "passive",
+    "id": "gun-boost",
+    "inheritElement": null,
+    "name": "Gun Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "archangel",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "25% instakill",
+    "element": "bless",
+    "id": "hama",
+    "inheritElement": "bless",
+    "name": "Hama",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Bless instakill affliction rate x1.25",
+    "element": "passive",
+    "id": "hama-boost",
+    "inheritElement": null,
+    "name": "Hama Boost",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "melchizedek",
+        "kind": "itemization"
+      },
+      {
+        "from": "unicorn",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "bearer-of-the-scales",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "50% instakill",
+    "element": "bless",
+    "id": "hamaon",
+    "inheritElement": "bless",
+    "name": "Hamaon",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√40 pwr, 8 hits, 75% acc",
+    "element": "phys",
+    "id": "hassou-tobi",
+    "inheritElement": "phys",
+    "name": "Hassou Tobi",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "black-ooze",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√80 pwr, 35% Forget",
+    "element": "phys",
+    "id": "headbutt",
+    "inheritElement": "phys",
+    "name": "Headbutt",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 12/4 CJ Underground Mall"
+    ],
+    "cardSources": [
+      {
+        "from": "magatsu-izanagi-picaro",
+        "kind": "itemization"
+      },
+      {
+        "from": "evil-synthetic-organism",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Tarukaja + Rakukaja + Sukukaja",
+    "element": "support",
+    "id": "heat-riser",
+    "inheritElement": null,
+    "name": "Heat Riser",
+    "rank": 7,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Trial 50",
+      "Fusion Accident (36)"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "5% HP + 10 SP restore each turn after successful Ambush",
+    "element": "passive",
+    "id": "heat-up",
+    "inheritElement": null,
+    "name": "Heat Up",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "oberon",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√150 pwr, 80% acc",
+    "element": "phys",
+    "id": "heat-wave",
+    "inheritElement": "phys",
+    "name": "Heat Wave",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Lowers chance of being targeted",
+    "element": "passive",
+    "id": "hide",
+    "inheritElement": null,
+    "name": "Hide",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "CJ Leblanc"
+    ],
+    "cardSources": [
+      {
+        "from": "ose",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "20% chance to repel Phys or Gun dmg taken",
+    "element": "passive",
+    "id": "high-counter",
+    "inheritElement": null,
+    "name": "High Counter",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 80
+    },
+    "description": "Concentrate",
+    "element": "support",
+    "id": "high-energy",
+    "inheritElement": null,
+    "name": "High Energy",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 27
+    },
+    "description": "Samarecarm",
+    "element": "healing",
+    "id": "holy-benevolence",
+    "inheritElement": "healing",
+    "name": "Holy Benevolence",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "25% HP restore each turn",
+    "element": "passive",
+    "id": "holy-embrace",
+    "inheritElement": null,
+    "name": "Holy Embrace",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "15% HP restore + 15 SP restore each turn",
+    "element": "passive",
+    "id": "holy-whisper",
+    "inheritElement": null,
+    "name": "Holy Whisper",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 90
+    },
+    "description": "Heat Riser",
+    "element": "support",
+    "id": "hyakka-ryouran",
+    "inheritElement": null,
+    "name": "Hyakka Ryouran",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "yaksini",
+        "kind": "itemization"
+      },
+      {
+        "from": "life-draining-spirit",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√80 pwr, 35% Rage",
+    "element": "phys",
+    "id": "hysterical-slap",
+    "inheritElement": "phys",
+    "name": "Hysterical Slap",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "√180 pwr, 26% Freeze",
+    "element": "ice",
+    "id": "ice-age",
+    "inheritElement": "ice",
+    "name": "Ice Age",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "lilim",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "drunken-serpents",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Ice dmg dealt x1.5",
+    "element": "passive",
+    "id": "ice-amp",
+    "inheritElement": null,
+    "name": "Ice Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "lilim",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Ice dmg dealt x1.25",
+    "element": "passive",
+    "id": "ice-boost",
+    "inheritElement": null,
+    "name": "Ice Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Ice resistance for 3 turns",
+    "element": "support",
+    "id": "ice-break",
+    "inheritElement": null,
+    "name": "Ice Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Ice resistance for 3 turns",
+    "element": "support",
+    "id": "ice-wall",
+    "inheritElement": null,
+    "name": "Ice Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "surt",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr, 26% Burn",
+    "element": "fire",
+    "id": "inferno",
+    "inheritElement": "fire",
+    "name": "Inferno",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "messiah-picaro",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Ailment recovery time reduced to 1 turn",
+    "element": "passive",
+    "id": "insta-heal",
+    "inheritElement": null,
+    "name": "Insta-Heal",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Technician 30"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "3 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-1",
+    "inheritElement": null,
+    "name": "Invigorate 1",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "5 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-2",
+    "inheritElement": null,
+    "name": "Invigorate 2",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "7 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-3",
+    "inheritElement": null,
+    "name": "Invigorate 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "1/2"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "joker-crow-showtime",
+    "inheritElement": null,
+    "name": "Joker-Crow Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Faith Rank 10"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "joker-violet-showtime",
+    "inheritElement": null,
+    "name": "Joker-Violet Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "oni",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√40 pwr, 1-3 hits",
+    "element": "phys",
+    "id": "kill-rush",
+    "inheritElement": "phys",
+    "name": "Kill Rush",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "isis",
+        "kind": "itemization"
+      },
+      {
+        "from": "expressionless-beast",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√120 pwr",
+    "element": "bless",
+    "id": "kouga",
+    "inheritElement": "bless",
+    "name": "Kouga",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "anubis",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√190 pwr",
+    "element": "bless",
+    "id": "kougaon",
+    "inheritElement": "bless",
+    "name": "Kougaon",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "angel",
+        "kind": "itemization"
+      },
+      {
+        "from": "heavenly-punisher",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√50 pwr",
+    "element": "bless",
+    "id": "kouha",
+    "inheritElement": "bless",
+    "name": "Kouha",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Skill costs x0.75",
+    "element": "passive",
+    "id": "kuzunoha-emblem",
+    "inheritElement": null,
+    "name": "Kuzunoha Emblem",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√800 pwr",
+    "element": "phys",
+    "id": "laevateinn",
+    "inheritElement": "phys",
+    "name": "Laevateinn",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Foe accuracy x0.33 when Surrounded",
+    "element": "passive",
+    "id": "last-stand",
+    "inheritElement": null,
+    "name": "Last Stand",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Trial 80",
+      "Fusion Accident (56)"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "8% max HP + SP restore after battle",
+    "element": "passive",
+    "id": "life-aid",
+    "inheritElement": null,
+    "name": "Life Aid",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Max SP +20",
+    "element": "passive",
+    "id": "life-boost",
+    "inheritElement": null,
+    "name": "Life Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "bedside-brute",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "30 dmg dealt, HP restore",
+    "element": "almighty",
+    "id": "life-drain",
+    "inheritElement": null,
+    "name": "Life Drain",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "150 dmg dealt, HP restore",
+    "element": "almighty",
+    "id": "life-leech",
+    "inheritElement": null,
+    "name": "Life Leech",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Max HP +30%",
+    "element": "passive",
+    "id": "life-surge",
+    "inheritElement": null,
+    "name": "Life Surge",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 95
+    },
+    "description": "Tetrakarn + Makarakarn",
+    "element": "support",
+    "id": "life-wall",
+    "inheritElement": null,
+    "name": "Life Wall",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "obariyon",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 3
+    },
+    "description": "√25 pwr, 75% acc, 45% crit",
+    "element": "phys",
+    "id": "lucky-punch",
+    "inheritElement": "phys",
+    "name": "Lucky Punch",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "sandman",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "woman-who-brings-ruin",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% Sleep",
+    "element": "ailment",
+    "id": "lullaby",
+    "inheritElement": "ailment",
+    "name": "Lullaby",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "bicorn",
+        "kind": "itemization"
+      },
+      {
+        "from": "dirty-two-horned-beast",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 5
+    },
+    "description": "√60 pwr, 20% crit",
+    "element": "phys",
+    "id": "lunge",
+    "inheritElement": "phys",
+    "name": "Lunge",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Baisudi",
+    "element": "healing",
+    "id": "mabaisudi",
+    "inheritElement": "healing",
+    "name": "Mabaisudi",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ BBB"
+    ],
+    "cardSources": [
+      {
+        "from": "koropokkuru",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "raging-water-demon",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr, 20% Freeze",
+    "element": "ice",
+    "id": "mabufu",
+    "inheritElement": "ice",
+    "name": "Mabufu",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "alilat",
+        "kind": "itemization"
+      },
+      {
+        "from": "baphomet",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "the-shadowed-one",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr, 20% Freeze",
+    "element": "ice",
+    "id": "mabufudyne",
+    "inheritElement": "ice",
+    "name": "Mabufudyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "belphegor",
+        "kind": "itemization"
+      },
+      {
+        "from": "sui-ki",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr, 20% Freeze",
+    "element": "ice",
+    "id": "mabufula",
+    "inheritElement": "ice",
+    "name": "Mabufula",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "rangda",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√120 pwr",
+    "element": "curse",
+    "id": "maeiga",
+    "inheritElement": "curse",
+    "name": "Maeiga",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "thanatos-picaro",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√190 pwr",
+    "element": "curse",
+    "id": "maeigaon",
+    "inheritElement": "curse",
+    "name": "Maeigaon",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "nue",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√50 pwr",
+    "element": "curse",
+    "id": "maeiha",
+    "inheritElement": "curse",
+    "name": "Maeiha",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "makami",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "hunting-wolf-spirit",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr",
+    "element": "nuke",
+    "id": "mafrei",
+    "inheritElement": "nuke",
+    "name": "Mafrei",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "bishamonten",
+        "kind": "itemization"
+      },
+      {
+        "from": "titania",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr",
+    "element": "nuke",
+    "id": "mafreidyne",
+    "inheritElement": "nuke",
+    "name": "Mafreidyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "thoth",
+        "kind": "itemization"
+      },
+      {
+        "from": "dark-sun",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr",
+    "element": "nuke",
+    "id": "mafreila",
+    "inheritElement": "nuke",
+    "name": "Mafreila",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "high-pixie",
+        "kind": "itemization"
+      },
+      {
+        "from": "kelpie",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "captivating-dancer",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√40 pwr",
+    "element": "wind",
+    "id": "magaru",
+    "inheritElement": "wind",
+    "name": "Magaru",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "quetzalcoatl",
+        "kind": "itemization"
+      },
+      {
+        "from": "garuda",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "raging-bird-god",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "√160 pwr",
+    "element": "wind",
+    "id": "magarudyne",
+    "inheritElement": "wind",
+    "name": "Magarudyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "anzu",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "magarula",
+    "inheritElement": "wind",
+    "name": "Magarula",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "√160 pwr, 50% Confuse, Fear, Despair",
+    "element": "curse",
+    "id": "magatsu-mandala",
+    "inheritElement": "curse",
+    "name": "Magatsu Mandala",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Network Fusion"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Magic dmg dealt x1.25",
+    "element": "passive",
+    "id": "magic-ability",
+    "inheritElement": null,
+    "name": "Magic Ability",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "unicorn",
+        "kind": "itemization"
+      },
+      {
+        "from": "archangel",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "she-of-life-and-death",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "30% instakill",
+    "element": "bless",
+    "id": "mahama",
+    "inheritElement": "bless",
+    "name": "Mahama",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "melchizedek",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "fire-assassin",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 26
+    },
+    "description": "50% instakill",
+    "element": "bless",
+    "id": "mahamaon",
+    "inheritElement": "bless",
+    "name": "Mahamaon",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kaiwan",
+        "kind": "itemization"
+      },
+      {
+        "from": "zealous-messenger",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Forget",
+    "element": "ailment",
+    "id": "makajam",
+    "inheritElement": "ailment",
+    "name": "Makajam",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kaiwan",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "vampire-moth",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "40% Forget",
+    "element": "ailment",
+    "id": "makajamaon",
+    "inheritElement": "ailment",
+    "name": "Makajamaon",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 9
+    },
+    "description": "Removes Makarakarn",
+    "element": "support",
+    "id": "makara-break",
+    "inheritElement": null,
+    "name": "Makara Break",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "scathach",
+        "kind": "itemization"
+      },
+      {
+        "from": "clotho",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Repels next non-Almighty magic attack",
+    "element": "support",
+    "id": "makarakarn",
+    "inheritElement": null,
+    "name": "Makarakarn",
+    "rank": 7,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "anubis",
+        "kind": "itemization"
+      },
+      {
+        "from": "isis",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "divine-warrior",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√120 pwr",
+    "element": "bless",
+    "id": "makouga",
+    "inheritElement": "bless",
+    "name": "Makouga",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dominion",
+        "kind": "itemization"
+      },
+      {
+        "from": "merciless-inquisitor",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√190 pwr",
+    "element": "bless",
+    "id": "makougaon",
+    "inheritElement": "bless",
+    "name": "Makougaon",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "angel",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√50 pwr",
+    "element": "bless",
+    "id": "makouha",
+    "inheritElement": "bless",
+    "name": "Makouha",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "leanan-sidhe",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "30% instakill",
+    "element": "curse",
+    "id": "mamudo",
+    "inheritElement": "curse",
+    "name": "Mamudo",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "belial",
+        "kind": "itemization"
+      },
+      {
+        "from": "chernobog",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "missionary-of-depravity",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 26
+    },
+    "description": "50% instakill",
+    "element": "curse",
+    "id": "mamudoon",
+    "inheritElement": "curse",
+    "name": "Mamudoon",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Max SP +10%",
+    "element": "passive",
+    "id": "mana-bonus",
+    "inheritElement": null,
+    "name": "Mana Bonus",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Max SP +30%",
+    "element": "passive",
+    "id": "mana-surge",
+    "inheritElement": null,
+    "name": "Mana Surge",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "sudama",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr",
+    "element": "psy",
+    "id": "mapsi",
+    "inheritElement": "psy",
+    "name": "Mapsi",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr",
+    "element": "psy",
+    "id": "mapsio",
+    "inheritElement": "psy",
+    "name": "Mapsio",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mara",
+        "kind": "itemization"
+      },
+      {
+        "from": "forneus",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "throbbing-king-of-desire",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr",
+    "element": "psy",
+    "id": "mapsiodyne",
+    "inheritElement": "psy",
+    "name": "Mapsiodyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ BBB"
+    ],
+    "cardSources": [
+      {
+        "from": "cait-sith",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr, 20% Burn",
+    "element": "fire",
+    "id": "maragi",
+    "inheritElement": "fire",
+    "name": "Maragi",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "surt",
+        "kind": "itemization"
+      },
+      {
+        "from": "orpheus-picaro",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "harlot-of-desire",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr, 20% Burn",
+    "element": "fire",
+    "id": "maragidyne",
+    "inheritElement": "fire",
+    "name": "Maragidyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "decarabia",
+        "kind": "itemization"
+      },
+      {
+        "from": "orthrus",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr, 20% Burn",
+    "element": "fire",
+    "id": "maragion",
+    "inheritElement": "fire",
+    "name": "Maragion",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 7/17 10/16"
+    ],
+    "cardSources": [
+      {
+        "from": "lamia",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "strumming-veena-player",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Rakukaja",
+    "element": "support",
+    "id": "marakukaja",
+    "inheritElement": null,
+    "name": "Marakukaja",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 8/14 11/13"
+    ],
+    "cardSources": [
+      {
+        "from": "orobas",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Rakunda",
+    "element": "support",
+    "id": "marakunda",
+    "inheritElement": null,
+    "name": "Marakunda",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "nebiros",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Brainwash",
+    "element": "ailment",
+    "id": "marin-karin",
+    "inheritElement": "ailment",
+    "name": "Marin Karin",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√300 pwr, 2 hits, 30% crit",
+    "element": "phys",
+    "id": "masquerade",
+    "inheritElement": "phys",
+    "name": "Masquerade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Jazz 7/31 10/23 CJ Aquarium"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Sukukaja",
+    "element": "support",
+    "id": "masukukaja",
+    "inheritElement": null,
+    "name": "Masukukaja",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 8/28 11/27 CJ Aquarium"
+    ],
+    "cardSources": [
+      {
+        "from": "mandrake",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "killer-teddy-bear",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Sukunda",
+    "element": "support",
+    "id": "masukunda",
+    "inheritElement": null,
+    "name": "Masukunda",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 7/10 10/9"
+    ],
+    "cardSources": [
+      {
+        "from": "eligor",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "lamenting-sacrifice",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Tarukaja",
+    "element": "support",
+    "id": "matarukaja",
+    "inheritElement": null,
+    "name": "Matarukaja",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 8/7 11/6"
+    ],
+    "cardSources": [
+      {
+        "from": "slime",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "dancing-witch",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Tarunda",
+    "element": "support",
+    "id": "matarunda",
+    "inheritElement": null,
+    "name": "Matarunda",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "agathion",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr, 20% Shock",
+    "element": "elec",
+    "id": "mazio",
+    "inheritElement": "elec",
+    "name": "Mazio",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dionysus",
+        "kind": "itemization"
+      },
+      {
+        "from": "barong",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "thunder-emperor",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr, 20% Shock",
+    "element": "elec",
+    "id": "maziodyne",
+    "inheritElement": "elec",
+    "name": "Maziodyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Trial 30"
+    ],
+    "cardSources": [
+      {
+        "from": "atropos",
+        "kind": "itemization"
+      },
+      {
+        "from": "take-minakata",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "storm-invoking-ptarmigan",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr, 20% Shock",
+    "element": "elec",
+    "id": "mazionga",
+    "inheritElement": "elec",
+    "name": "Mazionga",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Patra",
+    "element": "healing",
+    "id": "me-patra",
+    "inheritElement": "healing",
+    "name": "Me Patra",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "apsaras",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 7
+    },
+    "description": "√40 pwr, HP restore",
+    "element": "healing",
+    "id": "media",
+    "inheritElement": "healing",
+    "name": "Media",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "izanagi-no-okami-picaro",
+        "kind": "itemization"
+      },
+      {
+        "from": "kaguya-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "100% HP restore",
+    "element": "healing",
+    "id": "mediarahan",
+    "inheritElement": "healing",
+    "name": "Mediarahan",
+    "rank": 7,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "sarasvati",
+        "kind": "itemization"
+      },
+      {
+        "from": "mountain-girl",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√140 pwr, HP restore",
+    "element": "healing",
+    "id": "mediarama",
+    "inheritElement": "healing",
+    "name": "Mediarama",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "cerberus",
+        "kind": "itemization"
+      },
+      {
+        "from": "guard-dog-of-hades",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√300 pwr, 85% acc, 25% crit",
+    "element": "phys",
+    "id": "megaton-raid",
+    "inheritElement": "phys",
+    "name": "Megaton Raid",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Fusion Accident"
+    ],
+    "cardSources": [
+      {
+        "from": "chanting-baboon",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "√120 pwr",
+    "element": "almighty",
+    "id": "megido",
+    "inheritElement": null,
+    "name": "Megido",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "black-rider",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√180 pwr",
+    "element": "almighty",
+    "id": "megidola",
+    "inheritElement": null,
+    "name": "Megidola",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "black-rider",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "coffin-borne-god",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "√210 pwr",
+    "element": "almighty",
+    "id": "megidolaon",
+    "inheritElement": null,
+    "name": "Megidolaon",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Chance to fully map Mementos floor after entering",
+    "element": "passive",
+    "id": "mementos-scan",
+    "inheritElement": null,
+    "name": "Mementos Scan",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "black-ooze",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "√70 pwr, 80% acc, 25% Forget",
+    "element": "phys",
+    "id": "memory-blow",
+    "inheritElement": "phys",
+    "name": "Memory Blow",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mothman",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 19
+    },
+    "description": "√110 pwr, 80% acc, 25% Confuse",
+    "element": "phys",
+    "id": "mind-slice",
+    "inheritElement": "phys",
+    "name": "Mind Slice",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "obariyon",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "auspicious-pachyderm",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√80 pwr, 75% acc, 45% crit",
+    "element": "phys",
+    "id": "miracle-punch",
+    "inheritElement": "phys",
+    "name": "Miracle Punch",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√80 pwr, 55% acc, 40% crit",
+    "element": "phys",
+    "id": "miracle-rush",
+    "inheritElement": "phys",
+    "name": "Miracle Rush",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Spaceport Treasure Route"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "mona-noire-showtime",
+    "inheritElement": null,
+    "name": "Mona-Noire Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Bank Infiltrated"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "mona-panther-showtime",
+    "inheritElement": null,
+    "name": "Mona-Panther Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Money earned after battle +15%",
+    "element": "passive",
+    "id": "money-boost",
+    "inheritElement": null,
+    "name": "Money Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Chance to cast -kaja or HP restore skill during battle",
+    "element": "passive",
+    "id": "moral-support",
+    "inheritElement": null,
+    "name": "Moral Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 55
+    },
+    "description": "√230 pwr",
+    "element": "almighty",
+    "id": "morning-star",
+    "inheritElement": null,
+    "name": "Morning Star",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "leanan-sidhe",
+        "kind": "itemization"
+      },
+      {
+        "from": "corpse-bird",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "25% instakill",
+    "element": "curse",
+    "id": "mudo",
+    "inheritElement": "curse",
+    "name": "Mudo",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Curse instakill affliction rate x1.25",
+    "element": "passive",
+    "id": "mudo-boost",
+    "inheritElement": null,
+    "name": "Mudo Boost",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "chernobog",
+        "kind": "itemization"
+      },
+      {
+        "from": "dream-dwelling-skull",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "50% instakill",
+    "element": "curse",
+    "id": "mudoon",
+    "inheritElement": "curse",
+    "name": "Mudoon",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dakini",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√90 pwr, 2-3 hits, 85% acc",
+    "element": "phys",
+    "id": "myriad-slashes",
+    "inheritElement": "phys",
+    "name": "Myriad Slashes",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "√120 pwr, 3 hits",
+    "element": "almighty",
+    "id": "myriad-truths",
+    "inheritElement": null,
+    "name": "Myriad Truths",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "slithering-snakewoman",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√120 pwr, 35% Despair",
+    "element": "phys",
+    "id": "negative-pile",
+    "inheritElement": "phys",
+    "name": "Negative Pile",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "50% HP restore + Heat Riser",
+    "element": "healing",
+    "id": "neo-cadenza",
+    "inheritElement": "healing",
+    "name": "Neo Cadenza",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "narcissus",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "self-infatuated-star",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% Dizzy",
+    "element": "ailment",
+    "id": "nocturnal-flash",
+    "inheritElement": "ailment",
+    "name": "Nocturnal Flash",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mithras",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Nuke dmg dealt x1.5",
+    "element": "passive",
+    "id": "nuke-amp",
+    "inheritElement": null,
+    "name": "Nuke Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mithras",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nuke dmg dealt x1.25",
+    "element": "passive",
+    "id": "nuke-boost",
+    "inheritElement": null,
+    "name": "Nuke Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Nuke resistance for 3 turns",
+    "element": "support",
+    "id": "nuke-break",
+    "inheritElement": null,
+    "name": "Nuke Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Fusion Mutation"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Nuke resistance for 3 turns",
+    "element": "support",
+    "id": "nuke-wall",
+    "inheritElement": null,
+    "name": "Nuke Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "raphael",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Bless dmg taken",
+    "element": "passive",
+    "id": "null-bless",
+    "inheritElement": null,
+    "name": "Null Bless",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Bless + Curse dmg taken",
+    "element": "passive",
+    "id": "null-bless-curse",
+    "inheritElement": null,
+    "name": "Null Bless/Curse",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Brainwash",
+    "element": "passive",
+    "id": "null-brainwash",
+    "inheritElement": null,
+    "name": "Null Brainwash",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Burn",
+    "element": "passive",
+    "id": "null-burn",
+    "inheritElement": null,
+    "name": "Null Burn",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Confuse",
+    "element": "passive",
+    "id": "null-confuse",
+    "inheritElement": null,
+    "name": "Null Confuse",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "attis",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Curse dmg taken",
+    "element": "passive",
+    "id": "null-curse",
+    "inheritElement": null,
+    "name": "Null Curse",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Despair",
+    "element": "passive",
+    "id": "null-despair",
+    "inheritElement": null,
+    "name": "Null Despair",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Dizzy",
+    "element": "passive",
+    "id": "null-dizzy",
+    "inheritElement": null,
+    "name": "Null Dizzy",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mot",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Elec dmg taken",
+    "element": "passive",
+    "id": "null-elec",
+    "inheritElement": null,
+    "name": "Null Elec",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Fear",
+    "element": "passive",
+    "id": "null-fear",
+    "inheritElement": null,
+    "name": "Null Fear",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "chimera",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Fire dmg taken",
+    "element": "passive",
+    "id": "null-fire",
+    "inheritElement": null,
+    "name": "Null Fire",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Forget",
+    "element": "passive",
+    "id": "null-forget",
+    "inheritElement": null,
+    "name": "Null Forget",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Freeze",
+    "element": "passive",
+    "id": "null-freeze",
+    "inheritElement": null,
+    "name": "Null Freeze",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Hunger",
+    "element": "passive",
+    "id": "null-hunger",
+    "inheritElement": null,
+    "name": "Null Hunger",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "parvati",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Ice dmg taken",
+    "element": "passive",
+    "id": "null-ice",
+    "inheritElement": null,
+    "name": "Null Ice",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "lilith",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Nuke dmg taken",
+    "element": "passive",
+    "id": "null-nuke",
+    "inheritElement": null,
+    "name": "Null Nuke",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Phys dmg taken",
+    "element": "passive",
+    "id": "null-phys",
+    "inheritElement": null,
+    "name": "Null Phys",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kali",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Psy dmg taken",
+    "element": "passive",
+    "id": "null-psy",
+    "inheritElement": null,
+    "name": "Null Psy",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Rage",
+    "element": "passive",
+    "id": "null-rage",
+    "inheritElement": null,
+    "name": "Null Rage",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Shock",
+    "element": "passive",
+    "id": "null-shock",
+    "inheritElement": null,
+    "name": "Null Shock",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Sleep",
+    "element": "passive",
+    "id": "null-sleep",
+    "inheritElement": null,
+    "name": "Null Sleep",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "byakhee",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Nullifies Wind dmg taken",
+    "element": "passive",
+    "id": "null-wind",
+    "inheritElement": null,
+    "name": "Null Wind",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "loa",
+        "kind": "itemization"
+      },
+      {
+        "from": "corpse-eating-corpse",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Despair",
+    "element": "ailment",
+    "id": "ominous-words",
+    "inheritElement": "ailment",
+    "name": "Ominous Words",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "cu-chulainn",
+        "kind": "itemization"
+      },
+      {
+        "from": "yamata-no-orochi",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "spear-wielding-general",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "√210 pwr, 40% crit",
+    "element": "gun",
+    "id": "one-shot-kill",
+    "inheritElement": "gun",
+    "name": "One-shot Kill",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "yaksini",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "cruel-leopard",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√80 pwr, 80% acc, 25% Rage",
+    "element": "phys",
+    "id": "oni-kagura",
+    "inheritElement": "phys",
+    "name": "Oni Kagura",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "100% HP restore + Dekunda",
+    "element": "healing",
+    "id": "oratorio",
+    "inheritElement": "healing",
+    "name": "Oratorio",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "quetzalcoatl",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 42
+    },
+    "description": "√200 pwr",
+    "element": "wind",
+    "id": "panta-rhei",
+    "inheritElement": "wind",
+    "name": "Panta Rhei",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "troublesome-housemaid",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Removes Dizzy, Forget, Hunger, Sleep",
+    "element": "healing",
+    "id": "patra",
+    "inheritElement": "healing",
+    "name": "Patra",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "90% Sleep",
+    "element": "ailment",
+    "id": "phantom-show",
+    "inheritElement": "ailment",
+    "name": "Phantom Show",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Chance to Hold Up foes when starting battle",
+    "element": "passive",
+    "id": "position-hack",
+    "inheritElement": null,
+    "name": "Position Hack",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "berith",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "brutal-cavalryman",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√100 pwr, 85% acc, 20% crit",
+    "element": "phys",
+    "id": "power-slash",
+    "inheritElement": "phys",
+    "name": "Power Slash",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Concentrate, Attack Master",
+    "element": "support",
+    "id": "presidents-insight",
+    "inheritElement": null,
+    "name": "President's Insight",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Foe accuracy x0.33 when Surrounded",
+    "element": "passive",
+    "id": "pressing-stance",
+    "inheritElement": null,
+    "name": "Pressing Stance",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Theater"
+    ],
+    "cardSources": [
+      {
+        "from": "wavering-tree-spirit",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr",
+    "element": "psy",
+    "id": "psi",
+    "inheritElement": "psy",
+    "name": "Psi",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "sudama",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "wishless-star",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr",
+    "element": "psy",
+    "id": "psio",
+    "inheritElement": "psy",
+    "name": "Psio",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "forneus",
+        "kind": "itemization"
+      },
+      {
+        "from": "sacrificial-pyrekeeper",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr",
+    "element": "psy",
+    "id": "psiodyne",
+    "inheritElement": "psy",
+    "name": "Psiodyne",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Psy dmg dealt x1.5",
+    "element": "passive",
+    "id": "psy-amp",
+    "inheritElement": null,
+    "name": "Psy Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Psy dmg dealt x1.25",
+    "element": "passive",
+    "id": "psy-boost",
+    "inheritElement": null,
+    "name": "Psy Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Psy resistance for 3 turns",
+    "element": "support",
+    "id": "psy-break",
+    "inheritElement": null,
+    "name": "Psy Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "unfaithful-dream-king",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Psy resistance for 3 turns",
+    "element": "support",
+    "id": "psy-wall",
+    "inheritElement": null,
+    "name": "Psy Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "√180 pwr",
+    "element": "psy",
+    "id": "psycho-blast",
+    "inheritElement": "psy",
+    "name": "Psycho Blast",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mara",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "psy",
+    "id": "psycho-force",
+    "inheritElement": "psy",
+    "name": "Psycho Force",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "gallows-flower",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Confuse",
+    "element": "ailment",
+    "id": "pulinpa",
+    "inheritElement": "ailment",
+    "name": "Pulinpa",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Casino Infiltrated"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "queen-noire-showtime",
+    "inheritElement": null,
+    "name": "Queen-Noire Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Rage affliction rate x1.25",
+    "element": "passive",
+    "id": "rage-boost",
+    "inheritElement": null,
+    "name": "Rage Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Sky Tree"
+    ],
+    "cardSources": [
+      {
+        "from": "lamia",
+        "kind": "itemization"
+      },
+      {
+        "from": "apprentice-in-a-jug",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Defense x1.3 for 3 turns",
+    "element": "support",
+    "id": "rakukaja",
+    "inheritElement": null,
+    "name": "Rakukaja",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "orobas",
+        "kind": "itemization"
+      },
+      {
+        "from": "jealous-lover",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Defense x0.7 for 3 turns",
+    "element": "support",
+    "id": "rakunda",
+    "inheritElement": null,
+    "name": "Rakunda",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "oni",
+        "kind": "itemization"
+      },
+      {
+        "from": "chivalrous-fiend",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "√30 pwr, 1-3 hits, 70% acc, 10% crit",
+    "element": "phys",
+    "id": "rampage",
+    "inheritElement": "phys",
+    "name": "Rampage",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ganesha",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "Crit rate +7% for 3 turns",
+    "element": "support",
+    "id": "rebellion",
+    "inheritElement": null,
+    "name": "Rebellion",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 99
+    },
+    "description": "√900 pwr, Down bonus set to x2.5",
+    "element": "almighty",
+    "id": "rebellion-blade",
+    "inheritElement": null,
+    "name": "Rebellion Blade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "norn",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% HP restore after reviving",
+    "element": "healing",
+    "id": "recarm",
+    "inheritElement": "healing",
+    "name": "Recarm",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "rakshasa",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "2% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-1",
+    "inheritElement": null,
+    "name": "Regenerate 1",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "koumokuten",
+        "kind": "itemization"
+      },
+      {
+        "from": "rakshasa",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "4% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-2",
+    "inheritElement": null,
+    "name": "Regenerate 2",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Art Museum"
+    ],
+    "cardSources": [
+      {
+        "from": "koumokuten",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "6% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-3",
+    "inheritElement": null,
+    "name": "Regenerate 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "raphael",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Bless dmg taken",
+    "element": "passive",
+    "id": "repel-bless",
+    "inheritElement": null,
+    "name": "Repel Bless",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Curse dmg taken",
+    "element": "passive",
+    "id": "repel-curse",
+    "inheritElement": null,
+    "name": "Repel Curse",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mot",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Elec dmg taken",
+    "element": "passive",
+    "id": "repel-elec",
+    "inheritElement": null,
+    "name": "Repel Elec",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Fire dmg taken",
+    "element": "passive",
+    "id": "repel-fire",
+    "inheritElement": null,
+    "name": "Repel Fire",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "parvati",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Ice dmg taken",
+    "element": "passive",
+    "id": "repel-ice",
+    "inheritElement": null,
+    "name": "Repel Ice",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "lilith",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Nuke dmg taken",
+    "element": "passive",
+    "id": "repel-nuke",
+    "inheritElement": null,
+    "name": "Repel Nuke",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "chi-you",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Phys dmg taken",
+    "element": "passive",
+    "id": "repel-phys",
+    "inheritElement": null,
+    "name": "Repel Phys",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kali",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Psy dmg taken",
+    "element": "passive",
+    "id": "repel-psy",
+    "inheritElement": null,
+    "name": "Repel Psy",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "byakhee",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": null,
+    "description": "Repels Wind dmg taken",
+    "element": "passive",
+    "id": "repel-wind",
+    "inheritElement": null,
+    "name": "Repel Wind",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Bless dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-bless",
+    "inheritElement": null,
+    "name": "Resist Bless",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Brainwash susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-brainwash",
+    "inheritElement": null,
+    "name": "Resist Brainwash",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Burn susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-burn",
+    "inheritElement": null,
+    "name": "Resist Burn",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Confuse susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-confuse",
+    "inheritElement": null,
+    "name": "Resist Confuse",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Curse dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-curse",
+    "inheritElement": null,
+    "name": "Resist Curse",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Despair susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-despair",
+    "inheritElement": null,
+    "name": "Resist Despair",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Dizzy susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-dizzy",
+    "inheritElement": null,
+    "name": "Resist Dizzy",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Elec dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-elec",
+    "inheritElement": null,
+    "name": "Resist Elec",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Fear susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-fear",
+    "inheritElement": null,
+    "name": "Resist Fear",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Fire dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-fire",
+    "inheritElement": null,
+    "name": "Resist Fire",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Forget susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-forget",
+    "inheritElement": null,
+    "name": "Resist Forget",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Freeze susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-freeze",
+    "inheritElement": null,
+    "name": "Resist Freeze",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Hunger susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-hunger",
+    "inheritElement": null,
+    "name": "Resist Hunger",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Ice dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-ice",
+    "inheritElement": null,
+    "name": "Resist Ice",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Nuke dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-nuke",
+    "inheritElement": null,
+    "name": "Resist Nuke",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Phys dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-phys",
+    "inheritElement": null,
+    "name": "Resist Phys",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Psy dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-psy",
+    "inheritElement": null,
+    "name": "Resist Psy",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Rage susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-rage",
+    "inheritElement": null,
+    "name": "Resist Rage",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Shock susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-shock",
+    "inheritElement": null,
+    "name": "Resist Shock",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Sleep susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-sleep",
+    "inheritElement": null,
+    "name": "Resist Sleep",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Wind dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-wind",
+    "inheritElement": null,
+    "name": "Resist Wind",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "100% Rage",
+    "element": "almighty",
+    "id": "reverse-rub",
+    "inheritElement": null,
+    "name": "Reverse Rub",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ganesha",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "pagan-savior",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "Crit rate +15% for 3 turns",
+    "element": "support",
+    "id": "revolution",
+    "inheritElement": null,
+    "name": "Revolution",
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "cu-chulainn",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 24
+    },
+    "description": "√300 pwr, 80% acc, 10% crit",
+    "element": "gun",
+    "id": "riot-gun",
+    "inheritElement": "gun",
+    "name": "Riot Gun",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "valkyrie",
+        "kind": "itemization"
+      },
+      {
+        "from": "inugami",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√140 pwr, dmg dealt x1.5 after Baton Pass",
+    "element": "phys",
+    "id": "rising-slash",
+    "inheritElement": "phys",
+    "name": "Rising Slash",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "izanagi-no-okami-picaro",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "Diarahan + Amrita",
+    "element": "healing",
+    "id": "salvation",
+    "inheritElement": "healing",
+    "name": "Salvation",
+    "rank": 8,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Church"
+    ],
+    "cardSources": [
+      {
+        "from": "norn",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "100% HP restore after reviving",
+    "element": "healing",
+    "id": "samarecarm",
+    "inheritElement": "healing",
+    "name": "Samarecarm",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "70% instakill",
+    "element": "bless",
+    "id": "samsara",
+    "inheritElement": "bless",
+    "name": "Samsara",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Raises evasion against crit hits and magic",
+    "element": "passive",
+    "id": "samurai-spirit",
+    "inheritElement": null,
+    "name": "Samurai Spirit",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1
+    },
+    "description": "√120 pwr, kills user",
+    "element": "almighty",
+    "id": "self-destruct",
+    "inheritElement": null,
+    "name": "Self-destruct",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Slime Mara (Tk) CJ Gym"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "Incoming crit rate x0.5",
+    "element": "passive",
+    "id": "sharp-student",
+    "inheritElement": null,
+    "name": "Sharp Student",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√15 pwr, 4-8 hits",
+    "element": "bless",
+    "id": "shining-arrows",
+    "inheritElement": "bless",
+    "name": "Shining Arrows",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Shock affliction rate x1.25",
+    "element": "passive",
+    "id": "shock-boost",
+    "inheritElement": null,
+    "name": "Shock Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mothman",
+        "kind": "itemization"
+      },
+      {
+        "from": "night-chimera",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√100 pwr, 35% Confuse",
+    "element": "phys",
+    "id": "skull-cracker",
+    "inheritElement": "phys",
+    "name": "Skull Cracker",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "7/17"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "skull-fox-showtime",
+    "inheritElement": null,
+    "name": "Skull-Fox Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "Bank Treasure Route"
+    ],
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√50 pwr",
+    "element": "almighty",
+    "id": "skull-queen-showtime",
+    "inheritElement": null,
+    "name": "Skull-Queen Showtime",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "ippon-datara",
+        "kind": "itemization"
+      },
+      {
+        "from": "embittered-blacksmith",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√100 pwr, 35% Dizzy",
+    "element": "phys",
+    "id": "sledgehammer",
+    "inheritElement": "phys",
+    "name": "Sledgehammer",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "twilight-prostitute",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Sleep affliction rate x1.25",
+    "element": "passive",
+    "id": "sleep-boost",
+    "inheritElement": null,
+    "name": "Sleep Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "night-walking-warrior",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√80 pwr, 30% crit",
+    "element": "gun",
+    "id": "snap",
+    "inheritElement": "gun",
+    "name": "Snap",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Gun dmg dealt x1.25",
+    "element": "passive",
+    "id": "snipe",
+    "inheritElement": null,
+    "name": "Snipe",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Network Fusion"
+    ],
+    "cardSources": [],
+    "cost": null,
+    "description": "20 SP restore after Baton Pass",
+    "element": "passive",
+    "id": "soul-chain",
+    "inheritElement": null,
+    "name": "Soul Chain",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "5 SP restore after Baton Pass",
+    "element": "passive",
+    "id": "soul-touch",
+    "inheritElement": null,
+    "name": "Soul Touch",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "jatayu",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "Begins battle with Sukukaja",
+    "element": "passive",
+    "id": "speed-master",
+    "inheritElement": null,
+    "name": "Speed Master",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "Jazz 1/29"
+    ],
+    "cardSources": [
+      {
+        "from": "tsukiyomi-picaro",
+        "kind": "itemization"
+      }
+    ],
+    "cost": null,
+    "description": "SP costs x0.5",
+    "element": "passive",
+    "id": "spell-master",
+    "inheritElement": null,
+    "name": "Spell Master",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "10 dmg dealt, SP restore",
+    "element": "almighty",
+    "id": "spirit-drain",
+    "inheritElement": null,
+    "name": "Spirit Drain",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "50 dmg dealt, SP restore",
+    "element": "almighty",
+    "id": "spirit-leech",
+    "inheritElement": null,
+    "name": "Spirit Leech",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "legion",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "Raises ailment susceptibility for 3 turns",
+    "element": "almighty",
+    "id": "stagnant-air",
+    "inheritElement": null,
+    "name": "Stagnant Air",
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "√120 pwr, 35% Hunger",
+    "element": "phys",
+    "id": "stomach-blow",
+    "inheritElement": "phys",
+    "name": "Stomach Blow",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "10% HP restore to backup allies after battle",
+    "element": "passive",
+    "id": "subrecover-hp",
+    "inheritElement": null,
+    "name": "Subrecover HP",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "20% HP restore to backup allies after battle",
+    "element": "passive",
+    "id": "subrecover-hp-ex",
+    "inheritElement": null,
+    "name": "Subrecover HP EX",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "1% SP restore to backup allies after battle",
+    "element": "passive",
+    "id": "subrecover-sp",
+    "inheritElement": null,
+    "name": "Subrecover SP",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "3% SP restore to backup allies after battle",
+    "element": "passive",
+    "id": "subrecover-sp-ex",
+    "inheritElement": null,
+    "name": "Subrecover SP EX",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [
+      "CJ Sky Tree"
+    ],
+    "cardSources": [
+      {
+        "from": "noisy-mountain-spirit",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Accuracy + evasion x1.3 for 3 turns",
+    "element": "support",
+    "id": "sukukaja",
+    "inheritElement": null,
+    "name": "Sukukaja",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "mandrake",
+        "kind": "itemization"
+      },
+      {
+        "from": "piggyback-demon",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Accuracy + evasion x0.7 for 3 turns",
+    "element": "support",
+    "id": "sukunda",
+    "inheritElement": null,
+    "name": "Sukunda",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Summons reinforcements",
+    "element": "support",
+    "id": "summon",
+    "inheritElement": null,
+    "name": "Summon",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Adds Masukunda to Moral Support pool",
+    "element": "passive",
+    "id": "support-plus-1",
+    "inheritElement": null,
+    "name": "Support Plus 1",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Adds Masukunda or Marakunda to Moral Support pool",
+    "element": "passive",
+    "id": "support-plus-2",
+    "inheritElement": null,
+    "name": "Support Plus 2",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Adds Masukunda, Marakunda, or Matarunda to Moral Support pool",
+    "element": "passive",
+    "id": "support-plus-3",
+    "inheritElement": null,
+    "name": "Support Plus 3",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Raises chance of Moral Support activating",
+    "element": "passive",
+    "id": "support-rate-up",
+    "inheritElement": null,
+    "name": "Support Rate Up",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "abyssal-king-of-avarice",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Survive with 1 HP after an instakill once per battle",
+    "element": "passive",
+    "id": "survival-trick",
+    "inheritElement": null,
+    "name": "Survival Trick",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "girimehkala",
+        "kind": "itemization"
+      },
+      {
+        "from": "defeated-avenger",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "√20 pwr, 2-4 hits, 70% acc, 10% crit",
+    "element": "phys",
+    "id": "swift-strike",
+    "inheritElement": "phys",
+    "name": "Swift Strike",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "atavaka",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 21
+    },
+    "description": "√360 pwr, 40% crit",
+    "element": "phys",
+    "id": "sword-dance",
+    "inheritElement": "phys",
+    "name": "Sword Dance",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Sky Tree"
+    ],
+    "cardSources": [
+      {
+        "from": "eligor",
+        "kind": "itemization"
+      },
+      {
+        "from": "war-hungry-horseman",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Attack x1.3 for 3 turns",
+    "element": "support",
+    "id": "tarukaja",
+    "inheritElement": null,
+    "name": "Tarukaja",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "slime",
+        "kind": "itemization"
+      },
+      {
+        "from": "viscid-rotting-meat",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Attack x0.7 for 3 turns",
+    "element": "support",
+    "id": "tarunda",
+    "inheritElement": null,
+    "name": "Tarunda",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "foolish-monk",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "70% Rage",
+    "element": "ailment",
+    "id": "taunt",
+    "inheritElement": "ailment",
+    "name": "Taunt",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Changes of being targeted x1.3 for 3 turns",
+    "element": "support",
+    "id": "taunting-aura",
+    "inheritElement": null,
+    "name": "Taunting Aura",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dakini",
+        "kind": "itemization"
+      },
+      {
+        "from": "nimble-monkey-king",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "√20 pwr, 3-5 hits, 85% acc",
+    "element": "phys",
+    "id": "tempest-slash",
+    "inheritElement": "phys",
+    "name": "Tempest Slash",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "40% Confuse",
+    "element": "ailment",
+    "id": "tentarafoo",
+    "inheritElement": "ailment",
+    "name": "Tentarafoo",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kumbhanda",
+        "kind": "itemization"
+      },
+      {
+        "from": "ascended-feline",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√70 pwr, 35% Fear",
+    "element": "phys",
+    "id": "terror-claw",
+    "inheritElement": "phys",
+    "name": "Terror Claw",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "fused-ghost",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 9
+    },
+    "description": "Removes Tetrakarn",
+    "element": "support",
+    "id": "tetra-break",
+    "inheritElement": null,
+    "name": "Tetra Break",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [
+      "CJ Maid Cafe"
+    ],
+    "cardSources": [
+      {
+        "from": "clotho",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Nullifies next instakill attack",
+    "element": "support",
+    "id": "tetraja",
+    "inheritElement": null,
+    "name": "Tetraja",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "scathach",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "vicious-pentagram",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Repels next Phys or Gun attack",
+    "element": "support",
+    "id": "tetrakarn",
+    "inheritElement": null,
+    "name": "Tetrakarn",
+    "rank": 7,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Tarukaja + Rakukaja + Sukukaja, only usable when Surrounded",
+    "element": "support",
+    "id": "thermopylae",
+    "inheritElement": null,
+    "name": "Thermopylae",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "dionysus",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr, 26% Shock",
+    "element": "elec",
+    "id": "thunder-reign",
+    "inheritElement": "elec",
+    "name": "Thunder Reign",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 34
+    },
+    "description": "√210 pwr, 70% Fear",
+    "element": "fire",
+    "id": "titanomachia",
+    "inheritElement": "fire",
+    "name": "Titanomachia",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Casts Sukukaja after Baton Pass",
+    "element": "passive",
+    "id": "touch-n-go",
+    "inheritElement": null,
+    "name": "Touch n' Go",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Chance to restore search objects after battle",
+    "element": "passive",
+    "id": "treasure-reboot",
+    "inheritElement": null,
+    "name": "Treasure Reboot",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Identifies foes carrying a rare item",
+    "element": "passive",
+    "id": "treasure-skimmer",
+    "inheritElement": null,
+    "name": "Treasure Skimmer",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Gun crit rate +25%",
+    "element": "passive",
+    "id": "trigger-happy",
+    "inheritElement": null,
+    "name": "Trigger Happy",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "yamata-no-orochi",
+        "kind": "itemization"
+      },
+      {
+        "from": "shiki-ouji",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√30 pwr, 3 hits, 70% acc",
+    "element": "gun",
+    "id": "triple-down",
+    "inheritElement": "gun",
+    "name": "Triple Down",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg dealt x1.25, can exceed dmg cap",
+    "element": "passive",
+    "id": "tyrants-mind",
+    "inheritElement": null,
+    "name": "Tyrant's Mind",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Charge, Defense Master",
+    "element": "support",
+    "id": "tyrants-will",
+    "inheritElement": null,
+    "name": "Tyrant's Will",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Adds Mediarahan + Themopylae to Moral Support pool",
+    "element": "passive",
+    "id": "ultimate-support",
+    "inheritElement": null,
+    "name": "Ultimate Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Confuse, Fear, Rage, Despair",
+    "element": "passive",
+    "id": "unshaken-will",
+    "inheritElement": null,
+    "name": "Unshaken Will",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "wind",
+    "id": "vacuum-wave",
+    "inheritElement": "wind",
+    "name": "Vacuum Wave",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kin-ki",
+        "kind": "itemization"
+      },
+      {
+        "from": "samurai-killer",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "√80 pwr, 80% acc",
+    "element": "phys",
+    "id": "vajra-blast",
+    "inheritElement": "phys",
+    "name": "Vajra Blast",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "Rakukaja, begins battle with Tetrakarn + Makarakarn",
+    "element": "support",
+    "id": "vault-guardian",
+    "inheritElement": null,
+    "name": "Vault Guardian",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "kin-ki",
+        "kind": "itemization-alarm"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√110 pwr, 80% acc",
+    "element": "phys",
+    "id": "vicious-strike",
+    "inheritElement": "phys",
+    "name": "Vicious Strike",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": null,
+    "description": "100% max HP + SP restore after battle",
+    "element": "passive",
+    "id": "victory-cry",
+    "inheritElement": null,
+    "name": "Victory Cry",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "oberon",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "the-blackened-fury",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 23
+    },
+    "description": "√210 pwr, 80% acc, 10% crit",
+    "element": "phys",
+    "id": "vorpal-blade",
+    "inheritElement": "phys",
+    "name": "Vorpal Blade",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "human-eating-lady",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% Rage",
+    "element": "ailment",
+    "id": "wage-war",
+    "inheritElement": "ailment",
+    "name": "Wage War",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "√180 pwr, 24% Shock",
+    "element": "elec",
+    "id": "wild-thunder",
+    "inheritElement": "elec",
+    "name": "Wild Thunder",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "fuu-ki",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "warped-abyss",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Wind dmg dealt x1.5",
+    "element": "passive",
+    "id": "wind-amp",
+    "inheritElement": null,
+    "name": "Wind Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "fuu-ki",
+        "kind": "itemization"
+      },
+      {
+        "from": "reviled-dictator",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": null,
+    "description": "Wind dmg dealt x1.25",
+    "element": "passive",
+    "id": "wind-boost",
+    "inheritElement": null,
+    "name": "Wind Boost",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "thief-of-tablets",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Wind resistance for 3 turns",
+    "element": "support",
+    "id": "wind-break",
+    "inheritElement": null,
+    "name": "Wind Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Wind resistance for 3 turns",
+    "element": "support",
+    "id": "wind-wall",
+    "inheritElement": null,
+    "name": "Wind Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Amrita, Speed Master",
+    "element": "support",
+    "id": "wings-of-wisdom",
+    "inheritElement": null,
+    "name": "Wings of Wisdom",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "agathion",
+        "kind": "itemization"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr, 25% Shock",
+    "element": "elec",
+    "id": "zio",
+    "inheritElement": "elec",
+    "name": "Zio",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "barong",
+        "kind": "itemization"
+      },
+      {
+        "from": "atropos",
+        "kind": "itemization-alarm"
+      },
+      {
+        "from": "dancing-lion",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr, 25% Shock",
+    "element": "elec",
+    "id": "ziodyne",
+    "inheritElement": "elec",
+    "name": "Ziodyne",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardLocations": [],
+    "cardSources": [
+      {
+        "from": "take-minakata",
+        "kind": "itemization"
+      },
+      {
+        "from": "cavern-snakeman",
+        "kind": "negotiation"
+      }
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr, 25% Shock",
+    "element": "elec",
+    "id": "zionga",
+    "inheritElement": "elec",
+    "name": "Zionga",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  }
+]

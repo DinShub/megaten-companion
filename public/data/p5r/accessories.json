@@ -1,0 +1,627 @@
+[
+  {
+    "id": "aid-charm",
+    "name": "Aid Charm",
+    "skillId": "dia"
+  },
+  {
+    "id": "amrita-charm",
+    "name": "Amrita Charm",
+    "skillId": "amrita-drop"
+  },
+  {
+    "id": "assault-dive-belt",
+    "name": "Assault Dive Belt",
+    "skillId": "assault-dive"
+  },
+  {
+    "id": "atom-ring",
+    "name": "Atom Ring",
+    "skillId": "frei"
+  },
+  {
+    "id": "black-headband",
+    "name": "Black Headband",
+    "skillId": "mana-surge"
+  },
+  {
+    "id": "black-headband-r",
+    "name": "Black Headband R",
+    "skillId": "mana-surge"
+  },
+  {
+    "id": "black-moon",
+    "name": "Black Moon",
+    "skillId": "apt-pupil"
+  },
+  {
+    "id": "black-moon-r",
+    "name": "Black Moon R",
+    "skillId": "apt-pupil"
+  },
+  {
+    "id": "blazing-horns",
+    "name": "Blazing Horns",
+    "skillId": "fire-amp"
+  },
+  {
+    "id": "blessing-ring",
+    "name": "Blessing Ring",
+    "skillId": "kouga"
+  },
+  {
+    "id": "blizzard-ring",
+    "name": "Blizzard Ring",
+    "skillId": "bufudyne"
+  },
+  {
+    "id": "brave-blade-belt",
+    "name": "Brave Blade Belt",
+    "skillId": "brave-blade"
+  },
+  {
+    "id": "breeze-ring",
+    "name": "Breeze Ring",
+    "skillId": "garu"
+  },
+  {
+    "id": "crystal-skull",
+    "name": "Crystal Skull",
+    "skillId": "angelic-grace"
+  },
+  {
+    "id": "crystal-skull-r",
+    "name": "Crystal Skull R",
+    "skillId": "angelic-grace"
+  },
+  {
+    "id": "cure-charm",
+    "name": "Cure Charm",
+    "skillId": "diarama"
+  },
+  {
+    "id": "curse-ring",
+    "name": "Curse Ring",
+    "skillId": "eiga"
+  },
+  {
+    "id": "cursed-ribbon",
+    "name": "Cursed Ribbon",
+    "skillId": "demonic-decree"
+  },
+  {
+    "id": "dark-flame-band",
+    "name": "Dark Flame Band",
+    "skillId": "inferno"
+  },
+  {
+    "id": "darkness-ring",
+    "name": "Darkness Ring",
+    "skillId": "evade-curse"
+  },
+  {
+    "id": "darkness-ring-r",
+    "name": "Darkness Ring R",
+    "skillId": "evade-curse"
+  },
+  {
+    "id": "diamond-dust-lily",
+    "name": "Diamond Dust Lily",
+    "skillId": "diamond-dust"
+  },
+  {
+    "id": "divine-ring",
+    "name": "Divine Ring",
+    "skillId": "kougaon"
+  },
+  {
+    "id": "dragons-heart",
+    "name": "Dragon's Heart",
+    "skillId": "psycho-force"
+  },
+  {
+    "id": "ember-ring",
+    "name": "Ember Ring",
+    "skillId": "agi"
+  },
+  {
+    "id": "emperors-amulet",
+    "name": "Emperor's Amulet",
+    "skillId": "auto-mataru"
+  },
+  {
+    "id": "emperors-amulet-r",
+    "name": "Emperor's Amulet R",
+    "skillId": "auto-mataru"
+  },
+  {
+    "id": "energy-charm",
+    "name": "Energy Charm",
+    "skillId": "energy-drop"
+  },
+  {
+    "id": "fire-dragon-horn",
+    "name": "Fire Dragon Horn",
+    "skillId": "atomic-flare"
+  },
+  {
+    "id": "frost-ring",
+    "name": "Frost Ring",
+    "skillId": "bufu"
+  },
+  {
+    "id": "gattling-blows-belt",
+    "name": "Gattling Blows Belt",
+    "skillId": "gattling-blows"
+  },
+  {
+    "id": "giant-slice-belt",
+    "name": "Giant Slice Belt",
+    "skillId": "giant-slice"
+  },
+  {
+    "id": "gigantomachia-belt",
+    "name": "Gigantomachia Belt",
+    "skillId": "gigantomachia"
+  },
+  {
+    "id": "goddess-horn",
+    "name": "Goddess Horn",
+    "skillId": "thunder-reign"
+  },
+  {
+    "id": "gods-hand-belt",
+    "name": "God's Hand Belt",
+    "skillId": "gods-hand"
+  },
+  {
+    "id": "graceful-harp",
+    "name": "Graceful Harp",
+    "skillId": "null-brainwash"
+  },
+  {
+    "id": "graceful-harp-r",
+    "name": "Graceful Harp R",
+    "skillId": "null-brainwash"
+  },
+  {
+    "id": "grudge-ring",
+    "name": "Grudge Ring",
+    "skillId": "eiha"
+  },
+  {
+    "id": "hades-harp",
+    "name": "Hades Harp",
+    "skillId": "null-brainwash"
+  },
+  {
+    "id": "hades-harp-r",
+    "name": "Hades Harp R",
+    "skillId": "null-brainwash"
+  },
+  {
+    "id": "hallowed-ring",
+    "name": "Hallowed Ring",
+    "skillId": "hamaon"
+  },
+  {
+    "id": "hex-ring",
+    "name": "Hex Ring",
+    "skillId": "eigaon"
+  },
+  {
+    "id": "hope-diamond",
+    "name": "Hope Diamond",
+    "skillId": "regenerate-3"
+  },
+  {
+    "id": "hope-diamond-r",
+    "name": "Hope Diamond R",
+    "skillId": "regenerate-3"
+  },
+  {
+    "id": "inferno-horns",
+    "name": "Inferno Horns",
+    "skillId": "fire-amp"
+  },
+  {
+    "id": "inferno-ring",
+    "name": "Inferno Ring",
+    "skillId": "agidyne"
+  },
+  {
+    "id": "judgement-cross",
+    "name": "Judgement Cross",
+    "skillId": "divine-judgement"
+  },
+  {
+    "id": "karma-ring",
+    "name": "Karma Ring",
+    "skillId": "psio"
+  },
+  {
+    "id": "kill-rush-belt",
+    "name": "Kill Rush Belt",
+    "skillId": "kill-rush"
+  },
+  {
+    "id": "koh-i-noor",
+    "name": "Koh-i-Noor",
+    "skillId": "bless-amp"
+  },
+  {
+    "id": "koh-i-noor-r",
+    "name": "Koh-i-Noor R",
+    "skillId": "bless-amp"
+  },
+  {
+    "id": "kugelbein",
+    "name": "Kugelbein",
+    "skillId": "auto-maraku"
+  },
+  {
+    "id": "kugelbein-r",
+    "name": "Kugelbein R",
+    "skillId": "auto-maraku"
+  },
+  {
+    "id": "megaton-raid-belt",
+    "name": "Megaton Raid Belt",
+    "skillId": "megaton-raid"
+  },
+  {
+    "id": "myriad-slashes-belt",
+    "name": "Myriad Slashes Belt",
+    "skillId": "myriad-slashes"
+  },
+  {
+    "id": "mystic-ring",
+    "name": "Mystic Ring",
+    "skillId": "psiodyne"
+  },
+  {
+    "id": "nuclear-ring",
+    "name": "Nuclear Ring",
+    "skillId": "freila"
+  },
+  {
+    "id": "orichalcum",
+    "name": "Orichalcum",
+    "skillId": "evade-phys"
+  },
+  {
+    "id": "orichalcum-r",
+    "name": "Orichalcum R",
+    "skillId": "evade-phys"
+  },
+  {
+    "id": "orlov",
+    "name": "Orlov",
+    "skillId": "high-counter"
+  },
+  {
+    "id": "orlov-r",
+    "name": "Orlov R",
+    "skillId": "high-counter"
+  },
+  {
+    "id": "picaresque-crown",
+    "name": "Picaresque Crown",
+    "skillId": "insta-heal"
+  },
+  {
+    "id": "picaresque-hat",
+    "name": "Picaresque Hat",
+    "skillId": "insta-heal"
+  },
+  {
+    "id": "prayer-ring",
+    "name": "Prayer Ring",
+    "skillId": "kouha"
+  },
+  {
+    "id": "psy-ring",
+    "name": "Psy Ring",
+    "skillId": "psi"
+  },
+  {
+    "id": "queens-necklace",
+    "name": "Queen's Necklace",
+    "skillId": "mana-bonus"
+  },
+  {
+    "id": "queens-necklace-r",
+    "name": "Queen's Necklace R",
+    "skillId": "mana-bonus"
+  },
+  {
+    "id": "reactor-ring",
+    "name": "Reactor Ring",
+    "skillId": "freidyne"
+  },
+  {
+    "id": "rebellion-anklet",
+    "name": "Rebellion Anklet",
+    "skillId": "rebellion"
+  },
+  {
+    "id": "red-string",
+    "name": "Red String",
+    "skillId": "attack-master"
+  },
+  {
+    "id": "red-string-r",
+    "name": "Red String R",
+    "skillId": "attack-master"
+  },
+  {
+    "id": "regent",
+    "name": "Regent",
+    "skillId": "attack-master"
+  },
+  {
+    "id": "regent-r",
+    "name": "Regent R",
+    "skillId": "attack-master"
+  },
+  {
+    "id": "rejuvenate-charm",
+    "name": "Rejuvenate Charm",
+    "skillId": "samarecarm"
+  },
+  {
+    "id": "revival-charm",
+    "name": "Revival Charm",
+    "skillId": "recarm"
+  },
+  {
+    "id": "revolution-anklet",
+    "name": "Revolution Anklet",
+    "skillId": "revolution"
+  },
+  {
+    "id": "rising-slash-belt",
+    "name": "Rising Slash Belt",
+    "skillId": "rising-slash"
+  },
+  {
+    "id": "rosary-of-purity",
+    "name": "Rosary of Purity",
+    "skillId": "holy-benevolence"
+  },
+  {
+    "id": "shiny-belt",
+    "name": "Shiny Belt",
+    "skillId": "invigorate-3"
+  },
+  {
+    "id": "shiny-belt-r",
+    "name": "Shiny Belt R",
+    "skillId": "invigorate-3"
+  },
+  {
+    "id": "snow-ring",
+    "name": "Snow Ring",
+    "skillId": "bufula"
+  },
+  {
+    "id": "spark-ring",
+    "name": "Spark Ring",
+    "skillId": "zionga"
+  },
+  {
+    "id": "special-shot-belt",
+    "name": "Special Shot Belt",
+    "skillId": "one-shot-kill"
+  },
+  {
+    "id": "spiral-aid-charm",
+    "name": "Spiral Aid Charm",
+    "skillId": "media"
+  },
+  {
+    "id": "spiral-amrita-charm",
+    "name": "Spiral Amrita Charm",
+    "skillId": "amrita-shower"
+  },
+  {
+    "id": "spiral-atom-ring",
+    "name": "Spiral Atom Ring",
+    "skillId": "mafrei"
+  },
+  {
+    "id": "spiral-blessing-ring",
+    "name": "Spiral Blessing Ring",
+    "skillId": "makouga"
+  },
+  {
+    "id": "spiral-blizzard-ring",
+    "name": "Spiral Blizzard Ring",
+    "skillId": "mabufudyne"
+  },
+  {
+    "id": "spiral-breeze-ring",
+    "name": "Spiral Breeze Ring",
+    "skillId": "magaru"
+  },
+  {
+    "id": "spiral-cure-charm",
+    "name": "Spiral Cure Charm",
+    "skillId": "mediarama"
+  },
+  {
+    "id": "spiral-curse-ring",
+    "name": "Spiral Curse Ring",
+    "skillId": "maeiga"
+  },
+  {
+    "id": "spiral-divine-ring",
+    "name": "Spiral Divine Ring",
+    "skillId": "makougaon"
+  },
+  {
+    "id": "spiral-ember-ring",
+    "name": "Spiral Ember Ring",
+    "skillId": "maragi"
+  },
+  {
+    "id": "spiral-energy-charm",
+    "name": "Spiral Energy Charm",
+    "skillId": "energy-shower"
+  },
+  {
+    "id": "spiral-frost-ring",
+    "name": "Spiral Frost Ring",
+    "skillId": "mabufu"
+  },
+  {
+    "id": "spiral-gale-ring",
+    "name": "Spiral Gale Ring",
+    "skillId": "magarudyne"
+  },
+  {
+    "id": "spiral-grudge-ring",
+    "name": "Spiral Grudge Ring",
+    "skillId": "maeiha"
+  },
+  {
+    "id": "spiral-hallowed-ring",
+    "name": "Spiral Hallowed Ring",
+    "skillId": "mahamaon"
+  },
+  {
+    "id": "spiral-heal-charm",
+    "name": "Spiral Heal Charm",
+    "skillId": "mediarahan"
+  },
+  {
+    "id": "spiral-hell-ring",
+    "name": "Spiral Hell Ring",
+    "skillId": "mamudoon"
+  },
+  {
+    "id": "spiral-hex-ring",
+    "name": "Spiral Hex Ring",
+    "skillId": "maeigaon"
+  },
+  {
+    "id": "spiral-inferno-ring",
+    "name": "Spiral Inferno Ring",
+    "skillId": "maragidyne"
+  },
+  {
+    "id": "spiral-karma-ring",
+    "name": "Spiral Karma Ring",
+    "skillId": "mapsio"
+  },
+  {
+    "id": "spiral-mystic-ring",
+    "name": "Spiral Mystic Ring",
+    "skillId": "mapsiodyne"
+  },
+  {
+    "id": "spiral-nuclear-ring",
+    "name": "Spiral Nuclear Ring",
+    "skillId": "mafreila"
+  },
+  {
+    "id": "spiral-prayer-ring",
+    "name": "Spiral Prayer Ring",
+    "skillId": "makouha"
+  },
+  {
+    "id": "spiral-psy-ring",
+    "name": "Spiral Psy Ring",
+    "skillId": "mapsi"
+  },
+  {
+    "id": "spiral-reactor-ring",
+    "name": "Spiral Reactor Ring",
+    "skillId": "mafreidyne"
+  },
+  {
+    "id": "spiral-snow-ring",
+    "name": "Spiral Snow Ring",
+    "skillId": "mabufula"
+  },
+  {
+    "id": "spiral-spark-ring",
+    "name": "Spiral Spark Ring",
+    "skillId": "mazionga"
+  },
+  {
+    "id": "spiral-static-ring",
+    "name": "Spiral Static Ring",
+    "skillId": "mazio"
+  },
+  {
+    "id": "spiral-thunder-ring",
+    "name": "Spiral Thunder Ring",
+    "skillId": "maziodyne"
+  },
+  {
+    "id": "spiral-wind-ring",
+    "name": "Spiral Wind Ring",
+    "skillId": "magarula"
+  },
+  {
+    "id": "static-ring",
+    "name": "Static Ring",
+    "skillId": "zio"
+  },
+  {
+    "id": "stone-of-scone",
+    "name": "Stone of Scone",
+    "skillId": "dodge-phys"
+  },
+  {
+    "id": "stone-of-scone-r",
+    "name": "Stone of Scone R",
+    "skillId": "dodge-phys"
+  },
+  {
+    "id": "storm-sculpture",
+    "name": "Storm Sculpture",
+    "skillId": "panta-rhei"
+  },
+  {
+    "id": "swift-strike-belt",
+    "name": "Swift Strike Belt",
+    "skillId": "swift-strike"
+  },
+  {
+    "id": "sword-dance-belt",
+    "name": "Sword Dance Belt",
+    "skillId": "sword-dance"
+  },
+  {
+    "id": "thunder-ring",
+    "name": "Thunder Ring",
+    "skillId": "ziodyne"
+  },
+  {
+    "id": "triple-shot-belt",
+    "name": "Triple Shot Belt",
+    "skillId": "triple-down"
+  },
+  {
+    "id": "vorpal-blade-belt",
+    "name": "Vorpal Blade Belt",
+    "skillId": "vorpal-blade"
+  },
+  {
+    "id": "white-headband",
+    "name": "White Headband",
+    "skillId": "life-surge"
+  },
+  {
+    "id": "white-headband-r",
+    "name": "White Headband R",
+    "skillId": "life-surge"
+  },
+  {
+    "id": "wind-ring",
+    "name": "Wind Ring",
+    "skillId": "garula"
+  }
+]

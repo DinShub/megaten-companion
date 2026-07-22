@@ -59,6 +59,35 @@ Don't set an inline `color-scheme` on `<html>`: it outranks the theme's rule and
 To follow the OS setting instead, use `darkModeSelector: 'system'` and drop the class from
 `index.html`.
 
+## Game data
+
+`public/data/p5r/` holds the committed P5R datasets — personas, skills, traits, shadows, the fusion
+and element charts, advanced recipes, and the inheritance matrix. They are static assets fetched at
+runtime, not bundled, so they stay out of the initial-bundle budget and cache independently of app
+code. **A fresh clone needs no network access to produce them.**
+
+`meta.json` records the pinned upstream commit, per-dataset entry counts and source URLs, and the
+import decisions that the data cannot explain for itself.
+
+Data is converted from [aqiu384/megaten-fusion-tool](https://github.com/aqiu384/megaten-fusion-tool)
+(the Unlicense — public domain). The underlying game facts are Atlus/Sega's. This is a
+non-commercial fan tool shipping no game assets.
+
+### Re-importing
+
+The importer lives in `scripts/import/` and is **untracked developer tooling** — one-off, run by
+hand, and not part of `npm install`, `npm start`, or `npm run build`. If you have it:
+
+```bash
+node scripts/import/import.mjs --dry-run   # list the upstream inventory
+node scripts/import/import.mjs             # fetch, convert, validate, write
+node --test "scripts/import/test/*.test.mjs"
+```
+
+Upstream is pinned by SHA in `scripts/import/sources.mjs`; fetched files are cached under
+`scripts/import/.cache/` so re-runs are offline. Every run re-checks referential integrity and
+aborts rather than writing bad data, and two runs over the same commit produce byte-identical output.
+
 ## Commands
 
 | Command                | Description                                    |

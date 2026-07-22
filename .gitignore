@@ -46,3 +46,11 @@ Thumbs.db
 # PrimeUI licence key — per-developer, never commit.
 # Copy src/environments/license.example.ts if you need to recreate it.
 /src/environments/license.ts
+
+# Planning documents — not part of the shipped app.
+/SPEC.md
+/TASKS.md
+
+# Upstream data importer — one-off developer tooling. Its committed output in
+# public/data/ is what the app actually builds against.
+/scripts/import/

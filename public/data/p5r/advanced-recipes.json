@@ -1,0 +1,229 @@
+{
+  "recipes": [
+    {
+      "ingredientIds": [
+        "belial",
+        "nebiros"
+      ],
+      "resultId": "alice"
+    },
+    {
+      "ingredientIds": [
+        "shiva",
+        "parvati"
+      ],
+      "resultId": "ardha"
+    },
+    {
+      "ingredientIds": [
+        "jikokuten",
+        "zouchouten",
+        "koumokuten",
+        "bishamonten"
+      ],
+      "resultId": "asura"
+    },
+    {
+      "ingredientIds": [
+        "jack-o-lantern",
+        "jack-frost",
+        "king-frost"
+      ],
+      "resultId": "black-frost"
+    },
+    {
+      "ingredientIds": [
+        "pixie",
+        "pisaca",
+        "hariti"
+      ],
+      "resultId": "bugs"
+    },
+    {
+      "ingredientIds": [
+        "white-rider",
+        "hecatoncheires",
+        "thor",
+        "cu-chulainn",
+        "yoshitsune"
+      ],
+      "resultId": "chi-you"
+    },
+    {
+      "ingredientIds": [
+        "berith",
+        "eligor",
+        "orobas"
+      ],
+      "resultId": "flauros"
+    },
+    {
+      "ingredientIds": [
+        "archangel",
+        "matador",
+        "decarabia"
+      ],
+      "resultId": "hell-biker"
+    },
+    {
+      "ingredientIds": [
+        "yamata-no-orochi",
+        "throne",
+        "inugami",
+        "raja-naga",
+        "barong",
+        "norn"
+      ],
+      "resultId": "izanagi-no-okami"
+    },
+    {
+      "ingredientIds": [
+        "okuninushi",
+        "orthrus",
+        "kali",
+        "mithras",
+        "cu-chulainn",
+        "lucifer"
+      ],
+      "resultId": "izanagi-no-okami-picaro"
+    },
+    {
+      "ingredientIds": [
+        "seiryu",
+        "byakko",
+        "suzaku",
+        "genbu"
+      ],
+      "resultId": "kohryu"
+    },
+    {
+      "ingredientIds": [
+        "anubis",
+        "ananta",
+        "trumpeter",
+        "michael",
+        "metatron",
+        "satan"
+      ],
+      "resultId": "lucifer"
+    },
+    {
+      "ingredientIds": [
+        "principality",
+        "power",
+        "dominion",
+        "melchizedek",
+        "sandalphon",
+        "michael"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "gabriel",
+        "raphael",
+        "uriel"
+      ],
+      "resultId": "michael"
+    },
+    {
+      "ingredientIds": [
+        "kodama",
+        "sudama",
+        "anzu"
+      ],
+      "resultId": "neko-shogun"
+    },
+    {
+      "ingredientIds": [
+        "kin-ki",
+        "sui-ki",
+        "fuu-ki"
+      ],
+      "resultId": "ongyo-ki"
+    },
+    {
+      "ingredientIds": [
+        "arsene",
+        "anzu",
+        "ishtar",
+        "satan",
+        "lucifer",
+        "michael"
+      ],
+      "resultId": "satanael"
+    },
+    {
+      "ingredientIds": [
+        "isis",
+        "anubis",
+        "thoth",
+        "horus"
+      ],
+      "resultId": "seth"
+    },
+    {
+      "ingredientIds": [
+        "barong",
+        "rangda"
+      ],
+      "resultId": "shiva"
+    },
+    {
+      "ingredientIds": [
+        "mithra",
+        "mithras",
+        "melchizedek",
+        "lilith",
+        "gabriel"
+      ],
+      "resultId": "sraosha"
+    },
+    {
+      "ingredientIds": [
+        "cait-sith",
+        "high-pixie",
+        "leanan-sidhe"
+      ],
+      "resultId": "tam-lin"
+    },
+    {
+      "ingredientIds": [
+        "white-rider",
+        "red-rider",
+        "black-rider",
+        "pale-rider"
+      ],
+      "resultId": "trumpeter"
+    },
+    {
+      "ingredientIds": [
+        "naga",
+        "ananta",
+        "raja-naga"
+      ],
+      "resultId": "vasuki"
+    },
+    {
+      "ingredientIds": [
+        "shiki-ouji",
+        "arahabaki",
+        "okuninushi",
+        "yatagarasu",
+        "futsunushi"
+      ],
+      "resultId": "yoshitsune"
+    }
+  ],
+  "treasureIds": [
+    "crystal-skull",
+    "emperors-amulet",
+    "hope-diamond",
+    "koh-i-noor",
+    "orichalcum",
+    "orlov",
+    "queens-necklace",
+    "regent",
+    "stone-of-scone"
+  ]
+}

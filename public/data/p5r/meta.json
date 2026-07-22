@@ -1,0 +1,96 @@
+{
+  "datasets": {
+    "accessories": {
+      "bytes": 11813,
+      "entries": 125,
+      "file": "accessories.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-accessories.json"
+      ]
+    },
+    "advanced-recipes": {
+      "bytes": 3866,
+      "entries": 33,
+      "file": "advanced-recipes.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-special-recipes.json"
+      ]
+    },
+    "element-chart": {
+      "bytes": 5869,
+      "entries": 24,
+      "file": "element-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-element-chart.json"
+      ]
+    },
+    "fusion-chart": {
+      "bytes": 15836,
+      "entries": 24,
+      "file": "fusion-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-fusion-chart.json"
+      ]
+    },
+    "inherit-matrix": {
+      "bytes": 3373,
+      "entries": 14,
+      "file": "inherit-matrix.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/comp-config.json"
+      ]
+    },
+    "personas": {
+      "bytes": 407610,
+      "entries": 242,
+      "file": "personas.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-demon-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-party-data.json"
+      ]
+    },
+    "shadows": {
+      "bytes": 184431,
+      "entries": 157,
+      "file": "shadows.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-enemy-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/subboss-data.json"
+      ]
+    },
+    "skills": {
+      "bytes": 168887,
+      "entries": 449,
+      "file": "skills.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-skill-data.json"
+      ]
+    },
+    "traits": {
+      "bytes": 12716,
+      "entries": 92,
+      "file": "traits.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-skill-data.json"
+      ]
+    }
+  },
+  "game": "p5r",
+  "importedAt": "2026-07-23",
+  "notes": [
+    "Traits are a first-class dataset (traits.json) referenced by Persona.traitId, not injected into learn-sets at level 0 (§8.2 note 5).",
+    "`resmods` dropped (§14 Q3): three personas carry per-element damage multipliers that affect no calculation this app performs.",
+    "Party personas keep upstream `statsm` as `maxStats` and have `growth: null`; their second affinity string (`sesists`) is dropped — its meaning is not documented upstream.",
+    "Shadow `trait` dropped: §5 does not model it, and on sub-bosses upstream stores the human name rather than a persona trait.",
+    "Skill `c[2]` is a list of in-world card locations (chests, Jazz Jin dates, trials), not a §5 cardSources origin; imported as `cardLocations`. The three §6.6 origins are derived from persona itemization and shadow negotiation.",
+    "236 of the 464 persona itemization results are accessories or gear rather than skill cards; those keep the raw name on `normalItem`/`alarmItem` and leave the skill id null.",
+    "roy-accessories.json imported (§14 Q4): all 125 accessory → skill mappings resolve to real skills."
+  ],
+  "upstream": {
+    "licence": "The Unlicense (public domain)",
+    "repo": "aqiu384/megaten-fusion-tool",
+    "sha": "f7d41c3f947a232d41bd8272de4221eb55f721c8"
+  }
+}

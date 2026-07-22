@@ -1,0 +1,268 @@
+{
+  "offsets": {
+    "chariot": {
+      "crystal-skull": -1,
+      "emperors-amulet": -2,
+      "hope-diamond": -1,
+      "koh-i-noor": -1,
+      "orichalcum": -1,
+      "orlov": 1,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": 1
+    },
+    "councillor": {
+      "crystal-skull": 1,
+      "emperors-amulet": 1,
+      "hope-diamond": 1,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": -1,
+      "queens-necklace": 1,
+      "regent": 1,
+      "stone-of-scone": 1
+    },
+    "death": {
+      "crystal-skull": 1,
+      "emperors-amulet": -1,
+      "hope-diamond": 2,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": -1,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": 1
+    },
+    "devil": {
+      "crystal-skull": -1,
+      "emperors-amulet": 2,
+      "hope-diamond": -1,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": -1,
+      "queens-necklace": 1,
+      "regent": -2,
+      "stone-of-scone": -1
+    },
+    "emperor": {
+      "crystal-skull": -1,
+      "emperors-amulet": 1,
+      "hope-diamond": 1,
+      "koh-i-noor": -1,
+      "orichalcum": -1,
+      "orlov": -1,
+      "queens-necklace": -1,
+      "regent": 2,
+      "stone-of-scone": 1
+    },
+    "empress": {
+      "crystal-skull": 1,
+      "emperors-amulet": 1,
+      "hope-diamond": -1,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": 1,
+      "queens-necklace": 2,
+      "regent": -1,
+      "stone-of-scone": -1
+    },
+    "faith": {
+      "crystal-skull": 1,
+      "emperors-amulet": 1,
+      "hope-diamond": 1,
+      "koh-i-noor": 1,
+      "orichalcum": 2,
+      "orlov": -1,
+      "queens-necklace": 1,
+      "regent": -1,
+      "stone-of-scone": 1
+    },
+    "fool": {
+      "crystal-skull": 2,
+      "emperors-amulet": -1,
+      "hope-diamond": 1,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": -1,
+      "queens-necklace": 1,
+      "regent": -1,
+      "stone-of-scone": -1
+    },
+    "fortune": {
+      "crystal-skull": -1,
+      "emperors-amulet": -1,
+      "hope-diamond": 1,
+      "koh-i-noor": -1,
+      "orichalcum": 1,
+      "orlov": 1,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": 2
+    },
+    "hanged": {
+      "crystal-skull": -1,
+      "emperors-amulet": 2,
+      "hope-diamond": -1,
+      "koh-i-noor": -1,
+      "orichalcum": 1,
+      "orlov": 1,
+      "queens-necklace": 1,
+      "regent": 1,
+      "stone-of-scone": -1
+    },
+    "hermit": {
+      "crystal-skull": -2,
+      "emperors-amulet": 1,
+      "hope-diamond": 1,
+      "koh-i-noor": 1,
+      "orichalcum": -1,
+      "orlov": -1,
+      "queens-necklace": -1,
+      "regent": 2,
+      "stone-of-scone": -1
+    },
+    "hierophant": {
+      "crystal-skull": -1,
+      "emperors-amulet": -1,
+      "hope-diamond": -1,
+      "koh-i-noor": -2,
+      "orichalcum": 2,
+      "orlov": -1,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": 1
+    },
+    "judgement": {
+      "crystal-skull": -1,
+      "emperors-amulet": 1,
+      "hope-diamond": -1,
+      "koh-i-noor": -1,
+      "orichalcum": 1,
+      "orlov": -1,
+      "queens-necklace": -1,
+      "regent": -1,
+      "stone-of-scone": 1
+    },
+    "justice": {
+      "crystal-skull": 1,
+      "emperors-amulet": 1,
+      "hope-diamond": -1,
+      "koh-i-noor": 2,
+      "orichalcum": 1,
+      "orlov": -2,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": -1
+    },
+    "lovers": {
+      "crystal-skull": 1,
+      "emperors-amulet": -1,
+      "hope-diamond": -2,
+      "koh-i-noor": 1,
+      "orichalcum": -1,
+      "orlov": -1,
+      "queens-necklace": 1,
+      "regent": -1,
+      "stone-of-scone": -1
+    },
+    "magician": {
+      "crystal-skull": 1,
+      "emperors-amulet": 1,
+      "hope-diamond": 1,
+      "koh-i-noor": -1,
+      "orichalcum": -2,
+      "orlov": 1,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": 2
+    },
+    "moon": {
+      "crystal-skull": -1,
+      "emperors-amulet": -1,
+      "hope-diamond": -1,
+      "koh-i-noor": -1,
+      "orichalcum": -1,
+      "orlov": 1,
+      "queens-necklace": 2,
+      "regent": -1,
+      "stone-of-scone": -2
+    },
+    "priestess": {
+      "crystal-skull": 1,
+      "emperors-amulet": -1,
+      "hope-diamond": 1,
+      "koh-i-noor": 2,
+      "orichalcum": 1,
+      "orlov": 1,
+      "queens-necklace": 1,
+      "regent": -1,
+      "stone-of-scone": -1
+    },
+    "star": {
+      "crystal-skull": 1,
+      "emperors-amulet": -1,
+      "hope-diamond": 1,
+      "koh-i-noor": -1,
+      "orichalcum": 1,
+      "orlov": 2,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": 1
+    },
+    "strength": {
+      "crystal-skull": -1,
+      "emperors-amulet": 1,
+      "hope-diamond": -1,
+      "koh-i-noor": 1,
+      "orichalcum": -1,
+      "orlov": 2,
+      "queens-necklace": 1,
+      "regent": -1,
+      "stone-of-scone": 1
+    },
+    "sun": {
+      "crystal-skull": 1,
+      "emperors-amulet": -1,
+      "hope-diamond": 2,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": 1,
+      "queens-necklace": -1,
+      "regent": 1,
+      "stone-of-scone": -1
+    },
+    "temperance": {
+      "crystal-skull": 2,
+      "emperors-amulet": 1,
+      "hope-diamond": -1,
+      "koh-i-noor": -1,
+      "orichalcum": -1,
+      "orlov": 1,
+      "queens-necklace": 1,
+      "regent": -1,
+      "stone-of-scone": -1
+    },
+    "tower": {
+      "crystal-skull": -1,
+      "emperors-amulet": 1,
+      "hope-diamond": -1,
+      "koh-i-noor": 1,
+      "orichalcum": -1,
+      "orlov": -1,
+      "queens-necklace": -2,
+      "regent": -1,
+      "stone-of-scone": 1
+    },
+    "world": {
+      "crystal-skull": 1,
+      "emperors-amulet": 1,
+      "hope-diamond": 1,
+      "koh-i-noor": 1,
+      "orichalcum": 1,
+      "orlov": 1,
+      "queens-necklace": 1,
+      "regent": 1,
+      "stone-of-scone": 1
+    }
+  }
+}

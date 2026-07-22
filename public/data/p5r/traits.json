@@ -1,0 +1,554 @@
+[
+  {
+    "description": "Dmg dealt +25% per ailment-inflicted foe",
+    "id": "ailment-hunter",
+    "name": "Ailment Hunter",
+    "rank": 9
+  },
+  {
+    "description": "Magic skill costs x0.25",
+    "id": "allure-of-wisdom",
+    "name": "Allure of Wisdom",
+    "rank": 9
+  },
+  {
+    "description": "Nuke skill costs x0.5",
+    "id": "atomic-bloodline",
+    "name": "Atomic Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "Nuke skill costs x0.25",
+    "id": "atomic-hellscape",
+    "name": "Atomic Hellscape",
+    "rank": 9
+  },
+  {
+    "description": "Support skill costs x0.25",
+    "id": "ave-maria",
+    "name": "Ave Maria",
+    "rank": 9
+  },
+  {
+    "description": "Elec skill costs x0.25",
+    "id": "bargain-bolts",
+    "name": "Bargain Bolts",
+    "rank": 9
+  },
+  {
+    "description": "Bless skill costs x0.5",
+    "id": "blessed-bloodline",
+    "name": "Blessed Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "HP + SP restore x2",
+    "id": "blessed-spirit",
+    "name": "Blessed Spirit",
+    "rank": 9
+  },
+  {
+    "description": "Evasion +100% against ailment-inflicted foes, begins battle with Sukukaja",
+    "id": "bloodstained-eyes",
+    "name": "Bloodstained Eyes",
+    "rank": 9
+  },
+  {
+    "description": "Dmg dealt x1.5 during 1 More",
+    "id": "bolstering-force",
+    "name": "Bolstering Force",
+    "rank": 99
+  },
+  {
+    "description": "Psy skill costs x0.25",
+    "id": "chi-yous-blessing",
+    "name": "Chi You's Blessing",
+    "rank": 9
+  },
+  {
+    "description": "Survive with 1 HP after a mortal blow 4 times per battle",
+    "id": "circle-of-sadness",
+    "name": "Circle of Sadness",
+    "rank": 99
+  },
+  {
+    "description": "Ice skill costs x0.25",
+    "id": "cocytus",
+    "name": "Cocytus",
+    "rank": 9
+  },
+  {
+    "description": "Freeze affliction rate x3 during 1 More",
+    "id": "cold-blooded",
+    "name": "Cold-Blooded",
+    "rank": 9
+  },
+  {
+    "description": "Ally ailment susceptibility x0.5",
+    "id": "cool-customer",
+    "name": "Cool Customer",
+    "rank": 99
+  },
+  {
+    "description": "Attack + defense x(1 + compendium completion%)",
+    "id": "country-maker",
+    "name": "Country Maker",
+    "rank": 99
+  },
+  {
+    "description": "Weakness dmg taken x0.6",
+    "id": "crisis-control",
+    "name": "Crisis Control",
+    "rank": 9
+  },
+  {
+    "description": "Curse skill costs x0.5",
+    "id": "cursed-bloodline",
+    "name": "Cursed Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "Instakill affliction rate x1.2",
+    "id": "deathly-illness",
+    "name": "Deathly Illness",
+    "rank": 9
+  },
+  {
+    "description": "HP restore x2",
+    "id": "demons-bite",
+    "name": "Demon's Bite",
+    "rank": 9
+  },
+  {
+    "description": "Drain skill dmg dealt x2",
+    "id": "draining-mouth",
+    "name": "Draining Mouth",
+    "rank": 9
+  },
+  {
+    "description": "Fire skill costs x0.25",
+    "id": "drunken-passion",
+    "name": "Drunken Passion",
+    "rank": 9
+  },
+  {
+    "description": "25% chance of ally Phys dmg dealt x1.8",
+    "id": "eccentric-temper",
+    "name": "Eccentric Temper",
+    "rank": 99
+  },
+  {
+    "description": "Elec skill costs x0.5",
+    "id": "electric-bloodline",
+    "name": "Electric Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "All-Out Attacks may defeat all foes + 25% HP restore to all allies",
+    "id": "explosive-scheme",
+    "name": "Explosive Scheme",
+    "rank": 99
+  },
+  {
+    "description": "Support + Almighty skill costs x0.5",
+    "id": "flawless-spirit",
+    "name": "Flawless Spirit",
+    "rank": 99
+  },
+  {
+    "description": "Ailment affliction rate x2 after Baton Pass",
+    "id": "foul-odor",
+    "name": "Foul Odor",
+    "rank": 9
+  },
+  {
+    "description": "Ailment affliction rate x1.1",
+    "id": "foul-stench",
+    "name": "Foul Stench",
+    "rank": 9
+  },
+  {
+    "description": "Dmg dealt x2 if HP under 50%",
+    "id": "frenzied-bull",
+    "name": "Frenzied Bull",
+    "rank": 99
+  },
+  {
+    "description": "Ice skill costs x0.5",
+    "id": "frigid-bloodline",
+    "name": "Frigid Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "Ally Burn + Freeze + Shock affliction rate x1.5",
+    "id": "gaia-blessing",
+    "name": "Gaia Blessing",
+    "rank": 99
+  },
+  {
+    "description": "Ally Burn + Freeze + Shock affliction rate x1.25",
+    "id": "gaia-pact",
+    "name": "Gaia Pact",
+    "rank": 99
+  },
+  {
+    "description": "Ailment affliction rate x2.5 against Downed Foes",
+    "id": "ghost-nest",
+    "name": "Ghost Nest",
+    "rank": 9
+  },
+  {
+    "description": "Activates special weather skills",
+    "id": "gloomy-child",
+    "name": "Gloomy Child",
+    "rank": 9
+  },
+  {
+    "description": "HP restore x1.5",
+    "id": "gluttonmouth",
+    "name": "Gluttonmouth",
+    "rank": 9
+  },
+  {
+    "description": "Ally Trait activation chance +50%",
+    "id": "god-maker",
+    "name": "God Maker",
+    "rank": 99
+  },
+  {
+    "description": "Recovery skill costs x0.25",
+    "id": "grace-of-mother",
+    "name": "Grace of Mother",
+    "rank": 9
+  },
+  {
+    "description": "Skill costs -100% during 1 More",
+    "id": "grace-of-the-olive",
+    "name": "Grace of the Olive",
+    "rank": 99
+  },
+  {
+    "description": "HP + SP restore x2",
+    "id": "hallowed-spirit",
+    "name": "Hallowed Spirit",
+    "rank": 99
+  },
+  {
+    "description": "Ally Follow-Up attack activation chance +20%",
+    "id": "hazy-presence",
+    "name": "Hazy Presence",
+    "rank": 99
+  },
+  {
+    "description": "Fire skill costs x0.5",
+    "id": "heated-bloodline",
+    "name": "Heated Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "Dmg dealt +40% per ailment-inflicted foe",
+    "id": "hollow-jester",
+    "name": "Hollow Jester",
+    "rank": 99
+  },
+  {
+    "description": "Ally ailment susceptibility x0.75",
+    "id": "icy-glare",
+    "name": "Icy Glare",
+    "rank": 99
+  },
+  {
+    "description": "Prevents ailments",
+    "id": "immunity",
+    "name": "Immunity",
+    "rank": 9
+  },
+  {
+    "description": "All-Out Attacks may defeat all foes + 100% HP restore to all allies",
+    "id": "infinite-scheme",
+    "name": "Infinite Scheme",
+    "rank": 99
+  },
+  {
+    "description": "50% chance of ally Support + Almighty costs x0.5",
+    "id": "ingenious-spirit",
+    "name": "Ingenious Spirit",
+    "rank": 99
+  },
+  {
+    "description": "Single-target magic dmg dealt x1.2",
+    "id": "intense-focus",
+    "name": "Intense Focus",
+    "rank": 9
+  },
+  {
+    "description": "-kaja + crit buff skill cast on user +1 turn",
+    "id": "internal-hypnosis",
+    "name": "Internal Hypnosis",
+    "rank": 9
+  },
+  {
+    "description": "Repelled dmg dealt x3",
+    "id": "inviolable-beauty",
+    "name": "Inviolable Beauty",
+    "rank": 99
+  },
+  {
+    "description": "SP costs x0.5 after Baton Pass, begins battle with Tetrakarn + Makarakarn",
+    "id": "iron-heart",
+    "name": "Iron Heart",
+    "rank": 99
+  },
+  {
+    "description": "Instakill costs -100%",
+    "id": "just-die",
+    "name": "Just Die",
+    "rank": 9
+  },
+  {
+    "description": "Single-target dmg dealt x1.4 after Baton Pass",
+    "id": "linked-bloodline",
+    "name": "Linked Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "Ally Recovery skill pwr x1.5 and 25% chance of costs x0.5",
+    "id": "majestic-presence",
+    "name": "Majestic Presence",
+    "rank": 99
+  },
+  {
+    "description": "Bless skill costs x0.25",
+    "id": "martyrs-gift",
+    "name": "Martyr's Gift",
+    "rank": 9
+  },
+  {
+    "description": "15% chance of ally attack magic costs x0.7",
+    "id": "mastery-of-magic",
+    "name": "Mastery of Magic",
+    "rank": 99
+  },
+  {
+    "description": "Multi-target magic dmg dealt x1.2",
+    "id": "mighty-gaze",
+    "name": "Mighty Gaze",
+    "rank": 9
+  },
+  {
+    "description": "Curse skill costs x0.25",
+    "id": "mothers-lament",
+    "name": "Mother's Lament",
+    "rank": 9
+  },
+  {
+    "description": "SP restore x1.5",
+    "id": "mouth-of-savoring",
+    "name": "Mouth of Savoring",
+    "rank": 9
+  },
+  {
+    "description": "SP restore x2",
+    "id": "naranari",
+    "name": "Naranari",
+    "rank": 9
+  },
+  {
+    "description": "Instakill affliction rate x1.5",
+    "id": "omen",
+    "name": "Omen",
+    "rank": 9
+  },
+  {
+    "description": "Magic dmg dealt x1.5, cannot exceed dmg cap",
+    "id": "pagan-allure",
+    "name": "Pagan Allure",
+    "rank": 9
+  },
+  {
+    "description": "Allows use of Surrounded skills after Baton Pass",
+    "id": "pinch-anchor",
+    "name": "Pinch Anchor",
+    "rank": 9
+  },
+  {
+    "description": "15% chance of ally attack magic costs x0.5",
+    "id": "pinnacle-of-magic",
+    "name": "Pinnacle of Magic",
+    "rank": 99
+  },
+  {
+    "description": "-kaja + crit buff skill cast on user +2 turns",
+    "id": "positive-thoughts",
+    "name": "Positive Thoughts",
+    "rank": 9
+  },
+  {
+    "description": "-kaja + crit buff skill cast by user +1 turn",
+    "id": "potent-hypnosis",
+    "name": "Potent Hypnosis",
+    "rank": 9
+  },
+  {
+    "description": "Ally Recovery skill pwr x1.5",
+    "id": "proud-presence",
+    "name": "Proud Presence",
+    "rank": 99
+  },
+  {
+    "description": "Psy skill costs x0.5",
+    "id": "psychic-bloodline",
+    "name": "Psychic Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "15% chance of ally Phys dmg dealt x1.4",
+    "id": "raging-temper",
+    "name": "Raging Temper",
+    "rank": 99
+  },
+  {
+    "description": "Ailment susceptibility x0.7",
+    "id": "rare-antibody",
+    "name": "Rare Antibody",
+    "rank": 9
+  },
+  {
+    "description": "Single-target dmg dealt x1.5 when striking foe weakness",
+    "id": "relentless",
+    "name": "Relentless",
+    "rank": 9
+  },
+  {
+    "description": "Support skill costs x0.5",
+    "id": "relief-bloodline",
+    "name": "Relief Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "Repelled dmg dealt x2",
+    "id": "retaliating-body",
+    "name": "Retaliating Body",
+    "rank": 9
+  },
+  {
+    "description": "Recovery skill costs x0.5",
+    "id": "savior-bloodline",
+    "name": "Savior Bloodline",
+    "rank": 9
+  },
+  {
+    "description": "20% chance of allies evading Phys attack",
+    "id": "scoundrel-eyes",
+    "name": "Scoundrel Eyes",
+    "rank": 99
+  },
+  {
+    "description": "Single-target dmg dealt x1.2 after Baton Pass",
+    "id": "skillful-combo",
+    "name": "Skillful Combo",
+    "rank": 9
+  },
+  {
+    "description": "Technical dmg dealt x1.25",
+    "id": "skillful-technique",
+    "name": "Skillful Technique",
+    "rank": 9
+  },
+  {
+    "description": "Shock affliction rate x3 against Downed Foes",
+    "id": "static-electricity",
+    "name": "Static Electricity",
+    "rank": 9
+  },
+  {
+    "description": "Phys dmg dealt x1.2",
+    "id": "striking-weight",
+    "name": "Striking Weight",
+    "rank": 9
+  },
+  {
+    "description": "50% chance of ally Support costs x0.5",
+    "id": "tactical-spirit",
+    "name": "Tactical Spirit",
+    "rank": 99
+  },
+  {
+    "description": "Allows use of items without consuming them after Baton Pass",
+    "id": "tag-team",
+    "name": "Tag Team",
+    "rank": 99
+  },
+  {
+    "description": "Burn affliction rate x3 after Baton Pass",
+    "id": "thermal-conduct",
+    "name": "Thermal Conduct",
+    "rank": 9
+  },
+  {
+    "description": "Adds 3 bonus Traits to fusion skill pool",
+    "id": "ultimate-vessel",
+    "name": "Ultimate Vessel",
+    "rank": 99
+  },
+  {
+    "description": "Phys dmg dealt x1.3",
+    "id": "undying-fury",
+    "name": "Undying Fury",
+    "rank": 9
+  },
+  {
+    "description": "Technical dmg dealt x1.5",
+    "id": "universal-law",
+    "name": "Universal Law",
+    "rank": 9
+  },
+  {
+    "description": "40% chance of allies evading Phys attack",
+    "id": "unparalleled-eyes",
+    "name": "Unparalleled Eyes",
+    "rank": 99
+  },
+  {
+    "description": "Wind skill costs x0.25",
+    "id": "vahanas-wings",
+    "name": "Vahana's Wings",
+    "rank": 9
+  },
+  {
+    "description": "25% chance of ally not being Downed",
+    "id": "veil-of-midnight",
+    "name": "Veil of Midnight",
+    "rank": 99
+  },
+  {
+    "description": "50% chance of ally not being Downed",
+    "id": "veil-of-sunrise",
+    "name": "Veil of Sunrise",
+    "rank": 99
+  },
+  {
+    "description": "Allows use of Surrounded skills normally",
+    "id": "vitality-of-the-tree",
+    "name": "Vitality of the Tree",
+    "rank": 9
+  },
+  {
+    "description": "-kaja + crit buff skill cast by user +2 turns",
+    "id": "wealth-of-lotus",
+    "name": "Wealth of Lotus",
+    "rank": 9
+  },
+  {
+    "description": "Charge + Concentrate bonus set to x3, begins battle with Concentrate",
+    "id": "will-of-the-sword",
+    "name": "Will of the Sword",
+    "rank": 9
+  },
+  {
+    "description": "Wind skill costs x0.5",
+    "id": "wind-bloodline",
+    "name": "Wind Bloodline",
+    "rank": 9
+  }
+]

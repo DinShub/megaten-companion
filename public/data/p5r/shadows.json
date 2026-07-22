@@ -1,0 +1,9446 @@
+[
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "drain",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "drain",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "drain",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "judgement",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": "Sooty Gilded Collar",
+      "cardSkillId": "survival-trick",
+      "items": [],
+      "material": null
+    },
+    "exp": 5500,
+    "hp": 7000,
+    "id": "abyssal-king-of-avarice",
+    "kind": "shadow",
+    "level": 75,
+    "name": "Abyssal King of Avarice",
+    "personaId": "abaddon",
+    "skillIds": [
+      "mabufudyne",
+      "megaton-raid",
+      "gigantomachia",
+      "flash-bomb",
+      "evil-smile",
+      "charge",
+      "freeze-boost",
+      "dizzy-boost"
+    ],
+    "sp": 400,
+    "stats": {
+      "agility": 45,
+      "endurance": 5,
+      "luck": 48,
+      "magic": 62,
+      "strength": 99
+    },
+    "yen": 8021
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "repel",
+      "elec": "resist",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "tower",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "bufula",
+      "items": [
+        "Dry Ice"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 182,
+    "hp": 548,
+    "id": "ambassador-of-filth",
+    "kind": "shadow",
+    "level": 37,
+    "name": "Ambassador of Filth",
+    "personaId": "belphegor",
+    "skillIds": [
+      "concentrate",
+      "mabufula",
+      "bufudyne",
+      "famines-scream"
+    ],
+    "sp": 300,
+    "stats": {
+      "agility": 25,
+      "endurance": 26,
+      "luck": 23,
+      "magic": 42,
+      "strength": 38
+    },
+    "yen": 682
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "rakukaja",
+      "items": [
+        "Revival Bead"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 6,
+    "hp": 150,
+    "id": "apprentice-in-a-jug",
+    "kind": "shadow",
+    "level": 3,
+    "name": "Apprentice in a Jug",
+    "personaId": "agathion",
+    "skillIds": [
+      "zio",
+      "rakukaja"
+    ],
+    "sp": 54,
+    "stats": {
+      "agility": 6,
+      "endurance": 9,
+      "luck": 5,
+      "magic": 5,
+      "strength": 4
+    },
+    "yen": 130
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "repel"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "garudyne",
+      "items": [],
+      "material": null
+    },
+    "exp": 1422,
+    "hp": 629,
+    "id": "arrogant-vulture",
+    "kind": "shadow",
+    "level": 51,
+    "name": "Arrogant Vulture",
+    "personaId": "jatayu",
+    "skillIds": [
+      "magarudyne",
+      "nocturnal-flash",
+      "wind-amp",
+      "dizzy-boost"
+    ],
+    "sp": 399,
+    "stats": {
+      "agility": 36,
+      "endurance": 36,
+      "luck": 30,
+      "magic": 72,
+      "strength": 46
+    },
+    "yen": 905
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": "Sooty Cat's Armor",
+      "cardSkillId": "terror-claw",
+      "items": [
+        "Magic Ointment"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 27,
+    "hp": 258,
+    "id": "ascended-feline",
+    "kind": "shadow",
+    "level": 17,
+    "name": "Ascended Feline",
+    "personaId": "nekomata",
+    "skillIds": [
+      "terror-claw",
+      "magaru"
+    ],
+    "sp": 168,
+    "stats": {
+      "agility": 16,
+      "endurance": 15,
+      "luck": 14,
+      "magic": 29,
+      "strength": 30
+    },
+    "yen": 292
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "weak",
+      "wind": "drain"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "sun",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "miracle-punch",
+      "items": [
+        "Revival Bead"
+      ],
+      "material": "Liquid Mercury"
+    },
+    "exp": 861,
+    "hp": 836,
+    "id": "auspicious-pachyderm",
+    "kind": "shadow",
+    "level": 53,
+    "name": "Auspicious Pachyderm",
+    "personaId": "ganesha",
+    "skillIds": [
+      "rebellion",
+      "tempest-slash",
+      "miracle-punch",
+      "dodge-psy"
+    ],
+    "sp": 279,
+    "stats": {
+      "agility": 31,
+      "endurance": 32,
+      "luck": 42,
+      "magic": 30,
+      "strength": 74
+    },
+    "yen": 1325
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "repel",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "repel",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "abysmal-surge",
+      "items": [
+        "Ambergris MA"
+      ],
+      "material": "Condenser Lens"
+    },
+    "exp": 131,
+    "hp": 420,
+    "id": "awakened-god",
+    "kind": "shadow",
+    "level": 35,
+    "name": "Awakened God",
+    "personaId": "arahabaki",
+    "skillIds": [
+      "makarakarn",
+      "abysmal-surge",
+      "flash-bomb"
+    ],
+    "sp": 167,
+    "stats": {
+      "agility": 25,
+      "endurance": 50,
+      "luck": 20,
+      "magic": 32,
+      "strength": 28
+    },
+    "yen": 472
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "adverse-resolve",
+      "items": [
+        "Life Stone",
+        "Rasetsu Ofuda",
+        "Revival Bead"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 112,
+    "hp": 289,
+    "id": "battle-fiend",
+    "kind": "shadow",
+    "level": 24,
+    "name": "Battle Fiend",
+    "personaId": "rakshasa",
+    "skillIds": [
+      "giant-slice"
+    ],
+    "sp": 144,
+    "stats": {
+      "agility": 17,
+      "endurance": 17,
+      "luck": 13,
+      "magic": 14,
+      "strength": 27
+    },
+    "yen": 320
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "judgement",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": "Sooty Wolf's Coat",
+      "cardSkillId": "hamaon",
+      "items": [],
+      "material": null
+    },
+    "exp": 1200,
+    "hp": 1621,
+    "id": "bearer-of-the-scales",
+    "kind": "shadow",
+    "level": 34,
+    "name": "Bearer of the Scales",
+    "personaId": "anubis",
+    "skillIds": [
+      "hamaon",
+      "mudoon",
+      "makouga",
+      "maeiga"
+    ],
+    "sp": 762,
+    "stats": {
+      "agility": 26,
+      "endurance": 23,
+      "luck": 16,
+      "magic": 49,
+      "strength": 28
+    },
+    "yen": 1531
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": "Sooty Ghastly Gear",
+      "cardSkillId": "life-drain",
+      "items": [
+        "Soul Drop"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 6,
+    "hp": 115,
+    "id": "bedside-brute",
+    "kind": "shadow",
+    "level": 5,
+    "name": "Bedside Brute",
+    "personaId": "incubus",
+    "skillIds": [
+      "life-drain",
+      "dream-needle"
+    ],
+    "sp": 66,
+    "stats": {
+      "agility": 8,
+      "endurance": 6,
+      "luck": 4,
+      "magic": 7,
+      "strength": 3
+    },
+    "yen": 135
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "weak",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "weak",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "lovers",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "dia",
+      "items": [
+        "Devil Fruit",
+        "Mystery Stew",
+        "Revival Bead"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 4,
+    "hp": 174,
+    "id": "beguiling-girl",
+    "kind": "shadow",
+    "level": 2,
+    "name": "Beguiling Girl",
+    "personaId": "pixie",
+    "skillIds": [
+      "dia"
+    ],
+    "sp": 14,
+    "stats": {
+      "agility": 4,
+      "endurance": 3,
+      "luck": 3,
+      "magic": 3,
+      "strength": 1
+    },
+    "yen": 125
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "charge",
+      "items": [
+        "Bead"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 341,
+    "hp": 442,
+    "id": "bloodthirsty-demoness",
+    "kind": "shadow",
+    "level": 50,
+    "name": "Bloodthirsty Demoness",
+    "personaId": "dakini",
+    "skillIds": [
+      "charge",
+      "myriad-slashes"
+    ],
+    "sp": 276,
+    "stats": {
+      "agility": 34,
+      "endurance": 34,
+      "luck": 34,
+      "magic": 32,
+      "strength": 50
+    },
+    "yen": 685
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "null",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": true,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": "Sooty Yorishiro",
+      "cardSkillId": "double-shot",
+      "items": [],
+      "material": null
+    },
+    "exp": 220,
+    "hp": 617,
+    "id": "bringer-of-misfortune",
+    "kind": "shadow",
+    "level": 18,
+    "name": "Bringer of Misfortune",
+    "personaId": "shiki-ouji",
+    "skillIds": [
+      "double-shot",
+      "taunt"
+    ],
+    "sp": 111,
+    "stats": {
+      "agility": 11,
+      "endurance": 14,
+      "luck": 9,
+      "magic": 9,
+      "strength": 18
+    },
+    "yen": 1362
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "null",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hierophant",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": "Sooty Heavy Armor",
+      "cardSkillId": "power-slash",
+      "items": [],
+      "material": null
+    },
+    "exp": 60,
+    "hp": 474,
+    "id": "brutal-cavalryman",
+    "kind": "shadow",
+    "level": 9,
+    "name": "Brutal Cavalryman",
+    "personaId": "berith",
+    "skillIds": [
+      "power-slash"
+    ],
+    "sp": 72,
+    "stats": {
+      "agility": 8,
+      "endurance": 7,
+      "luck": 3,
+      "magic": 5,
+      "strength": 11
+    },
+    "yen": 500
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "lovers",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "magaru",
+      "items": [
+        "Soul Drop"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 63,
+    "hp": 238,
+    "id": "captivating-dancer",
+    "kind": "shadow",
+    "level": 13,
+    "name": "Captivating Dancer",
+    "personaId": "ame-no-uzume",
+    "skillIds": [
+      "magaru",
+      "mazio"
+    ],
+    "sp": 120,
+    "stats": {
+      "agility": 17,
+      "endurance": 12,
+      "luck": 19,
+      "magic": 17,
+      "strength": 11
+    },
+    "yen": 702
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "null",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": "Sooty Snakeskin",
+      "cardSkillId": "zionga",
+      "items": [
+        "Ambergris EN"
+      ],
+      "material": "Red Phosphorus"
+    },
+    "exp": 96,
+    "hp": 321,
+    "id": "cavern-snakeman",
+    "kind": "shadow",
+    "level": 24,
+    "name": "Cavern Snakeman",
+    "personaId": "naga",
+    "skillIds": [
+      "zionga",
+      "mazio",
+      "power-slash",
+      "counter",
+      "shock-boost"
+    ],
+    "sp": 159,
+    "stats": {
+      "agility": 16,
+      "endurance": 16,
+      "luck": 14,
+      "magic": 19,
+      "strength": 27
+    },
+    "yen": 415
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "null",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "megido",
+      "items": [
+        "Ambergris MA",
+        "Rasetsu Ofuda",
+        "Soul Drop"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 138,
+    "hp": 321,
+    "id": "chanting-baboon",
+    "kind": "shadow",
+    "level": 36,
+    "name": "Chanting Baboon",
+    "personaId": "thoth",
+    "skillIds": [
+      "megido",
+      "freila",
+      "taunt",
+      "reverse-rub",
+      "concentrate"
+    ],
+    "sp": 264,
+    "stats": {
+      "agility": 24,
+      "endurance": 22,
+      "luck": 20,
+      "magic": 16,
+      "strength": 25
+    },
+    "yen": 468
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "rampage",
+      "items": [
+        "Incense EN",
+        "Incense LU"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 42,
+    "hp": 421,
+    "id": "chivalrous-fiend",
+    "kind": "shadow",
+    "level": 20,
+    "name": "Chivalrous Fiend",
+    "personaId": "oni",
+    "skillIds": [
+      "rampage"
+    ],
+    "sp": 120,
+    "stats": {
+      "agility": 8,
+      "endurance": 21,
+      "luck": 9,
+      "magic": 10,
+      "strength": 22
+    },
+    "yen": 380
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "repel",
+      "elec": "drain",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Qliphoth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "megidolaon",
+      "items": [],
+      "material": null
+    },
+    "exp": 1921,
+    "hp": 1100,
+    "id": "coffin-borne-god",
+    "kind": "shadow",
+    "level": 72,
+    "name": "Coffin-Borne God",
+    "personaId": "mot",
+    "skillIds": [
+      "maeigaon",
+      "megidolaon",
+      "evil-smile",
+      "concentrate"
+    ],
+    "sp": 468,
+    "stats": {
+      "agility": 49,
+      "endurance": 64,
+      "luck": 39,
+      "magic": 99,
+      "strength": 55
+    },
+    "yen": 2300
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mudo",
+      "items": [
+        "Devil Fruit"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 22,
+    "hp": 206,
+    "id": "corpse-bird",
+    "kind": "shadow",
+    "level": 12,
+    "name": "Corpse Bird",
+    "personaId": "onmoraki",
+    "skillIds": [
+      "eiha",
+      "evil-touch"
+    ],
+    "sp": 102,
+    "stats": {
+      "agility": 11,
+      "endurance": 7,
+      "luck": 35,
+      "magic": 12,
+      "strength": 10
+    },
+    "yen": 341
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "resist",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Akzeriyyuth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "ominous-words",
+      "items": [
+        "Bead",
+        "Despair Vial S",
+        "Soul Drop"
+      ],
+      "material": "Iron Sand"
+    },
+    "exp": 258,
+    "hp": 315,
+    "id": "corpse-eating-corpse",
+    "kind": "shadow",
+    "level": 28,
+    "name": "Corpse-Eating Corpse",
+    "personaId": "pisaca",
+    "skillIds": [
+      "stagnant-air",
+      "rampage",
+      "dream-needle"
+    ],
+    "sp": 204,
+    "stats": {
+      "agility": 28,
+      "endurance": 28,
+      "luck": 27,
+      "magic": 30,
+      "strength": 29
+    },
+    "yen": 211
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": "Sooty Spotted Fur",
+      "cardSkillId": "oni-kagura",
+      "items": [],
+      "material": "Aluminum Sheet"
+    },
+    "exp": 445,
+    "hp": 393,
+    "id": "cruel-leopard",
+    "kind": "shadow",
+    "level": 42,
+    "name": "Cruel Leopard",
+    "personaId": "ose",
+    "skillIds": [
+      "oni-kagura",
+      "reverse-rub",
+      "counterstrike",
+      "charge"
+    ],
+    "sp": 234,
+    "stats": {
+      "agility": 31,
+      "endurance": 33,
+      "luck": 18,
+      "magic": 26,
+      "strength": 55
+    },
+    "yen": 635
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "agi",
+      "items": [
+        "Revival Bead",
+        "Thaw Stone"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 4,
+    "hp": 100,
+    "id": "crypt-dwelling-pyromaniac",
+    "kind": "shadow",
+    "level": 2,
+    "name": "Crypt-Dwelling Pyromaniac",
+    "personaId": "jack-o-lantern",
+    "skillIds": [
+      "agi"
+    ],
+    "sp": 6,
+    "stats": {
+      "agility": 1,
+      "endurance": 3,
+      "luck": 2,
+      "magic": 5,
+      "strength": 2
+    },
+    "yen": 120
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "fool",
+    "areas": [
+      "Qliphoth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 3500,
+    "hp": 2450,
+    "id": "crystal-skull-d",
+    "kind": "shadow",
+    "level": 50,
+    "name": "Crystal Skull D",
+    "personaId": "crystal-skull",
+    "skillIds": [],
+    "sp": 330,
+    "stats": {
+      "agility": 50,
+      "endurance": 24,
+      "luck": 40,
+      "magic": 50,
+      "strength": 50
+    },
+    "yen": 40000
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": "Sooty Dancer's Garb",
+      "cardSkillId": "ghastly-wail",
+      "items": [
+        "Fear Vial L"
+      ],
+      "material": "Tanned Leather"
+    },
+    "exp": 970,
+    "hp": 593,
+    "id": "dancer-of-death",
+    "kind": "shadow",
+    "level": 73,
+    "name": "Dancer of Death",
+    "personaId": "macabre",
+    "skillIds": [
+      "bloodbath",
+      "death-scythe",
+      "ghastly-wail",
+      "masukukaja",
+      "dodge-phys"
+    ],
+    "sp": 232,
+    "stats": {
+      "agility": 50,
+      "endurance": 44,
+      "luck": 42,
+      "magic": 54,
+      "strength": 72
+    },
+    "yen": 972
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": "Sooty Lion's Mane",
+      "cardSkillId": "ziodyne",
+      "items": [],
+      "material": "Condenser Lens"
+    },
+    "exp": 388,
+    "hp": 625,
+    "id": "dancing-lion",
+    "kind": "shadow",
+    "level": 52,
+    "name": "Dancing Lion",
+    "personaId": "barong",
+    "skillIds": [
+      "ziodyne",
+      "elec-break",
+      "shock-boost",
+      "wage-war",
+      "maziodyne"
+    ],
+    "sp": 426,
+    "stats": {
+      "agility": 40,
+      "endurance": 34,
+      "luck": 33,
+      "magic": 80,
+      "strength": 41
+    },
+    "yen": 705
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "weak",
+      "fire": "null",
+      "gun": "repel",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "repel",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "matarunda",
+      "items": [],
+      "material": "Cork Bark"
+    },
+    "exp": 761,
+    "hp": 422,
+    "id": "dancing-witch",
+    "kind": "shadow",
+    "level": 48,
+    "name": "Dancing Witch",
+    "personaId": "rangda",
+    "skillIds": [
+      "eigaon",
+      "swift-strike"
+    ],
+    "sp": 354,
+    "stats": {
+      "agility": 32,
+      "endurance": 30,
+      "luck": 26,
+      "magic": 60,
+      "strength": 39
+    },
+    "yen": 902
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "repel",
+      "phys": "resist",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "sun",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mafreila",
+      "items": [
+        "Magic Ointment"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 282,
+    "hp": 455,
+    "id": "dark-sun",
+    "kind": "shadow",
+    "level": 39,
+    "name": "Dark Sun",
+    "personaId": "mithras",
+    "skillIds": [
+      "freidyne",
+      "mafreila",
+      "heat-wave"
+    ],
+    "sp": 297,
+    "stats": {
+      "agility": 27,
+      "endurance": 24,
+      "luck": 22,
+      "magic": 50,
+      "strength": 41
+    },
+    "yen": 550
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "repel",
+      "ice": "drain",
+      "nuke": "neutral",
+      "phys": "repel",
+      "psy": "null",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": false,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "concentrate",
+      "items": [
+        "Kongou Ofuda",
+        "Magic Ointment",
+        "Soul Drop"
+      ],
+      "material": "Iron Sand"
+    },
+    "exp": 4080,
+    "hp": 1700,
+    "id": "decadent-false-god",
+    "kind": "shadow",
+    "level": 81,
+    "name": "Decadent False God",
+    "personaId": "alilat",
+    "skillIds": [
+      "diamond-dust",
+      "ice-age",
+      "concentrate",
+      "freeze-boost",
+      "ice-amp"
+    ],
+    "sp": 289,
+    "stats": {
+      "agility": 55,
+      "endurance": 78,
+      "luck": 50,
+      "magic": 96,
+      "strength": 64
+    },
+    "yen": 2150
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "repel",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": "Sooty Man's Armor",
+      "cardSkillId": "swift-strike",
+      "items": [],
+      "material": null
+    },
+    "exp": 700,
+    "hp": 760,
+    "id": "defeated-avenger",
+    "kind": "shadow",
+    "level": 26,
+    "name": "Defeated Avenger",
+    "personaId": "take-minakata",
+    "skillIds": [
+      "shock-boost",
+      "elec-boost",
+      "mazionga",
+      "swift-strike",
+      "assault-dive"
+    ],
+    "sp": 354,
+    "stats": {
+      "agility": 16,
+      "endurance": 20,
+      "luck": 21,
+      "magic": 19,
+      "strength": 30
+    },
+    "yen": 2314
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "fire-amp",
+      "items": [
+        "Nirvana AG",
+        "Frost Magatama",
+        "Soul Drop"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 1021,
+    "hp": 727,
+    "id": "deformed-lion-god",
+    "kind": "shadow",
+    "level": 74,
+    "name": "Deformed Lion God",
+    "personaId": "chimera",
+    "skillIds": [
+      "maragidyne",
+      "bufudyne",
+      "cornered-fang",
+      "fire-amp",
+      "burn-boost",
+      "high-counter"
+    ],
+    "sp": 345,
+    "stats": {
+      "agility": 46,
+      "endurance": 43,
+      "luck": 41,
+      "magic": 92,
+      "strength": 64
+    },
+    "yen": 998
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "repel",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "lovers",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "energy-shower",
+      "items": [
+        "Baptismal Water"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 358,
+    "hp": 432,
+    "id": "destructive-beauty",
+    "kind": "shadow",
+    "level": 56,
+    "name": "Destructive Beauty",
+    "personaId": "parvati",
+    "skillIds": [
+      "psiodyne",
+      "diarama",
+      "psy-break",
+      "nuke-break",
+      "elec-break"
+    ],
+    "sp": 402,
+    "stats": {
+      "agility": 45,
+      "endurance": 31,
+      "luck": 32,
+      "magic": 68,
+      "strength": 31
+    },
+    "yen": 672
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "lunge",
+      "items": [
+        "Devil Fruit",
+        "Muscle Drink",
+        "Revival Bead"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 5,
+    "hp": 132,
+    "id": "dirty-two-horned-beast",
+    "kind": "shadow",
+    "level": 4,
+    "name": "Dirty Two-Horned Beast",
+    "personaId": "bicorn",
+    "skillIds": [
+      "lunge"
+    ],
+    "sp": 51,
+    "stats": {
+      "agility": 4,
+      "endurance": 3,
+      "luck": 4,
+      "magic": 3,
+      "strength": 5
+    },
+    "yen": 125
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "makouga",
+      "items": [
+        "Sacramental Bread"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 331,
+    "hp": 307,
+    "id": "divine-warrior",
+    "kind": "shadow",
+    "level": 41,
+    "name": "Divine Warrior",
+    "personaId": "power",
+    "skillIds": [
+      "brain-shake",
+      "makouga",
+      "bless-boost"
+    ],
+    "sp": 291,
+    "stats": {
+      "agility": 40,
+      "endurance": 32,
+      "luck": 24,
+      "magic": 46,
+      "strength": 40
+    },
+    "yen": 658
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "neutral",
+      "elec": "null",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mudoon",
+      "items": [
+        "Despair Vial L",
+        "Life Stone",
+        "Rage Vial S"
+      ],
+      "material": "Red Phosphorus"
+    },
+    "exp": 861,
+    "hp": 404,
+    "id": "dream-dwelling-skull",
+    "kind": "shadow",
+    "level": 70,
+    "name": "Dream-Dwelling Skull",
+    "personaId": "loa",
+    "skillIds": [
+      "negative-pile",
+      "mudoon",
+      "taunt",
+      "foul-breath",
+      "life-leech"
+    ],
+    "sp": 221,
+    "stats": {
+      "agility": 48,
+      "endurance": 42,
+      "luck": 42,
+      "magic": 51,
+      "strength": 53
+    },
+    "yen": 953
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "drain",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "judgement",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "ice-amp",
+      "items": [
+        "Black Kogatana",
+        "Kongou Ofuda",
+        "Soul Drop"
+      ],
+      "material": null
+    },
+    "exp": 1846,
+    "hp": 1193,
+    "id": "drunken-serpents",
+    "kind": "shadow",
+    "level": 64,
+    "name": "Drunken Serpents",
+    "personaId": "yamata-no-orochi",
+    "skillIds": [
+      "mabufudyne",
+      "diamond-dust",
+      "one-shot-kill",
+      "ice-boost",
+      "freeze-boost"
+    ],
+    "sp": 480,
+    "stats": {
+      "agility": 47,
+      "endurance": 40,
+      "luck": 42,
+      "magic": 86,
+      "strength": 81
+    },
+    "yen": 1680
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "resist",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "repel"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Aiyatsbus"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "sledgehammer",
+      "items": [
+        "Kongou Ofuda",
+        "Life Stone",
+        "Revival Bead"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 32,
+    "hp": 365,
+    "id": "embittered-blacksmith",
+    "kind": "shadow",
+    "level": 13,
+    "name": "Embittered Blacksmith",
+    "personaId": "ippon-datara",
+    "skillIds": [
+      "sledgehammer"
+    ],
+    "sp": 96,
+    "stats": {
+      "agility": 15,
+      "endurance": 15,
+      "luck": 11,
+      "magic": 9,
+      "strength": 39
+    },
+    "yen": 219
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 2500,
+    "hp": 1990,
+    "id": "emperors-amulet-d",
+    "kind": "shadow",
+    "level": 35,
+    "name": "Emperor's Amulet D",
+    "personaId": "emperors-amulet",
+    "skillIds": [],
+    "sp": 240,
+    "stats": {
+      "agility": 35,
+      "endurance": 28,
+      "luck": 30,
+      "magic": 35,
+      "strength": 35
+    },
+    "yen": 25000
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "dormina",
+      "items": [
+        "Ambergris LU",
+        "Sleep Vial S"
+      ],
+      "material": "Iron Sand"
+    },
+    "exp": 72,
+    "hp": 373,
+    "id": "envoy-of-slumber",
+    "kind": "shadow",
+    "level": 23,
+    "name": "Envoy of Slumber",
+    "personaId": "sandman",
+    "skillIds": [
+      "dormina"
+    ],
+    "sp": 254,
+    "stats": {
+      "agility": 18,
+      "endurance": 18,
+      "luck": 16,
+      "magic": 22,
+      "strength": 32
+    },
+    "yen": 320
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hierophant",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "fire-break",
+      "items": [
+        "Mystery Stew",
+        "Straw Doll"
+      ],
+      "material": "Condenser Lens"
+    },
+    "exp": 28,
+    "hp": 262,
+    "id": "equine-sage",
+    "kind": "shadow",
+    "level": 17,
+    "name": "Equine Sage",
+    "personaId": "orobas",
+    "skillIds": [
+      "maragi",
+      "agi",
+      "sukukaja"
+    ],
+    "sp": 195,
+    "stats": {
+      "agility": 19,
+      "endurance": 17,
+      "luck": 13,
+      "magic": 38,
+      "strength": 16
+    },
+    "yen": 302
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "null",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "null"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "heat-riser",
+      "items": [
+        "Idaten Ofuda",
+        "Nirvana LU",
+        "Soul Drop"
+      ],
+      "material": "Red Phosphorus"
+    },
+    "exp": 921,
+    "hp": 558,
+    "id": "evil-synthetic-organism",
+    "kind": "shadow",
+    "level": 70,
+    "name": "Evil Synthetic Organism",
+    "personaId": "byakhee",
+    "skillIds": [
+      "agidyne",
+      "terror-claw",
+      "heat-riser",
+      "diarahan",
+      "foul-breath"
+    ],
+    "sp": 264,
+    "stats": {
+      "agility": 49,
+      "endurance": 42,
+      "luck": 38,
+      "magic": 62,
+      "strength": 53
+    },
+    "yen": 981
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "drain",
+      "gun": "repel",
+      "ice": "neutral",
+      "nuke": "drain",
+      "phys": "repel",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": "Sooty Scale Armor",
+      "cardSkillId": "gigantomachia",
+      "items": [],
+      "material": null
+    },
+    "exp": 7500,
+    "hp": 2006,
+    "id": "evil-voracious-dragon",
+    "kind": "shadow",
+    "level": 86,
+    "name": "Evil Voracious Dragon",
+    "personaId": "fafnir",
+    "skillIds": [
+      "gigantomachia",
+      "cosmic-flare",
+      "nocturnal-flash",
+      "concentrate",
+      "debilitate",
+      "nuke-break",
+      "nuke-amp"
+    ],
+    "sp": 658,
+    "stats": {
+      "agility": 58,
+      "endurance": 60,
+      "luck": 49,
+      "magic": 99,
+      "strength": 99
+    },
+    "yen": 9000
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "faith",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": "Sooty Horn",
+      "cardSkillId": "kouga",
+      "items": [],
+      "material": "Iron Sand"
+    },
+    "exp": 402,
+    "hp": 495,
+    "id": "expressionless-beast",
+    "kind": "shadow",
+    "level": 39,
+    "name": "Expressionless Beast",
+    "personaId": "unicorn",
+    "skillIds": [
+      "assault-dive",
+      "kougaon"
+    ],
+    "sp": 222,
+    "stats": {
+      "agility": 35,
+      "endurance": 29,
+      "luck": 34,
+      "magic": 25,
+      "strength": 31
+    },
+    "yen": 623
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "neutral",
+      "elec": "repel",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "drain"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fortune",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "diarahan",
+      "items": [],
+      "material": null
+    },
+    "exp": 821,
+    "hp": 738,
+    "id": "final-assessor",
+    "kind": "shadow",
+    "level": 52,
+    "name": "Final Assessor",
+    "personaId": "norn",
+    "skillIds": [
+      "garudyne",
+      "ziodyne",
+      "diarama"
+    ],
+    "sp": 421,
+    "stats": {
+      "agility": 35,
+      "endurance": 35,
+      "luck": 32,
+      "magic": 88,
+      "strength": 40
+    },
+    "yen": 1400
+  },
+  {
+    "affinities": {
+      "bless": "repel",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "null",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "null"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": true,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Qliphoth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mahamaon",
+      "items": [
+        "Hell Magatama",
+        "Homunculus",
+        "Sacramental Bread"
+      ],
+      "material": null
+    },
+    "exp": 1964,
+    "hp": 757,
+    "id": "fire-assassin",
+    "kind": "shadow",
+    "level": 72,
+    "name": "Fire Assassin",
+    "personaId": "throne",
+    "skillIds": [
+      "hamaon",
+      "inferno",
+      "fire-amp",
+      "burn-boost"
+    ],
+    "sp": 426,
+    "stats": {
+      "agility": 49,
+      "endurance": 43,
+      "luck": 39,
+      "magic": 99,
+      "strength": 55
+    },
+    "yen": 9500
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "temperance",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "taunt",
+      "items": [],
+      "material": "Cork Bark"
+    },
+    "exp": 22,
+    "hp": 168,
+    "id": "foolish-monk",
+    "kind": "shadow",
+    "level": 11,
+    "name": "Foolish Monk",
+    "personaId": "koppa-tengu",
+    "skillIds": [
+      "sukukaja",
+      "taunt"
+    ],
+    "sp": 87,
+    "stats": {
+      "agility": 13,
+      "endurance": 9,
+      "luck": 9,
+      "magic": 8,
+      "strength": 11
+    },
+    "yen": 386
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "resist",
+      "ice": "repel",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "counterstrike",
+      "items": [],
+      "material": "Condenser Lens"
+    },
+    "exp": 578,
+    "hp": 524,
+    "id": "funerary-warrior",
+    "kind": "shadow",
+    "level": 44,
+    "name": "Funerary Warrior",
+    "personaId": "valkyrie",
+    "skillIds": [
+      "rising-slash",
+      "counterstrike",
+      "dodge-phys",
+      "tarukaja"
+    ],
+    "sp": 261,
+    "stats": {
+      "agility": 32,
+      "endurance": 29,
+      "luck": 26,
+      "magic": 33,
+      "strength": 72
+    },
+    "yen": 735
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Adyeshach"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "tetra-break",
+      "items": [],
+      "material": "Thick Parchment"
+    },
+    "exp": 182,
+    "hp": 367,
+    "id": "fused-ghost",
+    "kind": "shadow",
+    "level": 38,
+    "name": "Fused Ghost",
+    "personaId": "legion",
+    "skillIds": [
+      "eigaon",
+      "bloodbath"
+    ],
+    "sp": 240,
+    "stats": {
+      "agility": 23,
+      "endurance": 25,
+      "luck": 21,
+      "magic": 32,
+      "strength": 44
+    },
+    "yen": 856
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "pulinpa",
+      "items": [
+        "Extinguish Orb",
+        "Rancid Gravy",
+        "Revival Bead"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 4,
+    "hp": 163,
+    "id": "gallows-flower",
+    "kind": "shadow",
+    "level": 3,
+    "name": "Gallows Flower",
+    "personaId": "mandrake",
+    "skillIds": [],
+    "sp": 48,
+    "stats": {
+      "agility": 3,
+      "endurance": 3,
+      "luck": 5,
+      "magic": 4,
+      "strength": 1
+    },
+    "yen": 121
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": true,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Kaitul"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "eiga",
+      "items": [
+        "Revival Bead"
+      ],
+      "material": "Iron Sand"
+    },
+    "exp": 104,
+    "hp": 240,
+    "id": "gathering-devil",
+    "kind": "shadow",
+    "level": 28,
+    "name": "Gathering Devil",
+    "personaId": "choronzon",
+    "skillIds": [
+      "maeiha",
+      "rampage",
+      "pulinpa"
+    ],
+    "sp": 180,
+    "stats": {
+      "agility": 24,
+      "endurance": 23,
+      "luck": 25,
+      "magic": 22,
+      "strength": 21
+    },
+    "yen": 199
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "repel",
+      "gun": "weak",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": "Sooty Cheongsam",
+      "cardSkillId": "agilao",
+      "items": [],
+      "material": "Plant Balm"
+    },
+    "exp": 18,
+    "hp": 169,
+    "id": "girl-of-the-hanging-tree",
+    "kind": "shadow",
+    "level": 9,
+    "name": "Girl of the Hanging Tree",
+    "personaId": "hua-po",
+    "skillIds": [
+      "agi"
+    ],
+    "sp": 105,
+    "stats": {
+      "agility": 8,
+      "endurance": 6,
+      "luck": 14,
+      "magic": 16,
+      "strength": 8
+    },
+    "yen": 287
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "megaton-raid",
+      "items": [
+        "Physical Ointment"
+      ],
+      "material": "Iron Sand"
+    },
+    "exp": 362,
+    "hp": 736,
+    "id": "guard-dog-of-hades",
+    "kind": "shadow",
+    "level": 55,
+    "name": "Guard Dog of Hades",
+    "personaId": "cerberus",
+    "skillIds": [
+      "maragidyne",
+      "megaton-raid",
+      "agidyne",
+      "high-counter",
+      "burn-boost"
+    ],
+    "sp": 393,
+    "stats": {
+      "agility": 45,
+      "endurance": 32,
+      "luck": 33,
+      "magic": 66,
+      "strength": 68
+    },
+    "yen": 712
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "repel",
+      "nuke": "repel",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": "Sooty Rogue's Garb",
+      "cardSkillId": "maragidyne",
+      "items": [
+        "Magic Ointment"
+      ],
+      "material": null
+    },
+    "exp": 928,
+    "hp": 650,
+    "id": "harlot-of-desire",
+    "kind": "shadow",
+    "level": 60,
+    "name": "Harlot of Desire",
+    "personaId": "lilith",
+    "skillIds": [
+      "mabufudyne",
+      "freidyne",
+      "mafreidyne",
+      "spirit-drain",
+      "freeze-boost"
+    ],
+    "sp": 477,
+    "stats": {
+      "agility": 43,
+      "endurance": 41,
+      "luck": 40,
+      "magic": 89,
+      "strength": 42
+    },
+    "yen": 932
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "kouha",
+      "items": [
+        "Baptismal Water",
+        "Life Stone",
+        "Sacramental Bread"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 21,
+    "hp": 190,
+    "id": "heavenly-punisher",
+    "kind": "shadow",
+    "level": 14,
+    "name": "Heavenly Punisher",
+    "personaId": "archangel",
+    "skillIds": [
+      "cleave",
+      "vajra-blast"
+    ],
+    "sp": 117,
+    "stats": {
+      "agility": 12,
+      "endurance": 9,
+      "luck": 11,
+      "magic": 15,
+      "strength": 10
+    },
+    "yen": 320
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "null",
+      "elec": "repel",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "councillor",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "debilitate",
+      "items": [
+        "Amrita Soda",
+        "Hiranya",
+        "Soul Drop"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 972,
+    "hp": 708,
+    "id": "hedonistic-braggart",
+    "kind": "shadow",
+    "level": 71,
+    "name": "Hedonistic Braggart",
+    "personaId": "dionysus",
+    "skillIds": [
+      "ziodyne",
+      "maziodyne",
+      "thermopylae",
+      "debilitate"
+    ],
+    "sp": 426,
+    "stats": {
+      "agility": 50,
+      "endurance": 46,
+      "luck": 39,
+      "magic": 91,
+      "strength": 55
+    },
+    "yen": 1025
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "freeze-boost",
+      "items": [
+        "Five-inch Nail",
+        "Ouija Board"
+      ],
+      "material": "Red Phosphorus"
+    },
+    "exp": 421,
+    "hp": 666,
+    "id": "heretic-goat",
+    "kind": "shadow",
+    "level": 58,
+    "name": "Heretic Goat",
+    "personaId": "baphomet",
+    "skillIds": [
+      "agidyne",
+      "bufudyne",
+      "ziodyne",
+      "burn-boost",
+      "freeze-boost",
+      "shock-boost"
+    ],
+    "sp": 444,
+    "stats": {
+      "agility": 47,
+      "endurance": 36,
+      "luck": 38,
+      "magic": 80,
+      "strength": 34
+    },
+    "yen": 726
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "death",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 3000,
+    "hp": 2300,
+    "id": "hope-diamond-d",
+    "kind": "shadow",
+    "level": 40,
+    "name": "Hope Diamond D",
+    "personaId": "hope-diamond",
+    "skillIds": [],
+    "sp": 270,
+    "stats": {
+      "agility": 50,
+      "endurance": 25,
+      "luck": 40,
+      "magic": 40,
+      "strength": 40
+    },
+    "yen": 30000
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "null",
+      "ice": "resist",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": "Sooty Ogress' Gear",
+      "cardSkillId": "wage-war",
+      "items": [
+        "Incense EN"
+      ],
+      "material": "Iron Sand"
+    },
+    "exp": 77,
+    "hp": 262,
+    "id": "human-eating-lady",
+    "kind": "shadow",
+    "level": 20,
+    "name": "Human-Eating Lady",
+    "personaId": "yaksini",
+    "skillIds": [
+      "wage-war"
+    ],
+    "sp": 132,
+    "stats": {
+      "agility": 15,
+      "endurance": 15,
+      "luck": 2,
+      "magic": 14,
+      "strength": 16
+    },
+    "yen": 318
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": "Sooty Boots",
+      "cardSkillId": "cleave",
+      "items": [
+        "Soul Drop"
+      ],
+      "material": null
+    },
+    "exp": 6,
+    "hp": 130,
+    "id": "hunting-puss-in-boots",
+    "kind": "shadow",
+    "level": 5,
+    "name": "Hunting Puss in Boots",
+    "personaId": "cait-sith",
+    "skillIds": [
+      "agi",
+      "cleave",
+      "tarukaja"
+    ],
+    "sp": 60,
+    "stats": {
+      "agility": 5,
+      "endurance": 4,
+      "luck": 3,
+      "magic": 5,
+      "strength": 5
+    },
+    "yen": 132
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "temperance",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mafrei",
+      "items": [],
+      "material": "Thick Parchment"
+    },
+    "exp": 68,
+    "hp": 305,
+    "id": "hunting-wolf-spirit",
+    "kind": "shadow",
+    "level": 15,
+    "name": "Hunting Wolf Spirit",
+    "personaId": "makami",
+    "skillIds": [
+      "double-fangs",
+      "mafrei"
+    ],
+    "sp": 111,
+    "stats": {
+      "agility": 13,
+      "endurance": 10,
+      "luck": 9,
+      "magic": 12,
+      "strength": 17
+    },
+    "yen": 698
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "repel",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "faith",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "brave-blade",
+      "items": [
+        "Hell Magatama"
+      ],
+      "material": null
+    },
+    "exp": 825,
+    "hp": 760,
+    "id": "infuriated-wisdom-king",
+    "kind": "shadow",
+    "level": 65,
+    "name": "Infuriated Wisdom King",
+    "personaId": "atavaka",
+    "skillIds": [
+      "oni-kagura",
+      "maragidyne",
+      "taunt",
+      "tarukaja",
+      "rage-boost",
+      "fire-amp"
+    ],
+    "sp": 345,
+    "stats": {
+      "agility": 38,
+      "endurance": 40,
+      "luck": 35,
+      "magic": 42,
+      "strength": 56
+    },
+    "yen": 1785
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "lovers",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "rakunda",
+      "items": [
+        "Brainwash Vial S",
+        "Idaten Ofuda",
+        "Life Stone"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 76,
+    "hp": 265,
+    "id": "jealous-lover",
+    "kind": "shadow",
+    "level": 19,
+    "name": "Jealous Lover",
+    "personaId": "leanan-sidhe",
+    "skillIds": [
+      "rakunda",
+      "psio",
+      "marin-karin"
+    ],
+    "sp": 129,
+    "stats": {
+      "agility": 13,
+      "endurance": 17,
+      "luck": 7,
+      "magic": 14,
+      "strength": 5
+    },
+    "yen": 314
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "masukunda",
+      "items": [],
+      "material": null
+    },
+    "exp": 591,
+    "hp": 404,
+    "id": "killer-teddy-bear",
+    "kind": "shadow",
+    "level": 65,
+    "name": "Killer Teddy Bear",
+    "personaId": "bugs",
+    "skillIds": [
+      "brain-shake"
+    ],
+    "sp": 210,
+    "stats": {
+      "agility": 42,
+      "endurance": 39,
+      "luck": 35,
+      "magic": 46,
+      "strength": 48
+    },
+    "yen": 860
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "weak",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 1500,
+    "hp": 1530,
+    "id": "koh-i-noor-d",
+    "kind": "shadow",
+    "level": 25,
+    "name": "Koh-i-Noor D",
+    "personaId": "koh-i-noor",
+    "skillIds": [],
+    "sp": 180,
+    "stats": {
+      "agility": 25,
+      "endurance": 24,
+      "luck": 25,
+      "magic": 25,
+      "strength": 25
+    },
+    "yen": 15000
+  },
+  {
+    "affinities": {
+      "bless": "repel",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "lovers",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "matarukaja",
+      "items": [],
+      "material": "Plant Balm"
+    },
+    "exp": 441,
+    "hp": 374,
+    "id": "lamenting-sacrifice",
+    "kind": "shadow",
+    "level": 42,
+    "name": "Lamenting Sacrifice",
+    "personaId": "kushinada",
+    "skillIds": [
+      "matarukaja",
+      "fire-wall",
+      "wind-wall",
+      "psy-wall"
+    ],
+    "sp": 261,
+    "stats": {
+      "agility": 35,
+      "endurance": 30,
+      "luck": 25,
+      "magic": 35,
+      "strength": 26
+    },
+    "yen": 673
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": "Sooty Elder's Armor",
+      "cardSkillId": "fire-wall",
+      "items": [],
+      "material": "Silk Yarn"
+    },
+    "exp": 22,
+    "hp": 188,
+    "id": "leafy-old-man",
+    "kind": "shadow",
+    "level": 9,
+    "name": "Leafy Old Man",
+    "personaId": "koropokkuru",
+    "skillIds": [
+      "bufu",
+      "sukunda"
+    ],
+    "sp": 93,
+    "stats": {
+      "agility": 10,
+      "endurance": 8,
+      "luck": 6,
+      "magic": 12,
+      "strength": 7
+    },
+    "yen": 286
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "null",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "hysterical-slap",
+      "items": [],
+      "material": "Red Phosphorus"
+    },
+    "exp": 286,
+    "hp": 418,
+    "id": "life-draining-spirit",
+    "kind": "shadow",
+    "level": 42,
+    "name": "Life-Draining Spirit",
+    "personaId": "kumbhanda",
+    "skillIds": [
+      "magarula",
+      "bloodbath",
+      "life-leech"
+    ],
+    "sp": 252,
+    "stats": {
+      "agility": 26,
+      "endurance": 24,
+      "luck": 21,
+      "magic": 32,
+      "strength": 39
+    },
+    "yen": 505
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "garu",
+      "items": [],
+      "material": "Tin Clasp"
+    },
+    "exp": 8,
+    "hp": 128,
+    "id": "mad-marsh-horse",
+    "kind": "shadow",
+    "level": 6,
+    "name": "Mad Marsh Horse",
+    "personaId": "kelpie",
+    "skillIds": [
+      "garu"
+    ],
+    "sp": 63,
+    "stats": {
+      "agility": 8,
+      "endurance": 5,
+      "luck": 6,
+      "magic": 5,
+      "strength": 6
+    },
+    "yen": 192
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "evil-touch",
+      "items": [
+        "Exorcism Water"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 132,
+    "hp": 354,
+    "id": "menacing-owlman",
+    "kind": "shadow",
+    "level": 27,
+    "name": "Menacing Owlman",
+    "personaId": "andras",
+    "skillIds": [
+      "terror-claw",
+      "evil-touch",
+      "ghastly-wail",
+      "foul-breath",
+      "fear-boost"
+    ],
+    "sp": 85,
+    "stats": {
+      "agility": 20,
+      "endurance": 17,
+      "luck": 16,
+      "magic": 21,
+      "strength": 36
+    },
+    "yen": 430
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "repel",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Qliphoth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "makougaon",
+      "items": [
+        "Sacramental Bread"
+      ],
+      "material": null
+    },
+    "exp": 1681,
+    "hp": 600,
+    "id": "merciless-inquisitor",
+    "kind": "shadow",
+    "level": 68,
+    "name": "Merciless Inquisitor",
+    "personaId": "dominion",
+    "skillIds": [
+      "hamaon",
+      "makougaon",
+      "makajamaon"
+    ],
+    "sp": 235,
+    "stats": {
+      "agility": 43,
+      "endurance": 41,
+      "luck": 37,
+      "magic": 86,
+      "strength": 51
+    },
+    "yen": 1200
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "null",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "fire-boost",
+      "items": [],
+      "material": "Tin Clasp"
+    },
+    "exp": 489,
+    "hp": 392,
+    "id": "midnight-queen",
+    "kind": "shadow",
+    "level": 43,
+    "name": "Midnight Queen",
+    "personaId": "queen-mab",
+    "skillIds": [
+      "mazionga",
+      "agidyne",
+      "concentrate",
+      "burn-boost"
+    ],
+    "sp": 414,
+    "stats": {
+      "agility": 28,
+      "endurance": 29,
+      "luck": 24,
+      "magic": 85,
+      "strength": 28
+    },
+    "yen": 720
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "null",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mamudoon",
+      "items": [
+        "Hell Magatama",
+        "Physical Ointment",
+        "Straw Doll"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 2780,
+    "hp": 1200,
+    "id": "missionary-of-depravity",
+    "kind": "shadow",
+    "level": 82,
+    "name": "Missionary of Depravity",
+    "personaId": "belial",
+    "skillIds": [
+      "mamudoon",
+      "maeigaon",
+      "bloodbath",
+      "mudoon",
+      "evade-bless",
+      "curse-amp"
+    ],
+    "sp": 512,
+    "stats": {
+      "agility": 55,
+      "endurance": 49,
+      "luck": 44,
+      "magic": 89,
+      "strength": 88
+    },
+    "yen": 2165
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "bufu",
+      "items": [
+        "Idaten Ofuda"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 26,
+    "hp": 214,
+    "id": "mocking-snowman",
+    "kind": "shadow",
+    "level": 11,
+    "name": "Mocking Snowman",
+    "personaId": "jack-frost",
+    "skillIds": [
+      "mabufu",
+      "freeze-boost"
+    ],
+    "sp": 99,
+    "stats": {
+      "agility": 13,
+      "endurance": 11,
+      "luck": 10,
+      "magic": 12,
+      "strength": 10
+    },
+    "yen": 362
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "drain",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "bufudyne",
+      "items": [
+        "Frost Magatama"
+      ],
+      "material": "Condenser Lens"
+    },
+    "exp": 802,
+    "hp": 893,
+    "id": "monarch-of-snow",
+    "kind": "shadow",
+    "level": 61,
+    "name": "Monarch of Snow",
+    "personaId": "king-frost",
+    "skillIds": [
+      "bufudyne",
+      "mabufudyne",
+      "megaton-raid",
+      "freeze-boost",
+      "ice-amp",
+      "concentrate"
+    ],
+    "sp": 328,
+    "stats": {
+      "agility": 38,
+      "endurance": 56,
+      "luck": 35,
+      "magic": 62,
+      "strength": 36
+    },
+    "yen": 1425
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "repel"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Akzeriyyuth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "brain-buster",
+      "items": [
+        "Brainwash Vial L",
+        "Revival Bead",
+        "Soul Drop"
+      ],
+      "material": "Aluminum Sheet"
+    },
+    "exp": 523,
+    "hp": 560,
+    "id": "monk-of-the-valley",
+    "kind": "shadow",
+    "level": 31,
+    "name": "Monk of the Valley",
+    "personaId": "kurama-tengu",
+    "skillIds": [
+      "mabufula",
+      "double-shot",
+      "masukunda"
+    ],
+    "sp": 228,
+    "stats": {
+      "agility": 23,
+      "endurance": 19,
+      "luck": 18,
+      "magic": 35,
+      "strength": 36
+    },
+    "yen": 2702
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "null"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mediarama",
+      "items": [],
+      "material": "Tanned Leather"
+    },
+    "exp": 426,
+    "hp": 445,
+    "id": "mountain-girl",
+    "kind": "shadow",
+    "level": 40,
+    "name": "Mountain Girl",
+    "personaId": "kikuri-hime",
+    "skillIds": [
+      "mediarama",
+      "energy-drop",
+      "patra"
+    ],
+    "sp": 246,
+    "stats": {
+      "agility": 42,
+      "endurance": 30,
+      "luck": 28,
+      "magic": 32,
+      "strength": 25
+    },
+    "yen": 671
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "skull-cracker",
+      "items": [],
+      "material": "Tin Clasp"
+    },
+    "exp": 71,
+    "hp": 312,
+    "id": "night-chimera",
+    "kind": "shadow",
+    "level": 20,
+    "name": "Night Chimera",
+    "personaId": "nue",
+    "skillIds": [
+      "maeiha",
+      "skull-cracker"
+    ],
+    "sp": 168,
+    "stats": {
+      "agility": 22,
+      "endurance": 20,
+      "luck": 13,
+      "magic": 26,
+      "strength": 29
+    },
+    "yen": 1205
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "snap",
+      "items": [
+        "Dizzy Vial S",
+        "Life Stone",
+        "Soul Drop"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 19,
+    "hp": 230,
+    "id": "night-walking-warrior",
+    "kind": "shadow",
+    "level": 9,
+    "name": "Night-Walking Warrior",
+    "personaId": "mokoi",
+    "skillIds": [
+      "tarukaja"
+    ],
+    "sp": 75,
+    "stats": {
+      "agility": 10,
+      "endurance": 10,
+      "luck": 5,
+      "magic": 6,
+      "strength": 15
+    },
+    "yen": 285
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": "Sooty Monkey Fur",
+      "cardSkillId": "tempest-slash",
+      "items": [
+        "Nirvana EN"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 431,
+    "hp": 332,
+    "id": "nimble-monkey-king",
+    "kind": "shadow",
+    "level": 64,
+    "name": "Nimble Monkey King",
+    "personaId": "hanuman",
+    "skillIds": [
+      "tempest-slash",
+      "vicious-strike",
+      "revolution",
+      "dodge-ice"
+    ],
+    "sp": 336,
+    "stats": {
+      "agility": 40,
+      "endurance": 40,
+      "luck": 30,
+      "magic": 38,
+      "strength": 46
+    },
+    "yen": 761
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "repel"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Chemdah"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "sukukaja",
+      "items": [
+        "Soul Drop"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 43,
+    "hp": 159,
+    "id": "noisy-mountain-spirit",
+    "kind": "shadow",
+    "level": 17,
+    "name": "Noisy Mountain Spirit",
+    "personaId": "sudama",
+    "skillIds": [
+      "mapsi",
+      "tarukaja"
+    ],
+    "sp": 150,
+    "stats": {
+      "agility": 16,
+      "endurance": 12,
+      "luck": 14,
+      "magic": 23,
+      "strength": 11
+    },
+    "yen": 307
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "faith",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 4000,
+    "hp": 2620,
+    "id": "orichalcum-d",
+    "kind": "shadow",
+    "level": 60,
+    "name": "Orichalcum D",
+    "personaId": "orichalcum",
+    "skillIds": [],
+    "sp": 375,
+    "stats": {
+      "agility": 50,
+      "endurance": 26,
+      "luck": 50,
+      "magic": 55,
+      "strength": 55
+    },
+    "yen": 50000
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "strength",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 2000,
+    "hp": 1650,
+    "id": "orlov-d",
+    "kind": "shadow",
+    "level": 30,
+    "name": "Orlov D",
+    "personaId": "orlov",
+    "skillIds": [],
+    "sp": 210,
+    "stats": {
+      "agility": 32,
+      "endurance": 27,
+      "luck": 30,
+      "magic": 30,
+      "strength": 30
+    },
+    "yen": 20000
+  },
+  {
+    "affinities": {
+      "bless": "drain",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "revolution",
+      "items": [],
+      "material": null
+    },
+    "exp": 918,
+    "hp": 718,
+    "id": "pagan-savior",
+    "kind": "shadow",
+    "level": 58,
+    "name": "Pagan Savior",
+    "personaId": "melchizedek",
+    "skillIds": [
+      "hamaon",
+      "matarukaja",
+      "revolution",
+      "gods-hand"
+    ],
+    "sp": 321,
+    "stats": {
+      "agility": 41,
+      "endurance": 40,
+      "luck": 50,
+      "magic": 39,
+      "strength": 75
+    },
+    "yen": 921
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Aiyatsbus"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "sukunda",
+      "items": [
+        "Life Stone",
+        "Soul Drop"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 9,
+    "hp": 206,
+    "id": "piggyback-demon",
+    "kind": "shadow",
+    "level": 8,
+    "name": "Piggyback Demon",
+    "personaId": "obariyon",
+    "skillIds": [
+      "lucky-punch",
+      "sukunda"
+    ],
+    "sp": 78,
+    "stats": {
+      "agility": 12,
+      "endurance": 11,
+      "luck": 7,
+      "magic": 8,
+      "strength": 14
+    },
+    "yen": 283
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "null",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": true,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "brain-shake",
+      "items": [],
+      "material": "Thick Parchment"
+    },
+    "exp": 34,
+    "hp": 223,
+    "id": "possessing-dog-ghost",
+    "kind": "shadow",
+    "level": 14,
+    "name": "Possessing Dog Ghost",
+    "personaId": "inugami",
+    "skillIds": [
+      "giant-slice",
+      "pulinpa",
+      "tarukaja"
+    ],
+    "sp": 105,
+    "stats": {
+      "agility": 12,
+      "endurance": 9,
+      "luck": 8,
+      "magic": 11,
+      "strength": 12
+    },
+    "yen": 535
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "weak",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "diarama",
+      "items": [
+        "Life Stone",
+        "Incense MA",
+        "Sleep Vial S"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 19,
+    "hp": 232,
+    "id": "prankster-leader",
+    "kind": "shadow",
+    "level": 16,
+    "name": "Prankster Leader",
+    "personaId": "high-pixie",
+    "skillIds": [
+      "diarama",
+      "pulinpa",
+      "dormina"
+    ],
+    "sp": 174,
+    "stats": {
+      "agility": 26,
+      "endurance": 13,
+      "luck": 17,
+      "magic": 32,
+      "strength": 10
+    },
+    "yen": 205
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "foul-breath",
+      "items": [],
+      "material": "Iron Sand"
+    },
+    "exp": 30,
+    "hp": 270,
+    "id": "pulsing-mud",
+    "kind": "shadow",
+    "level": 18,
+    "name": "Pulsing Mud",
+    "personaId": "black-ooze",
+    "skillIds": [
+      "sledgehammer",
+      "foul-breath"
+    ],
+    "sp": 182,
+    "stats": {
+      "agility": 8,
+      "endurance": 16,
+      "luck": 15,
+      "magic": 7,
+      "strength": 17
+    },
+    "yen": 296
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "repel",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Casino"
+    ],
+    "drops": {
+      "armor": "Sooty Grifter's Garb",
+      "cardSkillId": "deadly-fury",
+      "items": [],
+      "material": null
+    },
+    "exp": 4000,
+    "hp": 1290,
+    "id": "quaking-lady-of-shadow",
+    "kind": "shadow",
+    "level": 53,
+    "name": "Quaking Lady of Shadow",
+    "personaId": "skadi",
+    "skillIds": [
+      "fear-boost",
+      "freeze-boost",
+      "mabufudyne",
+      "maeigaon",
+      "evil-smile",
+      "deadly-fury",
+      "foul-breath"
+    ],
+    "sp": 465,
+    "stats": {
+      "agility": 29,
+      "endurance": 36,
+      "luck": 36,
+      "magic": 92,
+      "strength": 46
+    },
+    "yen": 4300
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "empress",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 500,
+    "hp": 970,
+    "id": "queens-necklace-d",
+    "kind": "shadow",
+    "level": 15,
+    "name": "Queen's Necklace D",
+    "personaId": "queens-necklace",
+    "skillIds": [],
+    "sp": 120,
+    "stats": {
+      "agility": 17,
+      "endurance": 24,
+      "luck": 20,
+      "magic": 15,
+      "strength": 15
+    },
+    "yen": 8000
+  },
+  {
+    "affinities": {
+      "bless": "repel",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "star",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "magarudyne",
+      "items": [],
+      "material": "Liquid Mercury"
+    },
+    "exp": 422,
+    "hp": 504,
+    "id": "raging-bird-god",
+    "kind": "shadow",
+    "level": 52,
+    "name": "Raging Bird God",
+    "personaId": "garuda",
+    "skillIds": [
+      "magarudyne",
+      "mind-slice",
+      "sukukaja",
+      "wind-boost"
+    ],
+    "sp": 366,
+    "stats": {
+      "agility": 53,
+      "endurance": 36,
+      "luck": 36,
+      "magic": 60,
+      "strength": 39
+    },
+    "yen": 752
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "drain",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Kaitul"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mabufu",
+      "items": [
+        "Extinguish Orb",
+        "Rasetsu Ofuda",
+        "Revival Bead"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 98,
+    "hp": 312,
+    "id": "raging-water-demon",
+    "kind": "shadow",
+    "level": 24,
+    "name": "Raging Water Demon",
+    "personaId": "sui-ki",
+    "skillIds": [
+      "bufula",
+      "mabufula",
+      "sledgehammer"
+    ],
+    "sp": 168,
+    "stats": {
+      "agility": 18,
+      "endurance": 21,
+      "luck": 16,
+      "magic": 22,
+      "strength": 17
+    },
+    "yen": 342
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "repel",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "repel",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": "Sooty Black Armor",
+      "cardSkillId": "deathbound",
+      "items": [],
+      "material": null
+    },
+    "exp": 2000,
+    "hp": 1623,
+    "id": "rebellious-elephant",
+    "kind": "shadow",
+    "level": 43,
+    "name": "Rebellious Elephant",
+    "personaId": "girimehkala",
+    "skillIds": [
+      "agidyne",
+      "deathbound",
+      "taunt",
+      "wage-war",
+      "mudoon"
+    ],
+    "sp": 569,
+    "stats": {
+      "agility": 28,
+      "endurance": 32,
+      "luck": 20,
+      "magic": 45,
+      "strength": 68
+    },
+    "yen": 3000
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 300,
+    "hp": 720,
+    "id": "regent-d",
+    "kind": "shadow",
+    "level": 10,
+    "name": "Regent D",
+    "personaId": "regent",
+    "skillIds": [],
+    "sp": 93,
+    "stats": {
+      "agility": 10,
+      "endurance": 10,
+      "luck": 10,
+      "magic": 11,
+      "strength": 12
+    },
+    "yen": 4000
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "drain"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "wind-boost",
+      "items": [
+        "Balm of Life",
+        "Cyclone Magatama",
+        "Soul Drop"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 4190,
+    "hp": 1026,
+    "id": "reviled-dictator",
+    "kind": "shadow",
+    "level": 82,
+    "name": "Reviled Dictator",
+    "personaId": "baal",
+    "skillIds": [
+      "ayamur",
+      "panta-rhei",
+      "charge"
+    ],
+    "sp": 328,
+    "stats": {
+      "agility": 52,
+      "endurance": 49,
+      "luck": 44,
+      "magic": 99,
+      "strength": 62
+    },
+    "yen": 2200
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "drain",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "null",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "brain-jack",
+      "items": [],
+      "material": "Red Phosphorus"
+    },
+    "exp": 452,
+    "hp": 670,
+    "id": "rhetorician-of-the-sea",
+    "kind": "shadow",
+    "level": 63,
+    "name": "Rhetorician of the Sea",
+    "personaId": "forneus",
+    "skillIds": [
+      "psiodyne",
+      "marin-karin",
+      "pulinpa",
+      "stagnant-air"
+    ],
+    "sp": 513,
+    "stats": {
+      "agility": 52,
+      "endurance": 10,
+      "luck": 28,
+      "magic": 98,
+      "strength": 41
+    },
+    "yen": 758
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "frei",
+      "items": [
+        "Mystery Stew",
+        "Relax Gel",
+        "Soul Drop"
+      ],
+      "material": null
+    },
+    "exp": 48,
+    "hp": 212,
+    "id": "rooftop-lion",
+    "kind": "shadow",
+    "level": 15,
+    "name": "Rooftop Lion",
+    "personaId": "shiisaa",
+    "skillIds": [
+      "frei"
+    ],
+    "sp": 96,
+    "stats": {
+      "agility": 16,
+      "endurance": 14,
+      "luck": 9,
+      "magic": 7,
+      "strength": 21
+    },
+    "yen": 585
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "resist",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "drain",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "psiodyne",
+      "items": [],
+      "material": null
+    },
+    "exp": 921,
+    "hp": 751,
+    "id": "sacrificial-pyrekeeper",
+    "kind": "shadow",
+    "level": 60,
+    "name": "Sacrificial Pyrekeeper",
+    "personaId": "moloch",
+    "skillIds": [
+      "maragidyne",
+      "agidyne",
+      "fire-boost",
+      "burn-boost"
+    ],
+    "sp": 402,
+    "stats": {
+      "agility": 47,
+      "endurance": 45,
+      "luck": 33,
+      "magic": 99,
+      "strength": 48
+    },
+    "yen": 925
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "repel",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Kaitul"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "vajra-blast",
+      "items": [
+        "Kongou Ofuda",
+        "Revival Bead"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 102,
+    "hp": 392,
+    "id": "samurai-killer",
+    "kind": "shadow",
+    "level": 25,
+    "name": "Samurai Killer",
+    "personaId": "kin-ki",
+    "skillIds": [
+      "rakukaja",
+      "vajra-blast",
+      "charge"
+    ],
+    "sp": 144,
+    "stats": {
+      "agility": 23,
+      "endurance": 27,
+      "luck": 12,
+      "magic": 13,
+      "strength": 37
+    },
+    "yen": 773
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "freidyne",
+      "items": [],
+      "material": "Tanned Leather"
+    },
+    "exp": 552,
+    "hp": 740,
+    "id": "scandalous-queen",
+    "kind": "shadow",
+    "level": 56,
+    "name": "Scandalous Queen",
+    "personaId": "titania",
+    "skillIds": [
+      "freidyne",
+      "ziodyne",
+      "concentrate"
+    ],
+    "sp": 378,
+    "stats": {
+      "agility": 49,
+      "endurance": 34,
+      "luck": 40,
+      "magic": 60,
+      "strength": 34
+    },
+    "yen": 713
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "neutral",
+      "elec": "null",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "lovers",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "nocturnal-flash",
+      "items": [],
+      "material": "Cork Bark"
+    },
+    "exp": 315,
+    "hp": 465,
+    "id": "self-infatuated-star",
+    "kind": "shadow",
+    "level": 48,
+    "name": "Self-Infatuated Star",
+    "personaId": "narcissus",
+    "skillIds": [
+      "dazzler"
+    ],
+    "sp": 70,
+    "stats": {
+      "agility": 39,
+      "endurance": 29,
+      "luck": 30,
+      "magic": 36,
+      "strength": 27
+    },
+    "yen": 632
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hierophant",
+    "areas": [
+      "Akzeriyyuth 3"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Thermopylae",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 945,
+    "hp": 2550,
+    "id": "shadow-akitsu",
+    "kind": "subboss",
+    "level": 39,
+    "name": "Shadow Akitsu",
+    "personaId": "legion",
+    "request": {
+      "date": "8/19, Moon 8",
+      "name": "Man of Many Faces and Debts",
+      "rank": "B"
+    },
+    "skillIds": [
+      "mudoon",
+      "maeiga",
+      "eigaon",
+      "stomach-blow",
+      "swift-strike",
+      "dekaja",
+      "life-leech"
+    ],
+    "sp": 820,
+    "stats": {
+      "agility": 18,
+      "endurance": 25,
+      "luck": 30,
+      "magic": 45,
+      "strength": 45
+    },
+    "yen": 17900
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Sheriruth II 14"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Immortal Vest"
+      ],
+      "material": null
+    },
+    "exp": 5600,
+    "hp": 3500,
+    "id": "shadow-asakura",
+    "kind": "subboss",
+    "level": 99,
+    "name": "Shadow Asakura",
+    "personaId": "mara",
+    "request": {
+      "date": "12/3, Complete Shido's Palace",
+      "name": "The Head Honcho in Showbiz",
+      "rank": "S"
+    },
+    "skillIds": [
+      "lunge",
+      "rampage",
+      "maragidyne",
+      "tarukaja",
+      "attack-master",
+      "sharp-student",
+      "charge"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 45,
+      "endurance": 10,
+      "luck": 60,
+      "magic": 99,
+      "strength": 99
+    },
+    "yen": 40190
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Kaitul 3"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Prophet's Hand"
+      ],
+      "material": null
+    },
+    "exp": 1430,
+    "hp": 1500,
+    "id": "shadow-fukurai",
+    "kind": "subboss",
+    "level": 47,
+    "name": "Shadow Fukurai",
+    "personaId": "baphomet",
+    "request": {
+      "date": "Fortune 7",
+      "name": "Debunking the Psychic!",
+      "rank": "C"
+    },
+    "skillIds": [
+      "psiodyne",
+      "eigaon",
+      "mudoon",
+      "mapsi",
+      "brain-jack",
+      "psy-boost"
+    ],
+    "sp": 366,
+    "stats": {
+      "agility": 32,
+      "endurance": 24,
+      "luck": 50,
+      "magic": 65,
+      "strength": 18
+    },
+    "yen": 22850
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "drain",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "null",
+      "phys": "neutral",
+      "psy": "null",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Kaitul 9"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Invigorate 3"
+      ],
+      "material": null
+    },
+    "exp": 915,
+    "hp": 1400,
+    "id": "shadow-honjo",
+    "kind": "subboss",
+    "level": 30,
+    "name": "Shadow Honjo",
+    "personaId": "take-minakata",
+    "request": {
+      "date": "Devil 7",
+      "name": "Fighting for Truth of Journalism",
+      "rank": "C"
+    },
+    "skillIds": [
+      "megidola",
+      "flash-bomb",
+      "invigorate-3"
+    ],
+    "sp": 26,
+    "stats": {
+      "agility": 24,
+      "endurance": 20,
+      "luck": 19,
+      "magic": 21,
+      "strength": 35
+    },
+    "yen": 17500
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Adyeshach 0"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Venture Saber",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 1460,
+    "hp": 3000,
+    "id": "shadow-isshiki",
+    "kind": "subboss",
+    "level": 50,
+    "name": "Shadow Isshiki",
+    "personaId": null,
+    "request": {
+      "date": "Hierophant 8",
+      "name": "The Money-grubbing Uncle",
+      "rank": "B"
+    },
+    "skillIds": [
+      "fast-heal",
+      "rising-slash",
+      "megidola",
+      "tarukaja"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 25,
+      "endurance": 10,
+      "luck": 32,
+      "magic": 35,
+      "strength": 60
+    },
+    "yen": 22960
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "weak",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hermit",
+    "areas": [
+      "Kaitul 10"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Shitamachi Reborn",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 1420,
+    "hp": 1800,
+    "id": "shadow-jochi",
+    "kind": "subboss",
+    "level": 40,
+    "name": "Shadow Jochi",
+    "personaId": "ippon-datara",
+    "request": {
+      "date": "8/30",
+      "name": "Who's Muscling in Yongen-Jaya?",
+      "rank": "C"
+    },
+    "skillIds": [
+      "rampage",
+      "sledgehammer",
+      "charge",
+      "tarukaja",
+      "rebellion"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 30,
+      "endurance": 18,
+      "luck": 99,
+      "magic": 16,
+      "strength": 50
+    },
+    "yen": 22810
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "strength",
+    "areas": [
+      "Akzeriyyuth 12"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "High Counter"
+      ],
+      "material": null
+    },
+    "exp": 2510,
+    "hp": 3000,
+    "id": "shadow-kiritani",
+    "kind": "subboss",
+    "level": 50,
+    "name": "Shadow Kiritani",
+    "personaId": "rakshasa",
+    "request": {
+      "date": "10/14",
+      "name": "The Killer Who Cleans Up Trash",
+      "rank": "B"
+    },
+    "skillIds": [
+      "tempest-slash",
+      "tarukaja",
+      "mind-slice",
+      "revolution",
+      "rebellion"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 35,
+      "endurance": 20,
+      "luck": 32,
+      "magic": 19,
+      "strength": 56
+    },
+    "yen": 28810
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "tower",
+    "areas": [
+      "Kaitul 8"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Theme Park Escort"
+      ],
+      "material": null
+    },
+    "exp": 935,
+    "hp": 1000,
+    "id": "shadow-kishi",
+    "kind": "subboss",
+    "level": 39,
+    "name": "Shadow Kishi",
+    "personaId": "kumbhanda",
+    "request": {
+      "date": "8/2, Work at Bar Crossroads x2",
+      "name": "We Aren't Just Your Slaves",
+      "rank": "C"
+    },
+    "skillIds": [
+      "brain-shake",
+      "eigaon",
+      "tetrakarn",
+      "makarakarn",
+      "diarahan",
+      "brainwash-boost",
+      "dekunda",
+      "dekaja"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 25,
+      "endurance": 18,
+      "luck": 60,
+      "magic": 20,
+      "strength": 60
+    },
+    "yen": 17800
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Adyeshach 3"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Growth 3",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 0,
+    "hp": 900,
+    "id": "shadow-magario-f",
+    "kind": "subboss",
+    "level": 47,
+    "name": "Shadow Magario F",
+    "personaId": "succubus",
+    "request": {
+      "date": "Hermit 7",
+      "name": "Daughter's Just a Meal Ticket",
+      "rank": "A"
+    },
+    "skillIds": [
+      "lullaby",
+      "spirit-drain",
+      "maragion",
+      "spirit-leech"
+    ],
+    "sp": 336,
+    "stats": {
+      "agility": 35,
+      "endurance": 20,
+      "luck": 60,
+      "magic": 55,
+      "strength": 16
+    },
+    "yen": 0
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Adyeshach 3"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 1450,
+    "hp": 1100,
+    "id": "shadow-magario-m",
+    "kind": "subboss",
+    "level": 48,
+    "name": "Shadow Magario M",
+    "personaId": "incubus",
+    "request": {
+      "date": "Hermit 7",
+      "name": "Daughter's Just a Meal Ticket",
+      "rank": "A"
+    },
+    "skillIds": [
+      "life-drain",
+      "one-shot-kill",
+      "dream-needle",
+      "maeiga",
+      "attack-master"
+    ],
+    "sp": 66,
+    "stats": {
+      "agility": 15,
+      "endurance": 25,
+      "luck": 35,
+      "magic": 4,
+      "strength": 85
+    },
+    "yen": 22920
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "weak",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "sun",
+    "areas": [
+      "Aiyatsbus 6"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Old Key",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 830,
+    "hp": 600,
+    "id": "shadow-makigami",
+    "kind": "subboss",
+    "level": 22,
+    "name": "Shadow Makigami",
+    "personaId": "mithras",
+    "request": {
+      "date": "6/18",
+      "name": "Phantom Thieves VS Burglary Ring",
+      "rank": "D"
+    },
+    "skillIds": [
+      "magarula",
+      "mabufula",
+      "dazzler",
+      "marakunda",
+      "diarama",
+      "tarukaja",
+      "rakukaja",
+      "sukukaja",
+      "summon"
+    ],
+    "sp": 80,
+    "stats": {
+      "agility": 15,
+      "endurance": 15,
+      "luck": 25,
+      "magic": 17,
+      "strength": 15
+    },
+    "yen": 12200
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Chemdah 8"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Sticky Hairball"
+      ],
+      "material": null
+    },
+    "exp": 890,
+    "hp": 1300,
+    "id": "shadow-mogami",
+    "kind": "subboss",
+    "level": 35,
+    "name": "Shadow Mogami",
+    "personaId": "bugs",
+    "request": {
+      "date": "7/10",
+      "name": "The Lovesick Cyberstalking Girl",
+      "rank": "C"
+    },
+    "skillIds": [
+      "brain-shake",
+      "marakunda",
+      "rakukaja",
+      "stagnant-air",
+      "life-drain"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 21,
+      "endurance": 20,
+      "luck": 25,
+      "magic": 13,
+      "strength": 25
+    },
+    "yen": 17200
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Kaitul 5"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Charge",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 900,
+    "hp": 6000,
+    "id": "shadow-naguri",
+    "kind": "subboss",
+    "level": 32,
+    "name": "Shadow Naguri",
+    "personaId": "kin-ki",
+    "request": {
+      "date": "8/5, Work at Flower Shop x2",
+      "name": "Who's Been Assaulting People?",
+      "rank": "C"
+    },
+    "skillIds": [
+      "counter",
+      "assault-dive",
+      "swift-strike",
+      "tarukaja"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 5,
+      "endurance": 5,
+      "luck": 21,
+      "magic": 18,
+      "strength": 45
+    },
+    "yen": 17300
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Qimranut 1"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Attachment Pearl",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 505,
+    "hp": 650,
+    "id": "shadow-nakanohara",
+    "kind": "subboss",
+    "level": 15,
+    "name": "Shadow Nakanohara",
+    "personaId": "obariyon",
+    "request": {
+      "date": "5/7",
+      "name": "Beware the Clingy Ex-boyfriend",
+      "rank": "D"
+    },
+    "skillIds": [
+      "tarukaja",
+      "rampage"
+    ],
+    "sp": 50,
+    "stats": {
+      "agility": 13,
+      "endurance": 10,
+      "luck": 9,
+      "magic": 10,
+      "strength": 10
+    },
+    "yen": 7200
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Akzeriyyuth 5"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Null Phys"
+      ],
+      "material": null
+    },
+    "exp": 2560,
+    "hp": 1800,
+    "id": "shadow-nejima",
+    "kind": "subboss",
+    "level": 45,
+    "name": "Shadow Nejima",
+    "personaId": "ose",
+    "request": {
+      "date": "9/4, Talk to gamer at Shibuya Arcade",
+      "name": "Winners Don't Use Cheats",
+      "rank": "B"
+    },
+    "skillIds": [
+      "oni-kagura",
+      "vicious-strike",
+      "double-fangs",
+      "stagnant-air"
+    ],
+    "sp": 1220,
+    "stats": {
+      "agility": 31,
+      "endurance": 28,
+      "luck": 28,
+      "magic": 21,
+      "strength": 41
+    },
+    "yen": 28860
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Adyeshach 11"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Soma"
+      ],
+      "material": null
+    },
+    "exp": 2850,
+    "hp": 3500,
+    "id": "shadow-oda",
+    "kind": "subboss",
+    "level": 62,
+    "name": "Shadow Oda",
+    "personaId": "dakini",
+    "request": {
+      "date": "Tower 8",
+      "name": "A Mother's Aggression",
+      "rank": "A"
+    },
+    "skillIds": [
+      "myriad-slashes",
+      "vorpal-blade",
+      "charge",
+      "mudoon",
+      "diarama",
+      "one-shot-kill",
+      "lullaby"
+    ],
+    "sp": 413,
+    "stats": {
+      "agility": 33,
+      "endurance": 25,
+      "luck": 70,
+      "magic": 33,
+      "strength": 80
+    },
+    "yen": 33090
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Chemdah 1"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Chinese Sweets",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 820,
+    "hp": 750,
+    "id": "shadow-odo",
+    "kind": "subboss",
+    "level": 23,
+    "name": "Shadow Odo",
+    "personaId": "setanta",
+    "request": {
+      "date": "6/6, Moon 4",
+      "name": "Part-time Job, Full-time Hell",
+      "rank": "C"
+    },
+    "skillIds": [
+      "assault-dive",
+      "charge",
+      "makarakarn",
+      "masukunda"
+    ],
+    "sp": 150,
+    "stats": {
+      "agility": 30,
+      "endurance": 16,
+      "luck": 22,
+      "magic": 18,
+      "strength": 25
+    },
+    "yen": 12100
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "null",
+      "elec": "resist",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "drain",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Chemdah 2"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Mediarama",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 850,
+    "hp": 800,
+    "id": "shadow-oyamada",
+    "kind": "subboss",
+    "level": 23,
+    "name": "Shadow Oyamada",
+    "personaId": "thoth",
+    "request": {
+      "date": "Death 7",
+      "name": "Bad Medicine",
+      "rank": "C"
+    },
+    "skillIds": [
+      "mazio",
+      "tarukaja",
+      "megido",
+      "concentrate"
+    ],
+    "sp": 1200,
+    "stats": {
+      "agility": 15,
+      "endurance": 10,
+      "luck": 15,
+      "magic": 15,
+      "strength": 16
+    },
+    "yen": 12400
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "fool",
+    "areas": [
+      "Aiyatsbus 5"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Evil Snow Crystal"
+      ],
+      "material": null
+    },
+    "exp": 300,
+    "hp": 600,
+    "id": "shadow-sakoda",
+    "kind": "subboss",
+    "level": 21,
+    "name": "Shadow Sakoda",
+    "personaId": "black-frost",
+    "request": {
+      "date": "Complete B3, Eavesdrop near School Gate",
+      "name": "One Who Bullies Bullies",
+      "rank": "D"
+    },
+    "skillIds": [
+      "mabufu",
+      "mamudo"
+    ],
+    "sp": 200,
+    "stats": {
+      "agility": 18,
+      "endurance": 16,
+      "luck": 5,
+      "magic": 25,
+      "strength": 15
+    },
+    "yen": 5000
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Aiyatsbus 7"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Whip Sword"
+      ],
+      "material": null
+    },
+    "exp": 810,
+    "hp": 800,
+    "id": "shadow-shimizu",
+    "kind": "subboss",
+    "level": 22,
+    "name": "Shadow Shimizu",
+    "personaId": "yaksini",
+    "request": {
+      "date": "6/6",
+      "name": "Sadism Is Just a Sign of Love",
+      "rank": "D"
+    },
+    "skillIds": [
+      "oni-kagura",
+      "tarukaja",
+      "charge"
+    ],
+    "sp": 500,
+    "stats": {
+      "agility": 15,
+      "endurance": 13,
+      "luck": 12,
+      "magic": 15,
+      "strength": 20
+    },
+    "yen": 12000
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "magician",
+    "areas": [
+      "Aiyatsbus 2"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Protein",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 520,
+    "hp": 650,
+    "id": "shadow-takanashi",
+    "kind": "subboss",
+    "level": 16,
+    "name": "Shadow Takanashi",
+    "personaId": "jack-frost",
+    "request": {
+      "date": "5/9",
+      "name": "The Bark and Bite of a Bully",
+      "rank": "D"
+    },
+    "skillIds": [
+      "lucky-punch",
+      "stomach-blow",
+      "evil-smile",
+      "evil-touch"
+    ],
+    "sp": 200,
+    "stats": {
+      "agility": 15,
+      "endurance": 10,
+      "luck": 99,
+      "magic": 17,
+      "strength": 18
+    },
+    "yen": 7600
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Chemdah 7"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Envy Chain"
+      ],
+      "material": null
+    },
+    "exp": 0,
+    "hp": 600,
+    "id": "shadow-takase-f",
+    "kind": "subboss",
+    "level": 30,
+    "name": "Shadow Takase F",
+    "personaId": "titania",
+    "request": {
+      "date": "Temperance 8",
+      "name": "A Teacher Maid to Suffer",
+      "rank": "C"
+    },
+    "skillIds": [
+      "bufudyne",
+      "mabufula",
+      "masukukaja",
+      "diarama"
+    ],
+    "sp": 850,
+    "stats": {
+      "agility": 18,
+      "endurance": 13,
+      "luck": 50,
+      "magic": 30,
+      "strength": 10
+    },
+    "yen": 0
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Chemdah 7"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 925,
+    "hp": 800,
+    "id": "shadow-takase-m",
+    "kind": "subboss",
+    "level": 31,
+    "name": "Shadow Takase M",
+    "personaId": "oberon",
+    "request": {
+      "date": "Temperance 8",
+      "name": "A Teacher Maid to Suffer",
+      "rank": "C"
+    },
+    "skillIds": [
+      "heat-wave",
+      "mazionga",
+      "zionga",
+      "rising-slash"
+    ],
+    "sp": 162,
+    "stats": {
+      "agility": 13,
+      "endurance": 13,
+      "luck": 15,
+      "magic": 13,
+      "strength": 30
+    },
+    "yen": 17600
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "resist",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "resist"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Akzeriyyuth 6"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Bead Chain"
+      ],
+      "material": null
+    },
+    "exp": 1440,
+    "hp": 1700,
+    "id": "shadow-togo",
+    "kind": "subboss",
+    "level": 48,
+    "name": "Shadow Togo",
+    "personaId": "lilim",
+    "request": {
+      "date": "Star 7",
+      "name": "Upstaging the Stage Mother",
+      "rank": "B"
+    },
+    "skillIds": [
+      "agidyne",
+      "maragion",
+      "bufudyne",
+      "mabufula",
+      "ziodyne",
+      "mazionga",
+      "garudyne",
+      "magarula",
+      "freidyne",
+      "mafreila",
+      "psiodyne",
+      "mapsio",
+      "eigaon",
+      "maeigaon",
+      "mudoon",
+      "mamudoon"
+    ],
+    "sp": 666,
+    "stats": {
+      "agility": 35,
+      "endurance": 18,
+      "luck": 60,
+      "magic": 65,
+      "strength": 21
+    },
+    "yen": 22890
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "repel",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Kaitul 1"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Blood Scimitar"
+      ],
+      "material": null
+    },
+    "exp": 910,
+    "hp": 2000,
+    "id": "shadow-tsuboi",
+    "kind": "subboss",
+    "level": 35,
+    "name": "Shadow Tsuboi",
+    "personaId": "pisaca",
+    "request": {
+      "date": "8/11, Work at Convenience Store x2",
+      "name": "Calling for Justice for Cats",
+      "rank": "C"
+    },
+    "skillIds": [
+      "flash-bomb",
+      "mudo",
+      "stagnant-air"
+    ],
+    "sp": 80,
+    "stats": {
+      "agility": 23,
+      "endurance": 20,
+      "luck": 20,
+      "magic": 18,
+      "strength": 30
+    },
+    "yen": 17400
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "drain",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Kaitul 4"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Weird Wrap"
+      ],
+      "material": null
+    },
+    "exp": 840,
+    "hp": 600,
+    "id": "shadow-tsuda",
+    "kind": "subboss",
+    "level": 40,
+    "name": "Shadow Tsuda",
+    "personaId": "belphegor",
+    "request": {
+      "date": "Hanged 7",
+      "name": "Shady Deal in the Shadows",
+      "rank": "C"
+    },
+    "skillIds": [
+      "bufudyne",
+      "mabufula",
+      "evil-smile",
+      "ghastly-wail"
+    ],
+    "sp": 600,
+    "stats": {
+      "agility": 24,
+      "endurance": 28,
+      "luck": 40,
+      "magic": 32,
+      "strength": 19
+    },
+    "yen": 12300
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "weak",
+      "wind": "drain"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Chemdah 3"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Sleep Stick",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 860,
+    "hp": 550,
+    "id": "shadow-uchimura",
+    "kind": "subboss",
+    "level": 34,
+    "name": "Shadow Uchimura",
+    "personaId": "fuu-ki",
+    "request": {
+      "date": "Fortune 0",
+      "name": "Ending the Boyfriend's Abuse",
+      "rank": "C"
+    },
+    "skillIds": [
+      "swift-strike",
+      "rampage",
+      "garula",
+      "tarukaja"
+    ],
+    "sp": 720,
+    "stats": {
+      "agility": 22,
+      "endurance": 22,
+      "luck": 18,
+      "magic": 20,
+      "strength": 27
+    },
+    "yen": 12500
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "drain",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Adyeshach 13"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [
+        "Haten Robe",
+        "Infinite Yen"
+      ],
+      "material": null
+    },
+    "exp": 2800,
+    "hp": 1700,
+    "id": "shadow-wakasa",
+    "kind": "subboss",
+    "level": 60,
+    "name": "Shadow Wakasa",
+    "personaId": "chernobog",
+    "request": {
+      "date": "11/25",
+      "name": "Swindling Old Folk is Pretty Low",
+      "rank": "A"
+    },
+    "skillIds": [
+      "brave-blade",
+      "heat-wave",
+      "diarahan",
+      "tentarafoo",
+      "sharp-student"
+    ],
+    "sp": 520,
+    "stats": {
+      "agility": 30,
+      "endurance": 15,
+      "luck": 80,
+      "magic": 19,
+      "strength": 75
+    },
+    "yen": 33050
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": "Sooty Divine Armor",
+      "cardSkillId": "mahama",
+      "items": [
+        "Hiranya"
+      ],
+      "material": "Condenser Lens"
+    },
+    "exp": 141,
+    "hp": 464,
+    "id": "she-of-life-and-death",
+    "kind": "shadow",
+    "level": 26,
+    "name": "She of Life and Death",
+    "personaId": "isis",
+    "skillIds": [
+      "hamaon",
+      "makouga",
+      "kouga"
+    ],
+    "sp": 272,
+    "stats": {
+      "agility": 20,
+      "endurance": 18,
+      "luck": 8,
+      "magic": 39,
+      "strength": 28
+    },
+    "yen": 585
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "negative-pile",
+      "items": [
+        "Fear Vial S",
+        "Life Stone",
+        "Physical Ointment"
+      ],
+      "material": "Tanned Leather"
+    },
+    "exp": 95,
+    "hp": 291,
+    "id": "slithering-snakewoman",
+    "kind": "shadow",
+    "level": 26,
+    "name": "Slithering Snakewoman",
+    "personaId": "lamia",
+    "skillIds": [
+      "mudo",
+      "evil-touch",
+      "foul-breath",
+      "life-leech",
+      "rising-slash"
+    ],
+    "sp": 192,
+    "stats": {
+      "agility": 17,
+      "endurance": 16,
+      "luck": 4,
+      "magic": 28,
+      "strength": 21
+    },
+    "yen": 410
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "repel"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "faith",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "one-shot-kill",
+      "items": [
+        "Empowering Ofuda",
+        "Rasetsu Ofuda",
+        "Soul Drop"
+      ],
+      "material": "Aluminum Sheet"
+    },
+    "exp": 2610,
+    "hp": 1021,
+    "id": "spear-wielding-general",
+    "kind": "shadow",
+    "level": 76,
+    "name": "Spear-Wielding General",
+    "personaId": "cu-chulainn",
+    "skillIds": [
+      "one-shot-kill",
+      "rebellion",
+      "apt-pupil",
+      "high-counter"
+    ],
+    "sp": 315,
+    "stats": {
+      "agility": 53,
+      "endurance": 52,
+      "luck": 44,
+      "magic": 57,
+      "strength": 99
+    },
+    "yen": 1700
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": true,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": true,
+      "hama": false,
+      "mudo": false,
+      "other": true,
+      "shock": true
+    },
+    "arcana": "fortune",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 1000,
+    "hp": 1250,
+    "id": "stone-of-scone-d",
+    "kind": "shadow",
+    "level": 20,
+    "name": "Stone of Scone D",
+    "personaId": "stone-of-scone",
+    "skillIds": [],
+    "sp": 150,
+    "stats": {
+      "agility": 22,
+      "endurance": 25,
+      "luck": 30,
+      "magic": 20,
+      "strength": 20
+    },
+    "yen": 12000
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "weak",
+      "elec": "drain",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "sun",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": "Sooty Feather Coat",
+      "cardSkillId": "mazionga",
+      "items": [],
+      "material": null
+    },
+    "exp": 192,
+    "hp": 370,
+    "id": "storm-invoking-ptarmigan",
+    "kind": "shadow",
+    "level": 34,
+    "name": "Storm-Invoking Ptarmigan",
+    "personaId": "thunderbird",
+    "skillIds": [
+      "shock-boost",
+      "ziodyne",
+      "mazionga"
+    ],
+    "sp": 212,
+    "stats": {
+      "agility": 26,
+      "endurance": 36,
+      "luck": 22,
+      "magic": 55,
+      "strength": 28
+    },
+    "yen": 498
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "marakukaja",
+      "items": [],
+      "material": "Thick Parchment"
+    },
+    "exp": 312,
+    "hp": 445,
+    "id": "strumming-veena-player",
+    "kind": "shadow",
+    "level": 50,
+    "name": "Strumming Veena Player",
+    "personaId": "sarasvati",
+    "skillIds": [
+      "tentarafoo",
+      "diarama",
+      "ice-wall",
+      "psy-wall"
+    ],
+    "sp": 300,
+    "stats": {
+      "agility": 41,
+      "endurance": 32,
+      "luck": 37,
+      "magic": 40,
+      "strength": 30
+    },
+    "yen": 651
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "drain",
+      "elec": "null",
+      "fire": "weak",
+      "gun": "resist",
+      "ice": "drain",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "death",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "bloodbath",
+      "items": [],
+      "material": null
+    },
+    "exp": 964,
+    "hp": 750,
+    "id": "the-black-avenger",
+    "kind": "shadow",
+    "level": 62,
+    "name": "The Black Avenger",
+    "personaId": "chernobog",
+    "skillIds": [
+      "mudoon",
+      "brave-blade",
+      "deathbound",
+      "bloodbath"
+    ],
+    "sp": 342,
+    "stats": {
+      "agility": 42,
+      "endurance": 39,
+      "luck": 34,
+      "magic": 42,
+      "strength": 85
+    },
+    "yen": 956
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "null",
+      "gun": "repel",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "repel",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": true,
+      "dizzy": false,
+      "fear": true,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "empress",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": "Sooty Regalia",
+      "cardSkillId": "vorpal-blade",
+      "items": [],
+      "material": null
+    },
+    "exp": 4500,
+    "hp": 1773,
+    "id": "the-blackened-fury",
+    "kind": "shadow",
+    "level": 63,
+    "name": "The Blackened Fury",
+    "personaId": "kali",
+    "skillIds": [
+      "brave-blade",
+      "vorpal-blade",
+      "heat-wave",
+      "bloodbath",
+      "tarukaja",
+      "charge"
+    ],
+    "sp": 623,
+    "stats": {
+      "agility": 44,
+      "endurance": 42,
+      "luck": 40,
+      "magic": 47,
+      "strength": 70
+    },
+    "yen": 5500
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "repel",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "null",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": "Sooty Dark Armor",
+      "cardSkillId": "mabufudyne",
+      "items": [
+        "Nirvana MA"
+      ],
+      "material": "Condenser Lens"
+    },
+    "exp": 2620,
+    "hp": 1346,
+    "id": "the-shadowed-one",
+    "kind": "shadow",
+    "level": 77,
+    "name": "The Shadowed One",
+    "personaId": "scathach",
+    "skillIds": [
+      "mabufudyne",
+      "elec-wall",
+      "myriad-slashes",
+      "freeze-boost",
+      "high-counter"
+    ],
+    "sp": 321,
+    "stats": {
+      "agility": 53,
+      "endurance": 47,
+      "luck": 43,
+      "magic": 99,
+      "strength": 52
+    },
+    "yen": 1600
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "weak",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "repel"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hierophant",
+    "areas": [
+      "Pyramid"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "wind-break",
+      "items": [
+        "Ambergris AG",
+        "Tetra Hammer"
+      ],
+      "material": "Aluminum Sheet"
+    },
+    "exp": 89,
+    "hp": 281,
+    "id": "thief-of-tablets",
+    "kind": "shadow",
+    "level": 25,
+    "name": "Thief of Tablets",
+    "personaId": "anzu",
+    "skillIds": [
+      "garula",
+      "masukukaja",
+      "assault-dive"
+    ],
+    "sp": 189,
+    "stats": {
+      "agility": 25,
+      "endurance": 16,
+      "luck": 15,
+      "magic": 22,
+      "strength": 28
+    },
+    "yen": 365
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "repel",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "tower",
+    "areas": [
+      "Qliphoth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "mapsiodyne",
+      "items": [
+        "Empowering Ofuda",
+        "Rasetsu Ofuda"
+      ],
+      "material": null
+    },
+    "exp": 2354,
+    "hp": 1840,
+    "id": "throbbing-king-of-desire",
+    "kind": "shadow",
+    "level": 73,
+    "name": "Throbbing King of Desire",
+    "personaId": "mara",
+    "skillIds": [
+      "psycho-force",
+      "brain-buster",
+      "mapsiodyne",
+      "brain-jack",
+      "psy-amp"
+    ],
+    "sp": 546,
+    "stats": {
+      "agility": 50,
+      "endurance": 26,
+      "luck": 40,
+      "magic": 99,
+      "strength": 99
+    },
+    "yen": 2800
+  },
+  {
+    "affinities": {
+      "bless": "resist",
+      "curse": "resist",
+      "elec": "null",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Depths"
+    ],
+    "drops": {
+      "armor": "Sooty Bolt Armor",
+      "cardSkillId": "maziodyne",
+      "items": [],
+      "material": null
+    },
+    "exp": 1842,
+    "hp": 1033,
+    "id": "thunder-emperor",
+    "kind": "shadow",
+    "level": 64,
+    "name": "Thunder Emperor",
+    "personaId": "thor",
+    "skillIds": [
+      "wild-thunder",
+      "megaton-raid",
+      "charge",
+      "concentrate",
+      "elec-amp",
+      "shock-boost"
+    ],
+    "sp": 568,
+    "stats": {
+      "agility": 46,
+      "endurance": 44,
+      "luck": 40,
+      "magic": 87,
+      "strength": 75
+    },
+    "yen": 1620
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "weak",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "weak",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "tower",
+    "areas": [
+      "Qliphoth"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": null,
+      "items": [],
+      "material": null
+    },
+    "exp": 1621,
+    "hp": 530,
+    "id": "torn-king-of-desire",
+    "kind": "shadow",
+    "level": 60,
+    "name": "Torn King of Desire",
+    "personaId": "mara",
+    "skillIds": [
+      "assault-dive",
+      "tarukaja",
+      "rakukaja",
+      "sukukaja",
+      "rebellion"
+    ],
+    "sp": 315,
+    "stats": {
+      "agility": 45,
+      "endurance": 40,
+      "luck": 40,
+      "magic": 35,
+      "strength": 50
+    },
+    "yen": 920
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "neutral",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "drain"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "star",
+    "areas": [
+      "Kaitul"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "garula",
+      "items": [
+        "Idaten Ofuda",
+        "Life Stone",
+        "Revival Bead"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 96,
+    "hp": 307,
+    "id": "tornado-devil",
+    "kind": "shadow",
+    "level": 23,
+    "name": "Tornado Devil",
+    "personaId": "fuu-ki",
+    "skillIds": [
+      "magarula",
+      "garula",
+      "tarukaja"
+    ],
+    "sp": 186,
+    "stats": {
+      "agility": 17,
+      "endurance": 19,
+      "luck": 11,
+      "magic": 29,
+      "strength": 21
+    },
+    "yen": 466
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "patra",
+      "items": [
+        "Devil Fruit",
+        "Life Stone",
+        "Soul Drop"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 7,
+    "hp": 142,
+    "id": "troublesome-housemaid",
+    "kind": "shadow",
+    "level": 6,
+    "name": "Troublesome Housemaid",
+    "personaId": "silky",
+    "skillIds": [
+      "dormina",
+      "bufu"
+    ],
+    "sp": 66,
+    "stats": {
+      "agility": 8,
+      "endurance": 5,
+      "luck": 8,
+      "magic": 6,
+      "strength": 4
+    },
+    "yen": 141
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "sleep-boost",
+      "items": [
+        "Alert Capsule",
+        "Devil Fruit",
+        "Life Stone"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 8,
+    "hp": 148,
+    "id": "twilight-prostitute",
+    "kind": "shadow",
+    "level": 7,
+    "name": "Twilight Prostitute",
+    "personaId": "succubus",
+    "skillIds": [
+      "dormina"
+    ],
+    "sp": 81,
+    "stats": {
+      "agility": 12,
+      "endurance": 6,
+      "luck": 8,
+      "magic": 10,
+      "strength": 5
+    },
+    "yen": 232
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "drain",
+      "gun": "neutral",
+      "ice": "weak",
+      "nuke": "resist",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "hanged",
+    "areas": [
+      "Bank"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "double-fangs",
+      "items": [
+        "Bead"
+      ],
+      "material": "Thick Parchment"
+    },
+    "exp": 72,
+    "hp": 365,
+    "id": "twin-headed-guardian",
+    "kind": "shadow",
+    "level": 21,
+    "name": "Twin-Headed Guardian",
+    "personaId": "orthrus",
+    "skillIds": [
+      "agilao",
+      "maragi",
+      "cornered-fang",
+      "double-fangs",
+      "burn-boost"
+    ],
+    "sp": 186,
+    "stats": {
+      "agility": 22,
+      "endurance": 14,
+      "luck": 14,
+      "magic": 31,
+      "strength": 30
+    },
+    "yen": 312
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "null",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Cruiser"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "psy-wall",
+      "items": [
+        "Arc Magatama",
+        "Magic Ointment"
+      ],
+      "material": "Silk Yarn"
+    },
+    "exp": 831,
+    "hp": 894,
+    "id": "unfaithful-dream-king",
+    "kind": "shadow",
+    "level": 66,
+    "name": "Unfaithful Dream-King",
+    "personaId": "oberon",
+    "skillIds": [
+      "heat-wave",
+      "matarukaja",
+      "evade-nuke",
+      "myriad-slashes"
+    ],
+    "sp": 360,
+    "stats": {
+      "agility": 43,
+      "endurance": 43,
+      "luck": 35,
+      "magic": 44,
+      "strength": 65
+    },
+    "yen": 1585
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "null",
+      "fire": "neutral",
+      "gun": "weak",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "resist",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "moon",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "makajamaon",
+      "items": [],
+      "material": "Iron Sand"
+    },
+    "exp": 120,
+    "hp": 354,
+    "id": "vampire-moth",
+    "kind": "shadow",
+    "level": 33,
+    "name": "Vampire Moth",
+    "personaId": "mothman",
+    "skillIds": [
+      "ziodyne",
+      "mazionga",
+      "life-leech"
+    ],
+    "sp": 180,
+    "stats": {
+      "agility": 25,
+      "endurance": 20,
+      "luck": 19,
+      "magic": 17,
+      "strength": 31
+    },
+    "yen": 462
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "repel",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "resist",
+      "phys": "weak",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "councillor",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "tetrakarn",
+      "items": [],
+      "material": "Liquid Mercury"
+    },
+    "exp": 102,
+    "hp": 249,
+    "id": "vicious-pentagram",
+    "kind": "shadow",
+    "level": 32,
+    "name": "Vicious Pentagram",
+    "personaId": "decarabia",
+    "skillIds": [
+      "tetrakarn",
+      "megidola",
+      "agidyne"
+    ],
+    "sp": 121,
+    "stats": {
+      "agility": 23,
+      "endurance": 20,
+      "luck": 18,
+      "magic": 26,
+      "strength": 34
+    },
+    "yen": 458
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "resist",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "chariot",
+    "areas": [
+      "Qimranut"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "tarunda",
+      "items": [
+        "Life Stone",
+        "Rancid Gravy",
+        "Revival Bead"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 10,
+    "hp": 121,
+    "id": "viscid-rotting-meat",
+    "kind": "shadow",
+    "level": 10,
+    "name": "Viscid Rotting Meat",
+    "personaId": "slime",
+    "skillIds": [
+      "tarunda"
+    ],
+    "sp": 72,
+    "stats": {
+      "agility": 5,
+      "endurance": 9,
+      "luck": 8,
+      "magic": 4,
+      "strength": 11
+    },
+    "yen": 252
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "resist",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "resist",
+      "psy": "null",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "eigaon",
+      "items": [
+        "Five-inch Nail",
+        "Life Stone",
+        "Ouija Board"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 968,
+    "hp": 532,
+    "id": "wandering-reviver",
+    "kind": "shadow",
+    "level": 74,
+    "name": "Wandering Reviver",
+    "personaId": "nebiros",
+    "skillIds": [
+      "mapsiodyne",
+      "marin-karin",
+      "brain-shake",
+      "brain-jack"
+    ],
+    "sp": 324,
+    "stats": {
+      "agility": 49,
+      "endurance": 44,
+      "luck": 40,
+      "magic": 75,
+      "strength": 48
+    },
+    "yen": 965
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "resist",
+      "elec": "weak",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "emperor",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "tarukaja",
+      "items": [
+        "Kongou Ofuda"
+      ],
+      "material": null
+    },
+    "exp": 54,
+    "hp": 285,
+    "id": "war-hungry-horseman",
+    "kind": "shadow",
+    "level": 16,
+    "name": "War-Hungry Horseman",
+    "personaId": "eligor",
+    "skillIds": [
+      "double-fangs",
+      "tarukaja"
+    ],
+    "sp": 108,
+    "stats": {
+      "agility": 10,
+      "endurance": 8,
+      "luck": 15,
+      "magic": 10,
+      "strength": 6
+    },
+    "yen": 910
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "resist",
+      "gun": "neutral",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "null",
+      "wind": "drain"
+    },
+    "ailmentResists": {
+      "brainwash": true,
+      "burn": false,
+      "despair": true,
+      "dizzy": true,
+      "fear": true,
+      "freeze": false,
+      "hama": true,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "star",
+    "areas": [
+      "Laboratory"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "wind-amp",
+      "items": [
+        "Debilitate Ofuda",
+        "Soul Drop",
+        "Vacuum Cutter"
+      ],
+      "material": "Condenser Lens"
+    },
+    "exp": 4500,
+    "hp": 1294,
+    "id": "warped-abyss",
+    "kind": "shadow",
+    "level": 84,
+    "name": "Warped Abyss",
+    "personaId": "hastur",
+    "skillIds": [
+      "abyssal-eye",
+      "vacuum-wave",
+      "nocturnal-flash",
+      "concentrate",
+      "evade-phys",
+      "wind-amp",
+      "dizzy-boost"
+    ],
+    "sp": 659,
+    "stats": {
+      "agility": 57,
+      "endurance": 58,
+      "luck": 54,
+      "magic": 99,
+      "strength": 78
+    },
+    "yen": 2300
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "weak",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "priestess",
+    "areas": [
+      "Museum"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "elec-wall",
+      "items": [
+        "Discharge Crystal",
+        "Soul Drop"
+      ],
+      "material": "Plant Balm"
+    },
+    "exp": 24,
+    "hp": 145,
+    "id": "waterside-nymph",
+    "kind": "shadow",
+    "level": 11,
+    "name": "Waterside Nymph",
+    "personaId": "apsaras",
+    "skillIds": [
+      "rebellion",
+      "fire-wall",
+      "ice-wall",
+      "elec-wall",
+      "wind-wall",
+      "nuke-wall"
+    ],
+    "sp": 105,
+    "stats": {
+      "agility": 13,
+      "endurance": 9,
+      "luck": 11,
+      "magic": 14,
+      "strength": 8
+    },
+    "yen": 312
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "weak",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "star",
+    "areas": [
+      "Aiyatsbus"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "psi",
+      "items": [
+        "Life Stone",
+        "Muscle Drink",
+        "Soul Drop"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 18,
+    "hp": 194,
+    "id": "wavering-tree-spirit",
+    "kind": "shadow",
+    "level": 11,
+    "name": "Wavering Tree Spirit",
+    "personaId": "kodama",
+    "skillIds": [
+      "rakunda",
+      "garu"
+    ],
+    "sp": 105,
+    "stats": {
+      "agility": 15,
+      "endurance": 10,
+      "luck": 13,
+      "magic": 14,
+      "strength": 12
+    },
+    "yen": 250
+  },
+  {
+    "affinities": {
+      "bless": "neutral",
+      "curse": "neutral",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "null",
+      "ice": "neutral",
+      "nuke": "weak",
+      "phys": "neutral",
+      "psy": "null",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "star",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": null,
+      "cardSkillId": "psio",
+      "items": [
+        "Life Stone",
+        "Makara Hammer",
+        "Soul Drop"
+      ],
+      "material": "Cork Bark"
+    },
+    "exp": 262,
+    "hp": 380,
+    "id": "wishless-star",
+    "kind": "shadow",
+    "level": 36,
+    "name": "Wishless Star",
+    "personaId": "kaiwan",
+    "skillIds": [
+      "psiodyne",
+      "makajam"
+    ],
+    "sp": 273,
+    "stats": {
+      "agility": 30,
+      "endurance": 28,
+      "luck": 27,
+      "magic": 45,
+      "strength": 30
+    },
+    "yen": 525
+  },
+  {
+    "affinities": {
+      "bless": "weak",
+      "curse": "null",
+      "elec": "neutral",
+      "fire": "neutral",
+      "gun": "neutral",
+      "ice": "resist",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "weak"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": false,
+      "mudo": true,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "devil",
+    "areas": [
+      "Spaceport"
+    ],
+    "drops": {
+      "armor": "Sooty Astro Armor",
+      "cardSkillId": "lullaby",
+      "items": [],
+      "material": "Tanned Leather"
+    },
+    "exp": 138,
+    "hp": 365,
+    "id": "woman-who-brings-ruin",
+    "kind": "shadow",
+    "level": 32,
+    "name": "Woman Who Brings Ruin",
+    "personaId": "lilim",
+    "skillIds": [
+      "spirit-drain",
+      "bufula",
+      "lullaby",
+      "fire-wall"
+    ],
+    "sp": 228,
+    "stats": {
+      "agility": 25,
+      "endurance": 20,
+      "luck": 18,
+      "magic": 34,
+      "strength": 28
+    },
+    "yen": 489
+  },
+  {
+    "affinities": {
+      "bless": "null",
+      "curse": "weak",
+      "elec": "resist",
+      "fire": "neutral",
+      "gun": "weak",
+      "ice": "neutral",
+      "nuke": "neutral",
+      "phys": "neutral",
+      "psy": "neutral",
+      "wind": "neutral"
+    },
+    "ailmentResists": {
+      "brainwash": false,
+      "burn": false,
+      "despair": false,
+      "dizzy": false,
+      "fear": false,
+      "freeze": false,
+      "hama": true,
+      "mudo": false,
+      "other": false,
+      "shock": false
+    },
+    "arcana": "justice",
+    "areas": [
+      "Castle"
+    ],
+    "drops": {
+      "armor": "Sooty Ladies' Armor",
+      "cardSkillId": "makajam",
+      "items": [
+        "Sacramental Bread"
+      ],
+      "material": "Tin Clasp"
+    },
+    "exp": 9,
+    "hp": 152,
+    "id": "zealous-messenger",
+    "kind": "shadow",
+    "level": 9,
+    "name": "Zealous Messenger",
+    "personaId": "angel",
+    "skillIds": [
+      "makajam"
+    ],
+    "sp": 78,
+    "stats": {
+      "agility": 6,
+      "endurance": 7,
+      "luck": 8,
+      "magic": 7,
+      "strength": 6
+    },
+    "yen": 236
+  }
+]
