@@ -395,3 +395,27 @@ code {
   flex: 1 1 0;
   min-height: 0;
 }
+
+/* ---- Compendium page chrome --------------------------------------------- *
+   The compendium (§4.6) is the app's most style-dense page; its own component
+   styles would top the 4 kB per-component budget, so its unique chrome lives
+   here — the same global escape hatch `.el-dot` and `.list-page` use. Every
+   selector below is used only by the compendium page. */
+.protag { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; padding: 0.6rem 0.85rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+.protag label { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; }
+.protag input { width: 4.5rem; padding: 0.35rem 0.5rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); background: var(--p-content-background); color: var(--p-text-color); font: inherit; }
+.protag small { color: var(--p-text-muted-color); font-size: 0.8rem; flex: 1 1 12rem; }
+.protag--unset { border-color: color-mix(in srgb, var(--p-primary-color) 45%, transparent); }
+.quickadd { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.9rem 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.06)); }
+.quickadd__title { margin: 0; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
+.quickadd__notice { margin: 0; display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: #4ade80; }
+.banner { display: flex; align-items: center; gap: 0.5rem; margin: 0; padding: 0.6rem 0.85rem; border-radius: var(--p-border-radius, 6px); font-size: 0.9rem; }
+.banner--error { background: color-mix(in srgb, #ef4444 15%, transparent); color: #fca5a5; border: 1px solid color-mix(in srgb, #ef4444 40%, transparent); }
+.lvedit { width: 3.2rem; padding: 0.25rem 0.35rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: 5px; background: var(--p-content-background); color: var(--p-text-color); font: inherit; font-size: 0.9rem; text-align: right; }
+.lvedit__base { font-size: 0.75rem; color: var(--p-text-muted-color); }
+.iconbtn { display: inline-flex; padding: 0.3rem; border: 0; background: transparent; color: var(--p-text-muted-color); cursor: pointer; border-radius: 5px; }
+.iconbtn:hover { color: var(--p-primary-color); background: var(--p-highlight-background, rgba(127,127,127,0.12)); }
+.modal__scrim { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; }
+.modal__panel { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max-content; max-width: min(34rem, 94vw); max-height: 88vh; overflow-y: auto; padding: 1.1rem 1.25rem; background: var(--p-content-background); border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 10px); box-shadow: 0 16px 48px rgba(0,0,0,0.45); z-index: 310; }
+.modal__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.85rem; }
+.modal__title { margin: 0; font-size: 1.15rem; }

@@ -8,6 +8,7 @@ import { GameRouteContext } from '../../../../shared/game-route';
 import { LoadState } from '../../../../shared/load-state/load-state';
 import { VirtualList } from '../../../../shared/virtual-list/virtual-list';
 import { createUrlState } from '../../../../shared/url-query';
+import { CompendiumStore } from '../../compendium/compendium.store';
 import { GameDataService } from '../../data/game-data.service';
 import type { Affinity, ElementId, Persona } from '../../model';
 import { ARCANA_ORDER, ELEMENT_ORDER, INHERIT_TYPE_ORDER } from '../../model/ids';
@@ -76,6 +77,10 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
             <span>Filters</span>
             @if (active()) { <span class="toolbar__dot" aria-label="filters active"></span> }
           </button>
+          <button class="toolbar__btn" type="button" [class.is-on]="filter().owned" [attr.aria-pressed]="filter().owned" (click)="patch({ owned: !filter().owned })" title="Show only personas in your compendium">
+            <i class="pi" [class.pi-check-circle]="filter().owned" [class.pi-book]="!filter().owned" aria-hidden="true"></i>
+            <span>In compendium</span>
+          </button>
           @if (active()) {
             <button class="toolbar__btn" type="button" (click)="clear()">
               <i class="pi pi-times" aria-hidden="true"></i><span>Clear</span>
@@ -142,7 +147,10 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
           <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="44" [row]="rowTpl" [trackBy]="trackId" [attr.aria-rowcount]="visible().length" />
           <ng-template #rowTpl let-p>
             <a class="grid grid--row" [routerLink]="nav.link('personas', p.id)">
-              <span class="cell cell--name">{{ p.name }}</span>
+              <span class="cell cell--name">
+                @if (owned().has(p.id)) { <i class="pi pi-check-circle owned-dot" [title]="ownedTitle(p.id)" aria-label="In your compendium" aria-hidden="false"></i> }
+                {{ p.name }}
+              </span>
               <span class="cell cell--arcana">{{ titleCase(p.arcana) }}</span>
               <span class="cell cell--lv">{{ p.level }}</span>
               <span class="cell cell--inherit col-md">{{ inheritLabel(p.inheritType) }}</span>
@@ -224,6 +232,7 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
     }
     .cell { overflow: hidden; }
     .cell--name { font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+    .owned-dot { color: #4ade80; font-size: 0.8rem; margin-right: 0.15rem; }
     .cell--arcana, .cell--inherit { text-transform: capitalize; color: var(--p-text-muted-color); font-size: 0.9rem; }
     .cell--lv { text-align: right; font-variant-numeric: tabular-nums; }
     .cell--trait { color: var(--p-text-muted-color); font-size: 0.85rem; text-overflow: ellipsis; white-space: nowrap; }
@@ -242,11 +251,15 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
 export class PersonaList {
   protected readonly data = inject(GameDataService);
   protected readonly nav = inject(GameRouteContext);
+  private readonly compendium = inject(CompendiumStore);
 
   protected readonly filter = createUrlState<PersonaFilter>({
     parse: parsePersonaFilter,
     serialize: serializePersonaFilter,
   });
+
+  /** Owned persona ids, for the badge glyph and the "in compendium" filter (task 30). */
+  protected readonly owned = computed(() => new Set(this.compendium.entryMap().keys()));
 
   protected readonly showFilters = signal(false);
   protected readonly statCols = STAT_COLUMNS;
@@ -269,11 +282,18 @@ export class PersonaList {
     return map;
   });
 
-  protected readonly visible = computed(() => sortPersonas(filterPersonas(this.personas(), this.filter()), this.filter()));
+  protected readonly visible = computed(() =>
+    sortPersonas(filterPersonas(this.personas(), this.filter(), this.owned()), this.filter()),
+  );
 
   protected readonly active = computed(() => isPersonaFilterActive(this.filter()));
 
   protected readonly trackId = (p: Persona): string => p.id;
+
+  protected ownedTitle(id: string): string {
+    const level = this.compendium.entryFor(id)?.level;
+    return level != null ? `In your compendium — Lv ${level}` : 'In your compendium';
+  }
 
   protected traitName(id: string | null): string {
     return id ? (this.traitsById().get(id) ?? id) : '—';

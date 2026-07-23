@@ -8,6 +8,7 @@ import { LoadState } from '../../../../shared/load-state/load-state';
 import { SkillChip } from '../../../../shared/skill-chip/skill-chip';
 import { VirtualList } from '../../../../shared/virtual-list/virtual-list';
 import { createUrlState } from '../../../../shared/url-query';
+import { CompendiumStore } from '../../compendium/compendium.store';
 import { GameDataService } from '../../data/game-data.service';
 import type { Skill } from '../../model';
 import { formatSkillCost, SKILL_ELEMENT_NAMES } from '../../ui/format';
@@ -91,6 +92,9 @@ const INHERITANCE_OPTIONS: readonly ChipOption[] = [
               <app-chip-multiselect label="Inheritance" [options]="inheritanceOptions" [selected]="filter().inheritance" (toggle)="toggleList('inheritance', $event)" />
               <button class="chip-toggle" type="button" [class.is-on]="filter().hasCard" [attr.aria-pressed]="filter().hasCard" (click)="patch({ hasCard: !filter().hasCard })">
                 <i class="pi" [class.pi-check]="filter().hasCard" [class.pi-id-card]="!filter().hasCard" aria-hidden="true"></i> Has skill card
+              </button>
+              <button class="chip-toggle" type="button" [class.is-on]="filter().knownByOwned" [attr.aria-pressed]="filter().knownByOwned" (click)="patch({ knownByOwned: !filter().knownByOwned })" title="Only skills a persona in your compendium holds">
+                <i class="pi" [class.pi-check]="filter().knownByOwned" [class.pi-book]="!filter().knownByOwned" aria-hidden="true"></i> Known by a persona I own
               </button></div>
           </div>
         }
@@ -182,9 +186,17 @@ const INHERITANCE_OPTIONS: readonly ChipOption[] = [
 export class SkillList {
   protected readonly data = inject(GameDataService);
   protected readonly nav = inject(GameRouteContext);
+  private readonly compendium = inject(CompendiumStore);
 
   protected readonly filter = createUrlState<SkillFilter>({ parse: parseSkillFilter, serialize: serializeSkillFilter });
   protected readonly showFilters = signal(false);
+
+  /** Skill ids held by any registered persona, for the "known by a persona I own" filter (task 30). */
+  private readonly knownByOwned = computed(() => {
+    const ids = new Set<string>();
+    for (const entry of this.compendium.entries()) for (const id of entry.skillIds) ids.add(id);
+    return ids;
+  });
 
   protected readonly elementOptions: readonly ChipOption[] = SKILL_ELEMENTS.map((e) => ({ value: e, label: SKILL_ELEMENT_NAMES[e as keyof typeof SKILL_ELEMENT_NAMES] }));
   protected readonly costOptions = COST_OPTIONS;
@@ -192,7 +204,9 @@ export class SkillList {
   protected readonly inheritanceOptions = INHERITANCE_OPTIONS;
 
   protected readonly skills = computed<readonly Skill[]>(() => this.data.data()?.skills ?? []);
-  protected readonly visible = computed(() => sortSkills(filterSkills(this.skills(), this.filter()), this.filter()));
+  protected readonly visible = computed(() =>
+    sortSkills(filterSkills(this.skills(), this.filter(), this.knownByOwned()), this.filter()),
+  );
   protected readonly active = computed(() => isSkillFilterActive(this.filter()));
 
   protected readonly formatCost = formatSkillCost;

@@ -32,6 +32,8 @@ export interface PersonaFilter {
   readonly levelMax: number | null;
   readonly affinityRelation: Affinity | null;
   readonly affinityElement: ElementId | null;
+  /** "In my compendium" — restricts to registered personas (task 30). */
+  readonly owned: boolean;
   readonly sort: PersonaSortKey;
   readonly dir: SortDir;
 }
@@ -45,6 +47,7 @@ export const DEFAULT_PERSONA_FILTER: PersonaFilter = {
   levelMax: null,
   affinityRelation: null,
   affinityElement: null,
+  owned: false,
   sort: 'level',
   dir: 'asc',
 };
@@ -81,8 +84,16 @@ function matchesAffinity(persona: Persona, relation: Affinity | null, element: E
   return Object.values(persona.affinities).some((a) => a === relation);
 }
 
-/** Apply every active filter. Order-independent; each clause is ANDed. */
-export function filterPersonas(personas: readonly Persona[], f: PersonaFilter): Persona[] {
+/**
+ * Apply every active filter. Order-independent; each clause is ANDed. The
+ * "in my compendium" clause needs the set of owned persona ids, which the page
+ * supplies from the compendium store (task 30) — pure code, no store import.
+ */
+export function filterPersonas(
+  personas: readonly Persona[],
+  f: PersonaFilter,
+  ownedIds?: ReadonlySet<string>,
+): Persona[] {
   return personas.filter(
     (p) =>
       matchesText(p, f.search) &&
@@ -91,7 +102,8 @@ export function filterPersonas(personas: readonly Persona[], f: PersonaFilter): 
       matchesAvailability(p, f.availability) &&
       (f.levelMin === null || p.level >= f.levelMin) &&
       (f.levelMax === null || p.level <= f.levelMax) &&
-      matchesAffinity(p, f.affinityRelation, f.affinityElement),
+      matchesAffinity(p, f.affinityRelation, f.affinityElement) &&
+      (!f.owned || (ownedIds?.has(p.id) ?? false)),
   );
 }
 
@@ -138,6 +150,7 @@ export function parsePersonaFilter(params: ParamMap): PersonaFilter {
     levelMax: parseInt10(params, 'lmax'),
     affinityRelation: relation && AFFINITIES.has(relation as Affinity) ? (relation as Affinity) : null,
     affinityElement: (params.get('affel') as ElementId | null) || null,
+    owned: params.get('owned') === '1',
     sort: sort && SORT_KEYS.has(sort as PersonaSortKey) ? (sort as PersonaSortKey) : 'level',
     dir: dir === 'desc' ? 'desc' : 'asc',
   };
@@ -153,6 +166,7 @@ export function serializePersonaFilter(f: PersonaFilter): Record<string, string 
     lmax: f.levelMax === null ? null : String(f.levelMax),
     aff: f.affinityRelation,
     affel: f.affinityRelation ? f.affinityElement : null,
+    owned: f.owned ? '1' : null,
     sort: f.sort === 'level' ? null : f.sort,
     dir: f.dir === 'asc' ? null : f.dir,
   };
@@ -167,6 +181,7 @@ export function isPersonaFilterActive(f: PersonaFilter): boolean {
     f.availability.length > 0 ||
     f.levelMin !== null ||
     f.levelMax !== null ||
-    f.affinityRelation !== null
+    f.affinityRelation !== null ||
+    f.owned
   );
 }

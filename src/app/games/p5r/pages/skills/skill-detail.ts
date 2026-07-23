@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { GameRouteContext } from '../../../../shared/game-route';
 import { LoadState } from '../../../../shared/load-state/load-state';
+import { CompendiumStore } from '../../compendium/compendium.store';
 import { GameDataService } from '../../data/game-data.service';
 import type { Persona, Shadow, Skill } from '../../model';
 import { INHERIT_TYPE_ORDER } from '../../model/ids';
@@ -68,7 +69,10 @@ interface CardRef {
                 <ul class="list">
                   @for (l of learnedBy(); track l.id) {
                     <li class="list__row">
-                      <a class="list__link" [routerLink]="nav.link('personas', l.id)">{{ l.name }}</a>
+                      <a class="list__link" [routerLink]="nav.link('personas', l.id)">
+                        @if (l.owned) { <i class="pi pi-check-circle owned-dot" title="In your compendium" aria-label="In your compendium"></i> }
+                        {{ l.name }}
+                      </a>
                       <span class="list__acq" [class.is-innate]="l.innate">{{ l.acquisition }}</span>
                     </li>
                   }
@@ -156,6 +160,7 @@ interface CardRef {
     .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; max-height: 22rem; overflow-y: auto; }
     .list__row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.35rem 0; border-top: 1px solid var(--p-content-border-color, rgba(127,127,127,0.12)); &:first-child { border-top: 0; } }
     .list__link { color: var(--p-text-color); text-decoration: none; font-weight: 500; &:hover { color: var(--p-primary-color); } }
+    .owned-dot { color: #4ade80; font-size: 0.78rem; margin-right: 0.1rem; }
     .list__acq { font-size: 0.8rem; color: var(--p-text-muted-color); font-variant-numeric: tabular-nums; }
     .list__acq.is-innate { color: var(--p-primary-color); }
 
@@ -176,6 +181,7 @@ interface CardRef {
 export class SkillDetail {
   protected readonly data = inject(GameDataService);
   protected readonly nav = inject(GameRouteContext);
+  private readonly compendium = inject(CompendiumStore);
   private readonly route = inject(ActivatedRoute);
 
   protected readonly formatCost = formatSkillCost;
@@ -204,6 +210,7 @@ export class SkillDetail {
 
   protected readonly learnedBy = computed(() => {
     const learners = this.data.skillLearnedBy().get(this.id()) ?? [];
+    const owned = this.compendium.entryMap();
     return [...learners]
       .sort((a, b) => acquisitionOrder(a) - acquisitionOrder(b) || 0)
       .map((l) => ({
@@ -211,6 +218,7 @@ export class SkillDetail {
         name: this.personasById().get(l.personaId)?.name ?? l.personaId,
         acquisition: formatAcquisition(l),
         innate: l.kind === 'innate',
+        owned: owned.has(l.personaId),
       }));
   });
 

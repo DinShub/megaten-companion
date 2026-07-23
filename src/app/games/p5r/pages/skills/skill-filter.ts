@@ -22,6 +22,8 @@ export interface SkillFilter {
   /** Tokens: `inheritable`, `unique`. */
   readonly inheritance: readonly string[];
   readonly hasCard: boolean;
+  /** "Known by a persona I own" — restricts to skills held by a compendium entry (task 30). */
+  readonly knownByOwned: boolean;
   readonly sort: SkillSortKey;
   readonly dir: SortDir;
 }
@@ -35,6 +37,7 @@ export const DEFAULT_SKILL_FILTER: SkillFilter = {
   target: [],
   inheritance: [],
   hasCard: false,
+  knownByOwned: false,
   sort: 'name',
   dir: 'asc',
 };
@@ -64,7 +67,16 @@ function matchesCostRange(skill: Skill, min: number | null, max: number | null):
   return (min === null || skill.cost.value >= min) && (max === null || skill.cost.value <= max);
 }
 
-export function filterSkills(skills: readonly Skill[], f: SkillFilter): Skill[] {
+/**
+ * Apply every active filter. The "known by a persona I own" clause needs the set
+ * of skill ids the user's registered personas hold, which the page supplies from
+ * the compendium store (task 30) — pure code, no store import.
+ */
+export function filterSkills(
+  skills: readonly Skill[],
+  f: SkillFilter,
+  knownIds?: ReadonlySet<string>,
+): Skill[] {
   return skills.filter(
     (s) =>
       matchesText(s, f.search) &&
@@ -73,7 +85,8 @@ export function filterSkills(skills: readonly Skill[], f: SkillFilter): Skill[] 
       matchesCostRange(s, f.costMin, f.costMax) &&
       (f.target.length === 0 || f.target.includes(s.target)) &&
       matchesInheritance(s, f.inheritance) &&
-      (!f.hasCard || s.cardSources.length > 0),
+      (!f.hasCard || s.cardSources.length > 0) &&
+      (!f.knownByOwned || (knownIds?.has(s.id) ?? false)),
   );
 }
 
@@ -116,6 +129,7 @@ export function parseSkillFilter(params: ParamMap): SkillFilter {
     target: parseList(params, 'target'),
     inheritance: parseList(params, 'inh'),
     hasCard: params.get('card') === '1',
+    knownByOwned: params.get('known') === '1',
     sort: sort && SORT_KEYS.has(sort as SkillSortKey) ? (sort as SkillSortKey) : 'name',
     dir: params.get('dir') === 'desc' ? 'desc' : 'asc',
   };
@@ -131,6 +145,7 @@ export function serializeSkillFilter(f: SkillFilter): Record<string, string | nu
     target: serializeList(f.target),
     inh: serializeList(f.inheritance),
     card: f.hasCard ? '1' : null,
+    known: f.knownByOwned ? '1' : null,
     sort: f.sort === 'name' ? null : f.sort,
     dir: f.dir === 'asc' ? null : f.dir,
   };
@@ -145,6 +160,7 @@ export function isSkillFilterActive(f: SkillFilter): boolean {
     f.costMax !== null ||
     f.target.length > 0 ||
     f.inheritance.length > 0 ||
-    f.hasCard
+    f.hasCard ||
+    f.knownByOwned
   );
 }

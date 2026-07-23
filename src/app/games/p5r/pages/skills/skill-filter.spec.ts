@@ -68,6 +68,14 @@ describe('skill filter', () => {
     expect(filterSkills(ALL, withFilter({ hasCard: true })).map((s) => s.id)).toEqual(['bufula']);
   });
 
+  it('filters to skills known by an owned persona (task 30)', () => {
+    const known = new Set(['agi', 'bufula']);
+    expect(filterSkills(ALL, withFilter({ knownByOwned: true }), known).map((s) => s.id).sort()).toEqual(['agi', 'bufula']);
+    // Without the known set the clause matches nothing rather than everything.
+    expect(filterSkills(ALL, withFilter({ knownByOwned: true })).length).toBe(0);
+    expect(filterSkills(ALL, withFilter({ knownByOwned: false }), known).length).toBe(ALL.length);
+  });
+
   it('sorts by rank and by cost, cost-less last', () => {
     expect(sortSkills(ALL, withFilter({ sort: 'rank', dir: 'asc' })).map((s) => s.id)).toEqual(['agi', 'bufula', 'megaton-raid', 'enduring-soul']);
     expect(sortSkills(ALL, withFilter({ sort: 'cost', dir: 'asc' })).map((s) => s.id)).toEqual(['agi', 'bufula', 'megaton-raid', 'enduring-soul']);

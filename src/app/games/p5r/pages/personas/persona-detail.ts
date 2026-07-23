@@ -7,6 +7,8 @@ import { AffinityGrid } from '../../../../shared/affinity-grid/affinity-grid';
 import { InheritMask } from '../../../../shared/inherit-mask/inherit-mask';
 import { GameRouteContext } from '../../../../shared/game-route';
 import { LoadState } from '../../../../shared/load-state/load-state';
+import { CompendiumStore } from '../../compendium/compendium.store';
+import { defaultEntryFor } from '../../compendium/quick-add';
 import { GameDataService } from '../../data/game-data.service';
 import type { LearnedSkill, LearnedTrait, Persona, Shadow, Skill } from '../../model';
 import {
@@ -67,7 +69,13 @@ interface SkillRow {
               }
             </div>
             <div class="head__actions">
-              <a class="btn btn--primary" [routerLink]="nav.link('compendium')"><i class="pi pi-plus" aria-hidden="true"></i> Register in compendium</a>
+              @if (registered(); as entry) {
+                <span class="btn btn--owned"><i class="pi pi-check-circle" aria-hidden="true"></i> Registered · Lv {{ entry.level }}</span>
+                <a class="btn" [routerLink]="nav.link('compendium')"><i class="pi pi-pencil" aria-hidden="true"></i> Manage</a>
+                <button class="btn" type="button" (click)="unregister(p.id)"><i class="pi pi-times" aria-hidden="true"></i> Unregister</button>
+              } @else {
+                <button class="btn btn--primary" type="button" (click)="register(p)"><i class="pi pi-plus" aria-hidden="true"></i> Register in compendium</button>
+              }
               @if (shadow(); as s) {
                 <a class="btn" [routerLink]="nav.link('shadow', s.id)"><i class="pi pi-eye" aria-hidden="true"></i> Shadow entry</a>
               }
@@ -189,6 +197,8 @@ interface SkillRow {
 
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); color: var(--p-text-color); text-decoration: none; font-size: 0.9rem; &:hover { border-color: var(--p-primary-color); } }
     .btn--primary { border-color: var(--p-primary-color); color: var(--p-primary-color); }
+    .btn--owned { border-color: color-mix(in srgb, #22c55e 55%, transparent); color: #4ade80; cursor: default; }
+    button.btn { font: inherit; cursor: pointer; }
 
     .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
     .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
@@ -229,10 +239,22 @@ interface SkillRow {
 export class PersonaDetail {
   protected readonly data = inject(GameDataService);
   protected readonly nav = inject(GameRouteContext);
+  private readonly compendium = inject(CompendiumStore);
   private readonly route = inject(ActivatedRoute);
 
   protected readonly statCols = STAT_COLUMNS;
   protected readonly titleCase = titleCase;
+
+  /** The compendium entry for this persona, if registered (task 30). Reactive. */
+  protected readonly registered = computed(() => this.compendium.entryMap().get(this.id()));
+
+  protected register(persona: Persona): void {
+    this.compendium.upsert(defaultEntryFor(persona));
+  }
+
+  protected unregister(personaId: string): void {
+    this.compendium.remove(personaId);
+  }
 
   protected readonly id = toSignal(this.route.paramMap.pipe(map((p) => p.get('id') ?? '')), {
     initialValue: this.route.snapshot.paramMap.get('id') ?? '',

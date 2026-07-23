@@ -51,8 +51,7 @@ const featureRoutes: Routes = [
 
   {
     path: 'compendium',
-    loadComponent: placeholder,
-    data: { title: 'Compendium', blurb: 'Your hand-maintained mirror of the personas you have registered.', phase: 'Phase 4' },
+    loadComponent: () => import('./pages/compendium/compendium-page').then((m) => m.CompendiumPage),
   },
 
   {

@@ -12,6 +12,7 @@ import {
 import { Router } from '@angular/router';
 
 import { GameRouteContext } from '../../../shared/game-route';
+import { CompendiumStore } from '../compendium/compendium.store';
 import { GameDataService } from '../data/game-data.service';
 import { titleCase } from './format';
 
@@ -87,7 +88,12 @@ const PER_GROUP = 6;
                     <div class="gs__grouphead">{{ group.label }}</div>
                     @for (item of group.items; track item.id) {
                       <button class="gs__item" type="button" (click)="goto(group.route, item.id)">
-                        <span class="gs__itemname">{{ item.name }}</span>
+                        <span class="gs__itemname">
+                          @if (group.kind === 'persona' && owned().has(item.id)) {
+                            <i class="pi pi-check-circle gs__owned" title="In your compendium" aria-label="In your compendium"></i>
+                          }
+                          {{ item.name }}
+                        </span>
                         <span class="gs__itemsub">{{ item.sub }}</span>
                       </button>
                     }
@@ -191,6 +197,11 @@ const PER_GROUP = 6;
     .gs__itemname {
       font-weight: 600;
     }
+    .gs__owned {
+      color: #4ade80;
+      font-size: 0.8rem;
+      margin-right: 0.2rem;
+    }
     .gs__itemsub {
       color: var(--p-text-muted-color);
       font-size: 0.8rem;
@@ -203,6 +214,10 @@ export class GlobalSearch {
   private readonly data = inject(GameDataService);
   private readonly router = inject(Router);
   private readonly nav = inject(GameRouteContext);
+  private readonly compendium = inject(CompendiumStore);
+
+  /** Owned persona ids, to badge persona results (task 30). */
+  protected readonly owned = computed(() => new Set(this.compendium.entryMap().keys()));
 
   protected readonly open = signal(false);
   protected readonly query = signal('');

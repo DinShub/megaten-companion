@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { AffinityGrid } from '../../../../shared/affinity-grid/affinity-grid';
 import { GameRouteContext } from '../../../../shared/game-route';
 import { LoadState } from '../../../../shared/load-state/load-state';
+import { CompendiumStore } from '../../compendium/compendium.store';
 import { GameDataService } from '../../data/game-data.service';
 import type { AilmentId, Persona, Shadow, Skill } from '../../model';
 import { AILMENT_ORDER } from '../../model/ids';
@@ -50,7 +51,10 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
               </div>
             </div>
             @if (persona(); as p) {
-              <a class="btn" [routerLink]="nav.link('personas', p.id)"><i class="pi pi-users" aria-hidden="true"></i> Persona: {{ p.name }}</a>
+              <a class="btn" [class.btn--owned]="personaOwned()" [routerLink]="nav.link('personas', p.id)">
+                <i class="pi" [class.pi-check-circle]="personaOwned()" [class.pi-users]="!personaOwned()" aria-hidden="true"></i>
+                Persona: {{ p.name }}@if (personaOwned()) { <span class="sr-only"> (in your compendium)</span> }
+              </a>
             }
           </header>
 
@@ -145,6 +149,8 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
     .head__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); font-size: 0.82rem; }
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); color: var(--p-text-color); text-decoration: none; font-size: 0.9rem; &:hover { border-color: var(--p-primary-color); } }
+    .btn--owned { border-color: color-mix(in srgb, #22c55e 50%, transparent); color: #4ade80; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
     .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
     .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
@@ -178,6 +184,7 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
 export class ShadowDetail {
   protected readonly data = inject(GameDataService);
   protected readonly nav = inject(GameRouteContext);
+  private readonly compendium = inject(CompendiumStore);
   private readonly route = inject(ActivatedRoute);
 
   protected readonly statCols = STAT_COLUMNS;
@@ -208,6 +215,12 @@ export class ShadowDetail {
   protected readonly persona = computed<Persona | undefined>(() => {
     const pid = this.shadow()?.personaId;
     return pid ? this.personasById().get(pid) : undefined;
+  });
+
+  /** Whether the linked persona is registered (task 30). */
+  protected readonly personaOwned = computed(() => {
+    const pid = this.persona()?.id;
+    return pid ? this.compendium.has(pid) : false;
   });
 
   protected readonly skillRows = computed(() => {

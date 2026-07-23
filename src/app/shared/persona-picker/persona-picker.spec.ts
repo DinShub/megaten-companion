@@ -21,7 +21,7 @@ describe('PersonaPicker', () => {
 
   it('renders the search field', () => {
     const { fixture } = make();
-    expect((fixture.nativeElement as HTMLElement).querySelector('p-autocomplete')).toBeTruthy();
+    expect((fixture.nativeElement as HTMLElement).querySelector('input[role="combobox"]')).toBeTruthy();
   });
 
   it('fuzzy-matches on name (subsequence) and on arcana', () => {
@@ -45,8 +45,7 @@ describe('PersonaPicker', () => {
     const { cmp } = make();
     let picked: PickerOption | undefined;
     cmp.picked.subscribe((o) => (picked = o));
-    // Simulate PrimeNG's onSelect payload.
-    (cmp as unknown as { choose(e: { value: PickerOption }): void }).choose({ value: OPTIONS[2] });
+    cmp.choose(OPTIONS[2]);
     expect(picked?.id).toBe('pixie');
   });
 });

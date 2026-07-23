@@ -86,6 +86,15 @@ describe('persona filter', () => {
     expect(sortPersonas(ALL, withFilter({ sort: 'level', dir: 'desc' })).map((p) => p.id)).toEqual(['alice', 'regent', 'jack-frost', 'orpheus', 'pixie']);
   });
 
+  it('filters to the compendium when owned is set (task 30)', () => {
+    const ownedIds = new Set(['pixie', 'alice']);
+    expect(filterPersonas(ALL, withFilter({ owned: true }), ownedIds).map((p) => p.id).sort()).toEqual(['alice', 'pixie']);
+    // Without the owned set the clause matches nothing rather than everything.
+    expect(filterPersonas(ALL, withFilter({ owned: true })).length).toBe(0);
+    // owned off ignores the set entirely.
+    expect(filterPersonas(ALL, withFilter({ owned: false }), ownedIds).length).toBe(ALL.length);
+  });
+
   it('round-trips through the URL query string', () => {
     const filter = withFilter({
       search: 'pix',
