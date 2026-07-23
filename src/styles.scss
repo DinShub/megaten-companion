@@ -337,3 +337,61 @@ code {
   color: var(--p-primary-color);
   font-size: 0.9em;
 }
+
+/* ---- Element colour dot ------------------------------------------------- *
+   Shared across the persona / skill / shadow detail readouts. Global rather
+   than a per-component style so the same 15-way colour map isn't duplicated
+   into three components' 4 kB style budgets (see AffinityGrid / skill-chip for
+   the canonical element palette). */
+.el-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: var(--p-text-muted-color);
+}
+.el-dot[data-el='phys'] { background: #f87171; }
+.el-dot[data-el='gun'] { background: #fbbf24; }
+.el-dot[data-el='fire'] { background: #fb7185; }
+.el-dot[data-el='ice'] { background: #38bdf8; }
+.el-dot[data-el='elec'] { background: #facc15; }
+.el-dot[data-el='wind'] { background: #34d399; }
+.el-dot[data-el='psy'] { background: #f0abfc; }
+.el-dot[data-el='nuke'] { background: #a3e635; }
+.el-dot[data-el='bless'] { background: #fde68a; }
+.el-dot[data-el='curse'] { background: #c084fc; }
+.el-dot[data-el='almighty'] { background: #e2e8f0; }
+.el-dot[data-el='ailment'] { background: #a78bfa; }
+.el-dot[data-el='support'] { background: #60a5fa; }
+.el-dot[data-el='healing'] { background: #4ade80; }
+.el-dot[data-el='passive'] { background: #94a3b8; }
+
+/* ---- Fill-height list page ---------------------------------------------- *
+   A reference-list page (personas / shadows / skills) whose virtualised table
+   extends to the bottom of the viewport instead of stopping at a fixed fraction,
+   so rows fill the screen and there's no dead space beneath the table. The page
+   is a flex column; this bounds its height and its `.tablewrap` grows to fill.
+   Offset ≈ app-bar + app-main padding (desktop) / bottom tab bar + padding
+   (mobile); the virtual list measures its own height, so being a few px off only
+   nudges where the table ends, never the row math. */
+.list-page {
+  --list-chrome: 7rem;
+  height: calc(100vh - var(--list-chrome));
+  height: calc(100dvh - var(--list-chrome));
+}
+/* Lists nested under a SectionLayout tab strip (Shadows, Sub-bosses) sit ~4rem
+   lower, so they reserve that much more chrome to avoid overrunning the screen. */
+.list-page--tabbed {
+  --list-chrome: 11rem;
+}
+/* The table area grows to fill the page; the virtual-list viewport fills that,
+   scrolling internally. `min-height` floors keep the list visible if the filter
+   panel is tall on a short screen (the page scrolls then instead of collapsing). */
+.list-page__body {
+  flex: 1 1 auto;
+  min-height: 8rem;
+}
+.list-page__scroll {
+  flex: 1 1 0;
+  min-height: 0;
+}

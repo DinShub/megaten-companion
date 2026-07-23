@@ -13,8 +13,11 @@ import type {
   GameDataMeta,
   InheritMatrix,
   Persona,
+  PersonaId,
   Shadow,
+  ShadowId,
   Skill,
+  SkillId,
   Trait,
 } from '../model';
 import { SettingsStore } from '../settings/settings.store';
@@ -25,6 +28,7 @@ import {
   buildInvertedSpecials,
   buildResultsByArcana,
   buildSkillLearnedBy,
+  type SkillLearner,
 } from './indexes';
 
 const EMPTY_ARCANA_MAP: ReadonlyMap<ArcanaId, readonly Persona[]> = new Map();
@@ -73,19 +77,19 @@ export class GameDataService {
   });
 
   /** Toggle-independent: memoised, so it rebuilds only once per data load. */
-  readonly skillLearnedBy = computed(() => {
+  readonly skillLearnedBy = computed<ReadonlyMap<SkillId, readonly SkillLearner[]>>(() => {
     const data = this._data();
-    return data ? buildSkillLearnedBy(data.personas) : new Map();
+    return data ? buildSkillLearnedBy(data.personas) : new Map<SkillId, SkillLearner[]>();
   });
 
-  readonly dropSources = computed(() => {
+  readonly dropSources = computed<ReadonlyMap<string, readonly ShadowId[]>>(() => {
     const data = this._data();
-    return data ? buildDropSources(data.shadows) : new Map();
+    return data ? buildDropSources(data.shadows) : new Map<string, ShadowId[]>();
   });
 
-  readonly invertedSpecials = computed(() => {
+  readonly invertedSpecials = computed<ReadonlyMap<PersonaId, readonly PersonaId[]>>(() => {
     const data = this._data();
-    return data ? buildInvertedSpecials(data.advancedRecipes) : new Map();
+    return data ? buildInvertedSpecials(data.advancedRecipes) : new Map<PersonaId, PersonaId[]>();
   });
 
   // ---- Loading ----------------------------------------------------------

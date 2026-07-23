@@ -2,8 +2,11 @@ import type { Routes } from '@angular/router';
 
 /**
  * P5R feature routes, mounted by the app under `/p5r/*` (task 14/15). Every
- * destination lazy-loads, keeping it out of the initial bundle. Feature pages
- * are placeholders until Phases 3–6 land; Settings is real (task 17).
+ * destination lazy-loads, keeping it out of the initial bundle.
+ *
+ * Everything nests under {@link P5rLayout}, which triggers the one-time data load
+ * and hosts the global search (§10, task 24). The layout's own path is empty, so
+ * URLs stay `/p5r/<feature>` and the section tabs' link depth is unchanged.
  */
 const placeholder = () => import('./pages/placeholder-page').then((m) => m.PlaceholderPage);
 
@@ -13,7 +16,7 @@ const placeholder = () => import('./pages/placeholder-page').then((m) => m.Place
 const sectionLayout = () =>
   import('../../shared/section-layout/section-layout').then((m) => m.SectionLayout);
 
-export const P5R_ROUTES: Routes = [
+const featureRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'personas' },
 
   {
@@ -51,10 +54,13 @@ export const P5R_ROUTES: Routes = [
     loadComponent: placeholder,
     data: { title: 'Compendium', blurb: 'Your hand-maintained mirror of the personas you have registered.', phase: 'Phase 4' },
   },
+
   {
     path: 'personas',
-    loadComponent: placeholder,
-    data: { title: 'Personas', blurb: '242 personas — stats, affinities, learn-sets and itemization.', phase: 'Phase 3' },
+    children: [
+      { path: '', pathMatch: 'full', loadComponent: () => import('./pages/personas/persona-list').then((m) => m.PersonaList) },
+      { path: ':id', loadComponent: () => import('./pages/personas/persona-detail').then((m) => m.PersonaDetail) },
+    ],
   },
 
   {
@@ -68,30 +74,23 @@ export const P5R_ROUTES: Routes = [
       ],
     },
     children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        loadComponent: placeholder,
-        data: { title: 'Shadows', blurb: 'Enemy-side data: stats, affinities, ailment resistances, drops.', phase: 'Phase 3' },
-      },
-      {
-        path: 'subbosses',
-        loadComponent: placeholder,
-        data: { title: 'Sub-bosses', blurb: 'The 28 Mementos sub-bosses and the requests that spawn them.', phase: 'Phase 3' },
-      },
-      {
-        path: 'drops',
-        loadComponent: placeholder,
-        data: { title: 'Drops', blurb: 'Inverted material → shadows index, searchable.', phase: 'Phase 3' },
-      },
+      { path: '', pathMatch: 'full', loadComponent: () => import('./pages/shadows/shadow-list').then((m) => m.ShadowList) },
+      { path: 'subbosses', loadComponent: () => import('./pages/shadows/subboss-list').then((m) => m.SubbossList) },
+      { path: 'drops', loadComponent: () => import('./pages/shadows/drops-page').then((m) => m.DropsPage) },
     ],
   },
+  // Shadow detail sits outside the tabbed section so it renders without the tab
+  // strip; reachable from both the shadow and sub-boss lists.
+  { path: 'shadow/:id', loadComponent: () => import('./pages/shadows/shadow-detail').then((m) => m.ShadowDetail) },
 
   {
     path: 'skills',
-    loadComponent: placeholder,
-    data: { title: 'Skills', blurb: 'Every skill — cost, effect, who learns it, and its card sources.', phase: 'Phase 3' },
+    children: [
+      { path: '', pathMatch: 'full', loadComponent: () => import('./pages/skills/skill-list').then((m) => m.SkillList) },
+      { path: ':id', loadComponent: () => import('./pages/skills/skill-detail').then((m) => m.SkillDetail) },
+    ],
   },
+
   {
     path: 'classroom',
     loadComponent: placeholder,
@@ -104,4 +103,12 @@ export const P5R_ROUTES: Routes = [
   },
 
   { path: '**', redirectTo: 'personas' },
+];
+
+export const P5R_ROUTES: Routes = [
+  {
+    path: '',
+    loadComponent: () => import('./p5r-layout').then((m) => m.P5rLayout),
+    children: featureRoutes,
+  },
 ];
