@@ -8,8 +8,6 @@ import type { Routes } from '@angular/router';
  * and hosts the global search (§10, task 24). The layout's own path is empty, so
  * URLs stay `/p5r/<feature>` and the section tabs' link depth is unchanged.
  */
-const placeholder = () => import('./pages/placeholder-page').then((m) => m.PlaceholderPage);
-
 // Multi-page features render their sub-pages as an on-page tab strip (§10),
 // not a top-nav dropdown: the parent route mounts the shared SectionLayout and
 // declares its tabs in `data.sections`; the children render into its outlet.
@@ -89,8 +87,7 @@ const featureRoutes: Routes = [
 
   {
     path: 'classroom',
-    loadComponent: placeholder,
-    data: { title: 'Classroom Answers', blurb: 'Search a question, get the answer.', phase: 'Phase 10' },
+    loadComponent: () => import('./pages/classroom/classroom-page').then((m) => m.ClassroomPage),
   },
 
   {

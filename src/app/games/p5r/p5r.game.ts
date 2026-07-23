@@ -20,6 +20,7 @@ export const P5R_MANIFEST = {
   'advanced-recipes': `${DATA_ROOT}/advanced-recipes.json`,
   'element-chart': `${DATA_ROOT}/element-chart.json`,
   'inherit-matrix': `${DATA_ROOT}/inherit-matrix.json`,
+  classroom: `${DATA_ROOT}/classroom.json`,
 } as const;
 
 export type P5rDatasetName = keyof typeof P5R_MANIFEST;

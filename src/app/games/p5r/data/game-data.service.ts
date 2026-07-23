@@ -8,6 +8,7 @@ import type {
   Accessory,
   AdvancedRecipes,
   ArcanaId,
+  ClassroomEntry,
   ElementChart,
   FusionChart,
   GameDataMeta,
@@ -79,6 +80,21 @@ export class GameDataService {
     () => this.loading() || this.extrasLoading() || (this.ready() && this._extrasStatus() === 'idle'),
   );
   readonly shadowsError = computed(() => this._error() ?? this._extrasError());
+
+  // ---- On-demand classroom (task 64) ------------------------------------
+  // The classroom answers (§4.5) are needed only by the classroom page, so like
+  // shadows they load separately rather than in the primary bundle — and unlike
+  // the extras, without dragging the 51 KB shadow dataset along with them.
+  private readonly _classroomStatus = signal<LoadStatus>('idle');
+  private readonly _classroomError = signal<string | null>(null);
+  private classroomRequested = false;
+
+  /** Combined primary+classroom load view for the classroom page. */
+  readonly classroomReady = computed(() => this.ready() && this._classroomStatus() === 'ready');
+  readonly classroomLoading = computed(
+    () => this.loading() || this._classroomStatus() === 'loading' || (this.ready() && this._classroomStatus() === 'idle'),
+  );
+  readonly classroomError = computed(() => this._error() ?? this._classroomError());
 
   // ---- Derived indexes (§5.2) -------------------------------------------
 
@@ -153,6 +169,23 @@ export class GameDataService {
     else this.retryExtras();
   }
 
+  /**
+   * Load the classroom answers on demand and merge them into the cached bundle.
+   * Called only by the classroom page (§4.5), so no other session pays for it.
+   * Idempotent, and safe to call before the primary load finishes — it is kicked
+   * once that completes.
+   */
+  loadClassroom(): void {
+    this.classroomRequested = true;
+    if (this._status() === 'ready') this.runClassroom();
+  }
+
+  /** Retry whichever half (primary or classroom) failed, for the classroom page. */
+  retryClassroom(): void {
+    if (this._status() !== 'ready') this.retry();
+    else if (this._classroomStatus() !== 'loading') this.runClassroom();
+  }
+
   private run(game: GameDefinition): void {
     const manifest = game.dataManifest;
     this._status.set('loading');
@@ -173,7 +206,7 @@ export class GameDataService {
             elementChart: this.http.get<ElementChart>(bust('element-chart')),
             inheritMatrix: this.http.get<InheritMatrix>(bust('inherit-matrix')),
             // Extras load lazily; start empty (consumers tolerate `[]`).
-          }).pipe(map((sets): LoadedGameData => ({ ...sets, shadows: [], accessories: [], meta })));
+          }).pipe(map((sets): LoadedGameData => ({ ...sets, shadows: [], accessories: [], classroom: [], meta })));
         }),
         catchError((err: unknown) => {
           this._status.set('error');
@@ -186,6 +219,7 @@ export class GameDataService {
         this._data.set(data);
         this._status.set('ready');
         if (this.extrasRequested) this.runExtras();
+        if (this.classroomRequested) this.runClassroom();
       });
   }
 
@@ -217,6 +251,35 @@ export class GameDataService {
         if (!current) return;
         this._data.set({ ...current, shadows: extras.shadows, accessories: extras.accessories });
         this._extrasStatus.set('ready');
+      });
+  }
+
+  private runClassroom(): void {
+    const data = this._data();
+    const game = this.lastGame;
+    if (!data || !game) return; // primary not ready yet — run() kicks us when it is
+    if (this._classroomStatus() === 'loading' || this._classroomStatus() === 'ready') return;
+
+    const manifest = game.dataManifest;
+    const url = `${manifest['classroom']}?v=${data.meta.upstream.sha}`;
+    this._classroomStatus.set('loading');
+    this._classroomError.set(null);
+
+    this.http
+      .get<ClassroomEntry[]>(url)
+      .pipe(
+        catchError((err: unknown) => {
+          this._classroomStatus.set('error');
+          this._classroomError.set(describeHttpError(err));
+          return of(null);
+        }),
+      )
+      .subscribe((classroom) => {
+        if (classroom === null) return; // error already recorded
+        const current = this._data();
+        if (!current) return;
+        this._data.set({ ...current, classroom });
+        this._classroomStatus.set('ready');
       });
   }
 }

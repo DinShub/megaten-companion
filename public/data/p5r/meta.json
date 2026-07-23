@@ -16,6 +16,14 @@
         "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p5/data/roy-special-recipes.json"
       ]
     },
+    "classroom": {
+      "bytes": 34401,
+      "entries": 78,
+      "file": "classroom.json",
+      "sourceUrls": [
+        "https://www.polygon.com/persona-5-royal-guide-walkthrough/2020/3/31/21192788/questions-answers-quizzes-exams-midterm-final-classroom/"
+      ]
+    },
     "element-chart": {
       "bytes": 5869,
       "entries": 24,
@@ -78,7 +86,7 @@
     }
   },
   "game": "p5r",
-  "importedAt": "2026-07-23",
+  "importedAt": "2026-07-24",
   "notes": [
     "Traits are a first-class dataset (traits.json) referenced by Persona.traitId, not injected into learn-sets at level 0 (§8.2 note 5).",
     "`resmods` dropped (§14 Q3): three personas carry per-element damage multipliers that affect no calculation this app performs.",
@@ -86,7 +94,8 @@
     "Shadow `trait` dropped: §5 does not model it, and on sub-bosses upstream stores the human name rather than a persona trait.",
     "Skill `c[2]` is a list of in-world card locations (chests, Jazz Jin dates, trials), not a §5 cardSources origin; imported as `cardLocations`. The three §6.6 origins are derived from persona itemization and shadow negotiation.",
     "236 of the 464 persona itemization results are accessories or gear rather than skill cards; those keep the raw name on `normalItem`/`alarmItem` and leave the skill id null.",
-    "roy-accessories.json imported (§14 Q4): all 125 accessory → skill mappings resolve to real skills."
+    "roy-accessories.json imported (§14 Q4): all 125 accessory → skill mappings resolve to real skills.",
+    "Classroom answers (§8.3) have no machine-readable upstream; they are transcribed from a user-supplied reference (classroom-data.mjs) and carry that URL as a per-record source. Answers cross-checked across three independent P5R guides."
   ],
   "upstream": {
     "licence": "The Unlicense (public domain)",

@@ -21,5 +21,6 @@ export * from './persona';
 export * from './skill';
 export * from './shadow';
 export * from './fusion';
+export * from './classroom';
 export * from './user-data';
 export * from './meta';

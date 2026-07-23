@@ -1,6 +1,7 @@
 import type {
   Accessory,
   AdvancedRecipes,
+  ClassroomEntry,
   ElementChart,
   FusionChart,
   GameDataMeta,
@@ -23,6 +24,8 @@ export interface LoadedGameData {
   readonly traits: readonly Trait[];
   readonly shadows: readonly Shadow[];
   readonly accessories: readonly Accessory[];
+  /** On-demand, like shadows/accessories: `[]` until the classroom page requests it. */
+  readonly classroom: readonly ClassroomEntry[];
   readonly fusionChart: FusionChart;
   readonly advancedRecipes: AdvancedRecipes;
   readonly elementChart: ElementChart;

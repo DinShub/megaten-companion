@@ -17,6 +17,7 @@ const accessories = load('accessories');
 const fusion = load('fusion-chart');
 const advanced = load('advanced-recipes');
 const inheritMatrix = load('inherit-matrix');
+const classroom = load('classroom');
 
 const errors = [];
 const fail = (msg) => errors.push(msg);
@@ -96,6 +97,23 @@ for (const p of personas) {
   if (p.kind === 'treasure' && !p.prereq) fail(`treasure persona ${p.id} has no prereq`);
 }
 
+// 7. Classroom answers (§4.5): unique ids/orders, exam consistency, no empties.
+{
+  const seenId = new Set();
+  const seenOrder = new Set();
+  for (const c of classroom) {
+    if (seenId.has(c.id)) fail(`duplicate classroom id: ${c.id}`);
+    seenId.add(c.id);
+    if (seenOrder.has(c.order)) fail(`duplicate classroom order: ${c.order}`);
+    seenOrder.add(c.order);
+    if (c.kind === 'exam' && !c.exam) fail(`classroom ${c.id}: exam question has no exam period`);
+    if (c.kind === 'quiz' && c.exam) fail(`classroom ${c.id}: daily question carries an exam period`);
+    if (!Array.isArray(c.answers) || c.answers.length === 0) fail(`classroom ${c.id}: has no answer`);
+    if (!c.question) fail(`classroom ${c.id}: has no question text`);
+    if (!/^https?:\/\//.test(c.source ?? '')) fail(`classroom ${c.id}: missing source URL`);
+  }
+}
+
 // ---- Report -----------------------------------------------------------------
 if (errors.length) {
   console.error(`✗ data validation FAILED — ${errors.length} error(s):`);
@@ -105,6 +123,7 @@ if (errors.length) {
 }
 console.log(
   `✓ data validation passed — ${personas.length} personas, ${skills.length} skills, ` +
-    `${shadows.length} shadows, ${traits.length} traits, ${accessories.length} accessories; ` +
+    `${shadows.length} shadows, ${traits.length} traits, ${accessories.length} accessories, ` +
+    `${classroom.length} classroom answers; ` +
     `fusion chart 24×24 symmetric; special/treasure gates and all id references resolve.`,
 );
