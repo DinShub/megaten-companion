@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, isDevMode, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
@@ -87,8 +87,12 @@ export class App {
   /** Persistent storage-failure banner (§9.4). */
   protected readonly storageFailure = this.storage.failure;
 
-  /** Dev hint: clears once a PrimeUI licence key is filled in. */
-  protected readonly licenseMissing = PRIMEUI_LICENSE_KEY.trim().length === 0;
+  /**
+   * Dev-only hint: it names a source file, so it's useless to end users and must
+   * not appear on a deployed build. `isDevMode()` is false in production, so this
+   * only shows under `ng serve` when the key is still empty.
+   */
+  protected readonly licenseMissing = isDevMode() && PRIMEUI_LICENSE_KEY.trim().length === 0;
 
   constructor() {
     // Close the mobile drawer whenever navigation completes.

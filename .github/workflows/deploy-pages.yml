@@ -36,6 +36,23 @@ jobs:
       - run: npm ci
       - name: Validate committed datasets (§8.4)
         run: node scripts/validate-data.mjs
+      # Inject the PrimeUI key from a repo secret so it never lives in this public
+      # repo. Set it under Settings → Secrets and variables → Actions →
+      # "PRIMEUI_LICENSE_KEY". Runs after `npm ci` (whose postinstall wrote the
+      # empty template) and overwrites it. Without the secret, the build just keeps
+      # the watermark. Note: a Community *dev* key may be scoped to localhost — you
+      # may need a deploy/domain key for dinshub.github.io (Community tier covers
+      # non-commercial open source).
+      - name: Inject PrimeUI licence key (if set)
+        env:
+          PRIMEUI_LICENSE_KEY: ${{ secrets.PRIMEUI_LICENSE_KEY }}
+        run: |
+          if [ -n "$PRIMEUI_LICENSE_KEY" ]; then
+            printf "export const PRIMEUI_LICENSE_KEY = '%s';\n" "$PRIMEUI_LICENSE_KEY" > src/environments/license.ts
+            echo "Injected licence key from secret."
+          else
+            echo "No PRIMEUI_LICENSE_KEY secret — building with the empty template (watermark stays)."
+          fi
       - name: Build
         run: npx ng build --configuration production --base-href /megaten-companion/
       - name: SPA deep-link fallback + disable Jekyll
