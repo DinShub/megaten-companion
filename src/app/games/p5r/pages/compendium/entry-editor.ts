@@ -146,7 +146,7 @@ const ORIGIN_LABEL: Record<SkillOrigin, string> = {
     .skills__row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.35rem 0; border-top: 1px solid var(--p-content-border-color, rgba(127,127,127,0.12)); &:first-child { border-top: 0; } }
     .skills__check { display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; input { cursor: pointer; } }
     .skills__name { font-weight: 500; }
-    .skills__origin { font-size: 0.72rem; padding: 0.1rem 0.45rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); color: var(--p-text-muted-color); }
+    .skills__origin { font-size: 0.72rem; padding: 0.1rem 0.45rem; border-radius: 999px; background: var(--app-panel-2); color: var(--p-text-muted-color); }
     .skills__origin[data-origin='inherited'] { color: var(--p-primary-color); }
     .skills__empty { padding: 0.5rem 0; color: var(--p-text-muted-color); }
 

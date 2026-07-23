@@ -79,7 +79,7 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
     }
     .toolbar__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--p-primary-color); }
 
-    .filters { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem; margin-bottom: 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.06)); }
+    .filters { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem; margin-bottom: 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--app-panel); }
     .filters__row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
     .filters__label { flex: 0 0 6rem; font-size: 0.82rem; font-weight: 600; color: var(--p-text-muted-color); }
     .filters__affinity {

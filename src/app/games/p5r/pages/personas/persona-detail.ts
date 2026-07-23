@@ -190,18 +190,18 @@ interface SkillRow {
     .head { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-start; }
     .head__name { margin: 0 0 0.5rem; font-size: 1.8rem; }
     .head__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); font-size: 0.82rem; }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
     .tag--kind { color: var(--p-primary-color); }
     .head__unlock { margin: 0.5rem 0 0; color: var(--p-text-muted-color); font-size: 0.88rem; display: flex; align-items: center; gap: 0.4rem; }
     .head__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); color: var(--p-text-color); text-decoration: none; font-size: 0.9rem; &:hover { border-color: var(--p-primary-color); } }
     .btn--primary { border-color: var(--p-primary-color); color: var(--p-primary-color); }
-    .btn--owned { border-color: color-mix(in srgb, #22c55e 55%, transparent); color: #4ade80; cursor: default; }
+    .btn--owned { border-color: color-mix(in srgb, #22c55e 55%, transparent); color: var(--app-success); cursor: default; }
     button.btn { font: inherit; cursor: pointer; }
 
     .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
-    .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--app-panel); }
     .panel__title { margin: 0 0 0.6rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
     .panel__title:not(:first-child) { margin-top: 1.1rem; }
     .panel__sub { margin: 1rem 0 0.5rem; font-size: 0.9rem; }
@@ -209,7 +209,7 @@ interface SkillRow {
     .link { color: var(--p-primary-color); }
 
     .stats { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .stats__cell { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; min-width: 3rem; padding: 0.4rem; border-radius: 6px; background: var(--p-surface-700, rgba(127,127,127,0.12)); }
+    .stats__cell { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; min-width: 3rem; padding: 0.4rem; border-radius: 6px; background: var(--app-panel-2); }
     .stats__abbr { font-size: 0.7rem; color: var(--p-text-muted-color); }
     .stats__val { font-size: 1.1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
     .stats__grow { font-size: 0.72rem; color: var(--p-primary-color); }
@@ -229,7 +229,7 @@ interface SkillRow {
     .item__plain { color: var(--p-text-muted-color); }
 
     .reciperow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
-    .pill { padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
+    .pill { padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--app-panel-2); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
     .plus { color: var(--p-text-muted-color); }
 
 
@@ -238,6 +238,11 @@ interface SkillRow {
 })
 export class PersonaDetail {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // The shadow cross-link reads shadow data, in the on-demand extras (task 58).
+    this.data.loadExtras();
+  }
   protected readonly nav = inject(GameRouteContext);
   private readonly compendium = inject(CompendiumStore);
   private readonly route = inject(ActivatedRoute);

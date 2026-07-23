@@ -2,15 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
-  ElementRef,
   HostListener,
   inject,
   signal,
-  viewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { FocusTrap } from '../../../shared/a11y/focus-trap';
 import { GameRouteContext } from '../../../shared/game-route';
 import { CompendiumStore } from '../compendium/compendium.store';
 import { GameDataService } from '../data/game-data.service';
@@ -54,22 +52,21 @@ const PER_GROUP = 6;
 @Component({
   selector: 'app-global-search',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FocusTrap],
   template: `
     @if (open()) {
       <div class="gs" role="dialog" aria-modal="true" aria-label="Search">
         <div class="gs__scrim" (click)="close()"></div>
-        <div class="gs__panel">
+        <div class="gs__panel" appFocusTrap (escape)="close()">
           <div class="gs__field">
             <i class="pi pi-search" aria-hidden="true"></i>
             <input
-              #box
               class="gs__input"
               type="text"
               placeholder="Search personas, shadows, skills…"
               aria-label="Search personas, shadows and skills"
               [value]="query()"
               (input)="query.set($any($event.target).value)"
-              (keydown.escape)="close()"
             />
             <button class="gs__close" type="button" aria-label="Close search" (click)="close()">
               <i class="pi pi-times" aria-hidden="true"></i>
@@ -198,7 +195,7 @@ const PER_GROUP = 6;
       font-weight: 600;
     }
     .gs__owned {
-      color: #4ade80;
+      color: var(--app-success);
       font-size: 0.8rem;
       margin-right: 0.2rem;
     }
@@ -221,17 +218,6 @@ export class GlobalSearch {
 
   protected readonly open = signal(false);
   protected readonly query = signal('');
-  private readonly box = viewChild<ElementRef<HTMLInputElement>>('box');
-
-  constructor() {
-    // Focus the field when the panel opens.
-    effect(() => {
-      if (this.open()) {
-        const el = this.box()?.nativeElement;
-        if (el) queueMicrotask(() => el.focus());
-      }
-    });
-  }
 
   /** Full search index, built once lazily from the loaded datasets. */
   private readonly index = computed<readonly SearchItem[]>(() => {
@@ -280,6 +266,8 @@ export class GlobalSearch {
       event.preventDefault();
       this.query.set('');
       this.open.set(true);
+      // Shadows are searchable but load on demand (task 58) — fetch on first open.
+      this.data.loadExtras();
     }
   }
 

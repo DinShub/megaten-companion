@@ -45,7 +45,7 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
       color: var(--p-primary-color);
     }
     .load--error .load__icon {
-      color: #f59e0b;
+      color: var(--app-warn);
     }
     .load__msg {
       margin: 0;

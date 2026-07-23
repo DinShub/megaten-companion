@@ -145,14 +145,14 @@ interface CardRef {
     .head__name { margin: 0 0 0.5rem; font-size: 1.7rem; display: inline-flex; align-items: center; gap: 0.5rem; }
     .head__lock { font-size: 1rem; color: var(--p-text-muted-color); }
     .head__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); font-size: 0.82rem; }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
     .tag--unique { color: var(--p-primary-color); }
 
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); color: var(--p-text-color); text-decoration: none; font-size: 0.9rem; &:hover { border-color: var(--p-primary-color); } }
     .btn--primary { border-color: var(--p-primary-color); color: var(--p-primary-color); }
 
     .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
-    .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--app-panel); }
     .panel__title { margin: 0 0 0.6rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
     .panel__note { margin: 0.4rem 0 0; color: var(--p-text-muted-color); font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem; }
     .effect { margin: 0; font-size: 1.05rem; }
@@ -160,7 +160,6 @@ interface CardRef {
     .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; max-height: 22rem; overflow-y: auto; }
     .list__row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.35rem 0; border-top: 1px solid var(--p-content-border-color, rgba(127,127,127,0.12)); &:first-child { border-top: 0; } }
     .list__link { color: var(--p-text-color); text-decoration: none; font-weight: 500; &:hover { color: var(--p-primary-color); } }
-    .owned-dot { color: #4ade80; font-size: 0.78rem; margin-right: 0.1rem; }
     .list__acq { font-size: 0.8rem; color: var(--p-text-muted-color); font-variant-numeric: tabular-nums; }
     .list__acq.is-innate { color: var(--p-primary-color); }
 
@@ -171,7 +170,7 @@ interface CardRef {
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.25rem; }
     .cards__col { display: flex; flex-direction: column; gap: 0.45rem; align-items: flex-start; }
     .cards__lbl { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--p-text-muted-color); }
-    .pill { padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
+    .pill { padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--app-panel-2); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
     .muted { color: var(--p-text-muted-color); }
 
 
@@ -180,6 +179,11 @@ interface CardRef {
 })
 export class SkillDetail {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // Negotiation card sources read shadow data, in the on-demand extras (task 58).
+    this.data.loadExtras();
+  }
   protected readonly nav = inject(GameRouteContext);
   private readonly compendium = inject(CompendiumStore);
   private readonly route = inject(ActivatedRoute);

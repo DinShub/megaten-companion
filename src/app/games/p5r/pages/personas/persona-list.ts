@@ -197,7 +197,7 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
     .filters {
       display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem;
       border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px);
-      background: var(--p-surface-800, rgba(127,127,127,0.06));
+      background: var(--app-panel);
     }
     .filters__row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
     .filters__label { flex: 0 0 6rem; font-size: 0.82rem; font-weight: 600; color: var(--p-text-muted-color); }
@@ -232,7 +232,6 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
     }
     .cell { overflow: hidden; }
     .cell--name { font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
-    .owned-dot { color: #4ade80; font-size: 0.8rem; margin-right: 0.15rem; }
     .cell--arcana, .cell--inherit { text-transform: capitalize; color: var(--p-text-muted-color); font-size: 0.9rem; }
     .cell--lv { text-align: right; font-variant-numeric: tabular-nums; }
     .cell--trait { color: var(--p-text-muted-color); font-size: 0.85rem; text-overflow: ellipsis; white-space: nowrap; }

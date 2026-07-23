@@ -23,13 +23,13 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
       border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 600;
-      background: var(--p-surface-700, rgba(127, 127, 127, 0.18));
+      background: var(--app-panel-2);
       color: var(--p-text-muted-color);
       white-space: nowrap;
     }
     .badge--owned {
       background: color-mix(in srgb, #22c55e 22%, transparent);
-      color: #4ade80;
+      color: var(--app-success);
     }
     .pi {
       font-size: 0.8rem;

@@ -155,7 +155,7 @@ const INHERITANCE_OPTIONS: readonly ChipOption[] = [
     }
     .toolbar__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--p-primary-color); }
 
-    .filters { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.06)); }
+    .filters { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--app-panel); }
     .filters__row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
     .filters__label { flex: 0 0 6rem; font-size: 0.82rem; font-weight: 600; color: var(--p-text-muted-color); }
     .chip-toggle { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.6rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: 999px; background: transparent; color: var(--p-text-color); font: inherit; font-size: 0.82rem; cursor: pointer; &.is-on { border-color: var(--p-primary-color); color: var(--p-primary-color); } }

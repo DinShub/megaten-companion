@@ -33,33 +33,30 @@ type Mode = 'forward' | 'reverse' | 'gallows';
     @if (data.ready()) {
       <div class="calc">
         <div class="calc__head">
-          <div class="seg" role="tablist" aria-label="Calculator mode">
+          <div class="seg" role="group" aria-label="Calculator mode">
             <button
               type="button"
-              role="tab"
               class="seg__btn"
               [class.is-on]="mode() === 'forward'"
-              [attr.aria-selected]="mode() === 'forward'"
+              [attr.aria-pressed]="mode() === 'forward'"
               (click)="mode.set('forward')"
             >
               <i class="pi pi-arrow-right" aria-hidden="true"></i> Forward<small>parents → result</small>
             </button>
             <button
               type="button"
-              role="tab"
               class="seg__btn"
               [class.is-on]="mode() === 'reverse'"
-              [attr.aria-selected]="mode() === 'reverse'"
+              [attr.aria-pressed]="mode() === 'reverse'"
               (click)="mode.set('reverse')"
             >
               <i class="pi pi-arrow-left" aria-hidden="true"></i> Reverse<small>target → recipes</small>
             </button>
             <button
               type="button"
-              role="tab"
               class="seg__btn"
               [class.is-on]="mode() === 'gallows'"
-              [attr.aria-selected]="mode() === 'gallows'"
+              [attr.aria-pressed]="mode() === 'gallows'"
               (click)="mode.set('gallows')"
             >
               <i class="pi pi-bolt" aria-hidden="true"></i> Gallows<small>sacrifice → skill</small>

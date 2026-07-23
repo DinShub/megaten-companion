@@ -61,6 +61,25 @@ export class GameDataService {
   readonly loading = computed(() => this._status() === 'loading');
   readonly ready = computed(() => this._status() === 'ready');
 
+  // ---- On-demand extras (task 58) ---------------------------------------
+  // Shadows (51 KB) + accessories are the only datasets a calculator-only
+  // session never needs, so they load separately, on request, rather than in
+  // the primary bundle. Until then `data().shadows`/`.accessories` stay `[]`,
+  // which every consumer already tolerates (`?? []` / an empty `.find`).
+  private readonly _extrasStatus = signal<LoadStatus>('idle');
+  private readonly _extrasError = signal<string | null>(null);
+  private extrasRequested = false;
+
+  readonly extrasLoading = computed(() => this._extrasStatus() === 'loading');
+  readonly extrasReady = computed(() => this._extrasStatus() === 'ready');
+
+  /** Combined primary+extras load view for the shadow-backed pages. */
+  readonly shadowsReady = computed(() => this.ready() && this.extrasReady());
+  readonly shadowsLoading = computed(
+    () => this.loading() || this.extrasLoading() || (this.ready() && this._extrasStatus() === 'idle'),
+  );
+  readonly shadowsError = computed(() => this._error() ?? this._extrasError());
+
   // ---- Derived indexes (§5.2) -------------------------------------------
 
   /** Rebuilds when the data loads *or* an unlock toggle flips (task 13). */
@@ -94,16 +113,44 @@ export class GameDataService {
 
   // ---- Loading ----------------------------------------------------------
 
-  /** Fetch and cache the datasets. No-op once loaded or already loading. */
+  /**
+   * Fetch and cache the primary datasets. No-op once loaded or already loading.
+   * Shadows and accessories are **not** fetched here — they load on demand via
+   * {@link loadExtras}, so a session that only uses the calculator never pays for
+   * the 51 KB shadow dataset (§8.5, task 58).
+   */
   load(game: GameDefinition): void {
     this.lastGame = game;
     if (this._status() === 'loading' || this._status() === 'ready') return;
     this.run(game);
   }
 
-  /** Re-attempt after a failure (the shell's retry button). */
+  /** Re-attempt the primary load after a failure (the shell's retry button). */
   retry(): void {
     if (this.lastGame && this._status() !== 'loading') this.run(this.lastGame);
+  }
+
+  /**
+   * Load the on-demand extras — shadows + accessories — and merge them into the
+   * cached bundle. Called by the surfaces that actually show shadow data (the
+   * shadow / drops pages, persona & skill detail, itemization, global search),
+   * so the calculator path never triggers the fetch. Idempotent, and safe to
+   * call before the primary load finishes — it's kicked once that completes.
+   */
+  loadExtras(): void {
+    this.extrasRequested = true;
+    if (this._status() === 'ready') this.runExtras();
+  }
+
+  /** Re-attempt the extras load after a failure. */
+  retryExtras(): void {
+    if (this._extrasStatus() !== 'loading') this.runExtras();
+  }
+
+  /** Retry whichever half (primary or extras) failed, for shadow-backed pages. */
+  retryShadows(): void {
+    if (this._status() !== 'ready') this.retry();
+    else this.retryExtras();
   }
 
   private run(game: GameDefinition): void {
@@ -111,7 +158,7 @@ export class GameDataService {
     this._status.set('loading');
     this._error.set(null);
 
-    // Fetch meta first for the SHA, then every dataset cache-busted by it.
+    // Fetch meta first for the SHA, then every primary dataset cache-busted by it.
     this.http
       .get<GameDataMeta>(manifest['meta'])
       .pipe(
@@ -121,13 +168,12 @@ export class GameDataService {
             personas: this.http.get<Persona[]>(bust('personas')),
             skills: this.http.get<Skill[]>(bust('skills')),
             traits: this.http.get<Trait[]>(bust('traits')),
-            shadows: this.http.get<Shadow[]>(bust('shadows')),
-            accessories: this.http.get<Accessory[]>(bust('accessories')),
             fusionChart: this.http.get<FusionChart>(bust('fusion-chart')),
             advancedRecipes: this.http.get<AdvancedRecipes>(bust('advanced-recipes')),
             elementChart: this.http.get<ElementChart>(bust('element-chart')),
             inheritMatrix: this.http.get<InheritMatrix>(bust('inherit-matrix')),
-          }).pipe(map((sets): LoadedGameData => ({ ...sets, meta })));
+            // Extras load lazily; start empty (consumers tolerate `[]`).
+          }).pipe(map((sets): LoadedGameData => ({ ...sets, shadows: [], accessories: [], meta })));
         }),
         catchError((err: unknown) => {
           this._status.set('error');
@@ -139,6 +185,38 @@ export class GameDataService {
         if (data === null) return; // error already recorded
         this._data.set(data);
         this._status.set('ready');
+        if (this.extrasRequested) this.runExtras();
+      });
+  }
+
+  private runExtras(): void {
+    const data = this._data();
+    const game = this.lastGame;
+    if (!data || !game) return; // primary not ready yet — run() kicks us when it is
+    if (this._extrasStatus() === 'loading' || this._extrasStatus() === 'ready') return;
+
+    const manifest = game.dataManifest;
+    const bust = (name: string): string => `${manifest[name]}?v=${data.meta.upstream.sha}`;
+    this._extrasStatus.set('loading');
+    this._extrasError.set(null);
+
+    forkJoin({
+      shadows: this.http.get<Shadow[]>(bust('shadows')),
+      accessories: this.http.get<Accessory[]>(bust('accessories')),
+    })
+      .pipe(
+        catchError((err: unknown) => {
+          this._extrasStatus.set('error');
+          this._extrasError.set(describeHttpError(err));
+          return of(null);
+        }),
+      )
+      .subscribe((extras) => {
+        if (extras === null) return; // error already recorded
+        const current = this._data();
+        if (!current) return;
+        this._data.set({ ...current, shadows: extras.shadows, accessories: extras.accessories });
+        this._extrasStatus.set('ready');
       });
   }
 }

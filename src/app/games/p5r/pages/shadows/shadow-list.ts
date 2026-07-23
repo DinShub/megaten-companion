@@ -32,7 +32,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, AffinityGrid, LoadState, ShadowFilterBar, VirtualList],
   template: `
-    @if (data.ready()) {
+    @if (data.shadowsReady()) {
       <div class="page list-page list-page--tabbed">
         <header class="page__head">
           <h1 class="page__title">Shadows</h1>
@@ -81,7 +81,7 @@ import {
         </div>
       </div>
     } @else {
-      <app-load-state [loading]="data.loading()" [error]="data.error()" (retry)="data.retry()" />
+      <app-load-state [loading]="data.shadowsLoading()" [error]="data.shadowsError()" (retry)="data.retryShadows()" />
     }
   `,
   styles: `
@@ -115,6 +115,11 @@ import {
 })
 export class ShadowList {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // Shadows live in the on-demand extras bundle (task 58) — request them.
+    this.data.loadExtras();
+  }
   protected readonly nav = inject(GameRouteContext);
   protected readonly titleCase = titleCase;
 

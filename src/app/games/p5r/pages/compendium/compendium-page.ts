@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { FocusTrap } from '../../../../shared/a11y/focus-trap';
 import { GameRouteContext } from '../../../../shared/game-route';
 import { LoadState } from '../../../../shared/load-state/load-state';
 import { PersonaPicker, type PickerOption } from '../../../../shared/persona-picker/persona-picker';
@@ -44,7 +45,7 @@ interface Row {
 @Component({
   selector: 'app-compendium-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, LoadState, VirtualList, PersonaPicker, EntryEditor],
+  imports: [RouterLink, LoadState, VirtualList, PersonaPicker, EntryEditor, FocusTrap],
   template: `
     @if (data.ready()) {
       <div class="page list-page">
@@ -163,7 +164,7 @@ interface Row {
         @if (editingPersona(); as p) {
           <div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="'Edit ' + p.name">
             <div class="modal__scrim" (click)="closeEditor()"></div>
-            <div class="modal__panel">
+            <div class="modal__panel" appFocusTrap (escape)="closeEditor()">
               <div class="modal__head">
                 <h2 class="modal__title">{{ p.name }}</h2>
                 <button type="button" class="iconbtn" (click)="closeEditor()" aria-label="Close editor"><i class="pi pi-times" aria-hidden="true"></i></button>
@@ -211,7 +212,7 @@ interface Row {
       background: transparent; color: var(--p-text-color); font: inherit; font-size: 0.9rem; cursor: pointer;
       &:hover { border-color: var(--p-primary-color); }
     }
-    .toolbar__btn--danger { border-color: color-mix(in srgb, #ef4444 55%, transparent); color: #f87171; }
+    .toolbar__btn--danger { border-color: color-mix(in srgb, #ef4444 55%, transparent); color: var(--app-danger); }
 
     .tablewrap { display: flex; flex-direction: column; overflow-x: auto; }
     .grid { display: grid; align-items: center; grid-template-columns: 2.5rem minmax(8rem, 1.6fr) 7rem 6.5rem 4rem minmax(7rem, 1fr) 4.5rem; gap: 0.5rem; padding: 0 0.5rem; min-width: 44rem; }

@@ -2,6 +2,32 @@
    preset configured in src/app/app.config.ts, and swaps automatically when the
    `.app-dark` class is toggled on <html>. */
 
+/* Nav-chrome breakpoint. Below this the mobile bottom-tab bar + drawer replace
+   the desktop top bar. It's wider than the §10 content breakpoint (768px, where
+   tables shed columns) on purpose: the desktop bar packs a brand, six nav links
+   and three icon buttons into ~915px, so showing it under ~960px forced the page
+   to scroll horizontally. Content responsiveness stays keyed to 768px in the
+   feature components; only the nav chrome switches here. */
+$nav-breakpoint: 959.98px;
+
+/* ---- Reusable chrome patterns ------------------------------------------- *
+   The recurring "bordered translucent card" and "bordered text input" shapes,
+   abstracted so the style-dense global blocks below don't repeat them. */
+@mixin panel {
+  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.25));
+  border-radius: var(--p-border-radius, 8px);
+  background: var(--app-panel);
+}
+
+@mixin field {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.3));
+  border-radius: var(--p-border-radius, 6px);
+  background: var(--p-content-background);
+  color: var(--p-text-color);
+  font: inherit;
+}
+
 html,
 body {
   height: 100%;
@@ -25,13 +51,13 @@ app-root {
   min-height: 100%;
 }
 
-/* ---- Visibility helpers (768px breakpoint, §10) ------------------------- */
+/* ---- Visibility helpers (nav-chrome breakpoint) ------------------------- */
 
 .app-mobile-only {
   display: none;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: #{$nav-breakpoint}) {
   .app-desktop-only {
     display: none !important;
   }
@@ -56,7 +82,7 @@ app-root {
   text-decoration: none;
 
   &:hover {
-    background: var(--p-surface-700, rgba(127, 127, 127, 0.18));
+    background: var(--app-panel-2);
   }
   &:focus-visible {
     outline: 2px solid var(--p-primary-color);
@@ -80,11 +106,11 @@ app-root {
 
 .app-alert--warn {
   background: color-mix(in srgb, #f59e0b 22%, transparent);
-  color: #fcd34d;
+  color: var(--app-warn);
 }
 
 .app-alert--info {
-  background: var(--p-surface-800, rgba(127, 127, 127, 0.14));
+  background: var(--app-panel);
   color: var(--p-text-muted-color);
 }
 
@@ -104,7 +130,7 @@ app-root {
 }
 
 /* On mobile the bottom tab bar is the only nav; the top bar is hidden (§10). */
-@media (max-width: 767.98px) {
+@media (max-width: #{$nav-breakpoint}) {
   .app-bar {
     display: none;
   }
@@ -167,7 +193,7 @@ app-root {
   white-space: nowrap;
 
   &:hover {
-    background: var(--p-surface-700, rgba(127, 127, 127, 0.14));
+    background: var(--app-panel-2);
   }
   &.is-active {
     color: var(--p-primary-color);
@@ -183,7 +209,7 @@ app-root {
   padding: 1.5rem 1.25rem;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: #{$nav-breakpoint}) {
   .app-main {
     padding-bottom: calc(var(--app-tabbar-h) + 1.5rem);
   }
@@ -205,7 +231,7 @@ app-root {
   z-index: 100;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: #{$nav-breakpoint}) {
   .app-tabbar {
     display: flex;
   }
@@ -333,9 +359,57 @@ app-root {
 code {
   padding: 0.1em 0.35em;
   border-radius: var(--p-border-radius-sm, 4px);
-  background: var(--p-surface-800, rgba(127, 127, 127, 0.2));
+  background: var(--app-panel);
   color: var(--p-primary-color);
   font-size: 0.9em;
+}
+
+/* ---- Theme-aware status + affinity text colours (task 57 contrast) ------- *
+   Status greens/reds/ambers and the affinity-code colours were hardcoded to
+   dark-tuned bright hexes that drop below 4.5:1 on a light background. These
+   custom properties inherit into component styles (encapsulation scopes
+   selectors, not inherited properties), so components reference them instead:
+   the light defaults are darkened for contrast on light surfaces, and `.app-dark`
+   restores the brighter values that read on dark. */
+:root {
+  /* Elevated panel surfaces. The app's hand-rolled panels used --p-surface-800/700
+     directly, but those are "dark shade" tokens (dark in *both* themes), so light
+     mode rendered dark panels on the white page. These flip properly: light greys
+     for light mode, and the exact dark values --p-surface-800/700 resolve to in
+     dark mode, so the dark theme is unchanged. */
+  --app-panel: #f1f5f9;
+  --app-panel-2: #e2e8f0;
+
+  --app-success: #15803d;
+  --app-danger: #b91c1c;
+  --app-warn: #b45309;
+  --aff-weak: #dc2626;
+  --aff-resist: #15803d;
+  --aff-null: #475569;
+  --aff-repel: #7c3aed;
+  --aff-drain: #0f766e;
+}
+.app-dark {
+  --app-panel: #27272a;
+  --app-panel-2: #3f3f46;
+
+  --app-success: #4ade80;
+  --app-danger: #f87171;
+  --app-warn: #fbbf24;
+  --aff-weak: #f87171;
+  --aff-resist: #4ade80;
+  --aff-null: #cbd5e1;
+  --aff-repel: #c084fc;
+  --aff-drain: #2dd4bf;
+}
+
+/* ---- "In your compendium" glyph ----------------------------------------- *
+   The owned-persona check icon, shared by the persona list and skill detail —
+   global rather than duplicated into each component's 4 kB style budget. */
+.owned-dot {
+  margin-right: 0.15rem;
+  color: var(--app-success);
+  font-size: 0.8rem;
 }
 
 /* ---- Element colour dot ------------------------------------------------- *
@@ -401,21 +475,136 @@ code {
    styles would top the 4 kB per-component budget, so its unique chrome lives
    here — the same global escape hatch `.el-dot` and `.list-page` use. Every
    selector below is used only by the compendium page. */
-.protag { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; padding: 0.6rem 0.85rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
-.protag label { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; }
-.protag input { width: 4.5rem; padding: 0.35rem 0.5rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); background: var(--p-content-background); color: var(--p-text-color); font: inherit; }
-.protag small { color: var(--p-text-muted-color); font-size: 0.8rem; flex: 1 1 12rem; }
-.protag--unset { border-color: color-mix(in srgb, var(--p-primary-color) 45%, transparent); }
-.quickadd { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.9rem 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.06)); }
-.quickadd__title { margin: 0; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
-.quickadd__notice { margin: 0; display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: #4ade80; }
-.banner { display: flex; align-items: center; gap: 0.5rem; margin: 0; padding: 0.6rem 0.85rem; border-radius: var(--p-border-radius, 6px); font-size: 0.9rem; }
-.banner--error { background: color-mix(in srgb, #ef4444 15%, transparent); color: #fca5a5; border: 1px solid color-mix(in srgb, #ef4444 40%, transparent); }
-.lvedit { width: 3.2rem; padding: 0.25rem 0.35rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: 5px; background: var(--p-content-background); color: var(--p-text-color); font: inherit; font-size: 0.9rem; text-align: right; }
-.lvedit__base { font-size: 0.75rem; color: var(--p-text-muted-color); }
-.iconbtn { display: inline-flex; padding: 0.3rem; border: 0; background: transparent; color: var(--p-text-muted-color); cursor: pointer; border-radius: 5px; }
-.iconbtn:hover { color: var(--p-primary-color); background: var(--p-highlight-background, rgba(127,127,127,0.12)); }
-.modal__scrim { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; }
-.modal__panel { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max-content; max-width: min(34rem, 94vw); max-height: 88vh; overflow-y: auto; padding: 1.1rem 1.25rem; background: var(--p-content-background); border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 10px); box-shadow: 0 16px 48px rgba(0,0,0,0.45); z-index: 310; }
-.modal__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.85rem; }
-.modal__title { margin: 0; font-size: 1.15rem; }
+.protag {
+  @include panel;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.85rem;
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  input {
+    @include field;
+    width: 4.5rem;
+  }
+  small {
+    flex: 1 1 12rem;
+    font-size: 0.8rem;
+    color: var(--p-text-muted-color);
+  }
+  &--unset {
+    border-color: color-mix(in srgb, var(--p-primary-color) 45%, transparent);
+  }
+}
+
+.quickadd {
+  @include panel;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem;
+
+  &__title {
+    margin: 0;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--p-text-muted-color);
+  }
+  &__notice {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--app-success);
+  }
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--p-border-radius, 6px);
+  font-size: 0.9rem;
+
+  &--error {
+    border: 1px solid color-mix(in srgb, #ef4444 40%, transparent);
+    background: color-mix(in srgb, #ef4444 15%, transparent);
+    color: var(--app-danger);
+  }
+}
+
+.lvedit {
+  @include field;
+  width: 3.2rem;
+  padding: 0.25rem 0.35rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: right;
+
+  &__base {
+    font-size: 0.75rem;
+    color: var(--p-text-muted-color);
+  }
+}
+
+.iconbtn {
+  display: inline-flex;
+  padding: 0.3rem;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--p-text-muted-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--p-primary-color);
+    background: var(--p-highlight-background, rgba(127, 127, 127, 0.12));
+  }
+}
+
+.modal {
+  &__scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  &__panel {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 310;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: min(34rem, 94vw);
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.3));
+    border-radius: var(--p-border-radius, 10px);
+    background: var(--p-content-background);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  }
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  &__title {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+}

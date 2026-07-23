@@ -36,7 +36,7 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, AffinityGrid, LoadState],
   template: `
-    @if (data.ready()) {
+    @if (data.shadowsReady()) {
       @if (shadow(); as s) {
         <article class="detail">
           <a class="back" [routerLink]="nav.link('shadows')"><i class="pi pi-arrow-left" aria-hidden="true"></i> All shadows</a>
@@ -137,7 +137,7 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
         </div>
       }
     } @else {
-      <app-load-state [loading]="data.loading()" [error]="data.error()" (retry)="data.retry()" />
+      <app-load-state [loading]="data.shadowsLoading()" [error]="data.shadowsError()" (retry)="data.retryShadows()" />
     }
   `,
   styles: `
@@ -147,13 +147,13 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
     .head { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-start; }
     .head__name { margin: 0 0 0.5rem; font-size: 1.8rem; }
     .head__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); font-size: 0.82rem; }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: var(--p-border-radius, 6px); color: var(--p-text-color); text-decoration: none; font-size: 0.9rem; &:hover { border-color: var(--p-primary-color); } }
-    .btn--owned { border-color: color-mix(in srgb, #22c55e 50%, transparent); color: #4ade80; }
+    .btn--owned { border-color: color-mix(in srgb, #22c55e 50%, transparent); color: var(--app-success); }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
     .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
-    .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .panel { padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.2)); border-radius: var(--p-border-radius, 8px); background: var(--app-panel); }
     .panel--request { border-color: color-mix(in srgb, var(--p-primary-color) 40%, transparent); }
     .panel__title { margin: 0 0 0.6rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
     .panel__title:not(:first-child) { margin-top: 1.1rem; }
@@ -162,16 +162,16 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
     .request__name { margin: 0; font-size: 1.15rem; font-weight: 600; }
 
     .stats { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .stats__cell { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; min-width: 3rem; padding: 0.4rem; border-radius: 6px; background: var(--p-surface-700, rgba(127,127,127,0.12)); }
+    .stats__cell { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; min-width: 3rem; padding: 0.4rem; border-radius: 6px; background: var(--app-panel-2); }
     .stats__cell--wide { min-width: 4rem; }
     .stats__abbr { font-size: 0.7rem; color: var(--p-text-muted-color); }
     .stats__val { font-size: 1.1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 
     .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .chip { padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); font-size: 0.82rem; }
+    .chip { padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
 
     .skills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skills__link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
+    .skills__link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
 
     .drops { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
     .drops li { display: flex; gap: 0.75rem; }
@@ -183,6 +183,11 @@ const AILMENT_LABELS: Record<AilmentId, string> = {
 })
 export class ShadowDetail {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // Shadows live in the on-demand extras bundle (task 58) — request them.
+    this.data.loadExtras();
+  }
   protected readonly nav = inject(GameRouteContext);
   private readonly compendium = inject(CompendiumStore);
   private readonly route = inject(ActivatedRoute);

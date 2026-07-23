@@ -164,10 +164,10 @@ interface SourceRef {
     .pick { display: flex; flex-direction: column; gap: 0.4rem; max-width: 32rem; }
     .pick__label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
 
-    .subject { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 10px; background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .subject { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 10px; background: var(--app-panel); }
     .subject__name { margin: 0 0 0.45rem; font-size: 1.35rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; a { color: var(--p-text-color); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; &:hover { color: var(--p-primary-color); } } }
     .subject__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.18)); font-size: 0.82rem; }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
     .subject__icon { font-size: 1.6rem; color: var(--p-primary-color); opacity: 0.6; }
 
     .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -179,9 +179,9 @@ interface SourceRef {
     .muted { color: var(--p-text-muted-color); }
 
     .pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
+    .pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--app-panel-2); color: var(--p-text-color); text-decoration: none; font-size: 0.85rem; &:hover { color: var(--p-primary-color); } }
 
-    .note { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; background: var(--p-surface-700, rgba(127,127,127,0.12)); font-size: 0.85rem; color: var(--p-text-muted-color); a { color: var(--p-primary-color); } }
+    .note { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; background: var(--app-panel-2); font-size: 0.85rem; color: var(--p-text-muted-color); a { color: var(--p-primary-color); } }
     .prompt { color: var(--p-text-muted-color); padding: 1.25rem 0; text-align: center; }
 
     @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
@@ -189,6 +189,11 @@ interface SourceRef {
 })
 export class ItemizationPage {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // The negotiation card column reads shadow data, in the on-demand extras (task 58).
+    this.data.loadExtras();
+  }
   protected readonly store = inject(FusionStore);
   protected readonly nav = inject(GameRouteContext);
   protected readonly titleCase = titleCase;

@@ -153,7 +153,7 @@ interface SkillRow {
   styles: `
     .gal { display: flex; flex-direction: column; gap: 1.15rem; }
     .roles { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
-    .role { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.75rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 8px; background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .role { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.75rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 8px; background: var(--app-panel); }
     .role__label { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
     .role__chip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; }
     .role__name { font-weight: 700; color: var(--p-text-color); text-decoration: none; &:hover { color: var(--p-primary-color); } }
@@ -166,8 +166,8 @@ interface SkillRow {
     .result__name { margin: 0.15rem 0 0.45rem; font-size: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; a { color: var(--p-text-color); text-decoration: none; &:hover { color: var(--p-primary-color); } } }
     .result__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .result__mask { display: flex; flex-direction: column; gap: 0.3rem; min-width: 12rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.18)); font-size: 0.82rem; }
-    .tag--full { color: #f59e0b; background: color-mix(in srgb, #f59e0b 16%, transparent); }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
+    .tag--full { color: var(--app-warn); background: color-mix(in srgb, #f59e0b 16%, transparent); }
 
     .exp { display: flex; gap: 0.65rem; padding: 0.8rem 0.95rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.18)); border-radius: 8px; background: var(--p-content-background); }
     .exp__icon { color: var(--p-primary-color); font-size: 1.15rem; margin-top: 0.1rem; }
@@ -178,7 +178,7 @@ interface SkillRow {
     .exp__foot { margin: 0.1rem 0 0; font-size: 0.75rem; color: var(--p-text-muted-color); }
 
     .warn { display: flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; background: color-mix(in srgb, #f59e0b 14%, transparent); font-size: 0.88rem; }
-    .note { display: flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; background: var(--p-surface-700, rgba(127,127,127,0.12)); color: var(--p-text-muted-color); font-size: 0.9rem; }
+    .note { display: flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; background: var(--app-panel-2); color: var(--p-text-muted-color); font-size: 0.9rem; }
 
     .panel { padding: 0.9rem 1rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.18)); border-radius: 8px; background: var(--p-content-background); }
     .panel__title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; margin: 0 0 0.7rem; }
@@ -188,7 +188,7 @@ interface SkillRow {
     .skills__row { display: inline-flex; align-items: center; gap: 0.35rem; }
     .skills__row.is-off { opacity: 0.5; }
     .skills__note { font-size: 0.72rem; color: var(--p-text-muted-color); }
-    .skills__ok { display: inline-flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: #4ade80; }
+    .skills__ok { display: inline-flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--app-success); }
     .muted { color: var(--p-text-muted-color); }
 
     .prompt { color: var(--p-text-muted-color); padding: 1.5rem 0; text-align: center; }

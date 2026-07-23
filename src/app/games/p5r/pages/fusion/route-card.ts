@@ -63,18 +63,18 @@ const CARD_KIND_LABELS: Record<CardSource['kind'], string> = {
     .route__head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
     .route__rank { font-weight: 700; color: var(--p-primary-color); }
     .metrics { display: inline-flex; flex-wrap: wrap; gap: 0.35rem; }
-    .metric { padding: 0.1rem 0.5rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.16)); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+    .metric { padding: 0.1rem 0.5rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
     .metric.is-active { background: color-mix(in srgb, var(--p-primary-color) 20%, transparent); color: var(--p-primary-color); font-weight: 600; }
     .pill { margin-left: auto; padding: 0.1rem 0.55rem; border-radius: 999px; font-size: 0.76rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; }
-    .pill--ok { color: #4ade80; background: color-mix(in srgb, #22c55e 14%, transparent); }
-    .pill--partial { color: #fbbf24; background: color-mix(in srgb, #fbbf24 15%, transparent); }
+    .pill--ok { color: var(--app-success); background: color-mix(in srgb, #22c55e 14%, transparent); }
+    .pill--partial { color: var(--app-warn); background: color-mix(in srgb, #fbbf24 15%, transparent); }
 
     .recipe { overflow-x: auto; padding: 0.1rem; }
     .assign { list-style: none; margin: 0; padding: 0.5rem 0 0; border-top: 1px solid var(--p-content-border-color, rgba(127,127,127,0.15)); display: flex; flex-direction: column; gap: 0.3rem; }
     .assign__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; font-size: 0.85rem; }
     .assign__row.is-off { color: var(--p-text-muted-color); }
-    .assign__row .pi-check-circle { color: #4ade80; }
-    .assign__row .pi-times-circle { color: #f59e0b; }
+    .assign__row .pi-check-circle { color: var(--app-success); }
+    .assign__row .pi-times-circle { color: var(--app-warn); }
     .assign__skill { font-weight: 600; }
     .assign__how { color: var(--p-text-muted-color); }
   `,

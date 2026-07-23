@@ -161,19 +161,19 @@ interface RecipeRow {
     .target-pick { display: flex; flex-direction: column; gap: 0.4rem; max-width: 32rem; }
     .target-pick__label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
 
-    .target { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-start; padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 10px; background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .target { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-start; padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 10px; background: var(--app-panel); }
     .target__name { margin: 0 0 0.45rem; font-size: 1.4rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; a { color: var(--p-text-color); text-decoration: none; &:hover { color: var(--p-primary-color); } } }
     .target__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.18)); font-size: 0.82rem; }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
     .target__mask { display: flex; flex-direction: column; gap: 0.3rem; min-width: 12rem; }
     .mini { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
 
     .warn, .note { display: flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; font-size: 0.88rem; a { color: var(--p-primary-color); } }
     .warn { background: color-mix(in srgb, #f59e0b 14%, transparent); }
-    .note { background: var(--p-surface-700, rgba(127,127,127,0.12)); color: var(--p-text-muted-color); }
+    .note { background: var(--app-panel-2); color: var(--p-text-muted-color); }
 
     .group__title { display: flex; align-items: center; gap: 0.5rem; margin: 0.3rem 0 0.6rem; font-size: 0.9rem; }
-    .group__count { padding: 0.05rem 0.45rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.2)); font-size: 0.75rem; color: var(--p-text-muted-color); }
+    .group__count { padding: 0.05rem 0.45rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.75rem; color: var(--p-text-muted-color); }
     .rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
     .row { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; justify-content: space-between; padding: 0.55rem 0.75rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.16)); border-radius: 8px; background: var(--p-content-background); }
     .row--ready { border-color: color-mix(in srgb, #22c55e 45%, transparent); background: color-mix(in srgb, #22c55e 6%, transparent); }
@@ -183,11 +183,11 @@ interface RecipeRow {
     .ing__meta { font-size: 0.75rem; color: var(--p-text-muted-color); text-transform: capitalize; }
     .plus { color: var(--p-text-muted-color); }
     .row__tail { display: inline-flex; align-items: center; gap: 0.6rem; }
-    .badge-path { padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.72rem; background: var(--p-surface-700, rgba(127,127,127,0.2)); color: var(--p-text-muted-color); }
-    .badge-path[data-path='treasure'] { color: #fbbf24; background: color-mix(in srgb, #fbbf24 16%, transparent); }
+    .badge-path { padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.72rem; background: var(--app-panel-2); color: var(--p-text-muted-color); }
+    .badge-path[data-path='treasure'] { color: var(--app-warn); background: color-mix(in srgb, #fbbf24 16%, transparent); }
     .badge-path[data-path='same-arcana'] { color: #a78bfa; background: color-mix(in srgb, #a78bfa 16%, transparent); }
     .row__cost { font-variant-numeric: tabular-nums; color: var(--p-text-muted-color); font-size: 0.88rem; }
-    .ready { display: inline-flex; align-items: center; gap: 0.25rem; color: #4ade80; font-size: 0.78rem; font-weight: 600; }
+    .ready { display: inline-flex; align-items: center; gap: 0.25rem; color: var(--app-success); font-size: 0.78rem; font-weight: 600; }
 
     .empty, .prompt { color: var(--p-text-muted-color); padding: 1.25rem 0; text-align: center; }
   `,

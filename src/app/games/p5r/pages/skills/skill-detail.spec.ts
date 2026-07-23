@@ -45,6 +45,7 @@ function stubService() {
     loading: signal(false),
     error: signal<string | null>(null),
     data: signal(stubData()),
+    loadExtras: () => {},
     skillLearnedBy: signal(new Map()),
     retry: () => {},
   } as unknown as GameDataService;

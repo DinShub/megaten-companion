@@ -50,7 +50,7 @@ import { SettingsStore } from '../../settings/settings.store';
     .alarm__state {
       padding: 0.05rem 0.4rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.03em;
-      background: var(--p-surface-700, rgba(127, 127, 127, 0.2));
+      background: var(--app-panel-2);
       .is-on & { background: color-mix(in srgb, var(--p-primary-color) 22%, transparent); }
     }
   `,

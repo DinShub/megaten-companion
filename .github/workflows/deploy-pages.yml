@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+# Publishes to https://dinshub.github.io/megaten-companion/ (§14 Q5).
+#
+# NOT auto-enabled. To turn it on:
+#   1. Repo Settings → Pages → Source = "GitHub Actions".
+#   2. Run this workflow from the Actions tab (workflow_dispatch), or uncomment
+#      the `push` trigger below to publish on every push to main.
+# The base-href matches the project-pages subpath; the app's data fetches use
+# relative paths, so they resolve under it. index.html is copied to 404.html so
+# client-side deep links resolve on Pages' static host.
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Validate committed datasets (§8.4)
+        run: node scripts/validate-data.mjs
+      - name: Build
+        run: npx ng build --configuration production --base-href /megaten-companion/
+      - name: SPA deep-link fallback + disable Jekyll
+        run: |
+          cp dist/megaten-companion/browser/index.html dist/megaten-companion/browser/404.html
+          touch dist/megaten-companion/browser/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/megaten-companion/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

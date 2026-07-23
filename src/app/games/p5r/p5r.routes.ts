@@ -98,6 +98,11 @@ const featureRoutes: Routes = [
     loadComponent: () => import('./pages/settings/settings-page').then((m) => m.SettingsPage),
   },
 
+  {
+    path: 'about',
+    loadComponent: () => import('./pages/about/about-page').then((m) => m.AboutPage),
+  },
+
   { path: '**', redirectTo: 'personas' },
 ];
 

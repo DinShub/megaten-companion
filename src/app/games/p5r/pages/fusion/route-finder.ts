@@ -156,13 +156,13 @@ interface SkillChip {
   `,
   styles: `
     .rf { display: flex; flex-direction: column; gap: 1.1rem; }
-    .controls { display: flex; flex-wrap: wrap; gap: 0.9rem 1.1rem; align-items: flex-end; padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 10px; background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .controls { display: flex; flex-wrap: wrap; gap: 0.9rem 1.1rem; align-items: flex-end; padding: 1rem 1.15rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 10px; background: var(--app-panel); }
     .ctl { display: flex; flex-direction: column; gap: 0.4rem; }
     .ctl--wide { flex: 1 1 20rem; min-width: 16rem; }
     .ctl--go { margin-left: auto; }
     .ctl__label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); small { text-transform: none; letter-spacing: 0; opacity: 0.7; } }
 
-    .seg { display: inline-flex; gap: 0.2rem; padding: 0.2rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 999px; }
+    .seg { display: inline-flex; gap: 0.2rem; padding: 0.2rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 999px; max-width: 100%; overflow-x: auto; }
     .seg__btn { padding: 0.35rem 0.7rem; border: 0; border-radius: 999px; background: transparent; color: var(--p-text-muted-color); font: inherit; font-size: 0.82rem; white-space: nowrap; cursor: pointer; &:hover { color: var(--p-text-color); } &.is-on { background: var(--p-primary-color); color: var(--p-primary-contrast-color, #fff); } }
 
     .depth { display: inline-flex; align-items: center; gap: 0.5rem; }
@@ -171,7 +171,7 @@ interface SkillChip {
 
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.55rem 1.1rem; border: 0; border-radius: 8px; font: inherit; font-weight: 600; cursor: pointer; }
     .btn--go { background: var(--p-primary-color); color: var(--p-primary-contrast-color, #fff); &:disabled { opacity: 0.5; cursor: default; } }
-    .btn--cancel { background: var(--p-surface-700, rgba(127,127,127,0.2)); color: var(--p-text-color); }
+    .btn--cancel { background: var(--app-panel-2); color: var(--p-text-color); }
 
     .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .chip { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.2rem 0.55rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); border-radius: 999px; background: transparent; color: var(--p-text-color); font: inherit; font-size: 0.82rem; cursor: pointer; .pi-times { font-size: 0.7rem; color: var(--p-text-muted-color); } &:hover { border-color: var(--p-primary-color); } }
@@ -185,7 +185,7 @@ interface SkillChip {
     .routes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.85rem; }
 
     .deadend { display: flex; gap: 0.8rem; padding: 1rem 1.15rem; border-radius: 8px; background: color-mix(in srgb, #f59e0b 10%, transparent); }
-    .deadend__icon { font-size: 1.4rem; color: #f59e0b; }
+    .deadend__icon { font-size: 1.4rem; color: var(--app-warn); }
     .deadend__title { margin: 0 0 0.3rem; font-weight: 600; }
     .deadend__list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; }
     .prompt { color: var(--p-text-muted-color); padding: 1.5rem 0; text-align: center; }

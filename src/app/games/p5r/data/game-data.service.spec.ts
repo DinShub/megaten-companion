@@ -46,16 +46,21 @@ const META = {
   notes: [],
 };
 
-const DATASET_BODIES: Record<string, object> = {
+// Shadows + accessories load lazily (task 58), so they're not part of the
+// primary bundle a `load()` fetches.
+const PRIMARY_BODIES: Record<string, object> = {
   personas: PERSONAS,
   skills: [],
   traits: [],
-  shadows: [],
-  accessories: [],
   'fusion-chart': { grid: {} },
   'advanced-recipes': { recipes: [], treasureIds: [] },
   'element-chart': { offsets: {} },
   'inherit-matrix': {},
+};
+
+const EXTRAS_BODIES: Record<string, object> = {
+  shadows: [{ id: 'pixie-shadow', name: 'Pixie', kind: 'shadow' }],
+  accessories: [],
 };
 
 function setup(): { svc: GameDataService; http: HttpTestingController; settings: SettingsStore } {
@@ -73,10 +78,17 @@ function setup(): { svc: GameDataService; http: HttpTestingController; settings:
   };
 }
 
-/** Flush meta, then every cache-busted dataset request. */
+/** Flush meta, then every cache-busted primary dataset request. */
 function flushSuccessfulLoad(http: HttpTestingController): void {
   http.expectOne('data/p5r/meta.json').flush(META);
-  for (const [name, body] of Object.entries(DATASET_BODIES)) {
+  for (const [name, body] of Object.entries(PRIMARY_BODIES)) {
+    http.expectOne(`data/p5r/${name}.json?v=${SHA}`).flush(body);
+  }
+}
+
+/** Flush the on-demand extras (shadows + accessories). */
+function flushExtras(http: HttpTestingController): void {
+  for (const [name, body] of Object.entries(EXTRAS_BODIES)) {
     http.expectOne(`data/p5r/${name}.json?v=${SHA}`).flush(body);
   }
 }
@@ -95,6 +107,37 @@ describe('GameDataService', () => {
     expect(svc.ready()).toBe(true);
     expect(svc.error()).toBeNull();
     expect(svc.data()!.personas.length).toBe(2);
+  });
+
+  it('does not fetch shadows on the primary load — they load lazily (task 58)', () => {
+    const { svc, http } = setup();
+    svc.load(p5rGame);
+    flushSuccessfulLoad(http);
+
+    // Primary is ready without ever requesting the shadow dataset.
+    expect(svc.ready()).toBe(true);
+    expect(svc.extrasReady()).toBe(false);
+    expect(svc.data()!.shadows).toEqual([]);
+    http.expectNone(`data/p5r/shadows.json?v=${SHA}`);
+    http.expectNone(`data/p5r/accessories.json?v=${SHA}`);
+
+    // Requesting extras fetches them and merges them into the bundle.
+    svc.loadExtras();
+    flushExtras(http);
+    expect(svc.extrasReady()).toBe(true);
+    expect(svc.data()!.shadows.length).toBe(1);
+  });
+
+  it('defers loadExtras() called before the primary load finishes until it completes', () => {
+    const { svc, http } = setup();
+    svc.load(p5rGame);
+    svc.loadExtras(); // requested while primary is still in flight
+    http.expectNone(`data/p5r/shadows.json?v=${SHA}`); // not yet — primary not ready
+
+    flushSuccessfulLoad(http); // primary completes → extras kick off
+    flushExtras(http);
+    expect(svc.extrasReady()).toBe(true);
+    expect(svc.data()!.shadows.length).toBe(1);
   });
 
   it('loads once per session — a second load issues no further requests', () => {

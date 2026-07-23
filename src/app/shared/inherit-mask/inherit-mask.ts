@@ -50,7 +50,7 @@ interface MaskCell {
       gap: 1px;
       padding: 3px 1px;
       border-radius: 3px;
-      background: var(--p-surface-700, rgba(127, 127, 127, 0.12));
+      background: var(--app-panel-2);
       opacity: 0.55;
       line-height: 1.1;
     }
@@ -69,7 +69,7 @@ interface MaskCell {
       color: var(--p-text-muted-color);
     }
     .is-allowed .mask__mark {
-      color: #4ade80;
+      color: var(--app-success);
     }
   `,
 })

@@ -8,6 +8,7 @@ import { StorageService } from './core/storage/storage.service';
 import { ThemeService } from './core/theme/theme.service';
 import type { GameDefinition, GameFeature } from './games/game.model';
 import { DEFAULT_GAME_ID, GAMES, getGame } from './games/game.registry';
+import { FocusTrap } from './shared/a11y/focus-trap';
 
 /** One entry in the app-agnostic navigation tree (§10). */
 interface NavEntry {
@@ -43,7 +44,7 @@ const NAV: readonly NavEntry[] = [
   // Deliberately no PrimeNG components here: the shell is always in the initial
   // bundle, so its nav, drawer, buttons and banners are hand-rolled to keep that
   // bundle under budget (§8.5 / task 15). PrimeNG loads lazily with feature pages.
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, FocusTrap],
   templateUrl: './app.html',
 })
 export class App {
@@ -79,6 +80,7 @@ export class App {
   protected readonly hasMultipleGames = GAMES.length > 1;
 
   protected readonly settingsLink = computed(() => ['/', this.game().id, 'settings']);
+  protected readonly aboutLink = computed(() => ['/', this.game().id, 'about']);
 
   protected readonly drawerOpen = signal(false);
 

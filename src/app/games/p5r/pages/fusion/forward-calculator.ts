@@ -207,7 +207,7 @@ interface ItemCard {
   styles: `
     .fwd { display: flex; flex-direction: column; gap: 1.25rem; }
     .slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0.75rem; }
-    .slot { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.75rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 8px; background: var(--p-surface-800, rgba(127,127,127,0.05)); }
+    .slot { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.75rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 8px; background: var(--app-panel); }
     .slot__label, .cards__lbl, .mini, .result__path, .panel__title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--p-text-muted-color); }
     .slot__meta, .slot__x, .slot__remove, .hint, .muted, .cards__hint, .panel__foot, .skills__note, .trait small { color: var(--p-text-muted-color); }
     .slot__chip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; }
@@ -225,7 +225,7 @@ interface ItemCard {
     .result__name a { color: var(--p-text-color); text-decoration: none; }
     .result__meta, .skills, .traits, .cards { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .result__mask { display: flex; flex-direction: column; gap: 0.3rem; min-width: 12rem; }
-    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--p-surface-700, rgba(127,127,127,0.18)); font-size: 0.82rem; }
+    .tag { padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--app-panel-2); font-size: 0.82rem; }
 
     .warn { display: flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.5rem 0.7rem; border-radius: 6px; background: color-mix(in srgb, #f59e0b 12%, transparent); font-size: 0.88rem; }
     a { color: var(--p-primary-color); }
@@ -248,7 +248,7 @@ interface ItemCard {
     .card { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--p-text-color); text-decoration: none; }
 
     .invalid { display: flex; gap: 0.7rem; padding: 1rem 1.15rem; border-radius: 8px; background: color-mix(in srgb, #f59e0b 12%, transparent); }
-    .invalid .pi { color: #f59e0b; font-size: 1.2rem; }
+    .invalid .pi { color: var(--app-warn); font-size: 1.2rem; }
     .invalid__msg { margin: 0; font-weight: 600; }
     .invalid__hint { margin: 0.3rem 0 0; font-size: 0.85rem; color: var(--p-text-muted-color); }
     .prompt { color: var(--p-text-muted-color); padding: 1.5rem 0; text-align: center; }

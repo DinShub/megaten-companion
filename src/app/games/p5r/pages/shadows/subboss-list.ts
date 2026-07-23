@@ -32,7 +32,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, AffinityGrid, LoadState, ShadowFilterBar, VirtualList],
   template: `
-    @if (data.ready()) {
+    @if (data.shadowsReady()) {
       <div class="page list-page list-page--tabbed">
         <header class="page__head">
           <h1 class="page__title">Sub-bosses</h1>
@@ -78,7 +78,7 @@ import {
         </div>
       </div>
     } @else {
-      <app-load-state [loading]="data.loading()" [error]="data.error()" (retry)="data.retry()" />
+      <app-load-state [loading]="data.shadowsLoading()" [error]="data.shadowsError()" (retry)="data.retryShadows()" />
     }
   `,
   styles: `
@@ -101,7 +101,7 @@ import {
     .cell--num { text-align: right; font-variant-numeric: tabular-nums; font-size: 0.88rem; }
     .cell--request { text-overflow: ellipsis; white-space: nowrap; font-size: 0.9rem; }
     .cell--date { color: var(--p-text-muted-color); font-size: 0.82rem; white-space: nowrap; }
-    .rankbadge { display: inline-flex; align-items: center; justify-content: center; min-width: 1.5rem; padding: 0.1rem 0.4rem; border-radius: 4px; background: var(--p-surface-700, rgba(127,127,127,0.18)); font-weight: 700; font-size: 0.82rem; }
+    .rankbadge { display: inline-flex; align-items: center; justify-content: center; min-width: 1.5rem; padding: 0.1rem 0.4rem; border-radius: 4px; background: var(--app-panel-2); font-weight: 700; font-size: 0.82rem; }
 
     .empty { padding: 2rem 1rem; text-align: center; color: var(--p-text-muted-color); }
     .linkbtn { border: 0; background: transparent; color: var(--p-primary-color); cursor: pointer; font: inherit; text-decoration: underline; }
@@ -114,6 +114,11 @@ import {
 })
 export class SubbossList {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // Shadows live in the on-demand extras bundle (task 58) — request them.
+    this.data.loadExtras();
+  }
   protected readonly nav = inject(GameRouteContext);
   protected readonly titleCase = titleCase;
 

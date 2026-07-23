@@ -26,7 +26,7 @@ import { SKILL_ELEMENT_CLS, SKILL_ELEMENT_LABEL } from '../element-visuals';
       gap: 0.35rem;
       padding: 0.15rem 0.5rem;
       border-radius: 999px;
-      background: var(--p-surface-700, rgba(127, 127, 127, 0.16));
+      background: var(--app-panel-2);
       font-size: 0.8rem;
       max-width: 100%;
     }

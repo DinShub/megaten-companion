@@ -31,7 +31,7 @@ interface AccessoryRow {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, LoadState],
   template: `
-    @if (data.ready()) {
+    @if (data.shadowsReady()) {
       <div class="page">
         <div class="toolbar">
           <span class="toolbar__search">
@@ -74,7 +74,7 @@ interface AccessoryRow {
         </section>
       </div>
     } @else {
-      <app-load-state [loading]="data.loading()" [error]="data.error()" (retry)="data.retry()" />
+      <app-load-state [loading]="data.shadowsLoading()" [error]="data.shadowsError()" (retry)="data.retryShadows()" />
     }
   `,
   styles: `
@@ -97,13 +97,18 @@ interface AccessoryRow {
     .sep { color: var(--p-text-muted-color); }
     .empty { padding: 1rem 0; color: var(--p-text-muted-color); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 767.98px) {
       .mats__row { grid-template-columns: 1fr; gap: 0.25rem; }
     }
   `,
 })
 export class DropsPage {
   protected readonly data = inject(GameDataService);
+
+  constructor() {
+    // Drops read shadow + accessory data, both in the on-demand extras (task 58).
+    this.data.loadExtras();
+  }
   protected readonly nav = inject(GameRouteContext);
 
   protected readonly query = createUrlState<string>({

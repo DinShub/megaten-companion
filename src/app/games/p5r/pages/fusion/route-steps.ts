@@ -92,7 +92,7 @@ interface Step {
   styles: `
     .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
     .step { display: flex; align-items: flex-start; gap: 0.5rem; }
-    .step__n { flex: 0 0 auto; width: 1.4rem; height: 1.4rem; margin-top: 0.15rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--p-surface-700, rgba(127,127,127,0.2)); color: var(--p-text-muted-color); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+    .step__n { flex: 0 0 auto; width: 1.4rem; height: 1.4rem; margin-top: 0.15rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--app-panel-2); color: var(--p-text-muted-color); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
     .step__eq { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.4rem; }
 
     .unit { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; padding: 0.25rem 0.5rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.22)); border-radius: 7px; background: var(--p-content-background); }
@@ -109,15 +109,15 @@ interface Step {
 
     .chip { display: inline-flex; align-items: center; gap: 0.2rem; padding: 0.05rem 0.4rem; border-radius: 999px; font-size: 0.68rem; white-space: nowrap; }
     .chip--carry { background: color-mix(in srgb, var(--p-primary-color) 18%, transparent); color: var(--p-primary-color); }
-    .chip--supply { background: var(--p-surface-700, rgba(127,127,127,0.22)); color: var(--p-text-color); }
+    .chip--supply { background: var(--app-panel-2); color: var(--p-text-color); }
 
-    .badge-path { padding: 0.05rem 0.4rem; border-radius: 999px; font-size: 0.66rem; background: var(--p-surface-700, rgba(127,127,127,0.2)); color: var(--p-text-muted-color); }
-    .badge-path[data-path='treasure'] { color: #fbbf24; background: color-mix(in srgb, #fbbf24 16%, transparent); }
+    .badge-path { padding: 0.05rem 0.4rem; border-radius: 999px; font-size: 0.66rem; background: var(--app-panel-2); color: var(--p-text-muted-color); }
+    .badge-path[data-path='treasure'] { color: var(--app-warn); background: color-mix(in srgb, #fbbf24 16%, transparent); }
     .badge-path[data-path='same-arcana'] { color: #a78bfa; background: color-mix(in srgb, #a78bfa 16%, transparent); }
     .badge-path[data-path='advanced'] { color: #f472b6; background: color-mix(in srgb, #f472b6 16%, transparent); }
 
     .gate { display: inline-flex; align-items: center; gap: 0.2rem; font-size: 0.66rem; color: var(--p-text-muted-color); }
-    .obtain { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: 0; font-size: 0.9rem; .pi-check { color: #4ade80; } }
+    .obtain { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: 0; font-size: 0.9rem; .pi-check { color: var(--app-success); } }
   `,
 })
 export class RouteSteps {

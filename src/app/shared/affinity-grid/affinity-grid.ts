@@ -46,7 +46,7 @@ interface Cell {
       gap: 1px;
       padding: 3px 1px;
       border-radius: 3px;
-      background: var(--p-surface-700, rgba(127, 127, 127, 0.15));
+      background: var(--app-panel-2);
       line-height: 1.1;
     }
     .cell__el {
@@ -64,31 +64,31 @@ interface Cell {
       background: color-mix(in srgb, #ef4444 22%, transparent);
     }
     .aff-weak .cell__aff {
-      color: #f87171;
+      color: var(--aff-weak);
     }
     .aff-resist {
       background: color-mix(in srgb, #22c55e 20%, transparent);
     }
     .aff-resist .cell__aff {
-      color: #4ade80;
+      color: var(--aff-resist);
     }
     .aff-null {
       background: color-mix(in srgb, #64748b 26%, transparent);
     }
     .aff-null .cell__aff {
-      color: #cbd5e1;
+      color: var(--aff-null);
     }
     .aff-repel {
       background: color-mix(in srgb, #a855f7 24%, transparent);
     }
     .aff-repel .cell__aff {
-      color: #c084fc;
+      color: var(--aff-repel);
     }
     .aff-drain {
       background: color-mix(in srgb, #14b8a6 24%, transparent);
     }
     .aff-drain .cell__aff {
-      color: #2dd4bf;
+      color: var(--aff-drain);
     }
     .aff-neutral .cell__aff {
       color: var(--p-text-muted-color);

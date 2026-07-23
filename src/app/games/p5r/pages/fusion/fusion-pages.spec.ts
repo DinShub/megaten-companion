@@ -129,6 +129,7 @@ function stubGameData() {
     error: signal<string | null>(null),
     data: signal(TEST_DATA),
     retry: () => {},
+    loadExtras: () => {},
   } as unknown as GameDataService;
 }
 
