@@ -16,8 +16,6 @@ interface NavEntry {
   readonly icon: string;
   /** Primary destination, relative to `/<gameId>`. */
   readonly segments: readonly string[];
-  /** Sub-destinations for a submenu / drawer group. */
-  readonly children?: readonly { readonly label: string; readonly segments: readonly string[] }[];
   /** Shown in the mobile bottom tab bar. */
   readonly primary?: boolean;
 }
@@ -26,34 +24,15 @@ interface NavEntry {
  * The §10 nav tree, keyed by feature. Game-agnostic: a game shows the entries
  * whose feature it declares in `GameDefinition.features`, and links are built
  * from the game's id — nothing here names a game.
+ *
+ * Multi-page features (Fusion, Shadows) link to their landing page only; their
+ * sub-pages live in an on-page tab strip (SectionLayout), not a nav dropdown.
  */
 const NAV: readonly NavEntry[] = [
-  {
-    feature: 'fusion',
-    label: 'Fusion',
-    icon: 'pi pi-bolt',
-    segments: ['fusion', 'calculator'],
-    primary: true,
-    children: [
-      { label: 'Calculator', segments: ['fusion', 'calculator'] },
-      { label: 'Route finder', segments: ['fusion', 'route'] },
-      { label: 'Itemization', segments: ['fusion', 'itemization'] },
-    ],
-  },
+  { feature: 'fusion', label: 'Fusion', icon: 'pi pi-bolt', segments: ['fusion'], primary: true },
   { feature: 'compendium', label: 'Compendium', icon: 'pi pi-book', segments: ['compendium'], primary: true },
   { feature: 'personas', label: 'Personas', icon: 'pi pi-users', segments: ['personas'], primary: true },
-  {
-    feature: 'shadows',
-    label: 'Shadows',
-    icon: 'pi pi-eye',
-    segments: ['shadows'],
-    primary: true,
-    children: [
-      { label: 'Shadows', segments: ['shadows'] },
-      { label: 'Sub-bosses', segments: ['shadows', 'subbosses'] },
-      { label: 'Drops', segments: ['shadows', 'drops'] },
-    ],
-  },
+  { feature: 'shadows', label: 'Shadows', icon: 'pi pi-eye', segments: ['shadows'], primary: true },
   { feature: 'skills', label: 'Skills', icon: 'pi pi-sparkles', segments: ['skills'] },
   { feature: 'classroom', label: 'Classroom', icon: 'pi pi-graduation-cap', segments: ['classroom'] },
 ];
@@ -95,8 +74,9 @@ export class App {
   /** Mobile bottom tab bar: the primary destinations. */
   protected readonly primaryNav = computed(() => this.navEntries().filter((e) => e.primary));
 
-  /** Full drawer tree for mobile: every entry, children flattened under it. */
-  protected readonly drawerNav = computed(() => this.navEntries());
+  /** Every shipped game, for the switcher (§9.2). Only shown when there's a choice. */
+  protected readonly games = GAMES;
+  protected readonly hasMultipleGames = GAMES.length > 1;
 
   protected readonly settingsLink = computed(() => ['/', this.game().id, 'settings']);
 
@@ -117,6 +97,12 @@ export class App {
 
   protected link(segments: readonly string[]): unknown[] {
     return ['/', this.game().id, ...segments];
+  }
+
+  protected switchGame(id: string): void {
+    if (id !== this.game().id) {
+      void this.router.navigate(['/', id]);
+    }
   }
 
   protected dismissStorageBanner(): void {

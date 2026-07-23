@@ -23,39 +23,25 @@
     <span>{{ game().shortTitle }} Companion</span>
   </a>
 
+  @if (hasMultipleGames) {
+    <select
+      class="app-gameswitch"
+      aria-label="Switch game"
+      [value]="game().id"
+      (change)="switchGame($any($event.target).value)"
+    >
+      @for (g of games; track g.id) {
+        <option [value]="g.id">{{ g.shortTitle }}</option>
+      }
+    </select>
+  }
+
   <nav class="app-nav app-desktop-only" aria-label="Sections">
     @for (entry of navEntries(); track entry.feature) {
-      @if (entry.children) {
-        <div class="app-nav__group">
-          <a
-            class="app-nav__link"
-            [routerLink]="link(entry.segments)"
-            routerLinkActive="is-active"
-            [attr.aria-haspopup]="true"
-          >
-            <i [class]="entry.icon" aria-hidden="true"></i>
-            <span>{{ entry.label }}</span>
-            <i class="pi pi-angle-down app-nav__caret" aria-hidden="true"></i>
-          </a>
-          <div class="app-nav__menu">
-            @for (child of entry.children; track child.label) {
-              <a
-                class="app-nav__menuitem"
-                [routerLink]="link(child.segments)"
-                routerLinkActive="is-active"
-                [routerLinkActiveOptions]="{ exact: true }"
-              >
-                {{ child.label }}
-              </a>
-            }
-          </div>
-        </div>
-      } @else {
-        <a class="app-nav__link" [routerLink]="link(entry.segments)" routerLinkActive="is-active">
-          <i [class]="entry.icon" aria-hidden="true"></i>
-          <span>{{ entry.label }}</span>
-        </a>
-      }
+      <a class="app-nav__link" [routerLink]="link(entry.segments)" routerLinkActive="is-active">
+        <i [class]="entry.icon" aria-hidden="true"></i>
+        <span>{{ entry.label }}</span>
+      </a>
     }
   </nav>
 
@@ -68,12 +54,9 @@
     >
       <i class="pi" [class.pi-sun]="theme.isDark()" [class.pi-moon]="!theme.isDark()" aria-hidden="true"></i>
     </button>
-    <a class="app-iconbtn app-desktop-only" [routerLink]="settingsLink()" aria-label="Settings">
+    <a class="app-iconbtn" [routerLink]="settingsLink()" aria-label="Settings">
       <i class="pi pi-cog" aria-hidden="true"></i>
     </a>
-    <button class="app-iconbtn app-mobile-only" type="button" aria-label="Open menu" (click)="drawerOpen.set(true)">
-      <i class="pi pi-bars" aria-hidden="true"></i>
-    </button>
   </div>
 </header>
 
@@ -81,7 +64,7 @@
   <router-outlet />
 </main>
 
-<nav class="app-tabbar app-mobile-only" aria-label="Primary">
+<nav class="app-tabbar" aria-label="Primary">
   @for (entry of primaryNav(); track entry.feature) {
     <a class="app-tabbar__item" [routerLink]="link(entry.segments)" routerLinkActive="is-active">
       <i [class]="entry.icon" aria-hidden="true"></i>
@@ -100,43 +83,48 @@
 <aside class="app-drawer" [class.is-open]="drawerOpen()" aria-label="All sections">
   <div class="app-drawer__head">
     <span class="app-drawer__title">{{ game().title }}</span>
-    <button class="app-iconbtn" type="button" aria-label="Close menu" (click)="drawerOpen.set(false)">
-      <i class="pi pi-times" aria-hidden="true"></i>
-    </button>
+    <div class="app-drawer__head-actions">
+      <button
+        class="app-iconbtn"
+        type="button"
+        [attr.aria-label]="theme.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+        (click)="theme.toggle()"
+      >
+        <i class="pi" [class.pi-sun]="theme.isDark()" [class.pi-moon]="!theme.isDark()" aria-hidden="true"></i>
+      </button>
+      <button class="app-iconbtn" type="button" aria-label="Close menu" (click)="drawerOpen.set(false)">
+        <i class="pi pi-times" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 
   <nav class="app-drawer__nav">
-    @for (entry of navEntries(); track entry.feature) {
+    @if (hasMultipleGames) {
       <div class="app-drawer__group">
-        <a
-          class="app-drawer__link app-drawer__link--head"
-          [routerLink]="link(entry.segments)"
-          routerLinkActive="is-active"
-          [routerLinkActiveOptions]="{ exact: !entry.children }"
-        >
-          <i [class]="entry.icon" aria-hidden="true"></i>
-          <span>{{ entry.label }}</span>
-        </a>
-        @if (entry.children) {
-          @for (child of entry.children; track child.label) {
-            <a
-              class="app-drawer__link app-drawer__link--child"
-              [routerLink]="link(child.segments)"
-              routerLinkActive="is-active"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
-              {{ child.label }}
-            </a>
-          }
+        <span class="app-drawer__section">Game</span>
+        @for (g of games; track g.id) {
+          <a class="app-drawer__link" [routerLink]="['/', g.id]" [class.is-active]="g.id === game().id">
+            <i class="pi pi-bolt" aria-hidden="true"></i>
+            <span>{{ g.title }}</span>
+          </a>
         }
       </div>
     }
 
-    <div class="app-drawer__group">
-      <a class="app-drawer__link app-drawer__link--head" [routerLink]="settingsLink()" routerLinkActive="is-active">
-        <i class="pi pi-cog" aria-hidden="true"></i>
-        <span>Settings</span>
+    @for (entry of navEntries(); track entry.feature) {
+      <a
+        class="app-drawer__link app-drawer__link--head"
+        [routerLink]="link(entry.segments)"
+        routerLinkActive="is-active"
+      >
+        <i [class]="entry.icon" aria-hidden="true"></i>
+        <span>{{ entry.label }}</span>
       </a>
-    </div>
+    }
+
+    <a class="app-drawer__link app-drawer__link--head" [routerLink]="settingsLink()" routerLinkActive="is-active">
+      <i class="pi pi-cog" aria-hidden="true"></i>
+      <span>Settings</span>
+    </a>
   </nav>
 </aside>

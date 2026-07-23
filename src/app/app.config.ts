@@ -1,6 +1,11 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import {
+  PreloadAllModules,
+  provideRouter,
+  withInMemoryScrolling,
+  withPreloading,
+} from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 
 import { PRIMEUI_LICENSE_KEY } from '../environments/license';
@@ -16,6 +21,11 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),
+      // Preload every lazy route once the shell is up, so the first click on a
+      // feature (notably Settings, which pulls in PrimeNG) is instant instead of
+      // stalling on an on-demand chunk fetch. The preloader covers `loadComponent`
+      // routes too, not just `loadChildren`.
+      withPreloading(PreloadAllModules),
     ),
     providePrimeNG({
       license: PRIMEUI_LICENSE_KEY,

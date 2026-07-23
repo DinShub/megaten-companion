@@ -50,6 +50,7 @@ Thumbs.db
 # Planning documents — not part of the shipped app.
 /SPEC.md
 /TASKS.md
+/ISSUES.md
 
 # Upstream data importer — one-off developer tooling. Its committed output in
 # public/data/ is what the app actually builds against.

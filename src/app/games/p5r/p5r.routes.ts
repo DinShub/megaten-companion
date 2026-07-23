@@ -7,11 +7,25 @@ import type { Routes } from '@angular/router';
  */
 const placeholder = () => import('./pages/placeholder-page').then((m) => m.PlaceholderPage);
 
+// Multi-page features render their sub-pages as an on-page tab strip (§10),
+// not a top-nav dropdown: the parent route mounts the shared SectionLayout and
+// declares its tabs in `data.sections`; the children render into its outlet.
+const sectionLayout = () =>
+  import('../../shared/section-layout/section-layout').then((m) => m.SectionLayout);
+
 export const P5R_ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'personas' },
 
   {
     path: 'fusion',
+    loadComponent: sectionLayout,
+    data: {
+      sections: [
+        { label: 'Calculator', path: 'calculator' },
+        { label: 'Route finder', path: 'route' },
+        { label: 'Itemization', path: 'itemization' },
+      ],
+    },
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'calculator' },
       {
@@ -45,6 +59,14 @@ export const P5R_ROUTES: Routes = [
 
   {
     path: 'shadows',
+    loadComponent: sectionLayout,
+    data: {
+      sections: [
+        { label: 'Shadows', path: '' },
+        { label: 'Sub-bosses', path: 'subbosses' },
+        { label: 'Drops', path: 'drops' },
+      ],
+    },
     children: [
       {
         path: '',
