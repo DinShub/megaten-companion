@@ -114,3 +114,26 @@ export const SKILL_ELEMENT_NAMES: Readonly<Record<SkillElementId, string>> = {
   healing: 'Healing',
   passive: 'Passive',
 };
+
+/**
+ * The greyed label for a skill that can't be inherited or gallows-transferred:
+ * the blocking element for `blocked-element`, else the reason word, else null
+ * (eligible). Shared by the forward calculator (§4.7.1) and the gallows
+ * calculator (§6.6) — gallows adds the `already-known` case the forward calc
+ * never emits, so one superset formatter serves both.
+ */
+export function inheritNote(
+  reason: 'unique' | 'blocked-element' | 'already-known' | undefined,
+  blocking: InheritElementId | undefined,
+): string | null {
+  switch (reason) {
+    case 'unique':
+      return 'Unique';
+    case 'already-known':
+      return 'Already known';
+    case 'blocked-element':
+      return blocking ? `Blocked: ${SKILL_ELEMENT_NAMES[blocking] ?? blocking}` : 'Blocked';
+    default:
+      return null;
+  }
+}

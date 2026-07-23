@@ -7,8 +7,8 @@ import { OwnershipBadge } from '../../../../shared/ownership-badge/ownership-bad
 import { PersonaPicker } from '../../../../shared/persona-picker/persona-picker';
 import { SkillChip } from '../../../../shared/skill-chip/skill-chip';
 import type { FusionOutcome, FusionPath } from '../../fusion';
-import type { InheritElementId, Persona } from '../../model';
-import { SKILL_ELEMENT_NAMES, titleCase } from '../../ui/format';
+import type { Persona } from '../../model';
+import { inheritNote, titleCase } from '../../ui/format';
 import { FusionStore } from './fusion.store';
 
 const PATH_LABEL: Record<FusionPath, string> = {
@@ -306,7 +306,7 @@ export class ForwardCalculator {
         name: skill?.name ?? e.skillId,
         element: skill?.element ?? 'passive',
         eligible: e.eligible,
-        note: noteFor(e.reason, e.blockingElement),
+        note: inheritNote(e.reason, e.blockingElement),
       };
     });
     // Eligible first, then alphabetical — the greyed, blocked ones sink to the end.
@@ -430,12 +430,4 @@ export class ForwardCalculator {
         return null;
     }
   }
-}
-
-function noteFor(reason: string | undefined, blocking: InheritElementId | undefined): string | null {
-  if (reason === 'unique') return 'Unique';
-  if (reason === 'blocked-element' && blocking) {
-    return `Blocked: ${SKILL_ELEMENT_NAMES[blocking] ?? blocking}`;
-  }
-  return null;
 }

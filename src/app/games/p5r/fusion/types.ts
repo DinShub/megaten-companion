@@ -95,6 +95,44 @@ export interface SkillEligibility {
   readonly blockingElement?: InheritElementId;
 }
 
+/**
+ * One of a sacrifice's skills, with its Gallows-transfer verdict for the target
+ * (§6.6, task 54). A superset of {@link SkillEligibility}: `planGallows` reuses
+ * the §6.5 inherit check verbatim and returns its verdict directly, adding only
+ * the `already-known` reason — a skill the target already carries is a no-op
+ * transfer, a case fusion inheritance never hits. The free-slot half of the
+ * eligibility test is a *target* property, so it lives on {@link GallowsPlan}.
+ */
+export interface GallowsSkillOption {
+  readonly skillId: SkillId;
+  readonly eligible: boolean;
+  /** Set only when ineligible — the shared inherit reasons, plus gallows' `already-known`. */
+  readonly reason?: SkillEligibility['reason'] | 'already-known';
+  /** For `blocked-element`: the axis the target's inherit type rejects. */
+  readonly blockingElement?: InheritElementId;
+}
+
+/**
+ * Planning a Gallows sacrifice (§6.6, task 54): sacrifice *S* to strengthen *T*,
+ * optionally transferring one of *S*'s skills. A separate operation from fusion,
+ * with its own eligibility check — a skill transfers iff it is inheritable by
+ * *T*'s type (the {@link GallowsSkillOption} verdict) **and** *T* has a free slot.
+ *
+ * The EXP half of §6.6 is deliberately absent: no gallows-EXP formula exists
+ * upstream (our single source of truth), so per principle 5 we do not invent one,
+ * and nothing here computes on Fusion Alarm. The alarm's one sourced effect —
+ * substantially increasing the yield — is a purely qualitative UI note driven off
+ * the settings signal, so it is not threaded into this pure result.
+ */
+export interface GallowsPlan {
+  readonly sacrificeId: PersonaId;
+  readonly targetId: PersonaId;
+  /** {@link SKILL_SLOT_CAPACITY} − the target's current skill count. Zero ⇒ no transfer. */
+  readonly freeSlots: number;
+  /** Every skill the sacrifice carries, each with its transfer verdict. */
+  readonly skills: readonly GallowsSkillOption[];
+}
+
 /** A single way to produce a target persona (reverse fusion, §4.7.2, task 39). */
 export interface Recipe {
   readonly resultId: PersonaId;

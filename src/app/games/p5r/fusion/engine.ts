@@ -18,8 +18,9 @@
  *    path so a matching 2-ingredient pair overrides its arcana result.
  */
 import { buildIngredientsByArcana, buildResultsByArcana } from '../data/indexes';
-import type { AdvancedRecipe, Persona, Skill } from '../model';
+import type { AdvancedRecipe, CompendiumEntry, Persona, Skill } from '../model';
 import type { ArcanaId, PersonaId, SkillId, UnlockGroup } from '../model/ids';
+import { planGallows } from './gallows';
 import { canInherit, skillEligibility } from './inherit';
 import { resolvePool } from './pool';
 import { summonCost } from './summon-cost';
@@ -31,6 +32,7 @@ import type {
   FusionOutcome,
   FusionPath,
   FusionSuccess,
+  GallowsPlan,
   Recipe,
   ResolvedPool,
   SkillEligibility,
@@ -202,7 +204,7 @@ export class FusionEngine {
     const result = this.personaById.get(resultId);
     if (!result) return [];
     const out: SkillEligibility[] = [];
-    for (const skillId of this.parentSkillPool(parentIds, ctx)) {
+    for (const skillId of this.parentSkillPool(parentIds, ctx.compendium)) {
       const skill = this.skillById.get(skillId);
       if (skill) out.push(skillEligibility(this.data.inheritMatrix, result.inheritType, skill));
     }
@@ -213,6 +215,37 @@ export class FusionEngine {
   canInherit(inheritType: Persona['inheritType'], skillId: SkillId): boolean {
     const skill = this.skillById.get(skillId);
     return skill ? canInherit(this.data.inheritMatrix, inheritType, skill) : false;
+  }
+
+  // ---- gallows (§6.6, task 54) -----------------------------------------
+
+  /**
+   * Plan a Gallows sacrifice of `sacrificeId` onto `targetId` (§6.6): which of
+   * the sacrifice's skills could transfer, and how many free slots the target
+   * has. A separate operation from fusion, so it does not touch `fuse`. Takes
+   * just the compendium — the only context it reads — mirroring `summonCost` /
+   * `itemize` taking only what they need. Both personas' current skills are
+   * resolved as parents contribute to fusion (registered skills when in the
+   * compendium, else the native learn-set at base level). Returns null when an id
+   * is unknown or when sacrifice and target are the same persona.
+   */
+  gallows(
+    sacrificeId: PersonaId,
+    targetId: PersonaId,
+    compendium: ReadonlyMap<PersonaId, CompendiumEntry>,
+  ): GallowsPlan | null {
+    // Self-sacrifice is a domain invalid, like `fuse`'s duplicate-parents — own
+    // it here so no caller can produce a meaningless all-already-known plan.
+    if (sacrificeId === targetId) return null;
+    const target = this.personaById.get(targetId);
+    if (!target || !this.personaById.has(sacrificeId)) return null;
+    const sacrificeSkills: Skill[] = [];
+    for (const id of this.parentSkillPool([sacrificeId], compendium)) {
+      const skill = this.skillById.get(id);
+      if (skill) sacrificeSkills.push(skill);
+    }
+    const targetSkillIds = this.parentSkillPool([targetId], compendium);
+    return planGallows(this.data.inheritMatrix, target, sacrificeId, sacrificeSkills, targetSkillIds);
   }
 
   // ---- itemization & cost (§6.7, §6.8) ---------------------------------
@@ -340,10 +373,13 @@ export class FusionEngine {
     return out;
   }
 
-  private parentSkillPool(parentIds: readonly PersonaId[], ctx: FusionContext): Set<SkillId> {
+  private parentSkillPool(
+    parentIds: readonly PersonaId[],
+    compendium: ReadonlyMap<PersonaId, CompendiumEntry>,
+  ): Set<SkillId> {
     const pool = new Set<SkillId>();
     for (const id of parentIds) {
-      const entry = ctx.compendium.get(id);
+      const entry = compendium.get(id);
       if (entry) {
         for (const skillId of entry.skillIds) pool.add(skillId);
         continue;

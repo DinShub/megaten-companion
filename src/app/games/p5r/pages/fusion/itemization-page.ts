@@ -8,6 +8,7 @@ import { PersonaPicker, type PickerOption } from '../../../../shared/persona-pic
 import { GameDataService } from '../../data/game-data.service';
 import type { Persona, Skill } from '../../model';
 import { SKILL_ELEMENT_NAMES, titleCase } from '../../ui/format';
+import { FusionAlarmToggle } from './fusion-alarm-toggle';
 import { FusionStore } from './fusion.store';
 
 type Mode = 'persona' | 'card';
@@ -39,17 +40,20 @@ interface SourceRef {
 @Component({
   selector: 'app-itemization-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, LoadState, PersonaPicker, OwnershipBadge],
+  imports: [RouterLink, LoadState, PersonaPicker, OwnershipBadge, FusionAlarmToggle],
   template: `
     @if (data.ready()) {
       <div class="item">
-        <div class="seg" role="tablist" aria-label="Itemization lookup">
-          <button type="button" role="tab" class="seg__btn" [class.is-on]="mode() === 'persona'" [attr.aria-selected]="mode() === 'persona'" (click)="mode.set('persona')">
-            <i class="pi pi-user" aria-hidden="true"></i> By persona
-          </button>
-          <button type="button" role="tab" class="seg__btn" [class.is-on]="mode() === 'card'" [attr.aria-selected]="mode() === 'card'" (click)="mode.set('card')">
-            <i class="pi pi-id-card" aria-hidden="true"></i> By skill card
-          </button>
+        <div class="item__head">
+          <div class="seg" role="tablist" aria-label="Itemization lookup">
+            <button type="button" role="tab" class="seg__btn" [class.is-on]="mode() === 'persona'" [attr.aria-selected]="mode() === 'persona'" (click)="mode.set('persona')">
+              <i class="pi pi-user" aria-hidden="true"></i> By persona
+            </button>
+            <button type="button" role="tab" class="seg__btn" [class.is-on]="mode() === 'card'" [attr.aria-selected]="mode() === 'card'" (click)="mode.set('card')">
+              <i class="pi pi-id-card" aria-hidden="true"></i> By skill card
+            </button>
+          </div>
+          <app-fusion-alarm-toggle />
         </div>
 
         @if (mode() === 'persona') {
@@ -93,7 +97,7 @@ interface SourceRef {
             @if (!hasAnyItem()) {
               <p class="note">{{ p.name }} does not itemize to a skill card.</p>
             } @else if (!store.alarm()) {
-              <p class="note">Fusion Alarm is off — its variant can differ. <a [routerLink]="nav.link('settings')">Toggle it in Settings</a>.</p>
+              <p class="note">Both results always show; the alarm variant often differs. Flip <strong>Fusion Alarm</strong> above to highlight it.</p>
             }
           } @else {
             <p class="prompt">Pick a persona to see the skill card it produces.</p>
@@ -153,7 +157,8 @@ interface SourceRef {
   `,
   styles: `
     .item { display: flex; flex-direction: column; gap: 1.1rem; }
-    .seg { display: inline-flex; gap: 0.25rem; padding: 0.25rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 999px; align-self: flex-start; }
+    .item__head { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; justify-content: space-between; }
+    .seg { display: inline-flex; gap: 0.25rem; padding: 0.25rem; border: 1px solid var(--p-content-border-color, rgba(127,127,127,0.25)); border-radius: 999px; }
     .seg__btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; border: 0; border-radius: 999px; background: transparent; color: var(--p-text-muted-color); font: inherit; cursor: pointer; &:hover { color: var(--p-text-color); } &.is-on { background: var(--p-primary-color); color: var(--p-primary-contrast-color, #fff); } }
 
     .pick { display: flex; flex-direction: column; gap: 0.4rem; max-width: 32rem; }

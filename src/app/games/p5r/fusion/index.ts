@@ -6,6 +6,7 @@
  */
 export { FusionEngine } from './engine';
 export { canInherit, skillEligibility } from './inherit';
+export { planGallows } from './gallows';
 export { summonCost } from './summon-cost';
 export { resolvePool } from './pool';
 export { SKILL_SLOT_CAPACITY } from './types';
@@ -17,6 +18,8 @@ export type {
   FusionOutcome,
   FusionPath,
   FusionSuccess,
+  GallowsPlan,
+  GallowsSkillOption,
   PoolMode,
   PoolMember,
   Recipe,

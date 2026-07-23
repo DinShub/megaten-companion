@@ -12,6 +12,8 @@ import { ForwardCalculator } from './forward-calculator';
 import { ReverseCalculator } from './reverse-calculator';
 import { ItemizationPage } from './itemization-page';
 import { FusionCalculator } from './fusion-calculator';
+import { FusionAlarmToggle } from './fusion-alarm-toggle';
+import { GallowsCalculator } from './gallows-calculator';
 import { RouteFinder } from './route-finder';
 
 // ---- storage double -----------------------------------------------------
@@ -157,6 +159,7 @@ type ForwardApi = { setSlot(i: number, id: string): void; clearSlot(i: number): 
 type ReverseApi = { targetId: { set(v: string): void } };
 type ItemApi = { mode: { set(v: string): void }; personaId: { set(v: string): void }; skillId: { set(v: string): void } };
 type ShellApi = { mode: { set(v: string): void } };
+type GallowsApi = { targetId: { set(v: string | null): void }; sacrificeId: { set(v: string | null): void } };
 type RouteApi = {
   onTarget(id: string): void;
   addSkill(id: string): void;
@@ -312,6 +315,74 @@ describe('ItemizationPage (§6.7, task 43)', () => {
   });
 });
 
+// ---- Gallows calculator (task 54) --------------------------------------
+
+describe('GallowsCalculator (§6.6, task 54)', () => {
+  function pick(api: GallowsApi, target: string, sacrifice: string) {
+    api.targetId.set(target);
+    api.sacrificeId.set(sacrifice);
+  }
+
+  it('lists the sacrifice’s skills with per-skill transfer verdicts (§6.6)', () => {
+    const h = mount(GallowsCalculator);
+    // Strengthen Incubus (d2, fire inheritor) by sacrificing Jack Frost (m2).
+    // m2 offers agi (fire✓), bufu (ice✗ — fire blocks ice), megido (unique✗).
+    pick(h.fixture.componentInstance as unknown as GallowsApi, 'd2', 'm2');
+    h.sync();
+    const text = h.text();
+    expect(text).toContain('Agi');
+    expect(text).toContain('Can transfer');
+    expect(text).toContain('Blocked: Ice');
+    expect(text).toContain('Unique');
+    expect(text).toContain('8 / 8 free slots');
+  });
+
+  it('threads the Fusion Alarm into the EXP note (§6.6, task 55)', () => {
+    const h = mount(GallowsCalculator);
+    pick(h.fixture.componentInstance as unknown as GallowsApi, 'd2', 'm2');
+    h.sync();
+    expect(h.text().toLowerCase()).toContain('turn on fusion alarm'); // alarm off by default
+    h.settings.setAlarm(true);
+    h.sync();
+    expect(h.text().toLowerCase()).toContain('substantially increased');
+  });
+
+  it('warns when the target has no free slot', () => {
+    const h = mount(GallowsCalculator);
+    // Register Incubus with a full 8-skill list → zero free slots.
+    h.compendium.upsert({
+      personaId: 'd2', level: 27, traitId: null,
+      skillIds: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8'],
+    });
+    pick(h.fixture.componentInstance as unknown as GallowsApi, 'd2', 'm2');
+    h.sync();
+    const text = h.text();
+    expect(text).toContain('0 / 8 free slots');
+    expect(text.toLowerCase()).toContain('full');
+  });
+
+  it('refuses to sacrifice a persona into itself (§1.1)', () => {
+    const h = mount(GallowsCalculator);
+    pick(h.fixture.componentInstance as unknown as GallowsApi, 'm2', 'm2');
+    h.sync();
+    expect(h.text().toLowerCase()).toContain("can't be sacrificed into itself");
+  });
+});
+
+// ---- Fusion Alarm toggle (task 55) -------------------------------------
+
+describe('FusionAlarmToggle (§6.7, task 55)', () => {
+  it('reads and writes the one shared alarm setting', () => {
+    const h = mount(FusionAlarmToggle);
+    expect(h.settings.alarm()).toBe(false);
+    expect(h.text()).toContain('Off');
+    (h.fixture.nativeElement as HTMLElement).querySelector('button')!.click();
+    h.sync();
+    expect(h.settings.alarm()).toBe(true);
+    expect(h.text()).toContain('On');
+  });
+});
+
 // ---- Route finder (task 52) --------------------------------------------
 // The RouteFinderStore has a synchronous fallback when `Worker` is absent (jsdom),
 // so search() computes on the calling thread and the result renders after sync().
@@ -384,11 +455,19 @@ describe('RouteFinder (§4.7.3, task 52)', () => {
 // ---- Calculator shell ---------------------------------------------------
 
 describe('FusionCalculator shell', () => {
-  it('starts on forward and toggles to reverse', () => {
+  it('starts on forward and toggles through reverse and gallows', () => {
     const h = mount(FusionCalculator);
     expect(h.text()).toContain('Parent 1');
+    // The alarm modifier lives in the shell header, beside the mode toggle (task 55).
+    expect(h.text()).toContain('Fusion Alarm');
+
     (h.fixture.componentInstance as unknown as ShellApi).mode.set('reverse');
     h.sync();
     expect(h.text()).toContain('Target persona');
+
+    (h.fixture.componentInstance as unknown as ShellApi).mode.set('gallows');
+    h.sync();
+    expect(h.text()).toContain('Persona to strengthen');
+    expect(h.text()).toContain('Persona to sacrifice');
   });
 });
