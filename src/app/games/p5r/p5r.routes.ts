@@ -37,8 +37,7 @@ const featureRoutes: Routes = [
       },
       {
         path: 'route',
-        loadComponent: placeholder,
-        data: { title: 'Route Finder', blurb: 'Target plus desired skills → ranked fusion chains from your compendium.', phase: 'Phase 7' },
+        loadComponent: () => import('./pages/fusion/route-finder').then((m) => m.RouteFinder),
       },
       {
         path: 'itemization',

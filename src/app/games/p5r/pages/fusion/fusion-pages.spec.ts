@@ -12,6 +12,7 @@ import { ForwardCalculator } from './forward-calculator';
 import { ReverseCalculator } from './reverse-calculator';
 import { ItemizationPage } from './itemization-page';
 import { FusionCalculator } from './fusion-calculator';
+import { RouteFinder } from './route-finder';
 
 // ---- storage double -----------------------------------------------------
 
@@ -156,6 +157,12 @@ type ForwardApi = { setSlot(i: number, id: string): void; clearSlot(i: number): 
 type ReverseApi = { targetId: { set(v: string): void } };
 type ItemApi = { mode: { set(v: string): void }; personaId: { set(v: string): void }; skillId: { set(v: string): void } };
 type ShellApi = { mode: { set(v: string): void } };
+type RouteApi = {
+  onTarget(id: string): void;
+  addSkill(id: string): void;
+  find(): void;
+  pool: { set(v: string): void };
+};
 
 afterEach(() => TestBed.resetTestingModule());
 
@@ -302,6 +309,75 @@ describe('ItemizationPage (§6.7, task 43)', () => {
     h.sync();
     // Agi is itemized from Jack Frost (m2).
     expect(h.text()).toContain('Jack Frost');
+  });
+});
+
+// ---- Route finder (task 52) --------------------------------------------
+// The RouteFinderStore has a synchronous fallback when `Worker` is absent (jsdom),
+// so search() computes on the calling thread and the result renders after sync().
+
+describe('RouteFinder (§4.7.3, task 52)', () => {
+  function ready(api: RouteApi, settings: ReturnType<typeof mount>['settings']) {
+    // Obtainable pool at a high level with the cap off, so the tiny fixture has
+    // material to fuse and nothing is level-blocked.
+    settings.setProtagonistLevel(99);
+    settings.setEnforceLevelCap(false);
+    api.pool.set('obtainable');
+  }
+
+  it('renders the target, objective, pool and depth controls', () => {
+    const h = mount(RouteFinder);
+    const text = h.text();
+    expect(text).toContain('Target persona');
+    expect(text).toContain('Objective');
+    expect(text).toContain('Fewest steps');
+    expect(text).toContain('Parent pool');
+    expect(text).toContain('Max depth');
+  });
+
+  it('finds and renders routes to a target', () => {
+    const h = mount(RouteFinder);
+    const api = h.fixture.componentInstance as unknown as RouteApi;
+    ready(api, h.settings);
+    api.onTarget('d2'); // Incubus, made from m2 + l1 (magician + lovers → devil)
+    api.find();
+    h.sync();
+    expect(h.text()).toContain('Incubus');
+    expect(h.text().toLowerCase()).toContain('route');
+  });
+
+  it('resolves an inherit-blocked skill via its card (§6.6, task 47)', () => {
+    const h = mount(RouteFinder);
+    const api = h.fixture.componentInstance as unknown as RouteApi;
+    ready(api, h.settings);
+    api.onTarget('d2'); // fire inherit type — blocks ice
+    api.addSkill('bufu'); // ice, but has an itemization-alarm + negotiation card
+    api.find();
+    h.sync();
+    const text = h.text();
+    expect(text).toContain('Bufu');
+    expect(text.toLowerCase()).toContain('card'); // satisfied via the card source
+  });
+
+  it('explains a unique, card-less skill as a gap (§7.4, task 49)', () => {
+    const h = mount(RouteFinder);
+    const api = h.fixture.componentInstance as unknown as RouteApi;
+    ready(api, h.settings);
+    api.onTarget('d2');
+    api.addSkill('megido'); // unique, no card
+    api.find();
+    h.sync();
+    expect(h.text().toLowerCase()).toContain('unique');
+  });
+
+  it('never dead-ends: a party target is explained, not blanked (§1.1)', () => {
+    const h = mount(RouteFinder);
+    const api = h.fixture.componentInstance as unknown as RouteApi;
+    ready(api, h.settings);
+    api.onTarget('pt1'); // Arsene — a party persona
+    api.find();
+    h.sync();
+    expect(h.text().toLowerCase()).toContain('party');
   });
 });
 
