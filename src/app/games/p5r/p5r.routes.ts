@@ -33,8 +33,7 @@ const featureRoutes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'calculator' },
       {
         path: 'calculator',
-        loadComponent: placeholder,
-        data: { title: 'Fusion Calculator', blurb: 'Pick parents, see the result and its inheritable skills.', phase: 'Phase 6' },
+        loadComponent: () => import('./pages/fusion/fusion-calculator').then((m) => m.FusionCalculator),
       },
       {
         path: 'route',
@@ -43,8 +42,7 @@ const featureRoutes: Routes = [
       },
       {
         path: 'itemization',
-        loadComponent: placeholder,
-        data: { title: 'Itemization', blurb: 'Turn a persona into a skill card — normal and Fusion Alarm variants.', phase: 'Phase 6' },
+        loadComponent: () => import('./pages/fusion/itemization-page').then((m) => m.ItemizationPage),
       },
     ],
   },
