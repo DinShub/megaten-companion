@@ -100,16 +100,18 @@ const INHERITANCE_OPTIONS: readonly ChipOption[] = [
         }
 
         <div class="tablewrap list-page__body">
-          <div class="grid grid--head" role="row">
-            <button class="cell" [class.is-sort]="filter().sort === 'name'" (click)="setSort('name')">Name{{ caret('name') }}</button>
-            <button class="cell col-md" [class.is-sort]="filter().sort === 'element'" (click)="setSort('element')">Element{{ caret('element') }}</button>
-            <button class="cell cell--cost" [class.is-sort]="filter().sort === 'cost'" (click)="setSort('cost')">Cost{{ caret('cost') }}</button>
-            <button class="cell col-md" [class.is-sort]="filter().sort === 'target'" (click)="setSort('target')">Target{{ caret('target') }}</button>
-            <span class="cell col-lg">Effect</span>
-            <span class="cell cell--card">Card</span>
-          </div>
+          <div class="list-page__table">
+            <div class="grid grid--head" role="row">
+              <button class="cell" [class.is-sort]="filter().sort === 'name'" (click)="setSort('name')">Name{{ caret('name') }}</button>
+              <button class="cell col-md" [class.is-sort]="filter().sort === 'element'" (click)="setSort('element')">Element{{ caret('element') }}</button>
+              <button class="cell cell--cost" [class.is-sort]="filter().sort === 'cost'" (click)="setSort('cost')">Cost{{ caret('cost') }}</button>
+              <button class="cell col-md" [class.is-sort]="filter().sort === 'target'" (click)="setSort('target')">Target{{ caret('target') }}</button>
+              <span class="cell col-lg">Effect</span>
+              <span class="cell cell--card">Card</span>
+            </div>
 
-          <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="40" [row]="rowTpl" [trackBy]="trackId" />
+            <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="40" [row]="rowTpl" [trackBy]="trackId" />
+          </div>
           <ng-template #rowTpl let-s>
             <a class="grid grid--row" [routerLink]="nav.link('skills', s.id)">
               <span class="cell cell--name"><app-skill-chip [name]="s.name" [element]="s.element" [unique]="s.unique" /></span>
@@ -164,7 +166,9 @@ const INHERITANCE_OPTIONS: readonly ChipOption[] = [
     .grid { display: grid; align-items: center; grid-template-columns: minmax(10rem, 1.5fr) 6rem 4.5rem 6rem minmax(12rem, 2fr) 3rem; gap: 0.5rem; padding: 0 0.5rem; min-width: 48rem; }
     .grid--head { position: sticky; top: 0; z-index: 1; height: 2.4rem; border-bottom: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); background: var(--p-content-background); font-size: 0.78rem; color: var(--p-text-muted-color); text-transform: uppercase; letter-spacing: 0.03em; }
     .grid--head .cell { background: transparent; border: 0; color: inherit; font: inherit; text-transform: inherit; letter-spacing: inherit; text-align: left; padding: 0; }
-    button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
+    /* .grid--head-scoped: encapsulation inflates '.grid--head .cell' above a bare
+       'button.cell', so the ancestor is needed for the sort/hover colours to win. */
+    .grid--head button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
 
     .grid--row { height: 100%; text-decoration: none; color: var(--p-text-color); border-bottom: 1px solid var(--p-content-border-color, rgba(127,127,127,0.12)); &:hover { background: var(--p-highlight-background, rgba(127,127,127,0.1)); } }
     .cell { overflow: hidden; }

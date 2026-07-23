@@ -10,7 +10,7 @@ import { providePrimeNG } from 'primeng/config';
 
 import { PRIMEUI_LICENSE_KEY } from '../environments/license';
 import { routes } from './app.routes';
-import { LaraPurple } from './theme/lara-purple';
+import { AppPreset, THEME_OPTIONS } from './theme/app-preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -30,12 +30,11 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({
       license: PRIMEUI_LICENSE_KEY,
       theme: {
-        preset: LaraPurple,
-        options: {
-          // Dark tokens apply under this class. index.html ships it on <html>
-          // so the first paint is already dark; App#toggleDark flips it.
-          darkModeSelector: '.app-dark',
-        },
+        preset: AppPreset,
+        // Dark tokens apply under `.app-dark`. index.html ships it on <html> so the
+        // first paint is already dark; App#toggleDark flips it. Shared with the
+        // runtime game-theme switch so the selector stays consistent.
+        options: THEME_OPTIONS,
       },
     }),
   ],

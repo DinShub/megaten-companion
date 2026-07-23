@@ -29,6 +29,8 @@ export const p5rGame: GameDefinition = {
   title: 'Persona 5 Royal',
   shortTitle: 'P5R',
   features: ['fusion', 'compendium', 'personas', 'shadows', 'skills', 'classroom'],
+  // P5R's signature colour (its UI, logo and All-Out Attack splash are red).
+  theme: { primary: 'red' },
   dataManifest: P5R_MANIFEST,
   routes: P5R_ROUTES,
 };

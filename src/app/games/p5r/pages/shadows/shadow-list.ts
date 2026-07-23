@@ -48,19 +48,21 @@ import {
         />
 
         <div class="tablewrap list-page__body">
-          <div class="grid grid--head" role="row">
-            <button class="cell" [class.is-sort]="filter().sort === 'name'" (click)="setSort('name')">Name{{ caret('name') }}</button>
-            <button class="cell col-md" [class.is-sort]="filter().sort === 'arcana'" (click)="setSort('arcana')">Arcana{{ caret('arcana') }}</button>
-            <button class="cell cell--num" [class.is-sort]="filter().sort === 'level'" (click)="setSort('level')">Lv{{ caret('level') }}</button>
-            <button class="cell cell--num col-md" [class.is-sort]="filter().sort === 'hp'" (click)="setSort('hp')">HP{{ caret('hp') }}</button>
-            <button class="cell cell--num col-md" [class.is-sort]="filter().sort === 'sp'" (click)="setSort('sp')">SP{{ caret('sp') }}</button>
-            <button class="cell cell--num col-lg" [class.is-sort]="filter().sort === 'exp'" (click)="setSort('exp')">EXP{{ caret('exp') }}</button>
-            <button class="cell cell--num col-lg" [class.is-sort]="filter().sort === 'yen'" (click)="setSort('yen')">Yen{{ caret('yen') }}</button>
-            <span class="cell col-lg">Area</span>
-            <span class="cell">Affinities</span>
-          </div>
+          <div class="list-page__table">
+            <div class="grid grid--head" role="row">
+              <button class="cell" [class.is-sort]="filter().sort === 'name'" (click)="setSort('name')">Name{{ caret('name') }}</button>
+              <button class="cell col-md" [class.is-sort]="filter().sort === 'arcana'" (click)="setSort('arcana')">Arcana{{ caret('arcana') }}</button>
+              <button class="cell cell--num" [class.is-sort]="filter().sort === 'level'" (click)="setSort('level')">Lv{{ caret('level') }}</button>
+              <button class="cell cell--num col-md" [class.is-sort]="filter().sort === 'hp'" (click)="setSort('hp')">HP{{ caret('hp') }}</button>
+              <button class="cell cell--num col-md" [class.is-sort]="filter().sort === 'sp'" (click)="setSort('sp')">SP{{ caret('sp') }}</button>
+              <button class="cell cell--num col-lg" [class.is-sort]="filter().sort === 'exp'" (click)="setSort('exp')">EXP{{ caret('exp') }}</button>
+              <button class="cell cell--num col-lg" [class.is-sort]="filter().sort === 'yen'" (click)="setSort('yen')">Yen{{ caret('yen') }}</button>
+              <span class="cell col-lg">Area</span>
+              <span class="cell">Affinities</span>
+            </div>
 
-          <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="44" [row]="rowTpl" [trackBy]="trackId" />
+            <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="44" [row]="rowTpl" [trackBy]="trackId" />
+          </div>
           <ng-template #rowTpl let-s>
             <a class="grid grid--row" [routerLink]="nav.link('shadow', s.id)">
               <span class="cell cell--name">{{ s.name }}</span>
@@ -95,7 +97,9 @@ import {
     .grid--head { position: sticky; top: 0; z-index: 1; height: 2.4rem; border-bottom: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); background: var(--p-content-background); font-size: 0.76rem; color: var(--p-text-muted-color); text-transform: uppercase; letter-spacing: 0.03em; }
     .grid--head .cell { background: transparent; border: 0; color: inherit; font: inherit; text-transform: inherit; letter-spacing: inherit; text-align: left; padding: 0; }
     .grid--head .cell--num { text-align: right; }
-    button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
+    /* .grid--head-scoped: encapsulation inflates '.grid--head .cell' above a bare
+       'button.cell', so the ancestor is needed for the sort/hover colours to win. */
+    .grid--head button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
 
     .grid--row { height: 100%; text-decoration: none; color: var(--p-text-color); border-bottom: 1px solid var(--p-content-border-color, rgba(127,127,127,0.12)); &:hover { background: var(--p-highlight-background, rgba(127,127,127,0.1)); } }
     .cell { overflow: hidden; }

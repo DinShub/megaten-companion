@@ -132,19 +132,21 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
         }
 
         <div class="tablewrap list-page__body">
-          <div class="grid grid--head" role="row">
-            <button class="cell cell--name" [class.is-sort]="filter().sort === 'name'" (click)="setSort('name')">Name{{ caret('name') }}</button>
-            <button class="cell cell--arcana" [class.is-sort]="filter().sort === 'arcana'" (click)="setSort('arcana')">Arcana{{ caret('arcana') }}</button>
-            <button class="cell cell--lv" [class.is-sort]="filter().sort === 'level'" (click)="setSort('level')">Lv{{ caret('level') }}</button>
-            <button class="cell cell--inherit col-md" [class.is-sort]="filter().sort === 'inherit'" (click)="setSort('inherit')">Inherit{{ caret('inherit') }}</button>
-            <span class="cell cell--trait col-lg">Trait</span>
-            <span class="cell cell--stats col-lg">
-              @for (s of statCols; track s.key) { <span class="stat" [title]="s.label">{{ s.abbrev }}</span> }
-            </span>
-            <span class="cell cell--aff">Affinities</span>
-          </div>
+          <div class="list-page__table">
+            <div class="grid grid--head" role="row">
+              <button class="cell cell--name" [class.is-sort]="filter().sort === 'name'" (click)="setSort('name')">Name{{ caret('name') }}</button>
+              <button class="cell cell--arcana" [class.is-sort]="filter().sort === 'arcana'" (click)="setSort('arcana')">Arcana{{ caret('arcana') }}</button>
+              <button class="cell cell--lv" [class.is-sort]="filter().sort === 'level'" (click)="setSort('level')">Lv{{ caret('level') }}</button>
+              <button class="cell cell--inherit col-md" [class.is-sort]="filter().sort === 'inherit'" (click)="setSort('inherit')">Inherit{{ caret('inherit') }}</button>
+              <span class="cell cell--trait col-lg">Trait</span>
+              <span class="cell cell--stats col-lg">
+                @for (s of statCols; track s.key) { <span class="stat" [title]="s.label">{{ s.abbrev }}</span> }
+              </span>
+              <span class="cell cell--aff">Affinities</span>
+            </div>
 
-          <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="44" [row]="rowTpl" [trackBy]="trackId" [attr.aria-rowcount]="visible().length" />
+            <app-virtual-list class="list-page__scroll" [items]="visible()" [itemSize]="44" [row]="rowTpl" [trackBy]="trackId" [attr.aria-rowcount]="visible().length" />
+          </div>
           <ng-template #rowTpl let-p>
             <a class="grid grid--row" [routerLink]="nav.link('personas', p.id)">
               <span class="cell cell--name">
@@ -223,7 +225,10 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
       background: var(--p-content-background); font-size: 0.78rem; color: var(--p-text-muted-color); text-transform: uppercase; letter-spacing: 0.03em;
     }
     .grid--head .cell { background: transparent; border: 0; color: inherit; font: inherit; text-transform: inherit; letter-spacing: inherit; text-align: left; padding: 0; cursor: default; }
-    button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
+    /* Scoped under .grid--head: emulated-encapsulation attributes inflate the
+       descendant '.grid--head .cell { color: inherit }' above a bare 'button.cell',
+       so without the ancestor here the sort/hover colours never win. */
+    .grid--head button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
 
     .grid--row {
       height: 100%; text-decoration: none; color: var(--p-text-color);

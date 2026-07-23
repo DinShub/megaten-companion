@@ -460,10 +460,29 @@ code {
 }
 /* The table area grows to fill the page; the virtual-list viewport fills that,
    scrolling internally. `min-height` floors keep the list visible if the filter
-   panel is tall on a short screen (the page scrolls then instead of collapsing). */
+   panel is tall on a short screen (the page scrolls then instead of collapsing).
+   `.list-page__body` is the horizontal scroll container (its per-page `.tablewrap`
+   adds `overflow-x: auto`); when the columns are wider than the screen the whole
+   table scrolls sideways inside it. */
 .list-page__body {
   flex: 1 1 auto;
   min-height: 8rem;
+}
+/* The header and the virtual-list body share this inner wrapper so they scroll
+   horizontally as one unit. `min-width: max-content` floors its width at what the
+   (non-virtualised) header row needs, then it stretches to fill wider screens —
+   so on a narrow screen the wrapper overflows `.list-page__body` and both header
+   and rows move together, and the virtual list, sized to the wrapper rather than
+   the viewport, never clips its rows to a half-width it can't scroll to reveal.
+   Without it the body's `overflow-x` scrolls only the header while the rows —
+   locked to the viewport by the virtual list's own `overflow-x: hidden` — stay
+   cut off (the mobile "table cut in half, can't scroll to the rest" bug). */
+.list-page__table {
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
 }
 .list-page__scroll {
   flex: 1 1 0;

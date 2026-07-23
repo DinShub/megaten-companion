@@ -120,19 +120,21 @@ interface Row {
           }
 
           <div class="tablewrap list-page__body">
-            <div class="grid grid--head" role="row">
-              <span class="cell cell--check">
-                <input type="checkbox" [checked]="allSelected()" (change)="toggleAll()" aria-label="Select all" />
-              </span>
-              <button class="cell" [class.is-sort]="sort() === 'name'" (click)="setSort('name')">Persona{{ caret('name') }}</button>
-              <button class="cell col-md" [class.is-sort]="sort() === 'arcana'" (click)="setSort('arcana')">Arcana{{ caret('arcana') }}</button>
-              <button class="cell cell--lv" [class.is-sort]="sort() === 'level'" (click)="setSort('level')">Level{{ caret('level') }}</button>
-              <span class="cell cell--skills col-md">Skills</span>
-              <span class="cell cell--trait col-lg">Trait</span>
-              <span class="cell cell--act">Edit</span>
-            </div>
+            <div class="list-page__table">
+              <div class="grid grid--head" role="row">
+                <span class="cell cell--check">
+                  <input type="checkbox" [checked]="allSelected()" (change)="toggleAll()" aria-label="Select all" />
+                </span>
+                <button class="cell" [class.is-sort]="sort() === 'name'" (click)="setSort('name')">Persona{{ caret('name') }}</button>
+                <button class="cell col-md" [class.is-sort]="sort() === 'arcana'" (click)="setSort('arcana')">Arcana{{ caret('arcana') }}</button>
+                <button class="cell cell--lv" [class.is-sort]="sort() === 'level'" (click)="setSort('level')">Level{{ caret('level') }}</button>
+                <span class="cell cell--skills col-md">Skills</span>
+                <span class="cell cell--trait col-lg">Trait</span>
+                <span class="cell cell--act">Edit</span>
+              </div>
 
-            <app-virtual-list class="list-page__scroll" [items]="rows()" [itemSize]="48" [row]="rowTpl" [trackBy]="trackId" />
+              <app-virtual-list class="list-page__scroll" [items]="rows()" [itemSize]="48" [row]="rowTpl" [trackBy]="trackId" />
+            </div>
             <ng-template #rowTpl let-r>
               <div class="grid grid--row" [class.is-selected]="selection().has(r.id)">
                 <span class="cell cell--check">
@@ -218,7 +220,9 @@ interface Row {
     .grid { display: grid; align-items: center; grid-template-columns: 2.5rem minmax(8rem, 1.6fr) 7rem 6.5rem 4rem minmax(7rem, 1fr) 4.5rem; gap: 0.5rem; padding: 0 0.5rem; min-width: 44rem; }
     .grid--head { position: sticky; top: 0; z-index: 1; height: 2.4rem; border-bottom: 1px solid var(--p-content-border-color, rgba(127,127,127,0.3)); background: var(--p-content-background); font-size: 0.78rem; color: var(--p-text-muted-color); text-transform: uppercase; letter-spacing: 0.03em; }
     .grid--head .cell { background: transparent; border: 0; color: inherit; font: inherit; text-transform: inherit; letter-spacing: inherit; text-align: left; padding: 0; }
-    button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
+    /* .grid--head-scoped: encapsulation inflates '.grid--head .cell' above a bare
+       'button.cell', so the ancestor is needed for the sort/hover colours to win. */
+    .grid--head button.cell { cursor: pointer; &:hover { color: var(--p-text-color); } &.is-sort { color: var(--p-primary-color); } }
 
     .grid--row { height: 100%; border-bottom: 1px solid var(--p-content-border-color, rgba(127,127,127,0.12)); &:hover { background: var(--p-highlight-background, rgba(127,127,127,0.08)); } }
     .grid--row.is-selected { background: color-mix(in srgb, var(--p-primary-color) 12%, transparent); }

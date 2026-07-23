@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, inject, isDevMode, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { PrimeNG } from 'primeng/config';
 import { filter, map } from 'rxjs/operators';
 
 import { PRIMEUI_LICENSE_KEY } from '../environments/license';
 import { StorageService } from './core/storage/storage.service';
 import { ThemeService } from './core/theme/theme.service';
-import type { GameDefinition, GameFeature } from './games/game.model';
+import type { GameDefinition, GameFeature, PrimaryColor } from './games/game.model';
 import { DEFAULT_GAME_ID, GAMES, getGame } from './games/game.registry';
 import { FocusTrap } from './shared/a11y/focus-trap';
+import { gamePreset, THEME_OPTIONS } from './theme/app-preset';
 
 /** One entry in the app-agnostic navigation tree (§10). */
 interface NavEntry {
@@ -51,6 +53,15 @@ export class App {
   private readonly router = inject(Router);
   protected readonly theme = inject(ThemeService);
   private readonly storage = inject(StorageService);
+  private readonly primeng = inject(PrimeNG);
+
+  /**
+   * The primary colour currently applied to the PrimeNG theme. Seeded to the
+   * default game's colour, which the bootstrap `AppPreset` already baked in — so
+   * the first navigation for the default game is a no-op and doesn't re-inject the
+   * theme, while a switch to another game triggers exactly one re-render.
+   */
+  private lastPrimary: PrimaryColor | null = getGame(DEFAULT_GAME_ID)?.theme.primary ?? null;
 
   /** Last committed URL, as a signal, so nav highlighting stays current. */
   private readonly navUrl = toSignal(
@@ -62,10 +73,7 @@ export class App {
   );
 
   /** The active game, resolved from the first URL segment. */
-  protected readonly game = computed<GameDefinition>(() => {
-    const first = this.navUrl().split(/[?#]/)[0].split('/').filter(Boolean)[0];
-    return getGame(first) ?? getGame(DEFAULT_GAME_ID) ?? GAMES[0];
-  });
+  protected readonly game = computed<GameDefinition>(() => this.gameFromUrl(this.navUrl()));
 
   /** The nav entries the active game declares (desktop nav + drawer). */
   protected readonly navEntries = computed(() =>
@@ -95,10 +103,34 @@ export class App {
   protected readonly licenseMissing = isDevMode() && PRIMEUI_LICENSE_KEY.trim().length === 0;
 
   constructor() {
-    // Close the mobile drawer whenever navigation completes.
     this.router.events
-      .pipe(filter((e) => e instanceof NavigationEnd))
-      .subscribe(() => this.drawerOpen.set(false));
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((e) => {
+        // Close the mobile drawer whenever navigation completes.
+        this.drawerOpen.set(false);
+        // Re-point the primary accent at the active game's colour (§4.8).
+        this.applyGameTheme(this.gameFromUrl(e.urlAfterRedirects).theme.primary);
+      });
+  }
+
+  /** Resolve the active game from a URL's first path segment (fallback: default). */
+  private gameFromUrl(url: string): GameDefinition {
+    const first = url.split(/[?#]/)[0].split('/').filter(Boolean)[0];
+    return getGame(first) ?? getGame(DEFAULT_GAME_ID) ?? GAMES[0];
+  }
+
+  /**
+   * Swap the PrimeNG primary ramp to the active game's colour. Goes through
+   * `PrimeNG.setThemeConfig` — the raw `@primeuix/themes` palette helpers only
+   * update the token model and PrimeNG deliberately ignores the resulting event,
+   * so the common theme is re-injected (its `--p-primary-*` variables regenerated)
+   * only via the config service. Skipped when the colour is unchanged so a
+   * same-game navigation doesn't needlessly re-render the stylesheet.
+   */
+  private applyGameTheme(primary: PrimaryColor): void {
+    if (primary === this.lastPrimary) return;
+    this.lastPrimary = primary;
+    this.primeng.setThemeConfig({ theme: { preset: gamePreset(primary), options: THEME_OPTIONS } });
   }
 
   protected link(segments: readonly string[]): unknown[] {
