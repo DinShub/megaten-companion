@@ -83,9 +83,12 @@ interface Step {
       </ol>
     } @else {
       <p class="obtain">
-        <i class="pi pi-check" aria-hidden="true"></i> Obtain
-        <a class="uname" [routerLink]="nav.link('personas', leafId())">{{ name(leafId()) }}</a>
-        directly — no fusion needed.
+        <i class="pi pi-check" aria-hidden="true"></i>
+        {{ leaf().owned ? 'Re-summon' : 'Obtain' }}
+        <a class="uname" [routerLink]="nav.link('personas', leaf().id)">{{ name(leaf().id) }}</a>
+        <app-ownership-badge [registered]="leaf().owned" [level]="leaf().owned ? leaf().level : null" />
+        @for (s of leaf().supplies; track s) { <span class="chip chip--supply">{{ skillName(s) }}</span> }
+        — no fusion needed.
       </p>
     }
   `,
@@ -129,10 +132,16 @@ export class RouteSteps {
   /** The tree flattened to an ordered, numbered list of fusion steps (post-order). */
   protected readonly steps = computed<Step[]>(() => flatten(this.tree()));
 
-  /** For a zero-fusion route (the target is obtainable directly), the sole leaf. */
-  protected readonly leafId = computed<string>(() => {
+  /**
+   * For a zero-fusion route (the target is obtainable directly), the sole leaf —
+   * with its ownership and the requested skills it supplies, so the "no fusion
+   * needed" line can say *re-summon* an owned copy that already carries them.
+   */
+  protected readonly leaf = computed<{ id: string; owned: boolean; level: number; supplies: readonly string[] }>(() => {
     const node = this.tree();
-    return node.kind === 'leaf' ? node.personaId : node.resultId;
+    return node.kind === 'leaf'
+      ? { id: node.personaId, owned: node.owned, level: node.level, supplies: node.supplies }
+      : { id: node.resultId, owned: false, level: node.level, supplies: [] };
   });
 
   protected name(id: string): string {

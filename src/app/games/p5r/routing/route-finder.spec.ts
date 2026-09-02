@@ -164,6 +164,55 @@ describe('route finder — reproducibility (every route replays through fuse)', 
   });
 });
 
+// ---- registered specials are re-summonable, not re-fused --------------------
+
+describe('route finder — a registered persona is re-summonable, even a special', () => {
+  // Flauros is `kind: 'special'` (berith+eligor+orobas), so the §6.4 material pool
+  // drops it — but once registered it is re-summoned from the compendium for yen,
+  // never re-fused. It does not learn Tarukaja natively, so a recorded Tarukaja is
+  // purely an inherited skill on the owned copy.
+  const ownedFlauros = (skillIds: SkillId[], pool: 'compendium' | 'obtainable' = 'compendium'): FusionContext =>
+    ctx({ pool, compendium: new Map([['flauros', { personaId: 'flauros', level: 19, skillIds, traitId: null }]]) });
+
+  it('re-summons an owned special that already carries the wanted skill — zero steps, not a rebuild', () => {
+    const c = ownedFlauros(['tarukaja']);
+    const result = findRoutes(
+      engine,
+      DATA,
+      req({ targetId: 'flauros', skillIds: ['tarukaja'], objective: 'fewest-steps', maxDepth: 3 }),
+      c,
+    );
+
+    const top = result.routes[0];
+    expect(top.steps).toBe(0);
+    expect(top.complete).toBe(true);
+    expect(top.tree.kind).toBe('leaf');
+    if (top.tree.kind === 'leaf') {
+      expect(top.tree.personaId).toBe('flauros');
+      expect(top.tree.owned).toBe(true);
+      expect(top.tree.supplies).toContain('tarukaja');
+    }
+    const taru = top.assignments.find((a) => a.skillId === 'tarukaja')!;
+    expect(taru.satisfied).toBe(true);
+    expect(taru.sourcePersonaId).toBe('flauros');
+    assertInvariants(result.routes, c, 3);
+  });
+
+  it('offers a zero-step re-summon for an owned special with no skills requested', () => {
+    const result = findRoutes(engine, DATA, req({ targetId: 'flauros', objective: 'fewest-steps' }), ownedFlauros([]));
+    expect(result.routes[0].steps).toBe(0);
+    expect(result.routes[0].tree.kind).toBe('leaf');
+  });
+
+  it('does NOT treat an unowned special as a leaf — it must still be fused (guards the fix)', () => {
+    // Empty compendium, obtainable mode: Flauros is unowned + special, so "just
+    // obtain it" is not on the table; every route fuses it via its advanced recipe.
+    const result = findRoutes(engine, DATA, req({ targetId: 'flauros', objective: 'fewest-steps', maxDepth: 2 }), ctx());
+    expect(result.routes.length).toBeGreaterThan(0);
+    expect(result.routes.every((r) => r.tree.kind === 'fusion')).toBe(true);
+  });
+});
+
 // ---- skill routing & the card short-circuit (tasks 46–47) -------------------
 
 describe('route finder — skill routing', () => {

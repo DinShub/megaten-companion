@@ -94,26 +94,35 @@ export function findRoutes(
     return budget.incomplete;
   };
 
-  // --- leaf availability (pool + recruited treasure demons) ------------------
-  // The §6.4 pool is normal-only; treasure demons are recruited, not fused, so
-  // the pool excludes them — but a treasure recipe still needs one as a leaf
-  // (§7.2 "treasure … recipes all expand"). Owned demons count in either mode;
-  // in `obtainable` mode an unowned demon is an acquisition like any other.
+  // --- leaf availability (directly obtainable, not fused) --------------------
+  // The §6.4 material pool is normal-only, so two directly-obtainable cases sit
+  // outside it and must be added here or the search will needlessly *re-fuse*
+  // something you can just get:
+  //  - **Any registered persona is re-summonable** from the compendium (§6.8),
+  //    whatever its kind. The pool drops `special` personas (terminal as fusion
+  //    *material*), but an owned special — Flauros, say — is still freely
+  //    re-summoned; without this an owned special *target* (or a special that a
+  //    recipe uses as an ingredient) forces a whole fusion tree the player has
+  //    already paid for. `expand` only reaches an id at the root or where a
+  //    recipe lists it, so re-summoning a special is always a valid obtain here.
+  //  - **Treasure demons are recruited, not fused**, so the pool excludes them,
+  //    but a treasure recipe still needs one as a leaf (§7.2). In `obtainable`
+  //    mode an unowned demon is an acquisition like any other.
+  // Owned wins on cost/ownership; the compendium level overrides the base level.
   const leafCache = new Map<PersonaId, { owned: boolean; level: number; cost: number } | null>();
   function leafInfo(id: PersonaId): { owned: boolean; level: number; cost: number } | null {
     const hit = leafCache.get(id);
     if (hit !== undefined) return hit;
     let info: { owned: boolean; level: number; cost: number } | null = null;
     const member = pool.byId.get(id);
+    const entry = ctx.compendium.get(id);
     if (member) {
       info = { owned: member.owned, level: member.level, cost: safeCost(engine, id) };
-    } else {
-      const persona = personaById.get(id);
-      if (persona?.kind === 'treasure') {
-        const entry = ctx.compendium.get(id);
-        if (entry) info = { owned: true, level: entry.level, cost: safeCost(engine, id) };
-        else if (ctx.pool === 'obtainable') info = { owned: false, level: persona.level, cost: safeCost(engine, id) };
-      }
+    } else if (entry) {
+      // Registered but not fusion material this run (a special persona) — re-summon it.
+      info = { owned: true, level: entry.level, cost: safeCost(engine, id) };
+    } else if (personaById.get(id)?.kind === 'treasure' && ctx.pool === 'obtainable') {
+      info = { owned: false, level: personaById.get(id)!.level, cost: safeCost(engine, id) };
     }
     leafCache.set(id, info);
     return info;
