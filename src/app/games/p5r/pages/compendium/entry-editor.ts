@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, effect, input, output, si
 
 import type { CompendiumEntry, InheritMatrix, Persona, Skill, SkillId, Trait } from '../../model';
 import { newlyAvailableNativeSkills, type SkillSuggestion } from '../../compendium/quick-add';
+import { canInherit } from '../../fusion/inherit';
 
 type SkillOrigin = 'innate' | 'level' | 'inherited' | 'tag';
 
@@ -22,6 +23,11 @@ interface SkillOption {
 interface TraitOption {
   readonly id: string;
   readonly name: string;
+}
+
+interface TraitGroup {
+  readonly label: string;
+  readonly options: readonly TraitOption[];
 }
 
 const ORIGIN_LABEL: Record<SkillOrigin, string> = {
@@ -118,8 +124,12 @@ const ORIGIN_LABEL: Record<SkillOrigin, string> = {
         <label class="editor__label" for="entry-trait">Trait</label>
         <select id="entry-trait" class="editor__select" [value]="traitId() ?? ''" (change)="setTrait($any($event.target).value)">
           <option value="">None</option>
-          @for (t of traitOptions(); track t.id) {
-            <option [value]="t.id">{{ t.name }}</option>
+          @for (g of traitGroups(); track g.label) {
+            <optgroup [label]="g.label">
+              @for (t of g.options; track t.id) {
+                <option [value]="t.id">{{ t.name }}</option>
+              }
+            </optgroup>
           }
         </select>
       </div>
@@ -226,24 +236,51 @@ export class EntryEditor {
     newlyAvailableNativeSkills(this.persona(), this.level(), this.skillIds()),
   );
 
-  /** Trait choices: the innate trait plus any the persona can learn, de-duplicated. */
-  protected readonly traitOptions = computed<TraitOption[]>(() => {
-    const ids = new Set<string>();
+  /**
+   * Trait choices, grouped. Fusion can inherit *any* trait (there is no per-trait
+   * gating — unlike skills, traits carry no inherit element), so every trait must
+   * be selectable; the old picker only listed the persona's native traits, so an
+   * inherited trait like Frigid Bloodline could never be recorded. The innate and
+   * learnable traits are grouped first as the common case; all others follow under
+   * "Inherited".
+   */
+  protected readonly traitGroups = computed<TraitGroup[]>(() => {
     const p = this.persona();
-    if (p.traitId) ids.add(p.traitId);
-    for (const lt of p.learnedTraits) ids.add(lt.traitId);
-    return [...ids].map((id) => ({ id, name: this.traitsById().get(id)?.name ?? id }));
+    const nativeIds = new Set<string>();
+    if (p.traitId) nativeIds.add(p.traitId);
+    for (const lt of p.learnedTraits) nativeIds.add(lt.traitId);
+
+    const byName = (a: TraitOption, b: TraitOption) => a.name.localeCompare(b.name);
+    const native = [...nativeIds]
+      .map((id) => ({ id, name: this.traitsById().get(id)?.name ?? id }))
+      .sort(byName);
+    const inherited = this.traits()
+      .filter((t) => !nativeIds.has(t.id))
+      .map((t) => ({ id: t.id, name: t.name }))
+      .sort(byName);
+
+    const groups: TraitGroup[] = [];
+    if (native.length) groups.push({ label: 'This persona', options: native });
+    if (inherited.length) groups.push({ label: 'Inherited', options: inherited });
+    return groups;
   });
 
   /** Skills the persona could inherit and doesn't already hold — the add-picker pool. */
   private readonly addable = computed<SkillOption[]>(() => {
-    const row = this.inheritMatrix()[this.persona().inheritType];
+    const matrix = this.inheritMatrix();
+    const inheritType = this.persona().inheritType;
     const have = new Set(this.skillIds());
-    if (!row) return [];
     const options: SkillOption[] = [];
     for (const s of this.skills()) {
-      if (s.unique || !s.inheritElement || have.has(s.id)) continue;
-      if (row[s.inheritElement]) options.push({ id: s.id, name: s.name, element: s.element });
+      // Reuse the fusion engine's §6.5 predicate rather than re-deriving it here.
+      // `unique` blocks; a null inheritElement is *not* element-gated (buffs,
+      // debuffs, heals, passives — Rakunda, Tarukaja, …) and is always
+      // inheritable; otherwise the matrix decides. The old inline copy dropped
+      // every null-element skill, so fused-in support skills couldn't be added.
+      if (have.has(s.id)) continue;
+      if (canInherit(matrix, inheritType, s)) {
+        options.push({ id: s.id, name: s.name, element: s.element });
+      }
     }
     return options.sort((a, b) => a.name.localeCompare(b.name));
   });
