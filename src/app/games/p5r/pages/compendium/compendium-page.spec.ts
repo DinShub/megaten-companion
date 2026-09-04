@@ -1,6 +1,7 @@
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
 
 import type { StorageBackend } from '../../../../core/storage/storage-envelope';
 import { STORAGE_BACKEND } from '../../../../core/storage/storage.service';
@@ -93,5 +94,46 @@ describe('CompendiumPage (integration)', () => {
     page.quickAdd({ id: 'jack-frost', name: 'Jack Frost', arcana: 'Magician' });
     page.quickAdd({ id: 'jack-frost', name: 'Jack Frost', arcana: 'Magician' });
     expect(store.count()).toBe(1);
+  });
+
+  // The persona detail "Manage" button links here with `?edit=<id>`; the page
+  // must land the user straight on that persona's editor, then drop the param so
+  // closing the modal or refreshing doesn't re-open it. Driven through the real
+  // router (RouterTestingHarness) so the param read *and* the clearing navigation
+  // are exercised for real, not stubbed.
+  it('deep-links via ?edit=<id>: opens that persona’s editor and strips the param', async () => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([{ path: 'compendium', component: CompendiumPage }]),
+        { provide: STORAGE_BACKEND, useValue: new FakeBackend() },
+        { provide: GameDataService, useValue: stubService() },
+      ],
+    });
+
+    // The persona must already be registered for the deep-link to edit it.
+    TestBed.inject(CompendiumStore).upsert({
+      personaId: 'jack-frost',
+      level: 12,
+      skillIds: ['bufu'],
+      traitId: 'cold-blooded',
+    });
+
+    const harness = await RouterTestingHarness.create();
+    const page = await harness.navigateByUrl('/compendium?edit=jack-frost', CompendiumPage);
+    harness.detectChanges(); // flush the effect: editor opens, param-clearing nav is scheduled
+    await harness.fixture.whenStable(); // let that navigation settle
+    harness.detectChanges(); // render the settled, open-modal state
+
+    // The editor opened straight onto Jack Frost…
+    const editing = (page as unknown as { editing(): { personaId: string } | null }).editing();
+    expect(editing?.personaId).toBe('jack-frost');
+
+    // …its modal is in the DOM…
+    const host = harness.routeNativeElement as HTMLElement;
+    expect(host.querySelector('[role="dialog"]')).toBeTruthy();
+    expect(host.textContent ?? '').toContain('Jack Frost');
+
+    // …and the deep-link param is stripped so a refresh / re-close won't re-open it.
+    expect(TestBed.inject(Router).url).not.toContain('edit=');
   });
 });

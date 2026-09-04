@@ -390,3 +390,70 @@ describe('FusionEngine.recipesFor — reverse fusion (§4.7.2, task 39)', () => 
     expect(engine().recipesFor('pt1', ctx())).toEqual([]);
   });
 });
+
+describe('FusionEngine.fusionsFrom — forward fusion (§6, forward complement of recipesFor)', () => {
+  const pair = (ids: readonly string[]): string => [...ids].sort().join('+');
+
+  it('returns forward fusions, each using the parent as the first of exactly two ingredients', () => {
+    const list = engine().fusionsFrom('m2', ctx());
+    expect(list.length).toBeGreaterThan(0);
+    for (const r of list) {
+      expect(r.ingredientIds[0]).toBe('m2');
+      expect(r.ingredientIds).toHaveLength(2);
+    }
+  });
+
+  it('is symmetric with recipesFor: every P + X → Y here appears in Y’s recipesFor', () => {
+    const eng = engine();
+    const forward = eng.fusionsFrom('m2', ctx());
+    expect(forward.length).toBeGreaterThan(0);
+    for (const r of forward) {
+      const reverse = eng
+        .recipesFor(r.resultId, ctx())
+        .filter((rec) => rec.ingredientIds.length === 2)
+        .map((rec) => pair(rec.ingredientIds));
+      expect(reverse).toContain(pair(r.ingredientIds)); // order-independent pair match
+    }
+  });
+
+  it('matches the different-arcana pairing seen from the reverse side', () => {
+    // m2 + l1 → d2 (magician + lovers = devil); recipesFor('d2') lists the same pair.
+    const toD2 = engine()
+      .fusionsFrom('m2', ctx())
+      .find((r) => r.resultId === 'd2');
+    expect(toD2).toBeDefined();
+    expect([...toD2!.ingredientIds].sort()).toEqual(['l1', 'm2']);
+    expect(toD2!.path).toBe('different-arcana');
+  });
+
+  it('includes a treasure-demon pairing on the treasure path', () => {
+    // m2 is index 1 in magician [m1,m2,m3,m4,m5]; tr1 offset +1 → m3.
+    const treasure = engine()
+      .fusionsFrom('m2', ctx())
+      .filter((r) => r.path === 'treasure');
+    expect(treasure.length).toBeGreaterThan(0);
+    expect(treasure.some((r) => r.resultId === 'm3' && pair(r.ingredientIds) === 'm2+tr1')).toBe(true);
+  });
+
+  it('includes a 2-ingredient advanced recipe the parent participates in', () => {
+    // m2 + l2 → sp1: the advanced recipe overrides the arcana pairing.
+    const advanced = engine()
+      .fusionsFrom('m2', ctx())
+      .filter((r) => r.path === 'advanced');
+    expect(advanced.some((r) => r.resultId === 'sp1' && pair(r.ingredientIds) === 'l2+m2')).toBe(true);
+  });
+
+  it('returns nothing for a party persona — it can never be fusion material', () => {
+    expect(engine().fusionsFrom('pt1', ctx())).toEqual([]);
+  });
+
+  it('returns nothing for an unknown persona', () => {
+    expect(engine().fusionsFrom('nope', ctx())).toEqual([]);
+  });
+
+  it('memoises per (parent, unlock signature)', () => {
+    const eng = engine();
+    const first = eng.fusionsFrom('m2', ctx());
+    expect(eng.fusionsFrom('m2', ctx())).toBe(first); // same array reference (memoised)
+  });
+});

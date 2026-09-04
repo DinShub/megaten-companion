@@ -11,6 +11,7 @@ import { CompendiumStore } from '../../compendium/compendium.store';
 import { defaultEntryFor } from '../../compendium/quick-add';
 import { GameDataService } from '../../data/game-data.service';
 import type { LearnedSkill, LearnedTrait, Persona, Shadow, Skill } from '../../model';
+import { PersonaForwardFusions } from './persona-forward-fusions';
 import {
   acquisitionOrder,
   formatAcquisition,
@@ -45,7 +46,7 @@ interface SkillRow {
 @Component({
   selector: 'app-persona-detail',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, AffinityGrid, InheritMask, LoadState],
+  imports: [RouterLink, AffinityGrid, InheritMask, LoadState, PersonaForwardFusions],
   template: `
     @if (data.ready()) {
       @if (persona(); as p) {
@@ -71,7 +72,7 @@ interface SkillRow {
             <div class="head__actions">
               @if (registered(); as entry) {
                 <span class="btn btn--owned"><i class="pi pi-check-circle" aria-hidden="true"></i> Registered · Lv {{ entry.level }}</span>
-                <a class="btn" [routerLink]="nav.link('compendium')"><i class="pi pi-pencil" aria-hidden="true"></i> Manage</a>
+                <a class="btn" [routerLink]="nav.link('compendium')" [queryParams]="{ edit: p.id }"><i class="pi pi-pencil" aria-hidden="true"></i> Manage</a>
                 <button class="btn" type="button" (click)="unregister(p.id)"><i class="pi pi-times" aria-hidden="true"></i> Unregister</button>
               } @else {
                 <button class="btn btn--primary" type="button" (click)="register(p)"><i class="pi pi-plus" aria-hidden="true"></i> Register in compendium</button>
@@ -172,6 +173,8 @@ interface SkillRow {
               to enumerate every recipe — full reverse fusion lands with the calculator (Phase 6).
             </p>
           </section>
+
+          <app-persona-forward-fusions [personaId]="p.id" />
         </article>
       } @else {
         <div class="missing">

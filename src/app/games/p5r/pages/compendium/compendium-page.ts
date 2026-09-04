@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 import { FocusTrap } from '../../../../shared/a11y/focus-trap';
 import { GameRouteContext } from '../../../../shared/game-route';
@@ -250,6 +252,8 @@ export class CompendiumPage {
   protected readonly store = inject(CompendiumStore);
   protected readonly settings = inject(SettingsStore);
   protected readonly nav = inject(GameRouteContext);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   protected readonly titleCase = titleCase;
 
   protected readonly search = signal('');
@@ -259,6 +263,36 @@ export class CompendiumPage {
   protected readonly editing = signal<CompendiumEntry | null>(null);
   protected readonly notice = signal<{ text: string; personaId: string | null } | null>(null);
   protected readonly importError = signal<string | null>(null);
+
+  /**
+   * Deep-link target from `?edit=<personaId>` (§4.6). The persona detail page's
+   * "Manage" button navigates here with this param so the user lands straight on
+   * that persona's entry editor instead of the bare roster. Read reactively (not
+   * snapshot-only) so that clearing it below settles the effect to a no-op.
+   */
+  private readonly editParam = toSignal(this.route.queryParamMap.pipe(map((p) => p.get('edit'))), {
+    initialValue: this.route.snapshot.queryParamMap.get('edit'),
+  });
+
+  constructor() {
+    // Honour the `?edit=<id>` deep-link once the data has loaded: open that
+    // persona's editor, or — if it isn't registered (edge case) — seed the roster
+    // search so the row is easy to find. Either way, strip the param immediately
+    // so closing the modal or refreshing the page doesn't re-open it.
+    effect(() => {
+      const id = this.editParam();
+      if (!id || !this.data.ready()) return;
+      if (this.store.has(id)) this.edit(id);
+      else this.search.set(this.data.data()?.personas.find((p) => p.id === id)?.name ?? id);
+      // Clearing the param flips editParam() to null (it's read above and stays a
+      // tracked dependency), so this effect re-runs exactly once and returns early
+      // — it cannot oscillate. untracked() keeps the navigation itself from
+      // becoming a dependency, mirroring createUrlState in shared/url-query.ts.
+      untracked(() =>
+        this.router.navigate([], { relativeTo: this.route, queryParams: {}, replaceUrl: true }),
+      );
+    });
+  }
 
   private readonly personasById = computed(() => {
     const m = new Map<string, Persona>();

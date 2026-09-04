@@ -4,8 +4,8 @@ import { GameDataService } from '../../data/game-data.service';
 import type { LoadedGameData } from '../../data/game-data';
 import { FusionEngine } from '../../fusion';
 import type { FusionContext, FusionData, PoolMode } from '../../fusion';
-import { findRoutes } from '../../routing';
-import type { RouteRequest, RouteSearchResult, RouteWorkerRequest, RouteWorkerResponse } from '../../routing';
+import { DEFAULT_MAX_DEPTH, findRoutes } from '../../routing';
+import type { Objective, RouteRequest, RouteSearchResult, RouteWorkerRequest, RouteWorkerResponse } from '../../routing';
 import { FusionStore } from './fusion.store';
 
 /**
@@ -36,6 +36,22 @@ export class RouteFinderStore {
   readonly searching = signal(false);
   readonly result = signal<RouteSearchResult | null>(null);
   readonly error = signal<string | null>(null);
+
+  /**
+   * Form state, lifted out of the routed {@link RouteFinder} component so it
+   * survives navigation (§7). Following a persona link out of a route result and
+   * pressing Back destroys and recreates the routed component; as component-local
+   * signals these would reset to defaults, blanking the target, skills, objective,
+   * pool and depth. Held on this `providedIn: 'root'` singleton they persist just
+   * like {@link result}. `reset()` intentionally leaves them untouched.
+   */
+  readonly targetId = signal<string | null>(null);
+  /** Target picker starts on the full roster — you're usually building an unowned goal. */
+  readonly rosterMode = signal(false);
+  readonly skillIds = signal<string[]>([]);
+  readonly objective = signal<Objective>('fewest-steps');
+  readonly pool = signal<PoolMode>('compendium');
+  readonly maxDepth = signal(DEFAULT_MAX_DEPTH);
 
   constructor() {
     inject(DestroyRef).onDestroy(() => this.disposeWorker());

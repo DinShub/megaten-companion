@@ -451,6 +451,35 @@ describe('RouteFinder (§4.7.3, task 52)', () => {
     h.sync();
     expect(h.text().toLowerCase()).toContain('party');
   });
+
+  it('keeps the form across a destroy + remount (§7 — Back from a persona page)', () => {
+    // Following a persona link out of a route result and pressing Back destroys and
+    // recreates this routed component. The form now lives on the root store, so a
+    // freshly built instance (same injector) reports the same target/skills/objective/depth.
+    const first = mount(RouteFinder);
+    const api = first.fixture.componentInstance as unknown as RouteApi & {
+      objective: { set(v: string): void };
+      setDepth(delta: number): void;
+    };
+    api.onTarget('d2');
+    api.addSkill('bufu');
+    api.objective.set('cheapest');
+    api.setDepth(1); // DEFAULT_MAX_DEPTH (3) → 4
+
+    first.fixture.destroy(); // navigate away — Angular tears the routed component down
+
+    // Back brings a fresh instance from the SAME injector; the root store lives on.
+    const revisit = TestBed.createComponent(RouteFinder).componentInstance as unknown as {
+      targetId(): string | null;
+      skillIds(): string[];
+      objective(): string;
+      maxDepth(): number;
+    };
+    expect(revisit.targetId()).toBe('d2');
+    expect(revisit.skillIds()).toEqual(['bufu']);
+    expect(revisit.objective()).toBe('cheapest');
+    expect(revisit.maxDepth()).toBe(4);
+  });
 });
 
 // ---- Calculator shell ---------------------------------------------------

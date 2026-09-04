@@ -1,10 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 
 import { LoadState } from '../../../../shared/load-state/load-state';
 import { PersonaPicker, type PickerOption } from '../../../../shared/persona-picker/persona-picker';
 import { GameDataService } from '../../data/game-data.service';
-import type { PoolMode } from '../../fusion';
-import { DEFAULT_MAX_DEPTH } from '../../routing';
 import type { Objective } from '../../routing';
 import { SKILL_ELEMENT_NAMES } from '../../ui/format';
 import { FusionStore } from './fusion.store';
@@ -198,13 +196,14 @@ export class RouteFinder {
 
   protected readonly objectives: readonly Objective[] = ['fewest-steps', 'cheapest', 'fewest-unowned'];
 
-  protected readonly targetId = signal<string | null>(null);
-  /** Target picker starts on the full roster — you're usually building an unowned goal. */
-  protected readonly rosterMode = signal(false);
-  protected readonly skillIds = signal<string[]>([]);
-  protected readonly objective = signal<Objective>('fewest-steps');
-  protected readonly pool = signal<PoolMode>('compendium');
-  protected readonly maxDepth = signal(DEFAULT_MAX_DEPTH);
+  // Form state lives on the root store so it survives navigation to a persona page
+  // and back (§7); these alias it under the exact names the template and tests use.
+  protected readonly targetId = this.store.targetId;
+  protected readonly rosterMode = this.store.rosterMode;
+  protected readonly skillIds = this.store.skillIds;
+  protected readonly objective = this.store.objective;
+  protected readonly pool = this.store.pool;
+  protected readonly maxDepth = this.store.maxDepth;
 
   protected readonly askedSkills = computed(() => this.skillIds().length);
 

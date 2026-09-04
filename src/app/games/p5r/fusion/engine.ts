@@ -55,6 +55,7 @@ export class FusionEngine {
   private readonly resultsCache = new Map<string, ArcanaLists>();
   private readonly ingredientsCache = new Map<string, ArcanaLists>();
   private readonly recipesMemo = new Map<string, readonly Recipe[]>();
+  private readonly fusionsFromMemo = new Map<string, readonly Recipe[]>();
 
   constructor(private readonly data: FusionData) {
     this.personaById = new Map(data.personas.map((p) => [p.id, p] as const));
@@ -323,6 +324,55 @@ export class FusionEngine {
     }
 
     this.recipesMemo.set(memoKey, out);
+    return out;
+  }
+
+  /**
+   * Every 2-ingredient fusion that USES `parentId` as one parent (§6, forward
+   * complement of {@link recipesFor}). For each other persona in the ingredient
+   * universe — the same normal+unlock-allowed pool reverse fusion draws from,
+   * plus the treasure demons for the treasure path — it runs `fuse([parentId, otherId])`
+   * and collects each success as `{ resultId, ingredientIds: [parentId, otherId], path }`.
+   * Symmetric with `recipesFor`: `P + X → Y` appears here iff `X + P` appears in
+   * Y's `recipesFor`. Advanced recipes with more than two ingredients are out of
+   * scope (this is the "fuse with one other persona" view). Memoised per
+   * (parent, unlock signature).
+   */
+  fusionsFrom(parentId: PersonaId, ctx: FusionContext): readonly Recipe[] {
+    const memoKey = `${parentId} ${unlockSig(ctx.unlockGroups)}`;
+    const cached = this.fusionsFromMemo.get(memoKey);
+    if (cached) return cached;
+
+    if (!this.personaById.has(parentId)) {
+      this.fusionsFromMemo.set(memoKey, []);
+      return [];
+    }
+
+    // The "other parent" universe mirrors `recipesFor`'s enumeration: the normal +
+    // unlock-allowed ingredient pool (treasure demons are excluded from it), plus
+    // every treasure demon so the treasure path is covered. `fuse` rejects any
+    // invalid pairing (party material, a treasure pair, the same persona, no arcana
+    // result) with `ok:false`, so the loop needs no pre-filter of its own.
+    const others: Persona[] = [...this.flatIngredients(ctx.unlockGroups)];
+    for (const treasureId of this.treasureIds) {
+      const demon = this.personaById.get(treasureId);
+      if (demon) others.push(demon);
+    }
+
+    const out: Recipe[] = [];
+    for (const other of others) {
+      if (other.id === parentId) continue;
+      const outcome = this.fuse([parentId, other.id], ctx);
+      if (outcome.ok) {
+        out.push({
+          resultId: outcome.resultId,
+          ingredientIds: [parentId, other.id],
+          path: outcome.path,
+        });
+      }
+    }
+
+    this.fusionsFromMemo.set(memoKey, out);
     return out;
   }
 
