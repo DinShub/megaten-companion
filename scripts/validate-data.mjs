@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Validates the committed P5R and SMT III datasets against the §8.4 invariants, independent
+// Validates the committed P5R, P4G and SMT III datasets against the §8.4 invariants, independent
 // of the (gitignored) importer, so CI catches data rot in `public/data/p5r/`
 // without re-running the import. Exits non-zero on any failure.
 //
@@ -172,6 +172,51 @@ const smt3 = {
   }
 }
 
+// ---- Persona 4 Golden (public/data/p4g/) -------------------------------------
+const P4G_DIR = new URL('../public/data/p4g/', import.meta.url);
+const loadP4g = (name) => JSON.parse(readFileSync(new URL(`${name}.json`, P4G_DIR), 'utf8'));
+const p4g = {
+  personas: loadP4g('personas'),
+  skills: loadP4g('skills'),
+  shadows: loadP4g('shadows'),
+  fusion: loadP4g('fusion-chart'),
+  special: loadP4g('special-recipes'),
+  inherit: loadP4g('inherit-matrix'),
+};
+{
+  const personaById = new Map(p4g.personas.map((p) => [p.id, p]));
+  const p4gSkillIds = idSet(p4g.skills);
+  for (const [list, label] of [[p4g.personas, 'p4g persona'], [p4g.skills, 'p4g skill'], [p4g.shadows, 'p4g shadow']]) {
+    const seen = new Set();
+    for (const x of list) {
+      if (seen.has(x.id)) fail(`duplicate ${label} id "${x.id}"`);
+      seen.add(x.id);
+    }
+  }
+  const personaRef = (id, where) => {
+    if (!personaById.has(id)) fail(`${where}: unresolved p4g persona "${id}"`);
+  };
+  for (const p of p4g.personas) {
+    for (const ls of p.learnedSkills) ref(p4gSkillIds, ls.skillId, `p4g persona ${p.id} learnedSkills`);
+    if (Object.keys(p.affinities).length !== 8) fail(`p4g persona ${p.id}: ${Object.keys(p.affinities).length} affinity axes`);
+    if (!p4g.inherit[p.inheritType]) fail(`p4g persona ${p.id}: inherit type ${p.inheritType} not in the matrix`);
+    if (p.kind === 'special' && !p4g.special.some((r) => r.resultId === p.id)) fail(`p4g special persona ${p.id} has no recipe`);
+  }
+  for (const s of p4g.skills) if (s.cardPersonaId !== null) personaRef(s.cardPersonaId, `p4g skill ${s.id} card`);
+  for (const s of p4g.shadows) for (const id of s.skillIds) ref(p4gSkillIds, id, `p4g shadow ${s.id} skillIds`);
+  for (const [name, chart] of [['normal', p4g.fusion.normal], ['triangle', p4g.fusion.triple]]) {
+    for (const [a, row] of Object.entries(chart)) {
+      for (const [b, r] of Object.entries(row)) {
+        if (chart[b]?.[a] !== r) fail(`p4g ${name} chart asymmetric at ${a} × ${b}`);
+      }
+    }
+  }
+  for (const r of p4g.special) {
+    if (personaById.get(r.resultId)?.kind !== 'special') fail(`p4g special recipe → ${r.resultId}: not a special persona`);
+    for (const id of r.ingredientIds) personaRef(id, `p4g special recipe → ${r.resultId}`);
+  }
+}
+
 // ---- Report -----------------------------------------------------------------
 if (errors.length) {
   console.error(`✗ data validation FAILED — ${errors.length} error(s):`);
@@ -184,5 +229,6 @@ console.log(
     `${shadows.length} shadows, ${traits.length} traits, ${accessories.length} accessories, ` +
     `${classroom.length} classroom answers; ` +
     `fusion chart 24×24 symmetric; special/treasure gates and all id references resolve. ` +
-    `SMT III: ${smt3.demons.length} demons, ${smt3.skills.length} skills, ${smt3.magatama.length} magatama; charts symmetric, recipes resolve.`,
+    `SMT III: ${smt3.demons.length} demons, ${smt3.skills.length} skills, ${smt3.magatama.length} magatama; charts symmetric, recipes resolve. ` +
+    `P4G: ${p4g.personas.length} personas, ${p4g.skills.length} skills, ${p4g.shadows.length} shadows; charts symmetric, recipes resolve.`,
 );

@@ -1,0 +1,731 @@
+/* Midnight Channel skin (P4G): a late-night broadcast in the rain. A violet-black
+   room lit by the TV, condensed broadcast type, pill-shaped controls, and the
+   fusion result shown on a CRT set with a yellow "Now showing" ticker.
+
+   Every P4G page wears this skin and nothing else does, so the page rules target
+   the game's own `.p4g .p4-*` vocabulary directly — they live here, not in the
+   game's lazy style hosts, because those are capped by the 4 kB per-component
+   budget. Shared components and the shell are restyled from outside:
+   `:root[data-skin]` plus one class out-specifies their emulated selectors.
+
+   This partial ships in the eager stylesheet, so it is kept lean: one
+   orchestrated moment (the set switching on), everything else static. */
+
+@use '../mixins' as *;
+
+/* The one loud state: a yellow pill with dark ink. Active nav, pressed toggles, weaknesses. */
+%mc-on {
+  background: var(--p-primary-color);
+  color: var(--mc-accent-ink);
+  font-weight: 700;
+}
+
+/* A pill-shaped outlined control. */
+%mc-control {
+  border: 1px solid var(--mc-line);
+  border-radius: 999px;
+  background: var(--mc-room);
+  color: var(--mc-ink);
+  font-family: var(--app-font-body);
+}
+
+@mixin mc-display($size, $weight: 900) {
+  font-family: var(--app-font-display);
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 0.95;
+  letter-spacing: 0.005em;
+}
+
+@include skin('midnight-channel') {
+  /* ---- Tokens ----------------------------------------------------------- */
+  --app-font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --app-font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --app-font-data: 'Atkinson Hyperlegible', system-ui, sans-serif;
+
+  --mc-room: var(--p-surface-900);
+  --mc-raise: var(--p-surface-800);
+  --mc-line: var(--p-surface-700);
+  --mc-ink: var(--p-surface-0);
+  --mc-dim: var(--p-surface-300);
+  --mc-accent-ink: #1a1405;
+  /* The CRT: blue-cast glass, pale cyan phosphor. */
+  --mc-screen: #1b2a33;
+  --mc-screen-ink: #e8fbff;
+  --mc-screen-glow: rgba(159, 216, 224, 0.35);
+
+  --app-border: var(--mc-line);
+  --app-panel: var(--mc-raise);
+  --app-panel-2: color-mix(in srgb, var(--p-primary-color) 7%, var(--mc-room));
+  --app-success: #8ee6a8;
+  --app-warn: #ffc857;
+  --app-danger: #ff7a85;
+
+  color-scheme: dark;
+  scrollbar-color: var(--mc-line) transparent;
+
+  body {
+    background: var(--mc-room);
+    color: var(--mc-ink);
+
+    /* Rain on the window behind everything: fixed streaks, one slow drift. */
+    &::before {
+      content: '';
+      position: fixed;
+      inset: -50% 0 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.5;
+      background: repeating-linear-gradient(105deg, transparent 0 46px, rgba(170, 160, 186, 0.07) 46px 47px, transparent 47px 91px);
+    }
+  }
+
+  ::selection {
+    @extend %mc-on;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--p-primary-color);
+    outline-offset: 2px;
+  }
+
+  /* ---- Shell ------------------------------------------------------------ */
+  .app-bar {
+    border-bottom-color: var(--mc-line);
+    background: color-mix(in srgb, var(--mc-room) 86%, transparent);
+    backdrop-filter: blur(6px);
+  }
+
+  /* The channel bug: a little yellow TV before the name. */
+  .app-bar__brand {
+    @include mc-display(1.6rem);
+    gap: 0.55rem;
+    color: var(--mc-ink);
+
+    .pi {
+      display: none;
+    }
+    &::before {
+      content: '';
+      width: 1.45rem;
+      height: 1.1rem;
+      border-radius: 4px;
+      background: var(--p-primary-color);
+      box-shadow:
+        inset 0 0 0 3px var(--mc-accent-ink),
+        0 0 0 1px var(--p-primary-color);
+    }
+  }
+
+  .app-gameswitch,
+  .app-iconbtn {
+    @extend %mc-control;
+  }
+
+  .app-iconbtn {
+    border-color: transparent;
+    background: transparent;
+
+    &:hover {
+      background: var(--mc-raise);
+      color: var(--p-primary-color);
+    }
+  }
+
+  /* Nav links are numbered channels: 1–5 are the section hotkeys (P4gLayout). */
+  .app-nav {
+    counter-reset: mc-nav;
+    gap: 0.25rem;
+  }
+
+  .app-nav__link {
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    color: var(--mc-dim);
+    font-weight: 700;
+    counter-increment: mc-nav;
+
+    .pi {
+      display: none;
+    }
+    &::before {
+      content: counter(mc-nav);
+      font: 900 0.95em/1 var(--app-font-display);
+      color: var(--p-primary-color);
+    }
+    &:hover {
+      background: var(--mc-raise);
+      color: var(--mc-ink);
+    }
+    &.is-active {
+      @extend %mc-on;
+
+      &::before {
+        color: var(--mc-accent-ink);
+      }
+    }
+  }
+
+  .app-tabbar {
+    border-top-color: var(--mc-line);
+    background: var(--mc-room);
+  }
+
+  .app-tabbar__item.is-active {
+    color: var(--p-primary-color);
+  }
+
+  .app-drawer {
+    border-left-color: var(--mc-line);
+    background: var(--mc-room);
+  }
+
+  .app-drawer__title,
+  .modal__title {
+    @include mc-display(1.6rem);
+  }
+
+  .app-drawer__link {
+    border-radius: 999px;
+
+    &.is-active {
+      @extend %mc-on;
+    }
+  }
+
+  .modal__panel {
+    border: 1px solid var(--mc-line);
+    border-radius: 16px;
+    background: var(--mc-raise);
+  }
+
+  /* ---- Shared components ------------------------------------------------ */
+  .section-tabs {
+    gap: 0.25rem;
+    border-bottom: 0;
+    scrollbar-width: none;
+  }
+
+  .section-tabs .section-tabs__tab {
+    margin-bottom: 0;
+    padding: 0.45rem 0.95rem;
+    border: 0;
+    border-radius: 999px;
+    color: var(--mc-dim);
+    font-weight: 700;
+
+    &:hover {
+      background: var(--mc-raise);
+      color: var(--mc-ink);
+    }
+    &.is-active {
+      background: var(--mc-ink);
+      color: var(--mc-room);
+    }
+  }
+
+  /* Affinities: weakness is the signal — a yellow block plus its code, never
+     colour alone. Null, repel and drain are outlined. */
+  .grid .cell {
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--mc-ink) 6%, transparent);
+
+    .cell__el {
+      color: var(--mc-dim);
+      text-transform: none;
+    }
+    .cell__aff {
+      color: var(--mc-ink);
+      font-weight: 700;
+    }
+    &.aff-neutral .cell__aff {
+      color: var(--mc-dim);
+      font-weight: 400;
+      opacity: 0.6;
+    }
+    &.aff-weak {
+      @extend %mc-on;
+
+      .cell__el,
+      .cell__aff {
+        color: var(--mc-accent-ink);
+      }
+    }
+    &:is(.aff-null, .aff-repel, .aff-drain) {
+      box-shadow: inset 0 0 0 2px var(--mc-ink);
+    }
+  }
+
+  .mask .mask__cell {
+    border-radius: 4px;
+    opacity: 0.55;
+
+    &.is-allowed {
+      opacity: 1;
+      box-shadow: inset 0 -2px 0 var(--p-primary-color);
+    }
+  }
+
+  .chip,
+  .badge,
+  .chips__chip,
+  .picker__toggle {
+    border: 1px solid var(--mc-line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--mc-ink);
+  }
+
+  .badge--owned {
+    border-color: color-mix(in srgb, var(--app-success) 50%, transparent);
+    color: var(--app-success);
+  }
+
+  .chips .chips__chip {
+    &:hover {
+      border-color: var(--mc-dim);
+    }
+    &.is-on {
+      @extend %mc-on;
+      border-color: var(--p-primary-color);
+    }
+  }
+
+  .picker .picker__field,
+  .range .range__input {
+    @extend %mc-control;
+  }
+
+  .picker {
+    .picker__field:focus-within {
+      border-color: var(--p-primary-color);
+    }
+    .picker__list {
+      border: 1px solid var(--mc-line);
+      border-radius: 14px;
+      background: var(--mc-raise);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .picker__opt {
+      border-radius: 8px;
+
+      &:hover,
+      &.is-active {
+        background: color-mix(in srgb, var(--p-primary-color) 14%, transparent);
+      }
+    }
+  }
+
+  .load .load__retry {
+    @extend %mc-control;
+    border-color: var(--p-primary-color);
+  }
+
+  .not-found .not-found__code {
+    @include mc-display(6rem);
+    color: var(--p-primary-color);
+  }
+
+  .p-button {
+    border-radius: 999px;
+    font-family: var(--app-font-body);
+    font-weight: 700;
+  }
+
+  /* ---- P4G pages ----------------------------------------------------------- */
+  .p4g {
+    a {
+      text-underline-offset: 3px;
+    }
+
+    h1 {
+      @include mc-display(clamp(2.4rem, 5vw, 3.4rem));
+      text-wrap: balance;
+    }
+
+    .p4-detail-head h1 {
+      @include mc-display(clamp(2.8rem, 6vw, 4rem));
+    }
+
+    .p4-count,
+    .p4-muted,
+    .p4-note,
+    .p4-eyebrow,
+    .p4-plus,
+    .p4-back {
+      color: var(--mc-dim);
+    }
+
+    .p4-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .p4-panel,
+    .p4-filters {
+      border: 1px solid var(--mc-line);
+      border-radius: 16px;
+      background: var(--mc-raise);
+    }
+
+    .p4-panel > h2 {
+      @include mc-display(1.5rem);
+      margin: 0 0 0.6rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .p4-search,
+    .p4-select,
+    .p4-input,
+    .p4-btn {
+      @extend %mc-control;
+    }
+
+    .p4-search:focus-within,
+    .p4-select:focus-visible,
+    .p4-input:focus-visible {
+      border-color: var(--p-primary-color);
+    }
+
+    .p4-btn {
+      font-weight: 700;
+
+      &:hover:not(:disabled, .p4-btn--owned, .p4-btn--primary, .is-on) {
+        border-color: var(--mc-dim);
+      }
+      &.is-on,
+      &--primary {
+        @extend %mc-on;
+        border-color: var(--p-primary-color);
+      }
+      &--owned {
+        border-color: color-mix(in srgb, var(--app-success) 50%, transparent);
+        color: var(--app-success);
+      }
+    }
+
+    .p4-seg {
+      gap: 0.25rem;
+      padding: 0.25rem;
+      border: 1px solid var(--mc-line);
+      border-radius: 999px;
+      background: var(--mc-raise);
+
+      button {
+        border-radius: 999px;
+        color: var(--mc-dim);
+        font-weight: 700;
+
+        &:hover {
+          color: var(--mc-ink);
+        }
+        &.is-on {
+          background: var(--mc-ink);
+          color: var(--mc-room);
+        }
+      }
+    }
+
+    /* Tables read as TV listings: the hovered row gets a yellow edge. */
+    .p4-row--head {
+      border-bottom-color: var(--mc-line);
+      background: var(--mc-room);
+      color: var(--mc-dim);
+      text-transform: none;
+      letter-spacing: 0;
+
+      button.is-sort {
+        color: var(--p-primary-color);
+      }
+    }
+
+    .p4-row--body {
+      border-bottom-color: color-mix(in srgb, var(--mc-line) 60%, transparent);
+
+      &:hover {
+        background: var(--app-panel-2);
+        box-shadow: inset 3px 0 0 var(--p-primary-color);
+      }
+    }
+
+    .p4-num {
+      font-family: var(--app-font-display);
+      font-weight: 900;
+      font-size: 1.1em;
+    }
+
+    .p4-tag,
+    .p4-pill {
+      border: 1px solid var(--mc-line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--mc-ink);
+
+      &--accent {
+        border-color: var(--p-primary-color);
+        color: var(--p-primary-color);
+      }
+    }
+
+    .p4-statcells > div {
+      border: 1px solid var(--mc-line);
+      border-radius: 10px;
+      background: transparent;
+
+      strong {
+        @include mc-display(1.8rem);
+      }
+    }
+
+    /* Stats as a broadcast bar graph: 99 is P4G's cap. */
+    .p4-meters {
+      display: grid;
+      gap: 0.4rem;
+      margin: 0;
+
+      > div {
+        display: grid;
+        grid-template-columns: 2.2ch 1fr;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      dt {
+        font-weight: 700;
+      }
+      dd {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0;
+
+        .p4-num {
+          width: 2.5ch;
+          text-align: right;
+        }
+      }
+    }
+
+    .p4-meter {
+      --v: 0;
+      flex: 1 1 auto;
+      max-width: 16rem;
+      height: 0.6rem;
+      border-radius: 2px;
+      background:
+        linear-gradient(to right, var(--mc-ink) calc(var(--v) / 99 * 100%), transparent 0),
+        color-mix(in srgb, var(--mc-ink) 12%, transparent);
+    }
+
+    .p4-warn,
+    .p4-invalid,
+    .p4-info {
+      border-radius: 12px;
+    }
+
+    /* Empty and missing states: a set with no signal. */
+    .p4-empty,
+    .p4-missing {
+      padding: 1.6rem 1rem;
+      border: 1px dashed var(--mc-line);
+      border-radius: 16px;
+      background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(255, 255, 255, 0.02) 2px 3px);
+      text-align: center;
+    }
+
+    /* ---- Fusion result: the TV set ---------------------------------------- */
+    .calc__ch {
+      @include mc-display(1.1rem);
+      color: var(--p-primary-color);
+    }
+
+    .calc__result {
+      padding: 1rem 1rem 1.25rem;
+      border: 0;
+      border-radius: 28px;
+      background: linear-gradient(160deg, #2a2233, #120e18 70%);
+      box-shadow:
+        0 30px 60px -24px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+      > h2:first-child {
+        @include mc-display(0.95rem);
+        margin: 0 0 0 0.6rem;
+        color: var(--mc-dim);
+      }
+    }
+
+    .calc__screen {
+      position: relative;
+      overflow: hidden;
+      padding: 1.4rem 1.6rem 4.2rem;
+      border-radius: 22px / 26px;
+      background: radial-gradient(120% 90% at 50% 40%, #2d4450, var(--mc-screen) 70%, #0b1418);
+      box-shadow:
+        inset 0 0 60px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 2px #000;
+      color: var(--mc-screen-ink);
+
+      /* Glass: scanlines and a curved highlight. */
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(80% 40% at 30% 0%, rgba(255, 255, 255, 0.08), transparent 70%),
+          repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px);
+      }
+      /* The power-on overlay; at rest it is gone. */
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .p4-muted,
+      .p4-eyebrow {
+        color: color-mix(in srgb, var(--mc-screen-ink) 72%, transparent);
+      }
+      .p4-tag {
+        border-color: color-mix(in srgb, var(--mc-screen-ink) 35%, transparent);
+        color: var(--mc-screen-ink);
+      }
+    }
+
+    .calc__name {
+      @include mc-display(clamp(3rem, 8vw, 5.4rem));
+
+      a {
+        color: var(--mc-screen-ink);
+        text-decoration: none;
+        text-shadow: 0 0 18px var(--mc-screen-glow);
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: 3px;
+        }
+      }
+    }
+
+    .calc__ticker {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 1rem;
+      z-index: 1;
+      display: flex;
+      margin: 0;
+
+      b {
+        @include mc-display(1.05rem);
+        @extend %mc-on;
+        padding: 0.45rem 0.8rem 0.45rem 1.6rem;
+        white-space: nowrap;
+      }
+      span {
+        flex: 1;
+        min-width: 0;
+        padding: 0.45rem 0.9rem;
+        background: rgba(0, 0, 0, 0.72);
+        font-size: 0.85rem;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    /* The one orchestrated moment: the set switches on — a white line, a burst
+       of static, then the picture — and the ticker slides in. Re-runs per fusion
+       (the result is keyed on it). */
+    @media (prefers-reduced-motion: no-preference) {
+      .calc__screen::before {
+        animation:
+          mc-power 0.9s ease-out both,
+          mc-static 0.1s steps(3) 0.36s 4;
+      }
+      .calc__ticker {
+        animation: mc-ticker 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) 0.75s both;
+      }
+    }
+
+    /* On a phone the ticker wraps to several lines, so it joins the flow under
+       the picture instead of overlaying the bottom of the screen. */
+    @media (max-width: 559.98px) {
+      .calc__screen {
+        padding: 1.1rem 1rem 1rem;
+      }
+      .calc__ticker {
+        position: static;
+        margin: 1rem -1rem 0;
+
+        span {
+          white-space: normal;
+        }
+      }
+    }
+
+    .p4-gs__panel {
+      border: 1px solid var(--mc-line);
+      border-radius: 18px;
+      background: var(--mc-raise);
+    }
+
+    .p4-gs__item:is(:hover, :focus-visible) {
+      background: color-mix(in srgb, var(--p-primary-color) 14%, transparent);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    body::before {
+      animation: mc-rain 2.4s linear infinite;
+    }
+  }
+}
+
+@keyframes mc-power {
+  0%,
+  16% {
+    opacity: 1;
+    background: #050708;
+  }
+  22% {
+    background: linear-gradient(to bottom, #050708 49.4%, #f4fdff 49.6% 50.4%, #050708 50.6%);
+  }
+  34% {
+    background: linear-gradient(to bottom, #050708 15%, #f4fdff 48% 52%, #050708 85%);
+  }
+  40%,
+  78% {
+    opacity: 0.95;
+    background: repeating-linear-gradient(0deg, #1f282c 0 2px, #c9d6dc 2px 3px, #56636a 3px 5px, #e8f4f8 5px 6px, #2a3338 6px 9px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mc-static {
+  to {
+    background-position: 0 9px;
+  }
+}
+
+@keyframes mc-ticker {
+  from {
+    transform: translateX(-105%);
+  }
+}
+
+@keyframes mc-rain {
+  to {
+    transform: translate(-14px, 50%);
+  }
+}

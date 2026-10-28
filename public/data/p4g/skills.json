@@ -1,0 +1,5754 @@
+[
+  {
+    "cardPersonaId": "lucifer",
+    "cost": null,
+    "description": "Drains Elec dmg taken",
+    "element": "passive",
+    "id": "absorb-elec",
+    "name": "Absorb Elec",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "hell-biker",
+    "cost": null,
+    "description": "Drains Fire dmg taken",
+    "element": "passive",
+    "id": "absorb-fire",
+    "name": "Absorb Fire",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "isis",
+    "cost": null,
+    "description": "Drains Ice dmg taken",
+    "element": "passive",
+    "id": "absorb-ice",
+    "name": "Absorb Ice",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Drains Phys dmg taken",
+    "element": "passive",
+    "id": "absorb-physical",
+    "name": "Absorb Physical",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "horus",
+    "cost": null,
+    "description": "Drains Wind dmg taken",
+    "element": "passive",
+    "id": "absorb-wind",
+    "name": "Absorb Wind",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "taowu",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√90 pwr, 1-3 hits, 75% acc",
+    "element": "phys",
+    "id": "aeon-rain",
+    "name": "Aeon Rain",
+    "rank": 6.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ukobach",
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr",
+    "element": "fire",
+    "id": "agi",
+    "name": "Agi",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "mara",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr",
+    "element": "fire",
+    "id": "agidyne",
+    "name": "Agidyne",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "lamia",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr",
+    "element": "fire",
+    "id": "agilao",
+    "name": "Agilao",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "agility-up-support",
+    "name": "Agility Up Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "sandalphon",
+    "cost": {
+      "type": "hp-percent",
+      "value": 24
+    },
+    "description": "√120 pwr, 1-3 hits, 75% acc",
+    "element": "phys",
+    "id": "agneyastra",
+    "name": "Agneyastra",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "nozuchi",
+    "cost": null,
+    "description": "Ailment affliction rate x1.25",
+    "element": "passive",
+    "id": "ailment-boost",
+    "name": "Ailment Boost",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "melchizedek",
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√130 pwr, 1-2 hits, 80% acc",
+    "element": "phys",
+    "id": "akasha-arts",
+    "name": "Akasha Arts",
+    "rank": 7.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "saki-mitama",
+    "cost": null,
+    "description": "Lowers chances of being ambushed",
+    "element": "passive",
+    "id": "alertness",
+    "name": "Alertness",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Incoming hit rate x0.5",
+    "element": "passive",
+    "id": "ali-dance",
+    "name": "Ali Dance",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "alienation-wall",
+    "name": "Alienation Wall",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√10 pwr",
+    "element": "almighty",
+    "id": "all-out-boost",
+    "name": "All-Out Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "scathach",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Removes ailment",
+    "element": "recovery",
+    "id": "amrita",
+    "name": "Amrita",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Displays enemy stats and resistances",
+    "element": "special",
+    "id": "analyze",
+    "name": "Analyze",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "sraosha",
+    "cost": null,
+    "description": "Non-Almighty magic evasion x1.15",
+    "element": "passive",
+    "id": "angelic-grace",
+    "name": "Angelic Grace",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "narcissus",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "50% Exhaustion",
+    "element": "ailment",
+    "id": "anima-freeze",
+    "name": "Anima Freeze",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Increases All-out Attack damage output to level 1",
+    "element": "special",
+    "id": "aoa-level-1",
+    "name": "AoA Level 1",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Increases All-out Attack damage output to level 2",
+    "element": "special",
+    "id": "aoa-level-2",
+    "name": "AoA Level 2",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Increases All-out Attack damage output to level 3",
+    "element": "special",
+    "id": "aoa-level-3",
+    "name": "AoA Level 3",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Increases All-out Attack damage output to level 4",
+    "element": "special",
+    "id": "aoa-level-4",
+    "name": "AoA Level 4",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Increases All-out Attack damage output to max level",
+    "element": "special",
+    "id": "aoa-level-5",
+    "name": "AoA Level 5",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "okuninushi",
+    "cost": null,
+    "description": "Crit rate x2",
+    "element": "passive",
+    "id": "apt-pupil",
+    "name": "Apt Pupil",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "valkyrie",
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√45 pwr, 2 hits, 35% Fear",
+    "element": "phys",
+    "id": "arm-chopper",
+    "name": "Arm Chopper",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "futsunushi",
+    "cost": null,
+    "description": "HP costs x0.5",
+    "element": "passive",
+    "id": "arms-master",
+    "name": "Arms Master",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "abaddon",
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√80 pwr, 2 hits, 75% acc",
+    "element": "phys",
+    "id": "arrow-rain",
+    "name": "Arrow Rain",
+    "rank": 6.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√100 pwr, 20% crit",
+    "element": "phys",
+    "id": "assault-dive",
+    "name": "Assault Dive",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ose",
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√50 pwr, 1-2 hits, 25% Fear",
+    "element": "phys",
+    "id": "atom-smasher",
+    "name": "Atom Smasher",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "atomic-press",
+    "name": "Atomic Press",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr, 10% crit",
+    "element": "phys",
+    "id": "attack",
+    "name": "Attack",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "attack-up-support",
+    "name": "Attack Up Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "setanta",
+    "cost": null,
+    "description": "Begins battle with Marakukaja",
+    "element": "passive",
+    "id": "auto-maraku",
+    "name": "Auto-Maraku",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kingu",
+    "cost": null,
+    "description": "Begins battle with Masukukaja",
+    "element": "passive",
+    "id": "auto-masuku",
+    "name": "Auto-Masuku",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "narasimha",
+    "cost": null,
+    "description": "Begins battle with Matarukaja",
+    "element": "passive",
+    "id": "auto-mataru",
+    "name": "Auto-Mataru",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "take-minakata",
+    "cost": null,
+    "description": "Begins battle with Rakukaja",
+    "element": "passive",
+    "id": "auto-rakukaja",
+    "name": "Auto-Rakukaja",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "makami",
+    "cost": null,
+    "description": "Begins battle with Sukukaja",
+    "element": "passive",
+    "id": "auto-sukukaja",
+    "name": "Auto-Sukukaja",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "gurr",
+    "cost": null,
+    "description": "Begins battle with Tarukaja",
+    "element": "passive",
+    "id": "auto-tarukaja",
+    "name": "Auto-Tarukaja",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Rage",
+    "element": "ailment",
+    "id": "balzac",
+    "name": "Balzac",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "100% Rage",
+    "element": "ailment",
+    "id": "balzac-b",
+    "name": "Balzac B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 6
+    },
+    "description": "√60 pwr, 20% crit",
+    "element": "phys",
+    "id": "bash",
+    "name": "Bash",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "bead",
+    "name": "Bead",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "bead-chain",
+    "name": "Bead Chain",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "bead-melon",
+    "name": "Bead Melon",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr",
+    "element": "almighty",
+    "id": "beauty-the-beast",
+    "name": "Beauty & The Beast",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "0% ailment",
+    "element": "special",
+    "id": "bewildering-fog",
+    "name": "Bewildering Fog",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "bewildering-fog-b",
+    "name": "Bewildering Fog B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "bewildering-fog-c",
+    "name": "Bewildering Fog C",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "big-soul-tomato",
+    "name": "Big Soul Tomato",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "orthrus",
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√130 pwr, 85% acc, 35% crit",
+    "element": "phys",
+    "id": "black-spot",
+    "name": "Black Spot",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√230 pwr",
+    "element": "almighty",
+    "id": "black-viper",
+    "name": "Black Viper",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "hokuto-seikun",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√35 pwr, 2-4 hits",
+    "element": "phys",
+    "id": "blade-of-fury",
+    "name": "Blade of Fury",
+    "rank": 5.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "pabilsag",
+    "cost": {
+      "type": "hp-percent",
+      "value": 21
+    },
+    "description": "√130 pwr, 80% acc, 30% Poison",
+    "element": "phys",
+    "id": "blight",
+    "name": "Blight",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 55
+    },
+    "description": "√180 pwr",
+    "element": "ice",
+    "id": "bloody-rain",
+    "name": "Bloody Rain",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "blue-paprika",
+    "name": "Blue Paprika",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "triglav",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Elec resistance for 3 turns",
+    "element": "support",
+    "id": "blue-wall",
+    "name": "Blue Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "elec",
+    "id": "bolt-dotaku",
+    "name": "Bolt Dotaku",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√40 pwr, 100% Dizzy",
+    "element": "phys",
+    "id": "bottomless-envy",
+    "name": "Bottomless Envy",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "vetala",
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√50 pwr, 1-3 hits, 35% Exhaustion",
+    "element": "phys",
+    "id": "brain-shake",
+    "name": "Brain Shake",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "atavaka",
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√700 pwr, 20% crit",
+    "element": "phys",
+    "id": "brave-blade",
+    "name": "Brave Blade",
+    "rank": 7.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "forneus",
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr",
+    "element": "ice",
+    "id": "bufu",
+    "name": "Bufu",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "hariti",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr",
+    "element": "ice",
+    "id": "bufudyne",
+    "name": "Bufudyne",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ganga",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr",
+    "element": "ice",
+    "id": "bufula",
+    "name": "Bufula",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√60 pwr",
+    "element": "fire",
+    "id": "burn-to-ashes",
+    "name": "Burn to Ashes",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 34
+    },
+    "description": "√190 pwr",
+    "element": "fire",
+    "id": "burning-petals",
+    "name": "Burning Petals",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 2-3 hits, 100% crit",
+    "element": "phys",
+    "id": "cavalry-attack",
+    "name": "Cavalry Attack",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "100% crit, 100% instakill",
+    "element": "phys",
+    "id": "cavalry-attack-b",
+    "name": "Cavalry Attack B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "cavalry-attack-c",
+    "name": "Cavalry Attack C",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "cavalry-attack-d",
+    "name": "Cavalry Attack D",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 3-4 hits, 100% crit",
+    "element": "phys",
+    "id": "cavalry-attack-e",
+    "name": "Cavalry Attack E",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "cavalry-attack-f",
+    "name": "Cavalry Attack F",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "yomotsu-ikusa",
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√80 pwr, 35% Enervation",
+    "element": "phys",
+    "id": "cell-breaker",
+    "name": "Cell Breaker",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Instant escape from battle",
+    "element": "special",
+    "id": "certain-escape",
+    "name": "Certain Escape",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "certain-escape-b",
+    "name": "Certain Escape B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "chant",
+    "name": "Chant",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "character-setup",
+    "name": "Character Setup",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "charge-support",
+    "name": "Charge Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "chewing-soul",
+    "name": "Chewing Soul",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 5
+    },
+    "description": "√65 pwr, 20% crit",
+    "element": "phys",
+    "id": "cleave",
+    "name": "Cleave",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√180 pwr",
+    "element": "ice",
+    "id": "cocytus-pain",
+    "name": "Cocytus Pain",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√160 pwr",
+    "element": "almighty",
+    "id": "command",
+    "name": "Command",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr, 80% acc, 100% Exhaustion",
+    "element": "almighty",
+    "id": "command-b",
+    "name": "Command B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√170 pwr",
+    "element": "almighty",
+    "id": "command-c",
+    "name": "Command C",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√170 pwr",
+    "element": "almighty",
+    "id": "command-d",
+    "name": "Command D",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√170 pwr",
+    "element": "almighty",
+    "id": "command-e",
+    "name": "Command E",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√170 pwr",
+    "element": "almighty",
+    "id": "command-f",
+    "name": "Command F",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Reveals all elemal affinities on all enemies",
+    "element": "special",
+    "id": "complete-analysis",
+    "name": "Complete Analysis",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Confusion affliction rate x1.25",
+    "element": "passive",
+    "id": "confuse-boost",
+    "name": "Confuse Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "control",
+    "name": "Control",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "control-b",
+    "name": "Control B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "yatagarasu",
+    "cost": null,
+    "description": "8% max HP + SP restore after battle",
+    "element": "passive",
+    "id": "cool-breeze",
+    "name": "Cool Breeze",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "rakshasa",
+    "cost": null,
+    "description": "10% chance to repel phys dmg taken",
+    "element": "passive",
+    "id": "counter",
+    "name": "Counter",
+    "rank": 3.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "fuu-ki",
+    "cost": null,
+    "description": "15% chance to repel phys dmg taken",
+    "element": "passive",
+    "id": "counterstrike",
+    "name": "Counterstrike",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "gorgon",
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√90 pwr, 80% acc, 25% Rage",
+    "element": "phys",
+    "id": "crazy-chain",
+    "name": "Crazy Chain",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "oni",
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√120 pwr, dmg dealt x1.5 on Downed foes",
+    "element": "phys",
+    "id": "cruel-attack",
+    "name": "Cruel Attack",
+    "rank": 4.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "55% Silence",
+    "element": "ailment",
+    "id": "cry-of-denial",
+    "name": "Cry of Denial",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "thor",
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√145 pwr, 80% acc",
+    "element": "phys",
+    "id": "deathbound",
+    "name": "Deathbound",
+    "rank": 6.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "trumpeter",
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Tarunda + Rakunda + Sukunda",
+    "element": "support",
+    "id": "debilitate",
+    "name": "Debilitate",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "mokoi",
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes -kaja effects",
+    "element": "support",
+    "id": "dekaja",
+    "name": "Dekaja",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "senri",
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes -kunda effects",
+    "element": "support",
+    "id": "dekunda",
+    "name": "Dekunda",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "70% chance to halve current HP",
+    "element": "dark",
+    "id": "demonic-judgment",
+    "name": "Demonic Judgment",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "pixie",
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "√50 pwr, HP restore",
+    "element": "recovery",
+    "id": "dia",
+    "name": "Dia",
+    "rank": 1.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kikuri-hime",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "100% HP restore",
+    "element": "recovery",
+    "id": "diarahan",
+    "name": "Diarahan",
+    "rank": 5.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "nigi-mitama",
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "√160 pwr, HP restore",
+    "element": "recovery",
+    "id": "diarama",
+    "name": "Diarama",
+    "rank": 3.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 44
+    },
+    "description": "70% instakill",
+    "element": "dark",
+    "id": "die-for-me",
+    "name": "Die for Me!",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "neko-shogun",
+    "cost": null,
+    "description": "HP restore skill pwr x1.5",
+    "element": "passive",
+    "id": "divine-grace",
+    "name": "Divine Grace",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√180 pwr",
+    "element": "wind",
+    "id": "divine-vacuum",
+    "name": "Divine Vacuum",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Dizzy affliction rate x1.25",
+    "element": "passive",
+    "id": "dizzy-boost",
+    "name": "Dizzy Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ara-mitama",
+    "cost": null,
+    "description": "Elec evasion x1.15",
+    "element": "passive",
+    "id": "dodge-elec",
+    "name": "Dodge Elec",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "high-pixie",
+    "cost": null,
+    "description": "Fire evasion x1.15",
+    "element": "passive",
+    "id": "dodge-fire",
+    "name": "Dodge Fire",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "dis",
+    "cost": null,
+    "description": "Ice evasion x1.15",
+    "element": "passive",
+    "id": "dodge-ice",
+    "name": "Dodge Ice",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "baphomet",
+    "cost": null,
+    "description": "Phys evasion x1.15",
+    "element": "passive",
+    "id": "dodge-physical",
+    "name": "Dodge Physical",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "andras",
+    "cost": null,
+    "description": "Wind evasion x1.15",
+    "element": "passive",
+    "id": "dodge-wind",
+    "name": "Dodge Wind",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√40 pwr, 2 hits, 15% crit",
+    "element": "phys",
+    "id": "double-fangs",
+    "name": "Double Fangs",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 150
+    },
+    "description": "Tarukaja + Rakukaja + Sukukaja",
+    "element": "support",
+    "id": "dragon-hustle",
+    "name": "Dragon Hustle",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "draining-fog",
+    "name": "Draining Fog",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "suparna",
+    "cost": null,
+    "description": "Elec dmg dealt x1.5",
+    "element": "passive",
+    "id": "elec-amp",
+    "name": "Elec Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "oberon",
+    "cost": null,
+    "description": "Elec dmg dealt x1.25",
+    "element": "passive",
+    "id": "elec-boost",
+    "name": "Elec Boost",
+    "rank": 1.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "hachiman",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Removes Elec resistance for 3 turns",
+    "element": "support",
+    "id": "elec-break",
+    "name": "Elec Break",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "element-zero",
+    "name": "Element Zero",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "elemental-break",
+    "name": "Elemental Break",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "enclosure-shell",
+    "name": "Enclosure Shell",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "ganesha",
+    "cost": null,
+    "description": "Survive with 1 HP after a mortal blow once per battle",
+    "element": "passive",
+    "id": "endure",
+    "name": "Endure",
+    "rank": 5.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "daisoujou",
+    "cost": null,
+    "description": "100% chance to endure Dark instakill",
+    "element": "passive",
+    "id": "endure-dark",
+    "name": "Endure Dark",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "belial",
+    "cost": null,
+    "description": "100% chance to endure Light instakill",
+    "element": "passive",
+    "id": "endure-light",
+    "name": "Endure Light",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "attis",
+    "cost": null,
+    "description": "Survive with 100% HP after a mortal blow once per battle",
+    "element": "passive",
+    "id": "enduring-soul",
+    "name": "Enduring Soul",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Reveal the location of Shadows on each floor over a wide area",
+    "element": "special",
+    "id": "enemy-radar",
+    "name": "Enemy Radar",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "sati",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Removes Exhaustion, Enervation",
+    "element": "recovery",
+    "id": "energy-shower",
+    "name": "Energy Shower",
+    "rank": 2,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Enervation affliction rate x1.25",
+    "element": "passive",
+    "id": "enervate-boost",
+    "name": "Enervate Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Enervation",
+    "element": "ailment",
+    "id": "enervation",
+    "name": "Enervation",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Rage",
+    "element": "recovery",
+    "id": "enradi",
+    "name": "Enradi",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√50 pwr",
+    "element": "dark",
+    "id": "eternal-black",
+    "name": "Eternal Black",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 54
+    },
+    "description": "√50 pwr",
+    "element": "light",
+    "id": "eternal-white",
+    "name": "Eternal White",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "seiten-taisei",
+    "cost": null,
+    "description": "Elec evasion x1.4",
+    "element": "passive",
+    "id": "evade-elec",
+    "name": "Evade Elec",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "atropos",
+    "cost": null,
+    "description": "Fire evasion x1.4",
+    "element": "passive",
+    "id": "evade-fire",
+    "name": "Evade Fire",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "white-rider",
+    "cost": null,
+    "description": "Ice evasion x1.4",
+    "element": "passive",
+    "id": "evade-ice",
+    "name": "Evade Ice",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "alilat",
+    "cost": null,
+    "description": "Phys evasion x1.4",
+    "element": "passive",
+    "id": "evade-physical",
+    "name": "Evade Physical",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "vasuki",
+    "cost": null,
+    "description": "Wind evasion x1.4",
+    "element": "passive",
+    "id": "evade-wind",
+    "name": "Evade Wind",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "incubus",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "40% Fear",
+    "element": "ailment",
+    "id": "evil-smile",
+    "name": "Evil Smile",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Fear",
+    "element": "ailment",
+    "id": "evil-touch",
+    "name": "Evil Touch",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Exhaustion affliction rate x1.25",
+    "element": "passive",
+    "id": "exhaust-boost",
+    "name": "Exhaust Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "fan-assault",
+    "name": "Fan Assault",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√95 pwr",
+    "element": "elec",
+    "id": "fanatical-spark",
+    "name": "Fanatical Spark",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "kaguya",
+    "cost": null,
+    "description": "Ailment recovery time x0.5",
+    "element": "passive",
+    "id": "fast-heal",
+    "name": "Fast Heal",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "raja-naga",
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√125 pwr, 20% crit",
+    "element": "phys",
+    "id": "fatal-end",
+    "name": "Fatal End",
+    "rank": 4.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Fear affliction rate x1.25",
+    "element": "passive",
+    "id": "fear-boost",
+    "name": "Fear Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "black-frost",
+    "cost": null,
+    "description": "Fire dmg dealt x1.5",
+    "element": "passive",
+    "id": "fire-amp",
+    "name": "Fire Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "fire",
+    "id": "fire-bell",
+    "name": "Fire Bell",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "hua-po",
+    "cost": null,
+    "description": "Fire dmg dealt x1.25",
+    "element": "passive",
+    "id": "fire-boost",
+    "name": "Fire Boost",
+    "rank": 1.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "gdon",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Removes Fire resistance for 3 turns",
+    "element": "support",
+    "id": "fire-break",
+    "name": "Fire Break",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ongyo-ki",
+    "cost": null,
+    "description": "Dmg taken x0.5 but cannot dodge",
+    "element": "passive",
+    "id": "firm-stance",
+    "name": "Firm Stance",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "fire",
+    "id": "flame-dotaku",
+    "name": "Flame Dotaku",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "mada",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "40% Silence",
+    "element": "ailment",
+    "id": "foolish-whisper",
+    "name": "Foolish Whisper",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "100% Poison",
+    "element": "ailment",
+    "id": "forbidden-murmur",
+    "name": "Forbidden Murmur",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "legion",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Raises ailment susceptibility for 3 turns",
+    "element": "almighty",
+    "id": "foul-breath",
+    "name": "Foul Breath",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "ice",
+    "id": "frigid-dotaku",
+    "name": "Frigid Dotaku",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Displays enemy stats, resistances, and skills",
+    "element": "special",
+    "id": "full-analysis",
+    "name": "Full Analysis",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√150 pwr, 85% acc, 10% crit",
+    "element": "almighty",
+    "id": "fury-of-yasogami",
+    "name": "Fury of Yasogami",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "100% crit, 100% instakill",
+    "element": "phys",
+    "id": "galactic-punt",
+    "name": "Galactic Punt",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "galaxy-kick",
+    "name": "Galaxy Kick",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "wind",
+    "id": "gale-dotaku",
+    "name": "Gale Dotaku",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "ares",
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√80 pwr, 85% acc",
+    "element": "phys",
+    "id": "gale-slash",
+    "name": "Gale Slash",
+    "rank": 3.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 28
+    },
+    "description": "100% Enervation",
+    "element": "almighty",
+    "id": "galgalim-eyes",
+    "name": "Galgalim Eyes",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "cu-sith",
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr",
+    "element": "wind",
+    "id": "garu",
+    "name": "Garu",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "garuda",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr",
+    "element": "wind",
+    "id": "garudyne",
+    "name": "Garudyne",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kusi-mitama",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "garula",
+    "name": "Garula",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "niddhoggr",
+    "cost": {
+      "type": "sp",
+      "value": 28
+    },
+    "description": "100% instakill when Fear",
+    "element": "dark",
+    "id": "ghastly-wail",
+    "name": "Ghastly Wail",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "cerberus",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√330 pwr, 25% crit",
+    "element": "phys",
+    "id": "gigantic-fist",
+    "name": "Gigantic Fist",
+    "rank": 6.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ardha",
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√800 pwr, 15% crit",
+    "element": "phys",
+    "id": "gods-hand",
+    "name": "God's Hand",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "50% chance to halve current HP",
+    "element": "light",
+    "id": "gods-judgment",
+    "name": "God's Judgment",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√130 pwr, 80% acc, 10% crit, 20% Fear",
+    "element": "phys",
+    "id": "golden-right",
+    "name": "Golden Right",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "green-paprika",
+    "name": "Green Paprika",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "ananta",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Wind resistance for 3 turns",
+    "element": "support",
+    "id": "green-wall",
+    "name": "Green Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "phoenix",
+    "cost": null,
+    "description": "25% exp gained when not active",
+    "element": "passive",
+    "id": "growth-1",
+    "name": "Growth 1",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "shiki-ouji",
+    "cost": null,
+    "description": "50% exp gained when not active",
+    "element": "passive",
+    "id": "growth-2",
+    "name": "Growth 2",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "saturnus",
+    "cost": null,
+    "description": "100% exp gained when not active",
+    "element": "passive",
+    "id": "growth-3",
+    "name": "Growth 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "guard-up-support",
+    "name": "Guard Up Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "principality",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "25% instakill",
+    "element": "light",
+    "id": "hama",
+    "name": "Hama",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "angel",
+    "cost": null,
+    "description": "Light instakill affliction rate x1.25",
+    "element": "passive",
+    "id": "hama-boost",
+    "name": "Hama Boost",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "throne",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "60% instakill",
+    "element": "light",
+    "id": "hamaon",
+    "name": "Hamaon",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√60 pwr, 8 hits, 75% acc",
+    "element": "phys",
+    "id": "hassou-tobi",
+    "name": "Hassou Tobi",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "5% HP restore to party after battle",
+    "element": "special",
+    "id": "healing-wave",
+    "name": "Healing Wave",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "magatsu-izanagi",
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Tarukaja + Rakukaja + Sukukaja",
+    "element": "support",
+    "id": "heat-riser",
+    "name": "Heat Riser",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "yatsufusa",
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√125 pwr, 75% acc",
+    "element": "phys",
+    "id": "heat-wave",
+    "name": "Heat Wave",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√230 pwr, 40% crit",
+    "element": "phys",
+    "id": "heavens-blade",
+    "name": "Heaven's Blade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "flauros",
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√90 pwr, 80% acc",
+    "element": "phys",
+    "id": "herculean-strike",
+    "name": "Herculean Strike",
+    "rank": 4.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "uriel",
+    "cost": null,
+    "description": "20% chance to repel phys dmg taken",
+    "element": "passive",
+    "id": "high-counter",
+    "name": "High Counter",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, removes ailment",
+    "element": "recovery",
+    "id": "hiranya-cabbage",
+    "name": "Hiranya Cabbage",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√300 pwr",
+    "element": "almighty",
+    "id": "hot-lightning",
+    "name": "Hot Lightning",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√270 pwr",
+    "element": "almighty",
+    "id": "hot-lightning-b",
+    "name": "Hot Lightning B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "hp-amp",
+    "name": "HP Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "hp-favor",
+    "name": "HP Favor",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√30 pwr",
+    "element": "recovery",
+    "id": "hp-recovery-support",
+    "name": "HP Recovery Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "hp-up-1",
+    "name": "HP Up 1",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "hp-up-2",
+    "name": "HP Up 2",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "hp-up-3",
+    "name": "HP Up 3",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "orobas",
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√50 pwr, 2 hits, 35% Rage",
+    "element": "phys",
+    "id": "hysterical-slap",
+    "name": "Hysterical Slap",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "skadi",
+    "cost": null,
+    "description": "Ice dmg dealt x1.5",
+    "element": "passive",
+    "id": "ice-amp",
+    "name": "Ice Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "ice",
+    "id": "ice-bell",
+    "name": "Ice Bell",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "king-frost",
+    "cost": null,
+    "description": "Ice dmg dealt x1.25",
+    "element": "passive",
+    "id": "ice-boost",
+    "name": "Ice Boost",
+    "rank": 1.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "lakshmi",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Removes Ice resistance for 3 turns",
+    "element": "support",
+    "id": "ice-break",
+    "name": "Ice Break",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 55
+    },
+    "description": "√180 pwr",
+    "element": "fire",
+    "id": "immortal-flame",
+    "name": "Immortal Flame",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "infinite-endure",
+    "name": "Infinite Endure",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "norn",
+    "cost": null,
+    "description": "Ailment recovery time reduced to 1 turn",
+    "element": "passive",
+    "id": "insta-heal",
+    "name": "Insta-Heal",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ame-no-uzume",
+    "cost": null,
+    "description": "3 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-1",
+    "name": "Invigorate 1",
+    "rank": 3.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "barong",
+    "cost": null,
+    "description": "5 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-2",
+    "name": "Invigorate 2",
+    "rank": 5.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "satan",
+    "cost": null,
+    "description": "7 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-3",
+    "name": "Invigorate 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "izanami-endure",
+    "name": "Izanami Endure",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√180 pwr",
+    "element": "elec",
+    "id": "jihad",
+    "name": "Jihad",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 66
+    },
+    "description": "Reduces curr HP to 1",
+    "element": "almighty",
+    "id": "judgement",
+    "name": "Judgement",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr",
+    "element": "almighty",
+    "id": "junes-bomber",
+    "name": "Junes Bomber",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "HP and SP recovered, Down, Random ailment, Nothing",
+    "element": "support",
+    "id": "kamui-miracle",
+    "name": "Kamui Miracle",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "",
+    "element": "support",
+    "id": "kamui-miracle-b",
+    "name": "Kamui Miracle B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "100% ailment",
+    "element": "support",
+    "id": "kamui-miracle-c",
+    "name": "Kamui Miracle C",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "√100 pwr",
+    "element": "support",
+    "id": "kamui-miracle-d",
+    "name": "Kamui Miracle D",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "",
+    "element": "support",
+    "id": "kamui-miracle-e",
+    "name": "Kamui Miracle E",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "100% ailment",
+    "element": "support",
+    "id": "kamui-miracle-f",
+    "name": "Kamui Miracle F",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "√100 pwr",
+    "element": "support",
+    "id": "kamui-miracle-g",
+    "name": "Kamui Miracle G",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "",
+    "element": "support",
+    "id": "kamui-miracle-h",
+    "name": "Kamui Miracle H",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "",
+    "element": "support",
+    "id": "kamui-miracle-i",
+    "name": "Kamui Miracle I",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "",
+    "element": "support",
+    "id": "kamui-miracle-j",
+    "name": "Kamui Miracle J",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "titan",
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√50 pwr, 1-3 hits, 10% crit",
+    "element": "phys",
+    "id": "kill-rush",
+    "name": "Kill Rush",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√230 pwr",
+    "element": "almighty",
+    "id": "kuro-ikazuchi",
+    "name": "Kuro Ikazuchi",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√120 pwr, kills user",
+    "element": "almighty",
+    "id": "last-resort",
+    "name": "Last Resort",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√400 pwr",
+    "element": "almighty",
+    "id": "last-resort-b",
+    "name": "Last Resort B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√1000 pwr",
+    "element": "almighty",
+    "id": "last-resort-c",
+    "name": "Last Resort C",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "kaiwan",
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "30 dmg dealt, HP restore",
+    "element": "almighty",
+    "id": "life-drain",
+    "name": "Life Drain",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "150 dmg dealt, HP restore",
+    "element": "almighty",
+    "id": "life-leech",
+    "name": "Life Leech",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√30 pwr",
+    "element": "recovery",
+    "id": "life-stone",
+    "name": "Life Stone",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "elec",
+    "id": "lightning-bell",
+    "name": "Lightning Bell",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "jack-frost",
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr",
+    "element": "ice",
+    "id": "mabufu",
+    "name": "Mabufu",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "byakko",
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr",
+    "element": "ice",
+    "id": "mabufudyne",
+    "name": "Mabufudyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "genbu",
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr",
+    "element": "ice",
+    "id": "mabufula",
+    "name": "Mabufula",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "anzu",
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr",
+    "element": "wind",
+    "id": "magaru",
+    "name": "Magaru",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "jatayu",
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr",
+    "element": "wind",
+    "id": "magarudyne",
+    "name": "Magarudyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "clotho",
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "magarula",
+    "name": "Magarula",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "virtue",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "30% instakill",
+    "element": "light",
+    "id": "mahama",
+    "name": "Mahama",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "anubis",
+    "cost": {
+      "type": "sp",
+      "value": 34
+    },
+    "description": "60% instakill",
+    "element": "light",
+    "id": "mahamaon",
+    "name": "Mahamaon",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Silence",
+    "element": "ailment",
+    "id": "makajam",
+    "name": "Makajam",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "lachesis",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Removes Makarakarn",
+    "element": "support",
+    "id": "makara-break",
+    "name": "Makara Break",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "makaracorn",
+    "name": "Makaracorn",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "lilith",
+    "cost": {
+      "type": "sp",
+      "value": 36
+    },
+    "description": "Repels next non-Almighty magic attack",
+    "element": "support",
+    "id": "makarakarn",
+    "name": "Makarakarn",
+    "rank": 7,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ippon-datara",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "30% instakill",
+    "element": "dark",
+    "id": "mamudo",
+    "name": "Mamudo",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "nebiros",
+    "cost": {
+      "type": "sp",
+      "value": 34
+    },
+    "description": "60% instakill",
+    "element": "dark",
+    "id": "mamudoon",
+    "name": "Mamudoon",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "berith",
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr",
+    "element": "fire",
+    "id": "maragi",
+    "name": "Maragi",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "surt",
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr",
+    "element": "fire",
+    "id": "maragidyne",
+    "name": "Maragidyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "pyro-jack",
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr",
+    "element": "fire",
+    "id": "maragion",
+    "name": "Maragion",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "parvati",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Defense x1.33 for 3 turns",
+    "element": "support",
+    "id": "marakukaja",
+    "name": "Marakukaja",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "belphegor",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Defense x0.66 for 3 turns",
+    "element": "support",
+    "id": "marakunda",
+    "name": "Marakunda",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "masakados",
+    "name": "Masakados",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "quetzalcoatl",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Hit and evasion x1.33 for 3 turns",
+    "element": "support",
+    "id": "masukukaja",
+    "name": "Masukukaja",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kurama-tengu",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Hit and evasion x0.66 for 3 turns",
+    "element": "support",
+    "id": "masukunda",
+    "name": "Masukunda",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kushinada-hime",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Attack x1.33 for 3 turns",
+    "element": "support",
+    "id": "matarukaja",
+    "name": "Matarukaja",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "seiryu",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Attack x0.66 for 3 turns",
+    "element": "support",
+    "id": "matarunda",
+    "name": "Matarunda",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "xiezhai",
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr",
+    "element": "elec",
+    "id": "mazio",
+    "name": "Mazio",
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kartikeya",
+    "cost": {
+      "type": "sp",
+      "value": 22
+    },
+    "description": "√160 pwr",
+    "element": "elec",
+    "id": "maziodyne",
+    "name": "Maziodyne",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "dominion",
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr",
+    "element": "elec",
+    "id": "mazionga",
+    "name": "Mazionga",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "apsaras",
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "Removes Rage, Fear, Confusion",
+    "element": "recovery",
+    "id": "me-patra",
+    "name": "Me Patra",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "sarasvati",
+    "cost": {
+      "type": "sp",
+      "value": 7
+    },
+    "description": "√40 pwr, HP restore",
+    "element": "recovery",
+    "id": "media",
+    "name": "Media",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "ishtar",
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "100% HP restore",
+    "element": "recovery",
+    "id": "mediarahan",
+    "name": "Mediarahan",
+    "rank": 7,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "undine",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√140 pwr, HP restore",
+    "element": "recovery",
+    "id": "mediarama",
+    "name": "Mediarama",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√200 pwr",
+    "element": "recovery",
+    "id": "medical-kit",
+    "name": "Medical Kit",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√200 pwr",
+    "element": "recovery",
+    "id": "medical-powder",
+    "name": "Medical Powder",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "medicine",
+    "name": "Medicine",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "thoth",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "√120 pwr",
+    "element": "almighty",
+    "id": "megido",
+    "name": "Megido",
+    "rank": 3.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "decarabia",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√180 pwr",
+    "element": "almighty",
+    "id": "megidola",
+    "name": "Megidola",
+    "rank": 6.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "metatron",
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "√210 pwr",
+    "element": "almighty",
+    "id": "megidolaon",
+    "name": "Megidolaon",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√9999 pwr",
+    "element": "almighty",
+    "id": "megidolaon-b",
+    "name": "Megidolaon B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "mid-soul-tomato",
+    "name": "Mid Soul Tomato",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "hanuman",
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√135 pwr, 30% crit",
+    "element": "phys",
+    "id": "mighty-swing",
+    "name": "Mighty Swing",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "alice",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Dmg dealt by next magic attack x2.5",
+    "element": "support",
+    "id": "mind-charge",
+    "name": "Mind Charge",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "pale-rider",
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√90 pwr, 80% acc, 25% Confusion",
+    "element": "phys",
+    "id": "mind-slice",
+    "name": "Mind Slice",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 55
+    },
+    "description": "√230 pwr",
+    "element": "almighty",
+    "id": "morning-star",
+    "name": "Morning Star",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "lilim",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "25% instakill",
+    "element": "dark",
+    "id": "mudo",
+    "name": "Mudo",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "mudo-b",
+    "name": "Mudo B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "mot",
+    "cost": null,
+    "description": "Dark instakill affliction rate x1.25",
+    "element": "passive",
+    "id": "mudo-boost",
+    "name": "Mudo Boost",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "loa",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "60% instakill",
+    "element": "dark",
+    "id": "mudoon",
+    "name": "Mudoon",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "rangda",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√110 pwr, 80% acc, 25% Enervation",
+    "element": "phys",
+    "id": "mustard-bomb",
+    "name": "Mustard Bomb",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√240 pwr, 100% Silence",
+    "element": "ailment",
+    "id": "mute-ray",
+    "name": "Mute Ray",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Silence",
+    "element": "recovery",
+    "id": "mutudi",
+    "name": "Mutudi",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "archangel",
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√60 pwr, 35% Silence",
+    "element": "phys",
+    "id": "muzzle-shot",
+    "name": "Muzzle Shot",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "mahakala",
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√75 pwr, 1-3 hits, 85% acc",
+    "element": "phys",
+    "id": "myriad-arrows",
+    "name": "Myriad Arrows",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 100
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "myriad-truths",
+    "name": "Myriad Truths",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "pazuzu",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√110 pwr, 80% acc, 25% Exhaustion",
+    "element": "phys",
+    "id": "navas-nebula",
+    "name": "Navas Nebula",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√240 pwr",
+    "element": "almighty",
+    "id": "nebula-oculus",
+    "name": "Nebula Oculus",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Exhaustion, Enervation",
+    "element": "recovery",
+    "id": "nervundi",
+    "name": "Nervundi",
+    "rank": 2.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "ice",
+    "id": "niflheim",
+    "name": "Niflheim",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√250 pwr, 80% acc",
+    "element": "almighty",
+    "id": "nihil-hand",
+    "name": "Nihil Hand",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Confusion",
+    "element": "passive",
+    "id": "null-confuse",
+    "name": "Null Confuse",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Dark dmg taken",
+    "element": "passive",
+    "id": "null-dark",
+    "name": "Null Dark",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "raphael",
+    "cost": null,
+    "description": "Prevents Dizzy",
+    "element": "passive",
+    "id": "null-dizzy",
+    "name": "Null Dizzy",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Elec dmg taken",
+    "element": "passive",
+    "id": "null-elec",
+    "name": "Null Elec",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Enervation",
+    "element": "passive",
+    "id": "null-enervate",
+    "name": "Null Enervate",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Exhaustion",
+    "element": "passive",
+    "id": "null-exhaust",
+    "name": "Null Exhaust",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Fear",
+    "element": "passive",
+    "id": "null-fear",
+    "name": "Null Fear",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Fire dmg taken",
+    "element": "passive",
+    "id": "null-fire",
+    "name": "Null Fire",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Ice dmg taken",
+    "element": "passive",
+    "id": "null-ice",
+    "name": "Null Ice",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Light dmg taken",
+    "element": "passive",
+    "id": "null-light",
+    "name": "Null Light",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Silence",
+    "element": "passive",
+    "id": "null-mute",
+    "name": "Null Mute",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Phys dmg taken",
+    "element": "passive",
+    "id": "null-physical",
+    "name": "Null Physical",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Poison",
+    "element": "passive",
+    "id": "null-poison",
+    "name": "Null Poison",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Prevents Rage",
+    "element": "passive",
+    "id": "null-rage",
+    "name": "Null Rage",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Nullifies Wind dmg taken",
+    "element": "passive",
+    "id": "null-wind",
+    "name": "Null Wind",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√120 pwr",
+    "element": "almighty",
+    "id": "nullity-guidance",
+    "name": "Nullity Guidance",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√999 pwr",
+    "element": "almighty",
+    "id": "oho-ikazuchi",
+    "name": "Oho Ikazuchi",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "alraune",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "50% Enervation",
+    "element": "ailment",
+    "id": "old-one",
+    "name": "Old One",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "wind",
+    "id": "panta-rhei",
+    "name": "Panta Rhei",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Rage, Fear, Confusion",
+    "element": "recovery",
+    "id": "patra",
+    "name": "Patra",
+    "rank": 1.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "pneuma-drop",
+    "name": "Pneuma Drop",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Poison",
+    "element": "ailment",
+    "id": "poisma",
+    "name": "Poisma",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "hitokoto-nushi",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√130 pwr, 45% Poison",
+    "element": "phys",
+    "id": "poison-arrow",
+    "name": "Poison Arrow",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Poison affliction rate x1.25",
+    "element": "passive",
+    "id": "poison-boost",
+    "name": "Poison Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "omoikane",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "50% Poison",
+    "element": "ailment",
+    "id": "poison-mist",
+    "name": "Poison Mist",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "eligor",
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√60 pwr, 35% Poison",
+    "element": "phys",
+    "id": "poison-skewer",
+    "name": "Poison Skewer",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Poison",
+    "element": "recovery",
+    "id": "posumudi",
+    "name": "Posumudi",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "yoshitsune",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Dmg dealt by next phys attack x2.5",
+    "element": "support",
+    "id": "power-charge",
+    "name": "Power Charge",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "power",
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√120 pwr, 80% acc, 25% crit",
+    "element": "phys",
+    "id": "power-slash",
+    "name": "Power Slash",
+    "rank": 4.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√900 pwr, 80% acc, 50% instakill",
+    "element": "phys",
+    "id": "pralaya",
+    "name": "Pralaya",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "prayer",
+    "name": "Prayer",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "precious-egg",
+    "name": "Precious Egg",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "beelzebub",
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√1100 pwr, 25% crit",
+    "element": "phys",
+    "id": "primal-force",
+    "name": "Primal Force",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√180 pwr",
+    "element": "fire",
+    "id": "prominence",
+    "name": "Prominence",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Confusion",
+    "element": "ailment",
+    "id": "pulinpa",
+    "name": "Pulinpa",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "quad-converge",
+    "name": "Quad Converge",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√210 pwr",
+    "element": "almighty",
+    "id": "quake",
+    "name": "Quake",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Rage affliction rate x1.25",
+    "element": "passive",
+    "id": "rage-boost",
+    "name": "Rage Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "fire",
+    "id": "ragnarok",
+    "name": "Ragnarok",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "siegfried",
+    "cost": {
+      "type": "hp-percent",
+      "value": 21
+    },
+    "description": "√195 pwr, 35% crit",
+    "element": "phys",
+    "id": "rainy-death",
+    "name": "Rainy Death",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "shiisaa",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Defense x1.33 for 3 turns",
+    "element": "support",
+    "id": "rakukaja",
+    "name": "Rakukaja",
+    "rank": 1.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "nata-taishi",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Defense x0.66 for 3 turns",
+    "element": "support",
+    "id": "rakunda",
+    "name": "Rakunda",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "matador",
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√40 pwr, 1-3 hits, 75% acc",
+    "element": "phys",
+    "id": "rampage",
+    "name": "Rampage",
+    "rank": 3.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√300 pwr, 1-3 hits",
+    "element": "phys",
+    "id": "rampage-b",
+    "name": "Rampage B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Down, Dizzy",
+    "element": "recovery",
+    "id": "re-patra",
+    "name": "Re Patra",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "Crit rate +7% for 3 turns",
+    "element": "support",
+    "id": "rebellion",
+    "name": "Rebellion",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "queen-mab",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "50% HP restore after reviving",
+    "element": "recovery",
+    "id": "recarm",
+    "name": "Recarm",
+    "rank": 2.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr, Diarahan, kills user",
+    "element": "recovery",
+    "id": "recarmdra",
+    "name": "Recarmdra",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "red-paprika",
+    "name": "Red Paprika",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "yamata-no-orochi",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Fire resistance for 3 turns",
+    "element": "support",
+    "id": "red-wall",
+    "name": "Red Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "sylph",
+    "cost": null,
+    "description": "2% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-1",
+    "name": "Regenerate 1",
+    "rank": 3.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "titania",
+    "cost": null,
+    "description": "4% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-2",
+    "name": "Regenerate 2",
+    "rank": 5.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "vishnu",
+    "cost": null,
+    "description": "6% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-3",
+    "name": "Regenerate 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "5% SP restore to party after battle",
+    "element": "special",
+    "id": "relaxing-wave",
+    "name": "Relaxing Wave",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "michael",
+    "cost": null,
+    "description": "Repels Dark dmg taken",
+    "element": "passive",
+    "id": "repel-dark",
+    "name": "Repel Dark",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Repels Elec dmg taken",
+    "element": "passive",
+    "id": "repel-elec",
+    "name": "Repel Elec",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Repels Fire dmg taken",
+    "element": "passive",
+    "id": "repel-fire",
+    "name": "Repel Fire",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Repels Ice dmg taken",
+    "element": "passive",
+    "id": "repel-ice",
+    "name": "Repel Ice",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "yurlungur",
+    "cost": null,
+    "description": "Repels Light dmg taken",
+    "element": "passive",
+    "id": "repel-light",
+    "name": "Repel Light",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Repels Phys dmg taken",
+    "element": "passive",
+    "id": "repel-physical",
+    "name": "Repel Physical",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Repels Wind dmg taken",
+    "element": "passive",
+    "id": "repel-wind",
+    "name": "Repel Wind",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Confusion susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-confuse",
+    "name": "Resist Confuse",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Dark susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-dark",
+    "name": "Resist Dark",
+    "rank": 5.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Dizzy susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-dizzy",
+    "name": "Resist Dizzy",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kumbhanda",
+    "cost": null,
+    "description": "Elec dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-elec",
+    "name": "Resist Elec",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Enervation susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-enervate",
+    "name": "Resist Enervate",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Exhaustion susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-exhaust",
+    "name": "Resist Exhaust",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Fear susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-fear",
+    "name": "Resist Fear",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "mother-harlot",
+    "cost": null,
+    "description": "Fire dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-fire",
+    "name": "Resist Fire",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "suzaku",
+    "cost": null,
+    "description": "Ice dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-ice",
+    "name": "Resist Ice",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Light susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-light",
+    "name": "Resist Light",
+    "rank": 5.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Silence susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-mute",
+    "name": "Resist Mute",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "jinn",
+    "cost": null,
+    "description": "Phys dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-physical",
+    "name": "Resist Physical",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Poison susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-poison",
+    "name": "Resist Poison",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Rage susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-rage",
+    "name": "Resist Rage",
+    "rank": 2.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "chernobog",
+    "cost": null,
+    "description": "Wind dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-wind",
+    "name": "Resist Wind",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "passive",
+    "id": "revival-rope",
+    "name": "Revival Rope",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "kali",
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "Crit rate +15% for 3 turns",
+    "element": "support",
+    "id": "revolution",
+    "name": "Revolution",
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "rises-revival",
+    "name": "Rise's Revival",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "100% Rage",
+    "element": "ailment",
+    "id": "roar-of-wrath",
+    "name": "Roar of Wrath",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√35 pwr, 1-3 hits, 80% acc, 10% crit",
+    "element": "almighty",
+    "id": "run-amok",
+    "name": "Run Amok",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "helel",
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "Diarahan + Amrita",
+    "element": "recovery",
+    "id": "salvation",
+    "name": "Salvation",
+    "rank": 8,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "kohryu",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "100% HP restore after reviving",
+    "element": "recovery",
+    "id": "samarecarm",
+    "name": "Samarecarm",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 44
+    },
+    "description": "70% instakill",
+    "element": "light",
+    "id": "samsara",
+    "name": "Samsara",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√20 pwr",
+    "element": "recovery",
+    "id": "sarx-drop",
+    "name": "Sarx Drop",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "mithra",
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√90 pwr, 80% acc, 25% Silence",
+    "element": "phys",
+    "id": "seal-bomb",
+    "name": "Seal Bomb",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "passive",
+    "id": "sentou-fruit",
+    "name": "Sentou Fruit",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sentou-petal",
+    "name": "Sentou Petal",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sentou-seed",
+    "name": "Sentou Seed",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√200 pwr",
+    "element": "almighty",
+    "id": "shake-off",
+    "name": "Shake Off",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "loki",
+    "cost": null,
+    "description": "Incoming crit rate x0.5",
+    "element": "passive",
+    "id": "sharp-student",
+    "name": "Sharp Student",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "shell-of-denial",
+    "name": "Shell of Denial",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 160
+    },
+    "description": "Nullifies next attack",
+    "element": "support",
+    "id": "shield-of-justice",
+    "name": "Shield of Justice",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√120 pwr, 80% acc, 100% Fear",
+    "element": "almighty",
+    "id": "shivering-rondo",
+    "name": "Shivering Rondo",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Silence affliction rate x1.25",
+    "element": "passive",
+    "id": "silence-boost",
+    "name": "Silence Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√85 pwr, 20% crit",
+    "element": "phys",
+    "id": "single-shot",
+    "name": "Single Shot",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 5
+    },
+    "description": "√70 pwr, 85% acc, 20% crit",
+    "element": "phys",
+    "id": "skewer",
+    "name": "Skewer",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "sandman",
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√60 pwr, 35% Confusion",
+    "element": "phys",
+    "id": "skull-cracker",
+    "name": "Skull Cracker",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√30 pwr",
+    "element": "passive",
+    "id": "snow-flower-honey",
+    "name": "Snow Flower Honey",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "snuff-soul",
+    "name": "Snuff Soul",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√75 pwr, 25% crit",
+    "element": "phys",
+    "id": "sonic-punch",
+    "name": "Sonic Punch",
+    "rank": 2.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Exhaustion",
+    "element": "ailment",
+    "id": "soul-break",
+    "name": "Soul Break",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sp-amp",
+    "name": "SP Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sp-favor",
+    "name": "SP Favor",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "sp-recovery-support",
+    "name": "SP Recovery Support",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sp-up-1",
+    "name": "SP Up 1",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sp-up-2",
+    "name": "SP Up 2",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "sp-up-3",
+    "name": "SP Up 3",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "shiva",
+    "cost": null,
+    "description": "SP costs x0.5",
+    "element": "passive",
+    "id": "spell-master",
+    "name": "Spell Master",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "succubus",
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "30 dmg dealt, SP restore",
+    "element": "almighty",
+    "id": "spirit-drain",
+    "name": "Spirit Drain",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "150 dmg dealt, SP restore",
+    "element": "almighty",
+    "id": "spirit-leech",
+    "name": "Spirit Leech",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√400 pwr",
+    "element": "recovery",
+    "id": "spirit-water",
+    "name": "Spirit Water",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "baal-zebul",
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "Raises ailment susceptibility for 3 turns",
+    "element": "almighty",
+    "id": "stagnant-air",
+    "name": "Stagnant Air",
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "10% HP restore to party after battle",
+    "element": "special",
+    "id": "stamina-song",
+    "name": "Stamina Song",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "ghoul",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Hit and evasion x1.33 for 3 turns",
+    "element": "support",
+    "id": "sukukaja",
+    "name": "Sukukaja",
+    "rank": 1.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "yomotsu-shikome",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Hit and evasion x0.66 for 3 turns",
+    "element": "support",
+    "id": "sukunda",
+    "name": "Sukunda",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Summons an ally",
+    "element": "special",
+    "id": "summon",
+    "name": "Summon",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "summon-b",
+    "name": "Summon B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "summon-c",
+    "name": "Summon C",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "summons-to-yomi",
+    "name": "Summons to Yomi",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "supreme-insight",
+    "name": "Supreme Insight",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "gabriel",
+    "cost": null,
+    "description": "50% chance to endure Dark instakill",
+    "element": "passive",
+    "id": "survive-dark",
+    "name": "Survive Dark",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "samael",
+    "cost": null,
+    "description": "50% chance to endure Light instakill",
+    "element": "passive",
+    "id": "survive-light",
+    "name": "Survive Light",
+    "rank": 4.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "yaksini",
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "√65 pwr, 1-2 hits, 80% acc",
+    "element": "phys",
+    "id": "swift-strike",
+    "name": "Swift Strike",
+    "rank": 3.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "obariyon",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Attack x1.33 for 3 turns",
+    "element": "support",
+    "id": "tarukaja",
+    "name": "Tarukaja",
+    "rank": 1.5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "slime",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Attack x0.66 for 3 turns",
+    "element": "support",
+    "id": "tarunda",
+    "name": "Tarunda",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "masakado",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√90 pwr, 1-2 hits, 85% acc, 10% crit",
+    "element": "phys",
+    "id": "tempest-slash",
+    "name": "Tempest Slash",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "leanan-sidhe",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "40% Confusion",
+    "element": "ailment",
+    "id": "tentarafoo",
+    "name": "Tentarafoo",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "100% Fear",
+    "element": "ailment",
+    "id": "terror-voice",
+    "name": "Terror Voice",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "sui-ki",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Removes Tetrakarn",
+    "element": "support",
+    "id": "tetra-break",
+    "name": "Tetra Break",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "tetracorn",
+    "name": "Tetracorn",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "girimehkala",
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Nullifies next instakill attack",
+    "element": "support",
+    "id": "tetraja",
+    "name": "Tetraja",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "arahabaki",
+    "cost": {
+      "type": "sp",
+      "value": 36
+    },
+    "description": "Repels next phys attack",
+    "element": "support",
+    "id": "tetrakarn",
+    "name": "Tetrakarn",
+    "rank": 7,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "50% Down, Dizzy",
+    "element": "almighty",
+    "id": "the-mans-way",
+    "name": "The Man's Way",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Changes target icon to show when attack will be ineffective",
+    "element": "special",
+    "id": "third-eye",
+    "name": "Third Eye",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "thousand-curses",
+    "name": "Thousand Curses",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "thousand-curses-b",
+    "name": "Thousand Curses B",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√200 pwr",
+    "element": "elec",
+    "id": "thunder-reign",
+    "name": "Thunder Reign",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "recovery",
+    "id": "tiny-soul-tomato",
+    "name": "Tiny Soul Tomato",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "Removes Enervation",
+    "element": "recovery",
+    "id": "tirundi",
+    "name": "Tirundi",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "taotie",
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√45 pwr, 2-4 hits, 8% crit",
+    "element": "phys",
+    "id": "torrent-shot",
+    "name": "Torrent Shot",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Instant escape from dungeon",
+    "element": "support",
+    "id": "traesto",
+    "name": "Traesto",
+    "rank": 1,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Instant escape from battle",
+    "element": "support",
+    "id": "trafuri",
+    "name": "Trafuri",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Reveal the location of treasure chests on each floor",
+    "element": "special",
+    "id": "treasure-radar",
+    "name": "Treasure Radar",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr",
+    "element": "almighty",
+    "id": "twin-dragons",
+    "name": "Twin Dragons",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√55 pwr, 2 hits, 10% crit",
+    "element": "phys",
+    "id": "twin-shot",
+    "name": "Twin Shot",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "ultra-charge",
+    "name": "Ultra Charge",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 100% crit",
+    "element": "phys",
+    "id": "ultra-trigger",
+    "name": "Ultra Trigger",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√400 pwr",
+    "element": "recovery",
+    "id": "umugi-water",
+    "name": "Umugi Water",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√180 pwr",
+    "element": "almighty",
+    "id": "unerring-justice",
+    "name": "Unerring Justice",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "asura",
+    "cost": null,
+    "description": "Prevents all ailments except Poison",
+    "element": "passive",
+    "id": "unshaken-will",
+    "name": "Unshaken Will",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "mothman",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "40% Rage",
+    "element": "ailment",
+    "id": "valiant-dance",
+    "name": "Valiant Dance",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "value-medicine",
+    "name": "Value Medicine",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "cybele",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√140 pwr, 80% acc",
+    "element": "phys",
+    "id": "vicious-strike",
+    "name": "Vicious Strike",
+    "rank": 6.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "izanagi-no-okami",
+    "cost": null,
+    "description": "100% max HP + SP restore after battle",
+    "element": "passive",
+    "id": "victory-cry",
+    "name": "Victory Cry",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "10% SP restore to party after battle",
+    "element": "special",
+    "id": "vigor-song",
+    "name": "Vigor Song",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "kin-ki",
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√350 pwr, dmg dealt x1.5 on Downed foes",
+    "element": "phys",
+    "id": "vile-assault",
+    "name": "Vile Assault",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "tzitzimitl",
+    "cost": {
+      "type": "hp-percent",
+      "value": 21
+    },
+    "description": "√90 pwr, 85% acc, 55% Poison",
+    "element": "phys",
+    "id": "virus-wave",
+    "name": "Virus Wave",
+    "rank": 6.5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "zaou-gongen",
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√200 pwr, 80% acc",
+    "element": "phys",
+    "id": "vorpal-blade",
+    "name": "Vorpal Blade",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "waste-money",
+    "name": "Waste Money",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "Reveal an enemy's affinity at the start of battle",
+    "element": "special",
+    "id": "weakness-scan",
+    "name": "Weakness Scan",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "whisper",
+    "name": "Whisper",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "white-paprika",
+    "name": "White Paprika",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "cu-chulainn",
+    "cost": {
+      "type": "sp",
+      "value": 18
+    },
+    "description": "Adds Ice resistance for 3 turns",
+    "element": "support",
+    "id": "white-wall",
+    "name": "White Wall",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 3-4 hits, 100% crit",
+    "element": "phys",
+    "id": "wild-ways",
+    "name": "Wild Ways",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "odin",
+    "cost": null,
+    "description": "Wind dmg dealt x1.5",
+    "element": "passive",
+    "id": "wind-amp",
+    "name": "Wind Amp",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "wind",
+    "id": "wind-bell",
+    "name": "Wind Bell",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "fortuna",
+    "cost": null,
+    "description": "Wind dmg dealt x1.25",
+    "element": "passive",
+    "id": "wind-boost",
+    "name": "Wind Boost",
+    "rank": 1.5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "seth",
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "Removes Wind resistance for 3 turns",
+    "element": "support",
+    "id": "wind-break",
+    "name": "Wind Break",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√20 pwr",
+    "element": "wind",
+    "id": "wind-of-oblivion",
+    "name": "Wind of Oblivion",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√180 pwr, 70% Enervation",
+    "element": "almighty",
+    "id": "worlds-end",
+    "name": "World's End",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": null,
+    "description": "√15 pwr, 2-3 hits, 100% crit",
+    "element": "phys",
+    "id": "yosuke-strike",
+    "name": "Yosuke Strike",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardPersonaId": null,
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "√130 pwr, HP restore, Sukukaja",
+    "element": "recovery",
+    "id": "youthful-wind",
+    "name": "Youthful Wind",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardPersonaId": "izanagi",
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr",
+    "element": "elec",
+    "id": "zio",
+    "name": "Zio",
+    "rank": 1.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "tam-lin",
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√160 pwr",
+    "element": "elec",
+    "id": "ziodyne",
+    "name": "Ziodyne",
+    "rank": 5.5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardPersonaId": "unicorn",
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr",
+    "element": "elec",
+    "id": "zionga",
+    "name": "Zionga",
+    "rank": 3.5,
+    "target": "1 foe",
+    "unique": false
+  }
+]

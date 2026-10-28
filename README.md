@@ -64,6 +64,7 @@ To follow the OS setting instead, use `darkModeSelector: 'system'` and drop the 
 | Game                              | Route    | Code               | Data                 |
 | --------------------------------- | -------- | ------------------ | -------------------- |
 | Persona 5 Royal                   | `/p5r`   | `src/app/games/p5r`  | `public/data/p5r/`   |
+| Persona 4 Golden                  | `/p4g`   | `src/app/games/p4g`  | `public/data/p4g/`   |
 | Shin Megami Tensei III: Nocturne  | `/smt3`  | `src/app/games/smt3` | `public/data/smt3/`  |
 
 Each game is a self-contained folder registered in `src/app/games/game.registry.ts`; the shell,
@@ -83,11 +84,21 @@ Mitama, special recipes, Deathstone Fiends), a skill-aware route finder over you
 optional field recruits, the race and element charts, a compendium with export/import, and its own
 settings (Demi-fiend level cap, unlock groups).
 
+The P4G companion covers all 205 Golden personas (stats, affinities, inheritance type, learn-sets),
+467 skills (with Golden's skill cards), 266 shadows (bosses marked, drops and areas), a fusion
+calculator (two-persona normal and same-arcana fusion, three-persona triangle fusion, and the
+special recipes of two to twelve personas; reverse lists every pair and, on request, every
+triangle), a skill-aware route finder over your compendium and optionally every persona at your
+level, both arcana charts, a compendium with export/import, and its own settings (protagonist level
+cap, unlock groups). It wears the Midnight Channel skin: the fusion result plays on a TV set.
+
 ## Game data
 
 `public/data/p5r/` holds the committed P5R datasets — personas, skills, traits, shadows, the fusion
 and element charts, advanced recipes, and the inheritance matrix. `public/data/smt3/` holds
-Nocturne's demons, skills, magatama, fusion/element charts and special recipes. They are static
+Nocturne's demons, skills, magatama, fusion/element charts and special recipes. `public/data/p4g/`
+holds Golden's personas, skills, shadows, the normal and triangle charts, special recipes and the
+inheritance matrix. They are static
 assets fetched at runtime, not bundled, so they stay out of the initial-bundle budget and cache
 independently of app code. **A fresh clone needs no network access to produce them.**
 
@@ -110,9 +121,12 @@ node --test "scripts/import/test/*.test.mjs"
 
 node scripts/import/smt3/import.mjs        # Nocturne: same upstream, same pinned commit
 node --test scripts/import/smt3/test/smt3.test.mjs
+
+node scripts/import/p4g/import.mjs         # Persona 4 Golden: same upstream, same pinned commit
+node --test scripts/import/p4g/test/p4g.test.mjs
 ```
 
-`node scripts/validate-data.mjs` (run in CI) re-checks both games' committed datasets without the
+`node scripts/validate-data.mjs` (run in CI) re-checks every game's committed datasets without the
 importer.
 
 Upstream is pinned by SHA in `scripts/import/sources.mjs`; fetched files are cached under

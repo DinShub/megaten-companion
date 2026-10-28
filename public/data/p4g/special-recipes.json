@@ -1,0 +1,168 @@
+[
+  {
+    "ingredientIds": [
+      "belial",
+      "nebiros"
+    ],
+    "resultId": "alice"
+  },
+  {
+    "ingredientIds": [
+      "shiva",
+      "parvati"
+    ],
+    "resultId": "ardha"
+  },
+  {
+    "ingredientIds": [
+      "pazuzu",
+      "baal-zebul",
+      "belial",
+      "belphegor",
+      "mot",
+      "seth"
+    ],
+    "resultId": "beelzebub"
+  },
+  {
+    "ingredientIds": [
+      "jack-frost",
+      "pyro-jack",
+      "king-frost",
+      "pixie",
+      "ghoul"
+    ],
+    "resultId": "black-frost"
+  },
+  {
+    "ingredientIds": [
+      "atavaka",
+      "ares",
+      "kin-ki",
+      "triglav",
+      "neko-shogun"
+    ],
+    "resultId": "futsunushi"
+  },
+  {
+    "ingredientIds": [
+      "izanagi",
+      "sandman",
+      "nata-taishi",
+      "girimehkala",
+      "norn",
+      "okuninushi",
+      "orthrus",
+      "kartikeya",
+      "mithra",
+      "tzitzimitl",
+      "cu-chulainn",
+      "legion"
+    ],
+    "resultId": "izanagi-no-okami"
+  },
+  {
+    "ingredientIds": [
+      "byakko",
+      "genbu",
+      "seiryu",
+      "suzaku"
+    ],
+    "resultId": "kohryu"
+  },
+  {
+    "ingredientIds": [
+      "ananta",
+      "satan",
+      "anubis",
+      "metatron",
+      "trumpeter",
+      "michael"
+    ],
+    "resultId": "lucifer"
+  },
+  {
+    "ingredientIds": [
+      "matador",
+      "daisoujou",
+      "hell-biker",
+      "white-rider",
+      "mother-harlot",
+      "trumpeter"
+    ],
+    "resultId": "mahakala"
+  },
+  {
+    "ingredientIds": [
+      "ara-mitama",
+      "nigi-mitama",
+      "kusi-mitama",
+      "saki-mitama"
+    ],
+    "resultId": "neko-shogun"
+  },
+  {
+    "ingredientIds": [
+      "clotho",
+      "lachesis",
+      "atropos"
+    ],
+    "resultId": "norn"
+  },
+  {
+    "ingredientIds": [
+      "kin-ki",
+      "sui-ki",
+      "fuu-ki",
+      "oni"
+    ],
+    "resultId": "ongyo-ki"
+  },
+  {
+    "ingredientIds": [
+      "rangda",
+      "barong"
+    ],
+    "resultId": "shiva"
+  },
+  {
+    "ingredientIds": [
+      "gdon",
+      "phoenix",
+      "yatagarasu",
+      "narasimha"
+    ],
+    "resultId": "tam-lin"
+  },
+  {
+    "ingredientIds": [
+      "matador",
+      "white-rider",
+      "daisoujou",
+      "pabilsag",
+      "taotie",
+      "taowu"
+    ],
+    "resultId": "trumpeter"
+  },
+  {
+    "ingredientIds": [
+      "thoth",
+      "orthrus",
+      "makami",
+      "narasimha",
+      "mothman"
+    ],
+    "resultId": "yatsufusa"
+  },
+  {
+    "ingredientIds": [
+      "hachiman",
+      "masakado",
+      "hitokoto-nushi",
+      "okuninushi",
+      "shiki-ouji"
+    ],
+    "resultId": "yoshitsune"
+  }
+]

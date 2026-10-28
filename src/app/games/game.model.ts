@@ -58,8 +58,10 @@ export type PrimaryColor =
  *   slanted tabs, halftone, ransom-letter titles (P5R).
  * - `comp` — the demon-summoning program: accent phosphor on a dark terminal,
  *   box-drawn panels, monospace data, a terse system voice (Nocturne).
+ * - `midnight-channel` — a late-night broadcast in the rain: violet-black room,
+ *   the result on a CRT set, condensed broadcast type, a yellow ticker (P4G).
  */
-export type GameSkin = 'calling-card' | 'comp';
+export type GameSkin = 'calling-card' | 'comp' | 'midnight-channel';
 
 /** A game's visual identity (§4.8). */
 export interface GameTheme {

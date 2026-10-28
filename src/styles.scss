@@ -7,6 +7,7 @@
 @use 'styles/fonts';
 @use 'styles/skins/calling-card';
 @use 'styles/skins/comp';
+@use 'styles/skins/midnight-channel';
 
 html,
 body {
@@ -397,12 +398,12 @@ code {
 .el-dot[data-el='wind'] { background: #34d399; }
 .el-dot[data-el='psy'] { background: #f0abfc; }
 .el-dot[data-el='nuke'] { background: #a3e635; }
-.el-dot[data-el='bless'] { background: #fde68a; }
-.el-dot[data-el='curse'] { background: #c084fc; }
+.el-dot[data-el='bless'], .el-dot[data-el='light'] { background: #fde68a; }
+.el-dot[data-el='curse'], .el-dot[data-el='dark'] { background: #c084fc; }
 .el-dot[data-el='almighty'] { background: #e2e8f0; }
 .el-dot[data-el='ailment'] { background: #a78bfa; }
 .el-dot[data-el='support'] { background: #60a5fa; }
-.el-dot[data-el='healing'] { background: #4ade80; }
+.el-dot[data-el='healing'], .el-dot[data-el='recovery'] { background: #4ade80; }
 .el-dot[data-el='passive'] { background: #94a3b8; }
 .el-dot[data-el='force'] { background: #34d399; }
 .el-dot[data-el='expel'] { background: #fde68a; }

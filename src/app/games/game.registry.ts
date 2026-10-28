@@ -1,4 +1,5 @@
 import type { GameDefinition } from './game.model';
+import { p4gGame } from './p4g/p4g.game';
 import { p5rGame } from './p5r/p5r.game';
 import { smt3Game } from './smt3/smt3.game';
 
@@ -7,7 +8,7 @@ import { smt3Game } from './smt3/smt3.game';
  * *only* file outside `games/<id>/` that imports a concrete game — the seam's
  * intentional exception. Everything else routes through {@link GameDefinition}.
  */
-export const GAMES: readonly GameDefinition[] = [p5rGame, smt3Game];
+export const GAMES: readonly GameDefinition[] = [p5rGame, p4gGame, smt3Game];
 
 /** `/` redirects here. */
 export const DEFAULT_GAME_ID = p5rGame.id;

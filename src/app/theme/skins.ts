@@ -59,4 +59,24 @@ export const SKINS: Readonly<Record<GameSkin, SkinTokens>> = {
     },
     radius: SQUARE,
   },
+  // A dark room at midnight: violet-black surfaces lit by the TV. Text (0) is a
+  // cool off-white, muted text (400) a lilac grey that clears AA on the 900 page,
+  // and the radii are soft — pills and rounded screens, not cut paper or boxes.
+  'midnight-channel': {
+    surface: {
+      0: '#efeaf5',
+      50: '#e2dcea',
+      100: '#d2cadd',
+      200: '#bdb3cb',
+      300: '#aaa0ba',
+      400: '#968ba8',
+      500: '#6f6582',
+      600: '#4d445c',
+      700: '#3a3048',
+      800: '#1a1424',
+      900: '#0e0a14',
+      950: '#08060c',
+    },
+    radius: { none: '0', xs: '4px', sm: '6px', md: '10px', lg: '14px', xl: '20px' },
+  },
 };

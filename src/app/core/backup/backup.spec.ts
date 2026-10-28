@@ -79,8 +79,8 @@ describe('whole-app backup', () => {
   });
 
   it('refuses a key this build does not recognise, applying nothing', () => {
-    const result = parseBackup(file({ settings: P5R_SET, 'p4g-compendium': env({}) }), KNOWN);
-    expect(result).toEqual({ ok: false, error: expect.stringContaining('“p4g-compendium”') });
+    const result = parseBackup(file({ settings: P5R_SET, 'p3r-compendium': env({}) }), KNOWN);
+    expect(result).toEqual({ ok: false, error: expect.stringContaining('“p3r-compendium”') });
   });
 
   it('refuses a value saved at a newer version than its store understands', () => {

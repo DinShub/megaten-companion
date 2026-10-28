@@ -1,0 +1,73 @@
+{
+  "datasets": {
+    "fusion-chart": {
+      "bytes": 28756,
+      "entries": 23,
+      "file": "fusion-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/golden-fusion-chart.json"
+      ]
+    },
+    "inherit-matrix": {
+      "bytes": 3016,
+      "entries": 11,
+      "file": "inherit-matrix.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/inheritance-types.json"
+      ]
+    },
+    "personas": {
+      "bytes": 244303,
+      "entries": 205,
+      "file": "personas.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/golden-demon-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/golden-demon-unlocks.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/special-recipes.json"
+      ]
+    },
+    "shadows": {
+      "bytes": 213422,
+      "entries": 266,
+      "file": "shadows.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/enemy-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/golden-enemy-data.json"
+      ]
+    },
+    "skills": {
+      "bytes": 117725,
+      "entries": 467,
+      "file": "skills.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/golden-skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/compendium/data/skill-effects.json"
+      ]
+    },
+    "special-recipes": {
+      "bytes": 2538,
+      "entries": 17,
+      "file": "special-recipes.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p4/data/special-recipes.json"
+      ]
+    }
+  },
+  "game": "p4g",
+  "importedAt": "2026-10-28",
+  "notes": [
+    "Golden roster: golden-demon-data.json is the whole Golden persona list; skills and enemies merge the vanilla file with the Golden file, Golden rows winning by name.",
+    "Fusion chart: golden-fusion-chart.json is one 23 × 23 grid holding two charts — the upper triangle is the normal two-persona chart and the lower triangle with the diagonal is the triangle (three-persona) chart, as upstream's PersonaFusionChart slices it.",
+    "Affinities: all eight upstream axes are kept; Almighty is neutral on every persona and non-neutral only on some shadows. Upstream resist codes carry damage and Light/Dark kill-rate multipliers the app does not model; each collapses to its category (Z → weak; S, T, 2–9 → neutral).",
+    "Inheritance: upstream inheritance-types.json gives a weight per inherit type and skill element; weight 0 means the type can never inherit that element. Passive skills have no column and are open to every type. Rank > 89 is never inheritable.",
+    "Party personas (golden-party-data.json) are not imported: they are not fusable and their learn-sets are packed Social Link tags.",
+    "Shadows: an arcana suffixed \" P\" upstream marks a boss and imports as boss: true. Enemy ailment strings and resmods are not imported. Enemy skill \"Enveration\" is read as Enervation.",
+    "Skill cards: upstream c[2] names the persona whose Golden skill card carries the skill; it imports as cardPersonaId."
+  ],
+  "upstream": {
+    "licence": "The Unlicense (public domain)",
+    "repo": "aqiu384/megaten-fusion-tool",
+    "sha": "f7d41c3f947a232d41bd8272de4221eb55f721c8"
+  }
+}
