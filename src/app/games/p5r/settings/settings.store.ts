@@ -3,6 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import type { StorageSchema } from '../../../core/storage/storage-envelope';
 import { StorageService } from '../../../core/storage/storage.service';
 import type { UnlockGroup } from '../model/ids';
+import { P5R_SETTINGS } from '../p5r.storage';
 
 /**
  * P5R game settings (§4.8). The look is not a setting — it is fixed by the game
@@ -28,7 +29,7 @@ export const DEFAULT_SETTINGS: GameSettings = {
   alarm: false,
 };
 
-const SCHEMA: StorageSchema<GameSettings> = { key: 'settings', currentVersion: 1, migrations: {} };
+const SCHEMA: StorageSchema<GameSettings> = { key: P5R_SETTINGS.key, currentVersion: P5R_SETTINGS.version, migrations: {} };
 
 const MIN_LEVEL = 1;
 const MAX_LEVEL = 99;

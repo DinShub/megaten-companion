@@ -5,6 +5,7 @@ import { CardModule } from 'primeng/card';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
+import { BackupService, type ValidBackup } from '../../../../core/backup/backup.service';
 import { SettingsStore } from '../../settings/settings.store';
 
 /** Settings page (§4.8 / task 17). The game settings store, persisted
@@ -91,6 +92,69 @@ import { SettingsStore } from '../../settings/settings.store';
         <ng-template #title>Data</ng-template>
         <div class="row">
           <label class="row__label">
+            <span>Back up everything</span>
+            <small>One file with your compendiums and settings for every game — P5R and Nocturne.</small>
+          </label>
+          <p-button
+            label="Back up"
+            icon="pi pi-download"
+            severity="secondary"
+            [outlined]="true"
+            size="small"
+            (onClick)="backup.download()"
+          />
+        </div>
+
+        <div class="row">
+          <label class="row__label" for="restore-file">
+            <span>Restore from backup</span>
+            <small>Replaces the data in the backup — every game it covers. The app reloads afterwards.</small>
+          </label>
+          <input
+            #restoreFile
+            id="restore-file"
+            type="file"
+            accept="application/json,.json"
+            hidden
+            (change)="pickBackup($event)"
+          />
+          <p-button
+            label="Restore…"
+            icon="pi pi-upload"
+            severity="secondary"
+            [outlined]="true"
+            size="small"
+            (onClick)="restoreFile.click()"
+          />
+        </div>
+
+        @if (restoring(); as r) {
+          <div class="restore" role="group" aria-label="Confirm restore">
+            <p>Backup from {{ savedWhen(r.savedAt) }}:</p>
+            <ul>
+              @for (item of r.items; track item.label) {
+                <li>{{ item.label }}@if (item.detail) { — {{ item.detail }} }</li>
+              }
+            </ul>
+            <p>This replaces what you have now for each item above.</p>
+            <div class="row__confirm">
+              <p-button label="Restore and reload" severity="danger" size="small" (onClick)="restore(r)" />
+              <p-button
+                label="Cancel"
+                severity="secondary"
+                [text]="true"
+                size="small"
+                (onClick)="restoring.set(null)"
+              />
+            </div>
+          </div>
+        }
+        @if (backupError(); as err) {
+          <p class="restore__error" role="alert"><i class="pi pi-exclamation-triangle" aria-hidden="true"></i> {{ err }}</p>
+        }
+
+        <div class="row">
+          <label class="row__label">
             <span>Reset all local data</span>
             <small>Restores default settings. This cannot be undone.</small>
           </label>
@@ -152,6 +216,26 @@ import { SettingsStore } from '../../settings/settings.store';
         max-width: 30rem;
       }
     }
+    .restore {
+      margin: 0.25rem 0 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--p-content-border-color, rgba(255, 255, 255, 0.08));
+
+      p {
+        margin: 0.25rem 0;
+      }
+      ul {
+        margin: 0.25rem 0 0.5rem;
+        padding-left: 1.25rem;
+      }
+      .row__confirm {
+        justify-content: flex-start;
+      }
+    }
+    .restore__error {
+      margin: 0.25rem 0 0.75rem;
+      color: var(--p-red-600, #dc2626);
+    }
     .row__confirm {
       display: inline-flex;
       gap: 0.5rem;
@@ -163,7 +247,12 @@ import { SettingsStore } from '../../settings/settings.store';
 export class SettingsPage {
   protected readonly settings = inject(SettingsStore);
 
+  protected readonly backup = inject(BackupService);
+
   protected readonly confirming = signal(false);
+  /** A validated backup awaiting the user's confirmation. */
+  protected readonly restoring = signal<ValidBackup | null>(null);
+  protected readonly backupError = signal<string | null>(null);
 
   protected readonly UNLOCK_GROUPS = [
     {
@@ -186,5 +275,25 @@ export class SettingsPage {
   protected reset(): void {
     this.settings.reset();
     this.confirming.set(false);
+  }
+
+  protected async pickBackup(event: Event): Promise<void> {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    input.value = ''; // allow re-selecting the same file
+    if (!file) return;
+    const result = this.backup.parse(await file.text());
+    this.restoring.set(result.ok ? result : null);
+    this.backupError.set(result.ok ? null : result.error);
+  }
+
+  protected restore(backup: ValidBackup): void {
+    this.backupError.set(this.backup.restore(backup));
+    this.restoring.set(null);
+  }
+
+  protected savedWhen(savedAt: string): string {
+    const date = new Date(savedAt);
+    return savedAt && !Number.isNaN(date.getTime()) ? date.toLocaleString() : 'an unknown date';
   }
 }

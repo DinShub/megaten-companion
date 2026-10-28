@@ -4,6 +4,7 @@ import type { StorageSchema } from '../../../core/storage/storage-envelope';
 import { StorageService } from '../../../core/storage/storage.service';
 import type { CompendiumEntry, DemonId, Profile } from '../model';
 import { Smt3SettingsStore } from '../settings/smt3-settings.store';
+import { SMT3_COMPENDIUM } from '../smt3.storage';
 
 /**
  * What the Nocturne compendium persists (under its own `smt3-compendium` key).
@@ -18,7 +19,11 @@ interface StoredCompendium {
   readonly updatedAt: string;
 }
 
-const SCHEMA: StorageSchema<StoredCompendium> = { key: 'smt3-compendium', currentVersion: 1, migrations: {} };
+const SCHEMA: StorageSchema<StoredCompendium> = {
+  key: SMT3_COMPENDIUM.key,
+  currentVersion: SMT3_COMPENDIUM.version,
+  migrations: {},
+};
 
 /** Nocturne demons carry at most eight skills. */
 export const MAX_SKILLS = 8;

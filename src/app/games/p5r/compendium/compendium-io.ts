@@ -77,21 +77,8 @@ export function parseImport(text: string): ImportResult {
   if ('gameId' in data && data['gameId'] !== 'p5r') {
     return fail(`This compendium is for a different game (“${String(data['gameId'])}”), not Persona 5 Royal.`);
   }
-  if (!Array.isArray(data['entries'])) {
-    return fail('The file has no list of registered personas.');
-  }
-
-  const entries: CompendiumEntry[] = [];
-  const seen = new Set<string>();
-  for (let i = 0; i < data['entries'].length; i++) {
-    const entry = validateEntry(data['entries'][i], i);
-    if ('error' in entry) return fail(entry.error);
-    if (seen.has(entry.value.personaId)) {
-      return fail(`Entry ${i + 1} duplicates persona “${entry.value.personaId}”.`);
-    }
-    seen.add(entry.value.personaId);
-    entries.push(entry.value);
-  }
+  const entries = parseEntries(data['entries']);
+  if (typeof entries === 'string') return fail(entries);
 
   const profile: Profile = {
     id: strOr(data['id'], 'default'),
@@ -103,6 +90,27 @@ export function parseImport(text: string): ImportResult {
     updatedAt: strOr(data['updatedAt'], new Date().toISOString()),
   };
   return { ok: true, profile };
+}
+
+/**
+ * Validate a raw entry list whole: the clean entries, or the first problem as a
+ * readable message. Shared with the whole-app backup, which checks the stored
+ * compendium with the same rules an import uses.
+ */
+export function parseEntries(list: unknown): CompendiumEntry[] | string {
+  if (!Array.isArray(list)) return 'The file has no list of registered personas.';
+  const entries: CompendiumEntry[] = [];
+  const seen = new Set<string>();
+  for (let i = 0; i < list.length; i++) {
+    const entry = validateEntry(list[i], i);
+    if ('error' in entry) return entry.error;
+    if (seen.has(entry.value.personaId)) {
+      return `Entry ${i + 1} duplicates persona “${entry.value.personaId}”.`;
+    }
+    seen.add(entry.value.personaId);
+    entries.push(entry.value);
+  }
+  return entries;
 }
 
 function validateEntry(

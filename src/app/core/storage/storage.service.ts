@@ -191,6 +191,53 @@ export class StorageService {
     }
   }
 
+  /**
+   * The raw stored text under `key` (pending writes flushed first, so it is
+   * current), or null when nothing — or nothing readable — is stored.
+   */
+  readRaw(key: string): string | null {
+    this.flushWrites();
+    try {
+      return this.backend.getItem(this.fullKey(key));
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * Replace several raw values as one step — a string is written, null removed —
+   * for a whole-app restore. Every pending debounced write is dropped first, so
+   * no store's in-memory state can land on top of the restored data; the caller
+   * reloads the app afterwards so the stores re-read. All or nothing: if any
+   * write fails (quota), every key is put back as it was and the reason is
+   * returned. Returns null on success.
+   */
+  replaceRaw(values: ReadonlyMap<string, string | null>): string | null {
+    for (const timer of this.timers.values()) clearTimeout(timer);
+    this.timers.clear();
+    this.pending.clear();
+
+    const before = new Map<string, string | null>();
+    try {
+      for (const key of values.keys()) before.set(key, this.backend.getItem(this.fullKey(key)));
+      for (const [key, value] of values) {
+        if (value === null) this.backend.removeItem(this.fullKey(key));
+        else this.backend.setItem(this.fullKey(key), value);
+      }
+      return null;
+    } catch (err) {
+      for (const [key, value] of before) {
+        try {
+          if (value === null) this.backend.removeItem(this.fullKey(key));
+          else this.backend.setItem(this.fullKey(key), value);
+        } catch {
+          /* best effort: the original value fit before, so this should too */
+        }
+      }
+      return describe(err);
+    }
+  }
+
   /** Dismiss the failure banner once the user has acknowledged it. */
   clearFailure(): void {
     this.failure.set(null);

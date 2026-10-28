@@ -3,6 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import type { StorageSchema } from '../../../core/storage/storage-envelope';
 import { StorageService } from '../../../core/storage/storage.service';
 import type { CompendiumEntry, PersonaId, Profile } from '../model';
+import { P5R_COMPENDIUM } from '../p5r.storage';
 import { SettingsStore } from '../settings/settings.store';
 
 /**
@@ -26,8 +27,8 @@ interface StoredCompendium {
 }
 
 const SCHEMA: StorageSchema<StoredCompendium> = {
-  key: 'compendium',
-  currentVersion: 1,
+  key: P5R_COMPENDIUM.key,
+  currentVersion: P5R_COMPENDIUM.version,
   migrations: {},
 };
 

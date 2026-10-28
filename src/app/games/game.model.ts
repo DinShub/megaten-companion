@@ -69,6 +69,25 @@ export interface GameTheme {
   readonly skin: GameSkin;
 }
 
+/**
+ * One value a game persists through the storage layer, as the whole-app backup
+ * sees it. The backup is game-agnostic: it copies stored envelopes by key and
+ * relies on the game to say which keys are its, which schema version it writes,
+ * and whether a payload is one its store can load.
+ */
+export interface StoredValue {
+  /** The storage key (unprefixed), exactly as the game's store uses it. */
+  readonly key: string;
+  /** The schema version the game's store writes. A backup holding a newer one is refused. */
+  readonly version: number;
+  /** Human label for the restore summary, e.g. "P5R compendium". */
+  readonly label: string;
+  /** A readable reason the payload can't be loaded, or null when it can. */
+  readonly validate: (data: unknown) => string | null;
+  /** Optional short description of the payload for the restore summary, e.g. "12 personas". */
+  readonly summarize?: (data: unknown) => string;
+}
+
 export interface GameDefinition {
   /** URL segment and registry key (the game's short id). */
   readonly id: string;
@@ -84,4 +103,6 @@ export interface GameDefinition {
   readonly dataManifest: Readonly<Record<string, string>>;
   /** The game's own child routes, mounted by the app under `/<id>/*`. */
   readonly routes: Routes;
+  /** Everything the game persists — what a whole-app backup carries for it. */
+  readonly storedData: readonly StoredValue[];
 }

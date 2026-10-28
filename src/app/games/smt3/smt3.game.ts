@@ -1,5 +1,6 @@
 import type { GameDefinition } from '../game.model';
 import { SMT3_ROUTES } from './smt3.routes';
+import { SMT3_STORED_DATA } from './smt3.storage';
 
 /** Committed static datasets, served from `public/data/smt3/`. */
 const DATA_ROOT = 'data/smt3';
@@ -29,4 +30,5 @@ export const smt3Game: GameDefinition = {
   theme: { primary: 'ember', skin: 'comp' },
   dataManifest: SMT3_MANIFEST,
   routes: SMT3_ROUTES,
+  storedData: SMT3_STORED_DATA,
 };

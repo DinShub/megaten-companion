@@ -3,6 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import type { StorageSchema } from '../../../core/storage/storage-envelope';
 import { StorageService } from '../../../core/storage/storage.service';
 import type { UnlockGroup } from '../model/ids';
+import { SMT3_SETTINGS } from '../smt3.storage';
 
 /**
  * Nocturne game settings. Game-scoped,
@@ -23,7 +24,7 @@ export const DEFAULT_SMT3_SETTINGS: Smt3Settings = {
   unlockGroups: { story: true, fiend: true, amala: true },
 };
 
-const SCHEMA: StorageSchema<Smt3Settings> = { key: 'smt3-settings', currentVersion: 1, migrations: {} };
+const SCHEMA: StorageSchema<Smt3Settings> = { key: SMT3_SETTINGS.key, currentVersion: SMT3_SETTINGS.version, migrations: {} };
 
 const MIN_LEVEL = 1;
 const MAX_LEVEL = 99;

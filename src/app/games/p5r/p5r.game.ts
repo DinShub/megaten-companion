@@ -1,5 +1,6 @@
 import type { GameDefinition } from '../game.model';
 import { P5R_ROUTES } from './p5r.routes';
+import { P5R_STORED_DATA } from './p5r.storage';
 
 /** Committed static datasets (§8.5), served from `public/data/p5r/`. */
 const DATA_ROOT = 'data/p5r';
@@ -34,4 +35,5 @@ export const p5rGame: GameDefinition = {
   theme: { primary: 'red', skin: 'calling-card' },
   dataManifest: P5R_MANIFEST,
   routes: P5R_ROUTES,
+  storedData: P5R_STORED_DATA,
 };

@@ -70,6 +70,12 @@ Each game is a self-contained folder registered in `src/app/games/game.registry.
 routing and shared components read only the `GameDefinition` seam. The header's game switcher
 appears because more than one game is registered.
 
+Each game's Compendium page exports and imports that one compendium (merge or replace). Each
+Settings page also offers a **whole-app backup**: one JSON file holding every game's compendium and
+settings, restored in one step (validated whole, rolled back if a write fails, then the app reloads).
+A game lists what it persists in `GameDefinition.storedData` (`games/<id>/<id>.storage.ts`), so a new
+game is backed up as soon as it declares its keys.
+
 The Nocturne companion covers all 195 demons (stats, affinities, ailment resistances, body-type
 inheritance, learn-sets, evolutions, field encounter data), 326 skills, the 25 magatama, a fusion
 calculator (forward and reverse: normal, same-race → Element, Element rank shifts, Element pairs →

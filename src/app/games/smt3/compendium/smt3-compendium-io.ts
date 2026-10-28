@@ -52,25 +52,8 @@ export function parseImport(text: string, knownDemonIds?: ReadonlySet<string>): 
   if (data['gameId'] !== 'smt3') {
     return fail(`This compendium is for a different game (“${String(data['gameId'] ?? 'unknown')}”), not SMT III: Nocturne.`);
   }
-  if (!Array.isArray(data['entries'])) return fail('The file has no list of registered demons.');
-
-  const entries: CompendiumEntry[] = [];
-  const seen = new Set<string>();
-  for (let i = 0; i < data['entries'].length; i++) {
-    const raw = data['entries'][i];
-    const where = `Entry ${i + 1}`;
-    if (!isObject(raw)) return fail(`${where} isn’t a valid record.`);
-    const id = raw['demonId'];
-    if (typeof id !== 'string' || id === '') return fail(`${where} is missing its demon id.`);
-    if (knownDemonIds && !knownDemonIds.has(id)) return fail(`${where} names an unknown demon “${id}”.`);
-    if (typeof raw['level'] !== 'number' || !Number.isFinite(raw['level'])) return fail(`${where} (${id}) has an invalid level.`);
-    if (!Array.isArray(raw['skillIds']) || raw['skillIds'].some((s) => typeof s !== 'string')) {
-      return fail(`${where} (${id}) has an invalid skill list.`);
-    }
-    if (seen.has(id)) return fail(`${where} duplicates demon “${id}”.`);
-    seen.add(id);
-    entries.push({ demonId: id, level: clampLevel(raw['level']), skillIds: raw['skillIds'] as string[] });
-  }
+  const entries = parseEntries(data['entries'], knownDemonIds);
+  if (typeof entries === 'string') return fail(entries);
 
   return {
     ok: true,
@@ -84,6 +67,32 @@ export function parseImport(text: string, knownDemonIds?: ReadonlySet<string>): 
       updatedAt: strOr(data['updatedAt'], new Date().toISOString()),
     },
   };
+}
+
+/**
+ * Validate a raw entry list whole: the clean entries, or the first problem as a
+ * readable message. Shared with the whole-app backup.
+ */
+export function parseEntries(list: unknown, knownDemonIds?: ReadonlySet<string>): CompendiumEntry[] | string {
+  if (!Array.isArray(list)) return 'The file has no list of registered demons.';
+  const entries: CompendiumEntry[] = [];
+  const seen = new Set<string>();
+  for (let i = 0; i < list.length; i++) {
+    const raw: unknown = list[i];
+    const where = `Entry ${i + 1}`;
+    if (!isObject(raw)) return `${where} isn’t a valid record.`;
+    const id = raw['demonId'];
+    if (typeof id !== 'string' || id === '') return `${where} is missing its demon id.`;
+    if (knownDemonIds && !knownDemonIds.has(id)) return `${where} names an unknown demon “${id}”.`;
+    if (typeof raw['level'] !== 'number' || !Number.isFinite(raw['level'])) return `${where} (${id}) has an invalid level.`;
+    if (!Array.isArray(raw['skillIds']) || raw['skillIds'].some((s) => typeof s !== 'string')) {
+      return `${where} (${id}) has an invalid skill list.`;
+    }
+    if (seen.has(id)) return `${where} duplicates demon “${id}”.`;
+    seen.add(id);
+    entries.push({ demonId: id, level: clampLevel(raw['level']), skillIds: raw['skillIds'] as string[] });
+  }
+  return entries;
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {
