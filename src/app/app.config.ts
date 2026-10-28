@@ -31,9 +31,9 @@ export const appConfig: ApplicationConfig = {
       license: PRIMEUI_LICENSE_KEY,
       theme: {
         preset: AppPreset,
-        // Dark tokens apply under `.app-dark`. index.html ships it on <html> so the
-        // first paint is already dark; App#toggleDark flips it. Shared with the
-        // runtime game-theme switch so the selector stays consistent.
+        // Dark tokens apply under `.app-dark`, which index.html ships permanently on
+        // <html> — the app is dark-only. Shared with the runtime game-theme switch
+        // so the selector stays consistent.
         options: THEME_OPTIONS,
       },
     }),

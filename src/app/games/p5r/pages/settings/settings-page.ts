@@ -3,14 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { SelectButtonModule } from 'primeng/selectbutton';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
-import { ThemeService } from '../../../../core/theme/theme.service';
 import { SettingsStore } from '../../settings/settings.store';
 
-/** Settings page (§4.8 / task 17). Composes the game settings store with the
- *  global theme service; both persist through the storage layer (task 16). */
+/** Settings page (§4.8 / task 17). The game settings store, persisted
+ *  through the storage layer (task 16). The app is dark-only, so no theme row. */
 @Component({
   selector: 'app-settings-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +17,6 @@ import { SettingsStore } from '../../settings/settings.store';
     ButtonModule,
     CardModule,
     InputNumberModule,
-    SelectButtonModule,
     ToggleSwitchModule,
   ],
   template: `
@@ -91,29 +88,11 @@ import { SettingsStore } from '../../settings/settings.store';
       </p-card>
 
       <p-card>
-        <ng-template #title>Appearance</ng-template>
-        <div class="row">
-          <label class="row__label" id="theme-label">
-            <span>Theme</span>
-          </label>
-          <p-selectbutton
-            ariaLabelledBy="theme-label"
-            [options]="THEME_OPTIONS"
-            optionLabel="label"
-            optionValue="value"
-            [allowEmpty]="false"
-            [ngModel]="theme.theme()"
-            (ngModelChange)="theme.set($event)"
-          />
-        </div>
-      </p-card>
-
-      <p-card>
         <ng-template #title>Data</ng-template>
         <div class="row">
           <label class="row__label">
             <span>Reset all local data</span>
-            <small>Restores default settings and theme. This cannot be undone.</small>
+            <small>Restores default settings. This cannot be undone.</small>
           </label>
           @if (confirming()) {
             <div class="row__confirm">
@@ -183,7 +162,6 @@ import { SettingsStore } from '../../settings/settings.store';
 })
 export class SettingsPage {
   protected readonly settings = inject(SettingsStore);
-  protected readonly theme = inject(ThemeService);
 
   protected readonly confirming = signal(false);
 
@@ -205,14 +183,8 @@ export class SettingsPage {
     },
   ];
 
-  protected readonly THEME_OPTIONS = [
-    { label: 'Dark', value: 'dark' as const },
-    { label: 'Light', value: 'light' as const },
-  ];
-
   protected reset(): void {
     this.settings.reset();
-    this.theme.set('dark');
     this.confirming.set(false);
   }
 }

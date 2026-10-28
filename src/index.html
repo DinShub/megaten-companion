@@ -1,7 +1,7 @@
 <!doctype html>
-<!-- `app-dark` matches darkModeSelector in app.config.ts; set here so the first
-     paint is already dark. Don't add an inline color-scheme — it would outrank
-     the theme's own rule and pin the page to dark. -->
+<!-- `app-dark` matches darkModeSelector in app.config.ts. The app is dark-only,
+     so it never comes off. `data-skin` is set by the shell (App) from the active
+     game before its first render. -->
 <html lang="en" class="app-dark">
   <head>
     <meta charset="utf-8" />

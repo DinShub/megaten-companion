@@ -36,7 +36,8 @@ describe('SettingsPage', () => {
     expect(text).toContain('Fusion Alarm');
     expect(text).toContain('Unlock groups');
     expect(text).toContain('Downloadable Content');
-    expect(text).toContain('Theme');
+    // Dark-only app: no theme row.
+    expect(text).not.toContain('Theme');
     expect(text).toContain('Reset all local data');
   });
 

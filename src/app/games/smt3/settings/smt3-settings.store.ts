@@ -5,7 +5,7 @@ import { StorageService } from '../../../core/storage/storage.service';
 import type { UnlockGroup } from '../model/ids';
 
 /**
- * Nocturne game settings. Game-scoped (the theme stays global in `core/theme`),
+ * Nocturne game settings. Game-scoped,
  * persisted under their own key so they never collide with P5R's.
  */
 export interface Smt3Settings {

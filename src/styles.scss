@@ -1,32 +1,12 @@
-/* Global styles. Every --p-* custom property below is emitted by the Lara Purple
-   preset configured in src/app/app.config.ts, and swaps automatically when the
-   `.app-dark` class is toggled on <html>. */
+/* Global styles. Every --p-* custom property below is emitted by the PrimeNG
+   preset (src/app/theme/app-preset.ts), rebuilt from the active game's theme.
+   The app is dark-only; each game's skin (GameTheme.skin) layers its own look on
+   top from styles/skins/, scoped under `:root[data-skin='<skin>']`. */
 
-/* Nav-chrome breakpoint. Below this the mobile bottom-tab bar + drawer replace
-   the desktop top bar. It's wider than the §10 content breakpoint (768px, where
-   tables shed columns) on purpose: the desktop bar packs a brand, six nav links
-   and three icon buttons into ~915px, so showing it under ~960px forced the page
-   to scroll horizontally. Content responsiveness stays keyed to 768px in the
-   feature components; only the nav chrome switches here. */
-$nav-breakpoint: 959.98px;
-
-/* ---- Reusable chrome patterns ------------------------------------------- *
-   The recurring "bordered translucent card" and "bordered text input" shapes,
-   abstracted so the style-dense global blocks below don't repeat them. */
-@mixin panel {
-  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.25));
-  border-radius: var(--p-border-radius, 8px);
-  background: var(--app-panel);
-}
-
-@mixin field {
-  padding: 0.35rem 0.5rem;
-  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.3));
-  border-radius: var(--p-border-radius, 6px);
-  background: var(--p-content-background);
-  color: var(--p-text-color);
-  font: inherit;
-}
+@use 'styles/mixins' as *;
+@use 'styles/fonts';
+@use 'styles/skins/calling-card';
+@use 'styles/skins/comp';
 
 html,
 body {
@@ -37,7 +17,7 @@ body {
   margin: 0;
   background: var(--p-content-background);
   color: var(--p-text-color);
-  font-family: var(--p-font-family, system-ui, -apple-system, 'Segoe UI', sans-serif);
+  font-family: var(--app-font-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -364,34 +344,19 @@ code {
   font-size: 0.9em;
 }
 
-/* ---- Theme-aware status + affinity text colours (task 57 contrast) ------- *
-   Status greens/reds/ambers and the affinity-code colours were hardcoded to
-   dark-tuned bright hexes that drop below 4.5:1 on a light background. These
-   custom properties inherit into component styles (encapsulation scopes
-   selectors, not inherited properties), so components reference them instead:
-   the light defaults are darkened for contrast on light surfaces, and `.app-dark`
-   restores the brighter values that read on dark. */
+/* ---- Status + affinity text colours (task 57 contrast) ------------------ *
+   These custom properties inherit into component styles (encapsulation scopes
+   selectors, not inherited properties), so components reference them instead of
+   hardcoding hexes — and a skin can retune them in one place. */
 :root {
-  /* Elevated panel surfaces. The app's hand-rolled panels used --p-surface-800/700
-     directly, but those are "dark shade" tokens (dark in *both* themes), so light
-     mode rendered dark panels on the white page. These flip properly: light greys
-     for light mode, and the exact dark values --p-surface-800/700 resolve to in
-     dark mode, so the dark theme is unchanged. */
-  --app-panel: #f1f5f9;
-  --app-panel-2: #e2e8f0;
+  /* Elevated panel surfaces, tracking the skin's surface ramp. */
+  --app-panel: var(--p-surface-800);
+  --app-panel-2: var(--p-surface-700);
 
-  --app-success: #15803d;
-  --app-danger: #b91c1c;
-  --app-warn: #b45309;
-  --aff-weak: #dc2626;
-  --aff-resist: #15803d;
-  --aff-null: #475569;
-  --aff-repel: #7c3aed;
-  --aff-drain: #0f766e;
-}
-.app-dark {
-  --app-panel: #27272a;
-  --app-panel-2: #3f3f46;
+  /* Typefaces. Skins override these; the defaults are the system stack. */
+  --app-font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --app-font-display: var(--app-font-body);
+  --app-font-data: var(--app-font-body);
 
   --app-success: #4ade80;
   --app-danger: #f87171;

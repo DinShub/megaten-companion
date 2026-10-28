@@ -5,12 +5,11 @@ import card from '@primeuix/themes/lara/card';
 import inputnumber from '@primeuix/themes/lara/inputnumber';
 import inputtext from '@primeuix/themes/lara/inputtext';
 import ripple from '@primeuix/themes/lara/ripple';
-import selectbutton from '@primeuix/themes/lara/selectbutton';
-import togglebutton from '@primeuix/themes/lara/togglebutton';
 import toggleswitch from '@primeuix/themes/lara/toggleswitch';
 
-import type { PrimaryColor } from '../games/game.model';
-import { DEFAULT_GAME_ID, getGame } from '../games/game.registry';
+import type { GameTheme, PrimaryColor } from '../games/game.model';
+import { DEFAULT_GAME_ID, GAMES, getGame } from '../games/game.registry';
+import { SKINS } from './skins';
 
 /**
  * Lara, reduced to the component token sets the app actually renders, with a
@@ -20,10 +19,10 @@ import { DEFAULT_GAME_ID, getGame } from '../games/game.registry';
  * lara`'s all-~90-component barrel (task 58, §8.5 budget). That barrel statically
  * imports every component module — ~114 kB into the eager bundle the shell works
  * to keep under 500 kB — even though the whole app uses just Button, Card,
- * InputNumber, SelectButton and ToggleSwitch (plus the tokens those compose from:
- * InputText, ToggleButton, Ripple). `base` stays: it defines the primitive +
- * semantic `--p-*` variables the shell and global styles read for their colours,
- * borders and light/dark surfaces — including every primitive colour ramp the
+ * InputNumber and ToggleSwitch (plus the tokens those compose from: InputText,
+ * Ripple). `base` stays: it defines the primitive + semantic `--p-*` variables
+ * the shell and global styles read for their colours, borders and surfaces —
+ * including every primitive colour ramp the
  * per-game primary references below resolve against. Adding a PrimeNG component
  * to a page means adding its module here.
  */
@@ -35,22 +34,20 @@ const laraSubset = {
     inputnumber,
     inputtext,
     ripple,
-    selectbutton,
-    togglebutton,
     toggleswitch,
   },
 };
 
 /** PrimeNG theme options; shared by bootstrap and the runtime game switch so the
- * dark-mode selector stays consistent. Must match the class on `<html>`. */
+ * dark-mode selector stays consistent. Must match the class on `<html>`, which
+ * index.html ships permanently — the app is dark-only. */
 export const THEME_OPTIONS = { darkModeSelector: '.app-dark' } as const;
 
 /**
  * App-defined primitive ramps, merged alongside Lara's. `ember` is a burnt, dark
  * orange: Lara's own `orange` sits at #fb923c in dark mode (its `primary.color`
  * is shade 400 there), which reads as bright tangerine, so this ramp shifts every
- * stop roughly one shade darker and a touch redder. Both modes stay legible —
- * 400 on the dark surface and 500 on white each clear AA for large text.
+ * stop roughly one shade darker and a touch redder.
  */
 const APP_PRIMITIVES = {
   ember: {
@@ -90,17 +87,40 @@ function primaryPalette(color: PrimaryColor): PaletteDesignToken {
   };
 }
 
-/** The theme preset for a game, its primary ramp swapped to the game's colour. */
-export function gamePreset(color: PrimaryColor): Preset {
+/**
+ * The theme preset for a game: its primary ramp swapped to the game's colour, and
+ * its skin's surfaces and corner radii in place of Lara's. The surface ramp is a
+ * plain value rather than Lara's `light-dark()` pair because the app is dark-only.
+ */
+export function gamePreset(theme: GameTheme): Preset {
+  const skin = SKINS[theme.skin];
   return definePreset(laraSubset, {
-    primitive: APP_PRIMITIVES,
-    semantic: { primary: primaryPalette(color) },
+    primitive: { ...APP_PRIMITIVES, borderRadius: skin.radius },
+    semantic: { primary: primaryPalette(theme.primary), surface: skin.surface },
   });
 }
 
 /**
- * The bootstrap preset. Its primary is baked from the default game's colour so
- * the very first paint already shows the right accent; the shell then swaps it on
- * every game change via `PrimeNG.setThemeConfig` (see App).
+ * The theme of the game the app is booting into, read from the address bar
+ * (relative to the base href, so a subpath deploy resolves) before the router has
+ * run. A bare `/` or unknown path falls back to the default game; the shell
+ * corrects it on the first `NavigationEnd` if the router redirects elsewhere.
  */
-export const AppPreset = gamePreset(getGame(DEFAULT_GAME_ID)?.theme.primary ?? 'purple');
+export function bootTheme(): GameTheme {
+  let id: string | undefined;
+  if (typeof document !== 'undefined') {
+    const base = new URL(document.baseURI).pathname;
+    const path = location.pathname.startsWith(base)
+      ? location.pathname.slice(base.length)
+      : location.pathname;
+    id = path.split('/').filter(Boolean)[0];
+  }
+  return (getGame(id ?? '') ?? getGame(DEFAULT_GAME_ID) ?? GAMES[0]).theme;
+}
+
+/**
+ * The bootstrap preset, baked from the booting game's theme so the very first
+ * paint already shows the right accent and skin; the shell then swaps it on every
+ * game change via `PrimeNG.setThemeConfig` (see App).
+ */
+export const AppPreset = gamePreset(bootTheme());

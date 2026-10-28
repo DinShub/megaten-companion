@@ -7,11 +7,10 @@ import { filter, map } from 'rxjs/operators';
 import { PRIMEUI_LICENSE_KEY } from '../environments/license';
 import { LastGameService } from './core/last-game/last-game.service';
 import { StorageService } from './core/storage/storage.service';
-import { ThemeService } from './core/theme/theme.service';
-import type { GameDefinition, GameFeature, PrimaryColor } from './games/game.model';
+import type { GameDefinition, GameFeature, GameTheme } from './games/game.model';
 import { DEFAULT_GAME_ID, GAMES, getGame } from './games/game.registry';
 import { FocusTrap } from './shared/a11y/focus-trap';
-import { gamePreset, THEME_OPTIONS } from './theme/app-preset';
+import { bootTheme, gamePreset, THEME_OPTIONS } from './theme/app-preset';
 
 /** One entry in the app-agnostic navigation tree (§10). */
 interface NavEntry {
@@ -54,18 +53,17 @@ const NAV: readonly NavEntry[] = [
 })
 export class App {
   private readonly router = inject(Router);
-  protected readonly theme = inject(ThemeService);
   private readonly storage = inject(StorageService);
   private readonly primeng = inject(PrimeNG);
   private readonly lastGame = inject(LastGameService);
 
   /**
-   * The primary colour currently applied to the PrimeNG theme. Seeded to the
-   * default game's colour, which the bootstrap `AppPreset` already baked in — so
-   * the first navigation for the default game is a no-op and doesn't re-inject the
-   * theme, while a switch to another game triggers exactly one re-render.
+   * The game theme currently applied. Seeded to the booting game's theme, which
+   * the bootstrap `AppPreset` already baked in — so the first navigation is a
+   * no-op and doesn't re-inject the theme, while a switch to another game
+   * triggers exactly one re-render.
    */
-  private lastPrimary: PrimaryColor | null = getGame(DEFAULT_GAME_ID)?.theme.primary ?? null;
+  private lastTheme: GameTheme = bootTheme();
 
   /** Last committed URL, as a signal, so nav highlighting stays current. */
   private readonly navUrl = toSignal(
@@ -107,13 +105,15 @@ export class App {
   protected readonly licenseMissing = isDevMode() && PRIMEUI_LICENSE_KEY.trim().length === 0;
 
   constructor() {
+    // Mark the skin before the first render so the shell paints in it at once.
+    setSkin(this.lastTheme);
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe((e) => {
         // Close the mobile drawer whenever navigation completes.
         this.drawerOpen.set(false);
-        // Re-point the primary accent at the active game's colour (§4.8).
-        this.applyGameTheme(this.gameFromUrl(e.urlAfterRedirects).theme.primary);
+        // Re-point the accent and skin at the active game's (§4.8).
+        this.applyGameTheme(this.gameFromUrl(e.urlAfterRedirects).theme);
         // Remember a real game visit so `/` reopens it next time. A not-found URL
         // has no game segment and must not overwrite the last good one.
         const visited = getGame(firstSegment(e.urlAfterRedirects));
@@ -127,17 +127,19 @@ export class App {
   }
 
   /**
-   * Swap the PrimeNG primary ramp to the active game's colour. Goes through
+   * Swap the PrimeNG preset to the active game's colour and skin, and mark the
+   * skin on `<html>` for the skin stylesheets. Goes through
    * `PrimeNG.setThemeConfig` — the raw `@primeuix/themes` palette helpers only
    * update the token model and PrimeNG deliberately ignores the resulting event,
-   * so the common theme is re-injected (its `--p-primary-*` variables regenerated)
-   * only via the config service. Skipped when the colour is unchanged so a
-   * same-game navigation doesn't needlessly re-render the stylesheet.
+   * so the common theme is re-injected (its `--p-*` variables regenerated) only
+   * via the config service. Skipped when the theme is unchanged so a same-game
+   * navigation doesn't needlessly re-render the stylesheet.
    */
-  private applyGameTheme(primary: PrimaryColor): void {
-    if (primary === this.lastPrimary) return;
-    this.lastPrimary = primary;
-    this.primeng.setThemeConfig({ theme: { preset: gamePreset(primary), options: THEME_OPTIONS } });
+  private applyGameTheme(theme: GameTheme): void {
+    if (theme.primary === this.lastTheme.primary && theme.skin === this.lastTheme.skin) return;
+    this.lastTheme = theme;
+    setSkin(theme);
+    this.primeng.setThemeConfig({ theme: { preset: gamePreset(theme), options: THEME_OPTIONS } });
   }
 
   protected link(segments: readonly string[]): unknown[] {
@@ -153,6 +155,11 @@ export class App {
   protected dismissStorageBanner(): void {
     this.storage.clearFailure();
   }
+}
+
+/** Every skin stylesheet scopes itself under `:root[data-skin='<skin>']`. */
+function setSkin(theme: GameTheme): void {
+  if (typeof document !== 'undefined') document.documentElement.dataset['skin'] = theme.skin;
 }
 
 /** A URL's first path segment — the game id for every game route. */

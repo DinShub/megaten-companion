@@ -31,7 +31,7 @@ export const p5rGame: GameDefinition = {
   shortTitle: 'P5R',
   features: ['fusion', 'compendium', 'personas', 'shadows', 'skills', 'classroom'],
   // P5R's signature colour (its UI, logo and All-Out Attack splash are red).
-  theme: { primary: 'red' },
+  theme: { primary: 'red', skin: 'calling-card' },
   dataManifest: P5R_MANIFEST,
   routes: P5R_ROUTES,
 };

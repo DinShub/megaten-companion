@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
-import { ThemeService } from '../../../../core/theme/theme.service';
 import { Smt3CompendiumStore } from '../../compendium/smt3-compendium.store';
 import type { UnlockGroup } from '../../model';
 import { Smt3SettingsStore } from '../../settings/smt3-settings.store';
@@ -13,8 +12,8 @@ const UNLOCK_GROUPS: readonly { id: UnlockGroup; label: string; blurb: string }[
 
 /**
  * Nocturne settings: the Demi-fiend level (Nocturne refuses a fusion whose
- * result outranks him), the level-cap switch, and the three unlock groups. The
- * theme toggle is the global one. Native controls only — a light page.
+ * result outranks him), the level-cap switch, and the three unlock groups.
+ * Native controls only — a light page.
  */
 @Component({
   selector: 'app-smt3-settings-page',
@@ -47,17 +46,6 @@ const UNLOCK_GROUPS: readonly { id: UnlockGroup; label: string; blurb: string }[
       </section>
 
       <section class="s3-panel">
-        <h2>Appearance</h2>
-        <div class="st__row">
-          <span>Theme</span>
-          <div class="s3-seg" role="group" aria-label="Theme">
-            <button type="button" [class.is-on]="theme.theme() === 'dark'" (click)="theme.set('dark')">Dark</button>
-            <button type="button" [class.is-on]="theme.theme() === 'light'" (click)="theme.set('light')">Light</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="s3-panel">
         <h2>Data</h2>
         <div class="st__row">
           <label><span>Reset Nocturne data</span><small class="s3-muted">Restores default Nocturne settings and empties the Nocturne compendium. P5R data is untouched. Can't be undone — export first.</small></label>
@@ -83,7 +71,6 @@ const UNLOCK_GROUPS: readonly { id: UnlockGroup; label: string; blurb: string }[
 })
 export class Smt3SettingsPage {
   protected readonly settings = inject(Smt3SettingsStore);
-  protected readonly theme = inject(ThemeService);
   private readonly compendium = inject(Smt3CompendiumStore);
 
   protected readonly groups = UNLOCK_GROUPS;

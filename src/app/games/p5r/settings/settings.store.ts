@@ -5,8 +5,8 @@ import { StorageService } from '../../../core/storage/storage.service';
 import type { UnlockGroup } from '../model/ids';
 
 /**
- * P5R game settings (§4.8). Theme is deliberately *not* here — it is global and
- * lives in `core/theme`. Everything below is game-scoped, which is why the
+ * P5R game settings (§4.8). The look is not a setting — it is fixed by the game
+ * definition (`theme.skin`). Everything below is game-scoped, which is why the
  * store sits under `games/p5r/`: the unlock groups, the level cap and the
  * Fusion Alarm are all Persona-5-Royal concepts.
  */

@@ -1,0 +1,10 @@
+/* COMP skin (Nocturne): the demon-summoning program. Accent phosphor on a warm
+   near-black terminal, box-drawn panels, monospace data, VT323 readouts. */
+
+@use '../mixins' as *;
+
+@include skin('comp') {
+  --app-font-body: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
+  --app-font-display: 'VT323', 'IBM Plex Mono', monospace;
+  --app-font-data: 'IBM Plex Mono', ui-monospace, monospace;
+}

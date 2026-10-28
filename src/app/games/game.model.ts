@@ -49,10 +49,24 @@ export type PrimaryColor =
   | 'pink'
   | 'rose';
 
+/**
+ * A game's whole visual language — typefaces, surfaces, panel shapes, motion —
+ * not just its colour. Each game gets a skin designed for it; adding a game means
+ * designing a new skin (a `theme/skins/` entry plus its `styles/skins/` partial).
+ *
+ * - `calling-card` — graphic pop: cut-corner paper panels, hard accent shadows,
+ *   slanted tabs, halftone, ransom-letter titles (P5R).
+ * - `comp` — the demon-summoning program: accent phosphor on a dark terminal,
+ *   box-drawn panels, monospace data, a terse system voice (Nocturne).
+ */
+export type GameSkin = 'calling-card' | 'comp';
+
 /** A game's visual identity (§4.8). */
 export interface GameTheme {
   /** Drives the PrimeNG primary ramp and every `--p-primary-*` accent. */
   readonly primary: PrimaryColor;
+  /** The skin the whole app wears while this game is active. */
+  readonly skin: GameSkin;
 }
 
 export interface GameDefinition {

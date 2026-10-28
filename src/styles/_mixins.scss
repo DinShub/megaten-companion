@@ -1,0 +1,35 @@
+/* Shared Sass building blocks for the global stylesheet and the skin partials. */
+
+/* Nav-chrome breakpoint. Below this the mobile bottom-tab bar + drawer replace
+   the desktop top bar. It's wider than the §10 content breakpoint (768px, where
+   tables shed columns) on purpose: the desktop bar packs a brand, six nav links
+   and three icon buttons into ~915px, so showing it under ~960px forced the page
+   to scroll horizontally. Content responsiveness stays keyed to 768px in the
+   feature components; only the nav chrome switches here. */
+$nav-breakpoint: 959.98px;
+
+/* The recurring "bordered translucent card" and "bordered text input" shapes,
+   abstracted so the style-dense global blocks don't repeat them. */
+@mixin panel {
+  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.25));
+  border-radius: var(--p-border-radius, 8px);
+  background: var(--app-panel);
+}
+
+@mixin field {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.3));
+  border-radius: var(--p-border-radius, 6px);
+  background: var(--p-content-background);
+  color: var(--p-text-color);
+  font: inherit;
+}
+
+/* Scope a skin's rules. `:root[data-skin]` is (0,2,0) — enough to beat the plain
+   global rules, and with one more class it out-specifies a component's emulated
+   `.x[_ngcontent-…]` (0,2,0) selectors too. */
+@mixin skin($name) {
+  :root[data-skin='#{$name}'] {
+    @content;
+  }
+}

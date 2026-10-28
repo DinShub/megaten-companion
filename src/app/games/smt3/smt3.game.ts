@@ -25,7 +25,8 @@ export const smt3Game: GameDefinition = {
   shortTitle: 'Nocturne',
   features: ['fusion', 'compendium', 'demons', 'magatama', 'skills'],
   // Burnt dark orange: the Vortex World's scorched, sunset-lit Tokyo and Kagutsuchi's glow.
-  theme: { primary: 'ember' },
+  // Its skin is the demon-summoning program (COMP) the series grew out of.
+  theme: { primary: 'ember', skin: 'comp' },
   dataManifest: SMT3_MANIFEST,
   routes: SMT3_ROUTES,
 };

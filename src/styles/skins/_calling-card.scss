@@ -1,0 +1,11 @@
+/* Calling Card skin (P5R): graphic pop. True-black halftone page, white
+   cut-corner "paper" panels with hard accent shadows, slanted tabs, ransom-letter
+   titles. */
+
+@use '../mixins' as *;
+
+@include skin('calling-card') {
+  --app-font-body: 'Archivo', system-ui, sans-serif;
+  --app-font-display: 'Dela Gothic One', 'Archivo', sans-serif;
+  --app-font-data: 'Archivo Narrow', 'Archivo', sans-serif;
+}

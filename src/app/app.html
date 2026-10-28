@@ -46,14 +46,6 @@
   </nav>
 
   <div class="app-bar__actions">
-    <button
-      class="app-iconbtn"
-      type="button"
-      [attr.aria-label]="theme.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
-      (click)="theme.toggle()"
-    >
-      <i class="pi" [class.pi-sun]="theme.isDark()" [class.pi-moon]="!theme.isDark()" aria-hidden="true"></i>
-    </button>
     <a class="app-iconbtn" [routerLink]="settingsLink()" aria-label="Settings">
       <i class="pi pi-cog" aria-hidden="true"></i>
     </a>
@@ -94,14 +86,6 @@
   <div class="app-drawer__head">
     <span class="app-drawer__title">{{ game().title }}</span>
     <div class="app-drawer__head-actions">
-      <button
-        class="app-iconbtn"
-        type="button"
-        [attr.aria-label]="theme.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
-        (click)="theme.toggle()"
-      >
-        <i class="pi" [class.pi-sun]="theme.isDark()" [class.pi-moon]="!theme.isDark()" aria-hidden="true"></i>
-      </button>
       <button class="app-iconbtn" type="button" aria-label="Close menu" (click)="drawerOpen.set(false)">
         <i class="pi pi-times" aria-hidden="true"></i>
       </button>
