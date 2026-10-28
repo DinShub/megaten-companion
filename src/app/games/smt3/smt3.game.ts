@@ -24,8 +24,8 @@ export const smt3Game: GameDefinition = {
   title: 'Shin Megami Tensei III: Nocturne',
   shortTitle: 'Nocturne',
   features: ['fusion', 'compendium', 'demons', 'magatama', 'skills'],
-  // The Demi-fiend's glowing tattoos and the HD Remaster's key art are teal-green.
-  theme: { primary: 'teal' },
+  // Burnt dark orange: the Vortex World's scorched, sunset-lit Tokyo and Kagutsuchi's glow.
+  theme: { primary: 'ember' },
   dataManifest: SMT3_MANIFEST,
   routes: SMT3_ROUTES,
 };

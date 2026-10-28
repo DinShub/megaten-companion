@@ -21,6 +21,16 @@ describe('app theme preset', () => {
     expect(primaryOf(gamePreset('blue'))[500]).toBe('{blue.500}');
   });
 
+  it('defines the app-only ember ramp next to Lara’s primitives', () => {
+    const preset = gamePreset('ember') as { primitive: Record<string, Record<number, string>> };
+    expect(primaryOf(preset)[400]).toBe('{ember.400}');
+    for (const shade of SHADES) {
+      expect(preset.primitive['ember'][shade]).toMatch(/^#[0-9a-f]{6}$/);
+    }
+    // Lara's own ramps survive the merge.
+    expect(preset.primitive['red'][500]).toBe('#ef4444');
+  });
+
   it('bakes the default game’s colour into the bootstrap preset', () => {
     const defaultColor = getGame(DEFAULT_GAME_ID)!.theme.primary;
     expect(primaryOf(AppPreset)[500]).toBe(`{${defaultColor}.500}`);

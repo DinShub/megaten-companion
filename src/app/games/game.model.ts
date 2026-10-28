@@ -25,8 +25,12 @@ export type GameFeature =
  * accent is a per-game property here rather than a global constant. The theme
  * layer expands the name into the `--p-primary-*` ramp; nothing else needs to
  * know the concrete colour.
+ *
+ * `ember` is the one app-defined ramp (a burnt, dark orange — see app-preset);
+ * the rest are Lara's base primitives.
  */
 export type PrimaryColor =
+  | 'ember'
   | 'red'
   | 'orange'
   | 'amber'

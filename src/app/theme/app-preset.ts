@@ -46,7 +46,30 @@ const laraSubset = {
 export const THEME_OPTIONS = { darkModeSelector: '.app-dark' } as const;
 
 /**
- * A primary ramp that references a base primitive colour, e.g. `red` →
+ * App-defined primitive ramps, merged alongside Lara's. `ember` is a burnt, dark
+ * orange: Lara's own `orange` sits at #fb923c in dark mode (its `primary.color`
+ * is shade 400 there), which reads as bright tangerine, so this ramp shifts every
+ * stop roughly one shade darker and a touch redder. Both modes stay legible —
+ * 400 on the dark surface and 500 on white each clear AA for large text.
+ */
+const APP_PRIMITIVES = {
+  ember: {
+    50: '#fff4ec',
+    100: '#ffe2cc',
+    200: '#fec398',
+    300: '#f99a5b',
+    400: '#ef7223',
+    500: '#d4560b',
+    600: '#b2440a',
+    700: '#8f360c',
+    800: '#752d0f',
+    900: '#60270f',
+    950: '#361105',
+  },
+} as const;
+
+/**
+ * A primary ramp that references a primitive colour, e.g. `red` →
  * `{ 50: '{red.50}', … 950: '{red.950}' }`. `definePreset` merges deeply, so
  * Lara's derived semantic tokens (`primary.color`, `hoverColor`, … and their
  * `light-dark()` wrappers) keep working on top of the swapped ramp.
@@ -69,7 +92,10 @@ function primaryPalette(color: PrimaryColor): PaletteDesignToken {
 
 /** The theme preset for a game, its primary ramp swapped to the game's colour. */
 export function gamePreset(color: PrimaryColor): Preset {
-  return definePreset(laraSubset, { semantic: { primary: primaryPalette(color) } });
+  return definePreset(laraSubset, {
+    primitive: APP_PRIMITIVES,
+    semantic: { primary: primaryPalette(color) },
+  });
 }
 
 /**
