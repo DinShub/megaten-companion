@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Junes · P4G Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Tokens. The shell stays dark (the app is dark-only); the flyer panels
+     are a "paper context" that flips tokens, the same way Calling Card's
+     cc-paper-tokens does. --accent = --p-primary-400 (P4G yellow); --sale is
+     this skin's own second colour, a store red.
+     Layout idea: the page is the store's weekly flyer pinned up after hours.
+     ------------------------------------------------------------------ */
+  :root {
+    --accent: #ffd60a;          /* P4G yellow: stickers, price tags */
+    --sale: #d9301c;            /* Junes red: awning, headings on paper */
+    --night: #141a2e;           /* car park after closing */
+    --night-raise: #1d2540;
+    --night-ink: #f3f1ea;
+    --night-dim: #b3b8cc;
+    --paper: #fffaf0;
+    --paper-ink: #22201c;
+    --paper-dim: #5f5a50;       /* 6.6:1 on paper */
+    --paper-line: #e3dccb;
+    --display: 'Bowlby One', 'Arial Black', sans-serif;
+    --body: 'M PLUS Rounded 1c', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    background: var(--night);
+    color: var(--night-ink);
+    font: 400 15px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  /* ------------------------------------------------------------------ header + awning */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--sale);
+    color: #fff;
+  }
+  .bar__inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0.7rem 1.5rem;
+  }
+  /* Scalloped awning edge, CSS only. */
+  .bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 12px;
+    background: radial-gradient(circle at 12px 0, var(--sale) 11px, transparent 12px) 0 0 / 24px 12px repeat-x;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1;
+    white-space: nowrap;
+
+    span { font: 400 1.45rem/1 var(--display); }
+    small { font: 800 0.72rem/1.4 var(--body); color: #ffe8e2; }
+  }
+  .nav {
+    display: flex;
+    gap: 0.35rem;
+    flex: 1;
+
+    a {
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+
+      &:hover { background: rgba(255, 255, 255, 0.16); }
+      &[aria-current='page'] { background: var(--paper); color: var(--sale); }
+    }
+  }
+  .bar__status { font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
+
+  /* ------------------------------------------------------------------ layout */
+  main {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 1.75rem;
+
+    h1 {
+      margin: 0;
+      font: 400 clamp(2.3rem, 4.6vw, 3.4rem)/1 var(--display);
+      text-wrap: balance;
+    }
+    p { margin: 0.35rem 0 0; color: var(--night-dim); font-weight: 700; }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 0.35rem;
+
+    button {
+      font: 800 0.9rem/1 var(--body);
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      border: 2px solid var(--night-raise);
+      background: var(--night-raise);
+      color: var(--night-ink);
+      cursor: pointer;
+      transition: transform 0.1s;
+
+      &:hover { border-color: var(--accent); }
+      &:active { transform: scale(0.96); }
+      &[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--paper-ink); }
+    }
+  }
+
+  .fusion {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1.5fr);
+    gap: 1rem;
+    align-items: center;
+  }
+  .op {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper-ink);
+    font: 400 1.7rem/1 var(--display);
+  }
+
+  /* ------------------------------------------------------------------ paper context */
+  .paper {
+    --ink: var(--paper-ink);
+    --dim: var(--paper-dim);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 6px;
+    box-shadow: 0 2px 0 var(--paper-line), 0 18px 30px -18px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Product card for each parent: price tag carries the level. */
+  .item {
+    position: relative;
+    padding: 1rem 1rem 1.1rem;
+    align-self: start;
+    transition: transform 0.15s;
+
+    &:hover, &:focus-within { transform: rotate(-0.6deg) translateY(-2px); }
+    h2 { margin: 0 0 0.15rem; font: 800 0.8rem/1 var(--body); color: var(--dim); }
+  }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 4.4rem 0.35rem 0;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.1rem 0;
+      border: 0;
+      border-bottom: 2px dashed var(--paper-line);
+      background: transparent;
+      color: var(--ink);
+      font: 400 1.5rem/1.2 var(--display);
+
+      &:focus-visible { outline: none; border-bottom: 2px solid var(--sale); }
+    }
+    button {
+      border: 0;
+      background: none;
+      color: var(--sale);
+      font: 800 0.78rem/1 var(--body);
+      cursor: pointer;
+      padding: 0.3rem;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  .dept {
+    display: inline-block;
+    margin-bottom: 0.6rem;
+    padding: 0.1rem 0.5rem;
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  /* Hang tag: notch + punched hole. */
+  .tag {
+    position: absolute;
+    top: 0.9rem;
+    right: -0.5rem;
+    padding: 0.35rem 0.7rem 0.35rem 1.3rem;
+    background: var(--accent);
+    color: var(--paper-ink);
+    font: 400 1.05rem/1 var(--display);
+    clip-path: polygon(0.7rem 0, 100% 0, 100% 100%, 0.7rem 100%, 0 50%);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 50%;
+      width: 0.35rem;
+      height: 0.35rem;
+      margin-top: -0.175rem;
+      border-radius: 50%;
+      background: var(--paper);
+    }
+    small { font: 800 0.7rem/1 var(--body); margin-right: 0.15rem; }
+  }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.1rem;
+    font-size: 0.875rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; border-bottom: 1px dotted var(--paper-line); }
+    .lv { color: var(--dim); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 800; }
+  }
+  .inherit { margin: 0.6rem 0 0; font-size: 0.8rem; color: var(--dim); font-weight: 700; }
+
+  /* ------------------------------------------------------------------ the special */
+  .special {
+    position: relative;
+    padding: 1.4rem 1.5rem 1.5rem;
+    border-top: 10px solid var(--sale);
+  }
+  .special__kicker { margin: 0; color: var(--sale); font-weight: 800; }
+  .special__name {
+    margin: 0.1rem 0 0.25rem;
+    font: 400 clamp(2.5rem, 4.4vw, 3.6rem)/0.95 var(--display);
+    color: var(--ink);
+    max-width: 75%;
+  }
+  .special__line { margin: 0 0 1rem; color: var(--dim); font-weight: 700; }
+  .special__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 1.25rem;
+  }
+  .special h3 { margin: 0 0 0.35rem; font: 800 0.95rem/1.2 var(--body); color: var(--sale); }
+
+  /* Signature: the price-gun sticker. A starburst with the level on it. */
+  .sticker {
+    position: absolute;
+    top: -1.2rem;
+    right: -0.8rem;
+    width: 7.4rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    color: var(--paper-ink);
+    background: var(--accent);
+    clip-path: polygon(50% 0%, 59% 13%, 75% 6%, 76% 22%, 93% 25%, 86% 40%, 100% 50%, 86% 60%, 93% 75%, 76% 78%, 75% 94%, 59% 87%, 50% 100%, 41% 87%, 25% 94%, 24% 78%, 7% 75%, 14% 60%, 0% 50%, 14% 40%, 7% 25%, 24% 22%, 25% 6%, 41% 13%);
+    transform: rotate(12deg);
+    filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.25));
+
+    small { display: block; font: 800 0.75rem/1 var(--body); }
+    b { font: 400 1.55rem/1 var(--display); white-space: nowrap; }
+  }
+  .sticker.is-thwack { animation: thwack 0.42s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+  @keyframes thwack {
+    0% { transform: scale(2.2) rotate(-20deg); opacity: 0; }
+    55% { transform: scale(0.92) rotate(14deg); opacity: 1; }
+    100% { transform: scale(1) rotate(12deg); }
+  }
+  .special.is-shake { animation: shake 0.28s 0.2s ease-out; }
+  @keyframes shake {
+    30% { transform: translate(2px, 1px) rotate(0.3deg); }
+    60% { transform: translate(-1px, 0) rotate(-0.2deg); }
+  }
+
+  /* Persona facts: a nutrition-label box. 99 is P4G's stat cap. */
+  .facts {
+    border: 3px solid var(--ink);
+    padding: 0.4rem 0.6rem 0.5rem;
+    font-size: 0.875rem;
+
+    h3 { color: var(--ink) !important; font: 400 1.25rem/1 var(--display) !important; padding-bottom: 0.3rem; border-bottom: 8px solid var(--ink); }
+    dl { margin: 0; }
+    div { display: grid; grid-template-columns: 2rem 1fr 2ch; gap: 0.5rem; align-items: center; padding: 0.2rem 0; border-bottom: 1px solid var(--ink); }
+    div:last-child { border-bottom: 0; }
+    dt { font-weight: 800; }
+    dd { margin: 0; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+  }
+  .meter { height: 0.55rem; background: var(--paper-line); border-radius: 99px; overflow: hidden; }
+  .meter i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); background: var(--sale); border-radius: 99px; }
+
+  /* Affinities read as a "handle with care" line, in words first. */
+  .care { margin: 0 0 0.75rem; font-size: 0.9rem; }
+  .care b { font-weight: 800; }
+  .care .wk {
+    padding: 0 0.35rem;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+  .facts { align-self: start; }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(1.9rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.78rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { font-weight: 800; color: var(--dim); }
+    .v { padding: 0.15rem 0; border-radius: 4px; background: color-mix(in srgb, var(--paper-line) 55%, transparent); font-weight: 800; }
+    .n { font-weight: 400; color: var(--dim); background: transparent; }
+    .wk { background: var(--accent); }
+    .nu, .rp, .dr { background: var(--paper-ink); color: var(--paper); }
+  }
+
+  /* ------------------------------------------------------------------ weekly flyer list */
+  .flyer { margin-top: 3rem; padding: 1.4rem 1.5rem 1rem; }
+  .flyer__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+
+    h2 { margin: 0; font: 400 1.9rem/1 var(--display); color: var(--sale); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 800; font-size: 0.85rem; }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.5rem 0.8rem;
+      border-radius: 10px;
+      border: 2px solid var(--paper-line);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--sale); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 44rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th { text-align: left; font-size: 0.78rem; color: var(--dim); padding: 0 0.75rem 0.5rem 0; border-bottom: 3px solid var(--ink); }
+    td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px dashed var(--paper-line); }
+    tr:last-child td { border-bottom: 0; }
+    td.lv { width: 4.5rem; }
+    td.name { font-weight: 800; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { background: color-mix(in srgb, var(--accent) 22%, transparent); outline: none; }
+      &:focus-visible td.name { text-decoration: underline 2px var(--sale); text-underline-offset: 4px; }
+    }
+    .mini-tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem 0.15rem 0.8rem;
+      background: var(--accent);
+      font: 400 0.9rem/1 var(--display);
+      clip-path: polygon(0.4rem 0, 100% 0, 100% 100%, 0.4rem 100%, 0 50%);
+    }
+    .flag { margin-left: 0.5rem; color: var(--sale); font-size: 0.75rem; font-weight: 800; }
+    .aff { grid-template-columns: repeat(7, 2.4rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 1080px) {
+    .fusion { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+    .fusion .op--eq { display: none; }
+    .special { grid-column: 1 / -1; margin-top: 1.5rem; }
+  }
+  @media (max-width: 900px) {
+    .bar__inner { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.7rem 1rem 0.4rem; }
+    .bar__status { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; mask-image: linear-gradient(to right, #000 85%, transparent); }
+    main { padding: 2rem 1rem 5rem; }
+  }
+  @media (max-width: 640px) {
+    .fusion { grid-template-columns: 1fr; }
+    .fusion .op { justify-self: center; }
+    .special__grid { grid-template-columns: 1fr; }
+    .special__name { max-width: 70%; }
+    .sticker { width: 5.6rem; right: -0.4rem; }
+    .sticker b { font-size: 1.2rem; }
+    .special .aff { grid-template-columns: repeat(4, 1fr); }
+    .bar__status { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .item { transition: none; }
+    .item:hover, .item:focus-within { transform: none; }
+    .sticker.is-thwack, .special.is-shake { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar__inner">
+    <a class="brand" href="#" aria-label="P4G Companion home"><span>P4G Companion</span><small>Every day's great at Junes!</small></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#" aria-current="page">Fusion</a>
+      <a href="#">Compendium</a>
+      <a href="#">Personas</a>
+      <a href="#">Skills</a>
+      <a href="#">Shadows</a>
+      <a href="#">Classroom</a>
+    </nav>
+    <div class="bar__status">205 personas in stock</div>
+  </div>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Today's fusion special</h1>
+      <p>Pick two personas. We'll ring up what they make.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="fusion">
+    <section class="item paper" aria-labelledby="p1-title">
+      <h2 id="p1-title">Parent 1</h2>
+      <div class="slot">
+        <label for="p1">Parent 1 persona</label>
+        <input id="p1" value="Angel" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent 1">Clear</button>
+      </div>
+      <span class="tag"><small>Lv</small>4</span>
+      <span class="dept">Justice</span>
+      <ul class="skills">
+        <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+        <li><span class="innate">Patra</span><span class="lv">innate</span></li>
+        <li><span>Hama</span><span class="lv">Lv 5</span></li>
+        <li><span>Sukukaja</span><span class="lv">Lv 6</span></li>
+        <li><span>Regenerate 1</span><span class="lv">Lv 8</span></li>
+        <li><span>Hama Boost</span><span class="lv">Lv 9</span></li>
+      </ul>
+      <p class="inherit">Inherits wind skills</p>
+    </section>
+
+    <div class="op" aria-hidden="true">+</div>
+
+    <section class="item paper" aria-labelledby="p2-title">
+      <h2 id="p2-title">Parent 2</h2>
+      <div class="slot">
+        <label for="p2">Parent 2 persona</label>
+        <input id="p2" value="Anzu" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent 2">Clear</button>
+      </div>
+      <span class="tag"><small>Lv</small>15</span>
+      <span class="dept">Hierophant</span>
+      <ul class="skills">
+        <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+        <li><span class="innate">Balzac</span><span class="lv">innate</span></li>
+        <li><span class="innate">Alertness</span><span class="lv">innate</span></li>
+        <li><span>Magaru</span><span class="lv">Lv 17</span></li>
+        <li><span>Red Wall</span><span class="lv">Lv 18</span></li>
+        <li><span>Mahama</span><span class="lv">Lv 19</span></li>
+        <li><span>Auto-Sukukaja</span><span class="lv">Lv 20</span></li>
+      </ul>
+      <p class="inherit">Inherits wind skills</p>
+    </section>
+
+    <div class="op op--eq" aria-hidden="true">=</div>
+
+    <section class="special paper" aria-labelledby="r-name" aria-live="polite">
+      <div class="sticker" aria-hidden="true"><small>New in</small><b>Lv 16</b></div>
+      <p class="special__kicker">Result</p>
+      <h2 class="special__name" id="r-name">Jack Frost</h2>
+      <p class="special__line">Magician · Lv 16 · Justice × Hierophant makes Magician, and Jack Frost is the next Magician from Lv 10.</p>
+      <div class="special__grid">
+        <div class="facts">
+          <h3>Persona facts</h3>
+          <dl data-stats></dl>
+        </div>
+        <div>
+          <h3>Handle with care</h3>
+          <p class="care">Weak to <b class="wk">Fire</b>. Nulls <b>Ice</b>. Inherits ice skills.</p>
+          <div class="aff" data-aff="result"></div>
+          <h3 style="margin-top:1rem">Skills</h3>
+          <ul class="skills">
+            <li><span class="innate">Mabufu</span><span class="lv">innate</span></li>
+            <li><span class="innate">Ice Break</span><span class="lv">innate</span></li>
+            <li><span class="innate">Me Patra</span><span class="lv">innate</span></li>
+            <li><span>Ice Boost</span><span class="lv">Lv 18</span></li>
+            <li><span>Bufula</span><span class="lv">Lv 19</span></li>
+            <li><span>Dodge Fire</span><span class="lv">Lv 20</span></li>
+            <li><span>Mind Charge</span><span class="lv">Lv 25</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="flyer paper" aria-labelledby="list-title">
+    <div class="flyer__head">
+      <h2 id="list-title">This week's personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr>
+        </thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script>
+  if (location.hash === '#preview') document.documentElement.classList.add('is-preview');
+
+  // Real P4G data (aqiu384/megaten-fusion-tool @ f7d41c3, golden-demon-data.json).
+  const ELEMENTS = ['Phys', 'Fire', 'Ice', 'Elec', 'Wind', 'Light', 'Dark'];
+  const PERSONAS = [
+    { lv: 1, name: 'Izanagi', arcana: 'Fool', aff: { Elec: 'Rs', Wind: 'Wk', Dark: 'Nu' } },
+    { lv: 2, name: 'Pixie', arcana: 'Magician', aff: { Fire: 'Wk', Wind: 'Rs' } },
+    { lv: 4, name: 'Angel', arcana: 'Justice', aff: { Wind: 'Rs', Light: 'Rs', Dark: 'Wk' }, flag: 'In your cart' },
+    { lv: 9, name: 'Senri', arcana: 'Empress', aff: { Fire: 'Nu', Elec: 'Wk' } },
+    { lv: 15, name: 'Anzu', arcana: 'Hierophant', aff: { Fire: 'Wk', Elec: 'Rs', Wind: 'Nu' }, flag: 'In your cart' },
+    { lv: 16, name: 'Jack Frost', arcana: 'Magician', aff: { Fire: 'Wk', Ice: 'Nu' }, flag: 'Result' },
+  ];
+  const STATS = [['St', 10], ['Ma', 14], ['En', 12], ['Ag', 11], ['Lu', 8]];
+
+  const val = (v) => v ? `<span class="v ${v.toLowerCase()}">${v}</span>` : '<span class="v n" aria-label="neutral">–</span>';
+  const head = (e) => `<span class="h" title="${e}">${e.slice(0, 3)}</span>`;
+  const strip = (aff, withHead) => ELEMENTS.map((e) => `<span>${withHead ? head(e) : ''}${val(aff[e])}</span>`).join('');
+
+  document.querySelector('[data-aff="result"]').innerHTML = strip(PERSONAS[5].aff, true);
+  document.querySelector('[data-aff-head]').innerHTML = ELEMENTS.map((e) => `<span>${head(e)}</span>`).join('');
+  document.querySelector('[data-stats]').innerHTML = STATS.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+
+  const rows = document.querySelector('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv"><span class="mini-tag">${p.lv}</span></td>
+      <td class="name">${p.name}${p.flag ? `<span class="flag">${p.flag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    [...rows.rows].forEach((tr, i) => {
+      tr.hidden = term && !`${PERSONAS[i].name} ${PERSONAS[i].arcana}`.toLowerCase().includes(term);
+    });
+  });
+  document.querySelectorAll('.modes button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.modes button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+
+  /* ---- Signature: the price gun. The sticker slaps on, the card takes the hit. ---- */
+  const sticker = document.querySelector('.sticker');
+  const special = document.querySelector('.special');
+  let pending = 0;
+  const settle = () => {
+    clearTimeout(pending);
+    sticker.classList.remove('is-thwack');
+    special.classList.remove('is-shake');
+    sticker.style.visibility = '';
+  };
+  function thwack() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    sticker.style.visibility = 'hidden';
+    pending = setTimeout(() => {
+      sticker.style.visibility = '';
+      sticker.classList.add('is-thwack');
+      special.classList.add('is-shake');
+      pending = setTimeout(settle, 700);
+    }, 450);
+  }
+  thwack();
+  document.addEventListener('pointerdown', settle);
+  document.addEventListener('keydown', settle);
+</script>
+</body>
+</html>

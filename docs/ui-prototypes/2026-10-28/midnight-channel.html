@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Midnight Channel · P4G Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Big+Shoulders+Display:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Tokens. --accent maps onto the game's --p-primary-400 (P4G = yellow);
+     the room and screen colours become this skin's surface ramp in skins.ts.
+     Layout idea: the result is a television set; everything else is the
+     living room around it at midnight, in the rain.
+     ------------------------------------------------------------------ */
+  :root {
+    --accent: #ffd60a;          /* P4G yellow, --p-primary-400 */
+    --accent-ink: #1a1405;      /* text on yellow */
+    --room: #0e0a14;            /* violet-black: the room with the lights off */
+    --room-raise: #1a1424;
+    --line: #3a3048;
+    --ink: #efeaf5;
+    --dim: #aaa0ba;             /* secondary text, 7:1 on --room */
+    --screen: #1b2a33;          /* CRT glass, blue-cast */
+    --screen-ink: #e8fbff;
+    --screen-glow: rgba(159, 216, 224, 0.35);
+    --display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    --body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    background: var(--room);
+    color: var(--ink);
+    font: 400 15px/1.55 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Rain on the window behind everything. Static streaks, one slow drift. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -50% 0 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+    background: repeating-linear-gradient(105deg, transparent 0 46px, rgba(170, 160, 186, 0.07) 46px 47px, transparent 47px 91px);
+    animation: rain 2.4s linear infinite;
+  }
+  @keyframes rain { to { transform: translate(-14px, 50%); } }
+
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: color-mix(in srgb, var(--room) 88%, transparent);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font: 900 1.7rem/1 var(--display);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+
+    /* The channel bug: a little yellow TV. */
+    &::before {
+      content: '';
+      width: 1.5rem;
+      height: 1.15rem;
+      border-radius: 4px;
+      background: var(--accent);
+      box-shadow: inset 0 0 0 3px var(--accent-ink), 0 0 0 1px var(--accent);
+    }
+  }
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+
+    a {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--dim);
+      white-space: nowrap;
+
+      &:hover { color: var(--ink); background: var(--room-raise); }
+      &[aria-current='page'] { background: var(--accent); color: var(--accent-ink); }
+    }
+  }
+  .bar__status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+    white-space: nowrap;
+
+    b { color: var(--ink); }
+  }
+  .rain-icon { width: 1rem; height: 1rem; color: var(--screen-ink); }
+
+  /* ------------------------------------------------------------------ layout */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+  }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 1.75rem;
+
+    h1 {
+      margin: 0;
+      font: 900 clamp(2.6rem, 5vw, 3.6rem)/0.9 var(--display);
+      text-wrap: balance;
+    }
+    p { margin: 0.4rem 0 0; color: var(--dim); }
+  }
+  .modes {
+    display: inline-flex;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    border-radius: 999px;
+    background: var(--room-raise);
+    border: 1px solid var(--line);
+
+    button {
+      font: 700 0.9rem/1 var(--body);
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 0;
+      background: transparent;
+      color: var(--dim);
+      cursor: pointer;
+
+      &:hover { color: var(--ink); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--ink); color: var(--room); }
+    }
+  }
+
+  .fusion {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* ------------------------------------------------------------------ parents
+     Each parent is a channel you have tuned: number on the left, programme on the right. */
+  .parents { display: grid; gap: 0.9rem; }
+  .channel {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--room-raise);
+    overflow: hidden;
+    transition: border-color 0.15s;
+
+    &:hover, &:focus-within { border-color: var(--accent); }
+  }
+  .channel__no {
+    display: grid;
+    place-content: center;
+    padding: 0 1rem;
+    background: #000;
+    color: var(--accent);
+    font: 900 2.2rem/1 var(--display);
+    text-align: center;
+
+    small { display: block; font: 700 0.7rem/1.2 var(--body); color: var(--dim); }
+  }
+  .channel__body { padding: 0.9rem 1rem 1rem; min-width: 0; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font: 900 1.9rem/1.1 var(--display);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--accent); }
+    }
+    button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--dim);
+      font: 700 0.75rem/1 var(--body);
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+
+      &:hover { color: var(--ink); border-color: var(--dim); }
+    }
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1rem;
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+
+    b { color: var(--ink); }
+  }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 0.15rem 1rem;
+    font-size: 0.875rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--dim); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+  .plus {
+    justify-self: center;
+    font: 900 2rem/1 var(--display);
+    color: var(--accent);
+  }
+
+  /* ------------------------------------------------------------------ the TV */
+  .tv {
+    position: relative;
+    padding: 1.1rem 1.1rem 2.6rem;
+    border-radius: 30px;
+    background: linear-gradient(160deg, #2a2233, #120e18 70%);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  .tv__foot {
+    position: absolute;
+    left: 1.6rem;
+    right: 1.6rem;
+    bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 700 0.75rem/1 var(--body);
+    color: var(--dim);
+  }
+  .tv__dial { display: flex; gap: 0.4rem; }
+  .tv__dial span {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #5d5068, #1f1828);
+  }
+  .tv__power { display: flex; align-items: center; gap: 0.4rem; }
+  .tv__power::before {
+    content: '';
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .screen {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px / 26px;
+    background:
+      radial-gradient(120% 90% at 50% 40%, color-mix(in srgb, var(--screen) 70%, #2d4450), var(--screen) 70%, #0b1418);
+    color: var(--screen-ink);
+    padding: 1.6rem 1.8rem 5rem;
+    min-height: 30rem;
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7), inset 0 0 0 2px #000;
+
+    /* Glass: scanlines and a curved highlight. */
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(80% 40% at 30% 0%, rgba(255, 255, 255, 0.08), transparent 70%),
+        repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px);
+    }
+  }
+  .bug {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font: 900 1rem/1 var(--display);
+    color: var(--screen-ink);
+    opacity: 0.85;
+  }
+  .bug::before { content: ''; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #ff4d5e; }
+
+  .result__eyebrow { margin: 0; font-weight: 700; color: color-mix(in srgb, var(--screen-ink) 75%, transparent); }
+  .result__name {
+    margin: 0.1rem 0 1.2rem;
+    font: 900 clamp(3.6rem, 8vw, 6rem)/0.85 var(--display);
+    text-shadow: 0 0 18px var(--screen-glow);
+  }
+  .readouts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem;
+
+    span { color: color-mix(in srgb, var(--screen-ink) 75%, transparent); }
+    b { font: 900 1.3rem/1 var(--display); margin-left: 0.25rem; }
+  }
+  .screen-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 1.25rem 2rem;
+  }
+  .screen h3 {
+    margin: 0 0 0.5rem;
+    font: 900 1.05rem/1 var(--display);
+    letter-spacing: 0.02em;
+    color: var(--accent);
+  }
+  /* Stats as a broadcast bar graph: 99 is P4G's cap. */
+  .stats {
+    margin: 0;
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.875rem;
+
+    div { display: grid; grid-template-columns: 1.8rem 1fr 2ch; align-items: center; gap: 0.6rem; }
+    dt { font-weight: 700; }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  }
+  .meter {
+    height: 0.6rem;
+    border-radius: 2px;
+    background: rgba(232, 251, 255, 0.12);
+    overflow: hidden;
+
+    i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); background: var(--screen-ink); box-shadow: 0 0 10px var(--screen-glow); }
+  }
+
+  /* Affinity strip. Weakness is the signal: yellow block + the word, never colour alone. */
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(2.4rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { font-weight: 700; opacity: 0.8; }
+    .v { padding: 0.2rem 0; border-radius: 3px; background: rgba(232, 251, 255, 0.08); font-weight: 700; }
+    .n { font-weight: 400; opacity: 0.55; }
+    .wk { background: var(--accent); color: var(--accent-ink); }
+    .nu, .rp, .dr { outline: 2px solid var(--screen-ink); outline-offset: -2px; }
+  }
+  .legend { margin: 0.5rem 0 0; font-size: 0.75rem; opacity: 0.8; }
+
+  .screen .skills { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
+  .screen .skills .lv { color: color-mix(in srgb, var(--screen-ink) 70%, transparent); }
+
+  /* The chyron: the one place the yellow fills a bar. */
+  .chyron {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.2rem;
+    display: flex;
+    align-items: stretch;
+    font-weight: 700;
+
+    b {
+      padding: 0.45rem 0.8rem 0.45rem 1.8rem;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font: 900 1.05rem/1.1 var(--display);
+      white-space: nowrap;
+    }
+    span {
+      flex: 1;
+      padding: 0.45rem 0.9rem;
+      background: rgba(0, 0, 0, 0.72);
+      color: var(--screen-ink);
+      font-size: 0.85rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  /* Signature moment: the set switches on. States: off → line → static → on. */
+  .screen__picture { transition: opacity 0.25s; }
+  .chyron { transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .static, .scanbeam {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .static { width: 100%; height: 100%; z-index: 2; mix-blend-mode: screen; }
+  .scanbeam {
+    z-index: 3;
+    background: #f4fdff;
+    box-shadow: 0 0 30px #f4fdff;
+    transform: scaleY(0.004) scaleX(0);
+    transition: transform 0.22s ease-out, opacity 0.2s;
+  }
+  .screen[data-tv='off'] { background: #050708; }
+  .screen[data-tv='off'] .screen__picture,
+  .screen[data-tv='line'] .screen__picture,
+  .screen[data-tv='static'] .screen__picture { opacity: 0; }
+  .screen[data-tv='off'] .chyron,
+  .screen[data-tv='line'] .chyron,
+  .screen[data-tv='static'] .chyron { transform: translateX(-105%); }
+  .screen[data-tv='line'] .scanbeam { opacity: 1; transform: scaleY(0.004) scaleX(1); }
+  .screen[data-tv='static'] .scanbeam { opacity: 0; transform: scaleY(1) scaleX(1); }
+  .screen[data-tv='static'] .static { opacity: 0.9; }
+
+  /* ------------------------------------------------------------------ listings */
+  .listing {
+    margin-top: 2.75rem;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--room-raise);
+    padding: 1.25rem 1.25rem 0.75rem;
+  }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.9rem;
+
+    h2 { margin: 0; font: 900 1.9rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 700; color: var(--dim); font-size: 0.85rem; white-space: nowrap; }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--room);
+      color: var(--ink);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--accent); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 44rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th {
+      text-align: left;
+      font-size: 0.78rem;
+      color: var(--dim);
+      padding: 0 0.75rem 0.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+    tr:last-child td { border-bottom: 0; }
+    .lv { width: 3.5rem; font: 900 1.2rem/1 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+    td.name { font-weight: 700; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { background: color-mix(in srgb, var(--accent) 8%, transparent); outline: none; }
+      &:focus-visible td.name { text-decoration: underline 2px var(--accent); text-underline-offset: 4px; }
+    }
+    .tag {
+      margin-left: 0.5rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .aff { grid-template-columns: repeat(7, 2.5rem); }
+    .aff .v { background: rgba(239, 234, 245, 0.06); }
+    .aff .wk { background: var(--accent); color: var(--accent-ink); }
+    .aff .nu, .aff .rp, .aff .dr { outline-color: var(--ink); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .fusion { grid-template-columns: 1fr; }
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.7rem 1rem 0; }
+    .bar__status { margin-left: auto; }
+    .nav {
+      order: 3;
+      flex-basis: 100%;
+      overflow-x: auto;
+      padding-bottom: 0.6rem;
+      scrollbar-width: none;
+      mask-image: linear-gradient(to right, #000 85%, transparent);
+    }
+    main { padding: 1.25rem 1rem 5rem; }
+  }
+  @media (max-width: 560px) {
+    .screen { padding: 1.2rem 1.1rem 4.2rem; }
+    .screen-grid { grid-template-columns: 1fr; }
+    .screen .aff { grid-template-columns: repeat(4, 1fr); }
+    .bar__status span:last-child { display: none; }
+    .tv { padding: 0.6rem 0.6rem 2.4rem; border-radius: 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+    .screen__picture, .chyron, .scanbeam { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P4G Companion home">P4G Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <div class="bar__status">
+    <svg class="rain-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 9.5h7.5a3 3 0 0 0 .2-6A4 4 0 0 0 4.2 4 2.8 2.8 0 0 0 4 9.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 11.5l-1 2.5M8.5 11.5l-1 2.5M12 11.5l-1 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <span>Rain at midnight</span>
+    <span>· <b>205</b> personas</span>
+  </div>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Tonight's fusion</h1>
+      <p>Tune in two personas and see who comes on.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="fusion">
+    <div class="parents">
+      <section class="channel" aria-labelledby="p1-title">
+        <div class="channel__no" aria-hidden="true"><small>CH</small>1</div>
+        <div class="channel__body">
+          <h2 id="p1-title" class="meta" style="margin:0 0 0.2rem">Parent 1</h2>
+          <div class="slot">
+            <label for="p1">Parent 1 persona</label>
+            <input id="p1" value="Angel" autocomplete="off" spellcheck="false" />
+            <button type="button" aria-label="Clear parent 1">Clear</button>
+          </div>
+          <p class="meta"><span>Arcana <b>Justice</b></span><span>Lv <b>4</b></span><span>Inherits <b>wind</b></span></p>
+          <ul class="skills">
+            <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+            <li><span class="innate">Patra</span><span class="lv">innate</span></li>
+            <li><span>Hama</span><span class="lv">Lv 5</span></li>
+            <li><span>Sukukaja</span><span class="lv">Lv 6</span></li>
+            <li><span>Regenerate 1</span><span class="lv">Lv 8</span></li>
+            <li><span>Hama Boost</span><span class="lv">Lv 9</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="plus" aria-hidden="true">+</div>
+
+      <section class="channel" aria-labelledby="p2-title">
+        <div class="channel__no" aria-hidden="true"><small>CH</small>2</div>
+        <div class="channel__body">
+          <h2 id="p2-title" class="meta" style="margin:0 0 0.2rem">Parent 2</h2>
+          <div class="slot">
+            <label for="p2">Parent 2 persona</label>
+            <input id="p2" value="Anzu" autocomplete="off" spellcheck="false" />
+            <button type="button" aria-label="Clear parent 2">Clear</button>
+          </div>
+          <p class="meta"><span>Arcana <b>Hierophant</b></span><span>Lv <b>15</b></span><span>Inherits <b>wind</b></span></p>
+          <ul class="skills">
+            <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+            <li><span class="innate">Balzac</span><span class="lv">innate</span></li>
+            <li><span class="innate">Alertness</span><span class="lv">innate</span></li>
+            <li><span>Magaru</span><span class="lv">Lv 17</span></li>
+            <li><span>Red Wall</span><span class="lv">Lv 18</span></li>
+            <li><span>Mahama</span><span class="lv">Lv 19</span></li>
+            <li><span>Auto-Sukukaja</span><span class="lv">Lv 20</span></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <section class="tv" aria-labelledby="r-name">
+      <div class="screen" data-tv="on" aria-live="polite">
+        <canvas class="static" aria-hidden="true"></canvas>
+        <div class="scanbeam" aria-hidden="true"></div>
+        <div class="screen__picture">
+          <div class="bug" aria-hidden="true">LIVE</div>
+          <p class="result__eyebrow">Result</p>
+          <h2 class="result__name" id="r-name">Jack Frost</h2>
+          <div class="readouts">
+            <div><span>Arcana</span><b>Magician</b></div>
+            <div><span>Lv</span><b>16</b></div>
+            <div><span>Inherits</span><b>ice</b></div>
+          </div>
+          <div class="screen-grid">
+            <div>
+              <h3>Stats</h3>
+              <dl class="stats" data-stats></dl>
+            </div>
+            <div>
+              <h3>Affinities</h3>
+              <div class="aff" data-aff="result"></div>
+              <p class="legend">Wk weak (yellow) · Rs resist · Nu null (outlined)</p>
+            </div>
+          </div>
+          <h3 style="margin-top:1.2rem">Skills</h3>
+          <ul class="skills">
+            <li><span class="innate">Mabufu</span><span class="lv">innate</span></li>
+            <li><span class="innate">Ice Break</span><span class="lv">innate</span></li>
+            <li><span class="innate">Me Patra</span><span class="lv">innate</span></li>
+            <li><span>Ice Boost</span><span class="lv">Lv 18</span></li>
+            <li><span>Bufula</span><span class="lv">Lv 19</span></li>
+            <li><span>Dodge Fire</span><span class="lv">Lv 20</span></li>
+            <li><span>Mind Charge</span><span class="lv">Lv 25</span></li>
+          </ul>
+        </div>
+        <p class="chyron"><b>Now showing</b><span>Justice × Hierophant makes Magician · next Magician from Lv 10 is Jack Frost</span></p>
+      </div>
+      <div class="tv__foot" aria-hidden="true">
+        <div class="tv__dial"><span></span><span></span></div>
+        <span class="tv__power">On</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Listings</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th class="lv-h">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr>
+        </thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script>
+  if (location.hash === '#preview') document.documentElement.classList.add('is-preview');
+
+  // Real P4G data (aqiu384/megaten-fusion-tool @ f7d41c3, golden-demon-data.json).
+  const ELEMENTS = ['Phys', 'Fire', 'Ice', 'Elec', 'Wind', 'Light', 'Dark'];
+  const PERSONAS = [
+    { lv: 1, name: 'Izanagi', arcana: 'Fool', aff: { Elec: 'Rs', Wind: 'Wk', Dark: 'Nu' } },
+    { lv: 2, name: 'Pixie', arcana: 'Magician', aff: { Fire: 'Wk', Wind: 'Rs' } },
+    { lv: 4, name: 'Angel', arcana: 'Justice', aff: { Wind: 'Rs', Light: 'Rs', Dark: 'Wk' }, tag: 'Parent' },
+    { lv: 9, name: 'Senri', arcana: 'Empress', aff: { Fire: 'Nu', Elec: 'Wk' } },
+    { lv: 15, name: 'Anzu', arcana: 'Hierophant', aff: { Fire: 'Wk', Elec: 'Rs', Wind: 'Nu' }, tag: 'Parent' },
+    { lv: 16, name: 'Jack Frost', arcana: 'Magician', aff: { Fire: 'Wk', Ice: 'Nu' }, tag: 'Result' },
+  ];
+  const STATS = [['St', 10], ['Ma', 14], ['En', 12], ['Ag', 11], ['Lu', 8]];
+
+  const val = (v) => v ? `<span class="v ${v.toLowerCase()}">${v}</span>` : '<span class="v n" aria-label="neutral">–</span>';
+  const head = (e) => `<span class="h" title="${e}">${e.slice(0, 3)}</span>`;
+  const strip = (aff, withHead) => ELEMENTS.map((e) => `<span>${withHead ? head(e) : ''}${val(aff[e])}</span>`).join('');
+
+  document.querySelector('[data-aff="result"]').innerHTML = strip(PERSONAS[5].aff, true);
+  document.querySelector('[data-aff-head]').innerHTML = ELEMENTS.map((e) => `<span>${head(e)}</span>`).join('');
+  document.querySelector('[data-stats]').innerHTML = STATS.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+
+  const rows = document.querySelector('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    [...rows.rows].forEach((tr, i) => {
+      tr.hidden = term && !`${PERSONAS[i].name} ${PERSONAS[i].arcana}`.toLowerCase().includes(term);
+    });
+  });
+  document.querySelectorAll('.modes button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.modes button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+
+  /* ---- Signature: the set switches on. off → line → static → on. ---- */
+  const screen = document.querySelector('.screen');
+  const canvas = document.querySelector('.static');
+  const ctx = canvas.getContext('2d');
+  let timers = [];
+  let raf = 0;
+  let playing = false;
+
+  function noise() {
+    const w = (canvas.width = 160), h = (canvas.height = 100);
+    const img = ctx.createImageData(w, h);
+    for (let i = 0; i < img.data.length; i += 4) {
+      const g = Math.random() * 255;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = g;
+      img.data[i + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    raf = requestAnimationFrame(noise);
+  }
+  const finish = () => {
+    timers.forEach(clearTimeout);
+    timers = [];
+    cancelAnimationFrame(raf);
+    playing = false;
+    screen.dataset.tv = 'on';
+  };
+  function switchOn() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return finish();
+    playing = true;
+    screen.dataset.tv = 'off';
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    at(250, () => { screen.dataset.tv = 'line'; });
+    at(520, () => { screen.dataset.tv = 'static'; noise(); });
+    at(1050, finish);
+  }
+  switchOn();
+  document.addEventListener('pointerdown', () => playing && finish());
+  document.addEventListener('keydown', () => playing && finish());
+</script>
+</body>
+</html>

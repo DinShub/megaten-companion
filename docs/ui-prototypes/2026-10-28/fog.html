@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Fog · P4G Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;500;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Tokens. --accent = --p-primary-400 (P4G yellow), used only for the lens
+     rims and the active state. --fog is this skin's atmosphere colour; the
+     panels are the surface ramp (frosted, so they sit on the fog).
+     Layout idea: a quiet page standing in the fog. Content is always clear;
+     the fog lives behind it, and your pointer is a pair of glasses.
+     ------------------------------------------------------------------ */
+  :root {
+    --accent: #ffd60a;
+    --accent-ink: #1c1703;
+    --ground: #17181e;           /* night under fog, grey-violet */
+    --fog: #cfcab8;              /* yellow-grey Inaba fog */
+    --panel: rgba(32, 33, 41, 0.8);
+    --line: rgba(232, 228, 214, 0.12);
+    --ink: #eeebe3;
+    --dim: #b2aea3;              /* 7.6:1 on --ground */
+    --font: 'Zen Kaku Gothic New', 'Hiragino Sans', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  @property --r {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    background: var(--ground);
+    color: var(--ink);
+    font: 400 15px/1.65 var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  /* ------------------------------------------------------------------ ambient fog
+     Three soft banks drifting at different speeds. The pointer's lens clears a hole. */
+  .fog {
+    --mx: -999px;
+    --my: -999px;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    -webkit-mask: radial-gradient(circle at var(--mx) var(--my), transparent 0 70px, #000 170px);
+    mask: radial-gradient(circle at var(--mx) var(--my), transparent 0 70px, #000 170px);
+
+    i {
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(40% 25% at 20% 30%, color-mix(in srgb, var(--fog) 26%, transparent), transparent 70%),
+        radial-gradient(35% 30% at 75% 65%, color-mix(in srgb, var(--fog) 22%, transparent), transparent 70%),
+        radial-gradient(30% 20% at 50% 90%, color-mix(in srgb, var(--fog) 20%, transparent), transparent 70%);
+      filter: blur(20px);
+      animation: drift 38s ease-in-out infinite alternate;
+    }
+    i:nth-child(2) { transform: scaleX(-1); animation-duration: 52s; animation-delay: -20s; opacity: 0.8; }
+    i:nth-child(3) { transform: rotate(180deg); animation-duration: 70s; opacity: 0.6; }
+  }
+  @keyframes drift { from { translate: -6% 0; } to { translate: 6% 2%; } }
+
+  /* Glasses: decorative, follow a fine pointer only. */
+  .glasses {
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 54px;
+    margin: -27px 0 0 -75px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: var(--accent);
+  }
+  .glasses.is-on { opacity: 0.85; }
+  @media (pointer: coarse) { .glasses { display: none; } }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1rem 2rem;
+    background: color-mix(in srgb, var(--ground) 70%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .brand svg { width: 2.2rem; height: auto; color: var(--accent); }
+  .nav {
+    display: flex;
+    gap: 1.6rem;
+    flex: 1;
+
+    a {
+      position: relative;
+      padding: 0.3rem 0;
+      text-decoration: none;
+      color: var(--dim);
+      font-weight: 500;
+      white-space: nowrap;
+
+      &:hover { color: var(--ink); }
+      &[aria-current='page'] { color: var(--ink); }
+      &[aria-current='page']::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -0.15rem;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+    }
+  }
+  .bar__status { color: var(--dim); font-size: 0.85rem; white-space: nowrap; }
+
+  /* ------------------------------------------------------------------ layout */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 2.25rem;
+
+    h1 { margin: 0; font-weight: 300; font-size: clamp(2.4rem, 4.5vw, 3.3rem); line-height: 1; letter-spacing: 0.02em; }
+    p { margin: 0.6rem 0 0; color: var(--dim); }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 0.4rem;
+
+    button {
+      font: 500 0.9rem/1 var(--font);
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--dim);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+
+      &:hover { color: var(--ink); border-color: color-mix(in srgb, var(--ink) 40%, transparent); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { color: var(--ink); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+    }
+  }
+
+  .fusion {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+    gap: 1.5rem 2.25rem;
+    align-items: start;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+  }
+  .parents { display: grid; gap: 1rem; }
+  .parent {
+    padding: 1.2rem 1.3rem 1.3rem;
+    transition: border-color 0.2s;
+
+    &:hover, &:focus-within { border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+    h2 { margin: 0; font-size: 0.8rem; font-weight: 500; color: var(--dim); letter-spacing: 0.04em; }
+  }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.1rem 0 0.4rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.1rem 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font: 300 1.9rem/1.2 var(--font);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--accent); }
+    }
+    button {
+      border: 0;
+      background: none;
+      color: var(--dim);
+      font: 500 0.8rem/1 var(--font);
+      cursor: pointer;
+      padding: 0.3rem 0.4rem;
+      border-radius: 6px;
+      &:hover { color: var(--ink); background: rgba(255, 255, 255, 0.06); }
+    }
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.2rem;
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+
+    b { color: var(--ink); font-weight: 500; }
+  }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.15rem 1.25rem;
+    font-size: 0.875rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--dim); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+  .plus { justify-self: center; color: var(--dim); font-weight: 300; font-size: 1.8rem; line-height: 1; }
+
+  /* ------------------------------------------------------------------ result */
+  .result { position: relative; padding: 1.8rem 2rem 2rem; overflow: hidden; }
+  /* The lens motif: a yellow ring the name sits in, the page's one bold mark. */
+  .lens {
+    position: absolute;
+    top: -3.5rem;
+    right: -2.5rem;
+    width: 15rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 10px solid var(--accent);
+    opacity: 0.9;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 214, 10, 0.06), transparent 70%);
+  }
+  .result__eyebrow { margin: 0; color: var(--dim); font-size: 0.85rem; letter-spacing: 0.04em; }
+  .result__name {
+    margin: 0.1rem 0 0.3rem;
+    font-weight: 300;
+    font-size: clamp(3.4rem, 7vw, 5.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  .result__why { margin: 0 0 1.6rem; color: var(--dim); max-width: 46ch; position: relative; }
+  .result__why b { color: var(--ink); font-weight: 500; }
+  .result-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.5rem 2.25rem; }
+  .result h3 { margin: 0 0 0.6rem; font-size: 0.8rem; font-weight: 500; color: var(--dim); letter-spacing: 0.04em; }
+
+  /* 99 is P4G's stat cap. Thin rules, a soft clearing fill. */
+  .stats {
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+
+    div { display: grid; grid-template-columns: 1.8rem 1fr 2ch; gap: 0.75rem; align-items: center; }
+    dt { font-weight: 700; }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  }
+  .meter { height: 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+  .meter i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); background: var(--ink); border-radius: 4px; }
+
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(2.3rem, 1fr));
+    gap: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 4px; }
+    .h { color: var(--dim); }
+    .v { padding: 0.2rem 0; border-radius: 999px; font-weight: 700; border: 1px solid var(--line); }
+    .n { font-weight: 300; color: var(--dim); border-color: transparent; }
+    .wk { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .nu, .rp, .dr { border-color: var(--ink); }
+  }
+  .legend { margin: 0.6rem 0 0; font-size: 0.75rem; color: var(--dim); }
+
+  /* ------------------------------------------------------------------ list */
+  .list { margin-top: 2.75rem; padding: 1.5rem 1.6rem 1rem; }
+  .list__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+
+    h2 { margin: 0; font-weight: 300; font-size: 1.7rem; }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--dim); font-size: 0.85rem; }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.25);
+      color: var(--ink);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--accent); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 44rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th { text-align: left; font-size: 0.78rem; font-weight: 500; color: var(--dim); padding: 0 0.75rem 0.6rem 0; border-bottom: 1px solid var(--line); }
+    td { padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid var(--line); }
+    tr:last-child td { border-bottom: 0; }
+    td.lv { width: 3rem; text-align: right; padding-right: 1.25rem; color: var(--dim); font-variant-numeric: tabular-nums; }
+    td.name { font-weight: 500; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      transition: background 0.2s;
+      &:hover, &:focus-visible { background: rgba(255, 255, 255, 0.04); outline: none; }
+      &:focus-visible td.name { text-decoration: underline 2px var(--accent); text-underline-offset: 5px; }
+    }
+    .tag { margin-left: 0.6rem; font-size: 0.75rem; color: var(--accent); font-weight: 700; }
+    .aff { grid-template-columns: repeat(7, 2.5rem); }
+  }
+
+  /* ------------------------------------------------------------------ signature: the fog lifts
+     A full-page veil whose clear circle grows out from the result's name. */
+  .veil {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    --cx: 50%;
+    --cy: 40%;
+    --r: 0px;
+    background:
+      radial-gradient(60% 40% at 30% 30%, #e3dfcf, transparent 70%),
+      radial-gradient(50% 50% at 70% 70%, #d7d2bf, transparent 70%),
+      #c4bfac;
+    -webkit-mask: radial-gradient(circle at var(--cx) var(--cy), transparent var(--r), #000 calc(var(--r) + 160px));
+    mask: radial-gradient(circle at var(--cx) var(--cy), transparent var(--r), #000 calc(var(--r) + 160px));
+    transition: --r 1.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+  }
+  .veil.is-lifted { --r: 160vmax; opacity: 0; transition-delay: 0s, 1s; }
+  .veil[hidden] { display: none; }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto, html.is-preview .glasses { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .fusion { grid-template-columns: 1fr; }
+    .bar { flex-wrap: wrap; gap: 0.6rem 1rem; padding: 0.8rem 1rem 0; }
+    .bar__status { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; padding-bottom: 0.6rem; scrollbar-width: none; mask-image: linear-gradient(to right, #000 85%, transparent); }
+    main { padding: 2rem 1rem 5rem; }
+  }
+  @media (max-width: 560px) {
+    .result { padding: 1.4rem 1.2rem 1.5rem; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result .aff { grid-template-columns: repeat(4, 1fr); }
+    .lens { width: 10rem; top: -2.5rem; right: -2.5rem; border-width: 8px; }
+    .bar__status { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fog i { animation: none; }
+    .veil { display: none; }
+    .glasses { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="fog" aria-hidden="true"><i></i><i></i><i></i></div>
+<svg class="glasses" viewBox="0 0 150 54" aria-hidden="true">
+  <rect x="3" y="5" width="62" height="44" rx="18" fill="none" stroke="currentColor" stroke-width="5" />
+  <rect x="85" y="5" width="62" height="44" rx="18" fill="none" stroke="currentColor" stroke-width="5" />
+  <path d="M65 22 q10 -8 20 0" fill="none" stroke="currentColor" stroke-width="5" />
+</svg>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P4G Companion home">
+    <svg viewBox="0 0 150 54" aria-hidden="true"><rect x="3" y="5" width="62" height="44" rx="18" fill="none" stroke="currentColor" stroke-width="9" /><rect x="85" y="5" width="62" height="44" rx="18" fill="none" stroke="currentColor" stroke-width="9" /><path d="M65 22 q10 -8 20 0" fill="none" stroke="currentColor" stroke-width="9" /></svg>
+    P4G Companion
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <div class="bar__status">205 personas</div>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p>Choose two personas and the fog clears on what they make.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="fusion">
+    <div class="parents">
+      <section class="parent panel" aria-labelledby="p1-title">
+        <h2 id="p1-title">Parent 1</h2>
+        <div class="slot">
+          <label for="p1">Parent 1 persona</label>
+          <input id="p1" value="Angel" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent 1">Clear</button>
+        </div>
+        <p class="meta"><span>Arcana <b>Justice</b></span><span>Lv <b>4</b></span><span>Inherits <b>wind</b></span></p>
+        <ul class="skills">
+          <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+          <li><span class="innate">Patra</span><span class="lv">innate</span></li>
+          <li><span>Hama</span><span class="lv">Lv 5</span></li>
+          <li><span>Sukukaja</span><span class="lv">Lv 6</span></li>
+          <li><span>Regenerate 1</span><span class="lv">Lv 8</span></li>
+          <li><span>Hama Boost</span><span class="lv">Lv 9</span></li>
+        </ul>
+      </section>
+
+      <div class="plus" aria-hidden="true">+</div>
+
+      <section class="parent panel" aria-labelledby="p2-title">
+        <h2 id="p2-title">Parent 2</h2>
+        <div class="slot">
+          <label for="p2">Parent 2 persona</label>
+          <input id="p2" value="Anzu" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent 2">Clear</button>
+        </div>
+        <p class="meta"><span>Arcana <b>Hierophant</b></span><span>Lv <b>15</b></span><span>Inherits <b>wind</b></span></p>
+        <ul class="skills">
+          <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+          <li><span class="innate">Balzac</span><span class="lv">innate</span></li>
+          <li><span class="innate">Alertness</span><span class="lv">innate</span></li>
+          <li><span>Magaru</span><span class="lv">Lv 17</span></li>
+          <li><span>Red Wall</span><span class="lv">Lv 18</span></li>
+          <li><span>Mahama</span><span class="lv">Lv 19</span></li>
+          <li><span>Auto-Sukukaja</span><span class="lv">Lv 20</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="result panel" aria-labelledby="r-name" aria-live="polite">
+      <span class="lens" aria-hidden="true"></span>
+      <p class="result__eyebrow">Result</p>
+      <h2 class="result__name" id="r-name" data-reveal-from>Jack Frost</h2>
+      <p class="result__why"><b>Magician, Lv 16.</b> Justice and Hierophant make Magician; their average level rounds to 10, and Jack Frost is the first Magician from there. Inherits ice skills.</p>
+      <div class="result-grid">
+        <div>
+          <h3>Stats</h3>
+          <dl class="stats" data-stats></dl>
+        </div>
+        <div>
+          <h3>Affinities</h3>
+          <div class="aff" data-aff="result"></div>
+          <p class="legend">Filled = weak · ringed = null</p>
+        </div>
+      </div>
+      <h3 style="margin-top:1.5rem">Skills</h3>
+      <ul class="skills">
+        <li><span class="innate">Mabufu</span><span class="lv">innate</span></li>
+        <li><span class="innate">Ice Break</span><span class="lv">innate</span></li>
+        <li><span class="innate">Me Patra</span><span class="lv">innate</span></li>
+        <li><span>Ice Boost</span><span class="lv">Lv 18</span></li>
+        <li><span>Bufula</span><span class="lv">Lv 19</span></li>
+        <li><span>Dodge Fire</span><span class="lv">Lv 20</span></li>
+        <li><span>Mind Charge</span><span class="lv">Lv 25</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="list panel" aria-labelledby="list-title">
+    <div class="list__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr>
+        </thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="veil" aria-hidden="true"></div>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script>
+  if (location.hash === '#preview') document.documentElement.classList.add('is-preview');
+
+  // Real P4G data (aqiu384/megaten-fusion-tool @ f7d41c3, golden-demon-data.json).
+  const ELEMENTS = ['Phys', 'Fire', 'Ice', 'Elec', 'Wind', 'Light', 'Dark'];
+  const PERSONAS = [
+    { lv: 1, name: 'Izanagi', arcana: 'Fool', aff: { Elec: 'Rs', Wind: 'Wk', Dark: 'Nu' } },
+    { lv: 2, name: 'Pixie', arcana: 'Magician', aff: { Fire: 'Wk', Wind: 'Rs' } },
+    { lv: 4, name: 'Angel', arcana: 'Justice', aff: { Wind: 'Rs', Light: 'Rs', Dark: 'Wk' }, tag: 'Parent' },
+    { lv: 9, name: 'Senri', arcana: 'Empress', aff: { Fire: 'Nu', Elec: 'Wk' } },
+    { lv: 15, name: 'Anzu', arcana: 'Hierophant', aff: { Fire: 'Wk', Elec: 'Rs', Wind: 'Nu' }, tag: 'Parent' },
+    { lv: 16, name: 'Jack Frost', arcana: 'Magician', aff: { Fire: 'Wk', Ice: 'Nu' }, tag: 'Result' },
+  ];
+  const STATS = [['St', 10], ['Ma', 14], ['En', 12], ['Ag', 11], ['Lu', 8]];
+
+  const val = (v) => v ? `<span class="v ${v.toLowerCase()}">${v}</span>` : '<span class="v n" aria-label="neutral">–</span>';
+  const head = (e) => `<span class="h" title="${e}">${e.slice(0, 3)}</span>`;
+  const strip = (aff, withHead) => ELEMENTS.map((e) => `<span>${withHead ? head(e) : ''}${val(aff[e])}</span>`).join('');
+
+  document.querySelector('[data-aff="result"]').innerHTML = strip(PERSONAS[5].aff, true);
+  document.querySelector('[data-aff-head]').innerHTML = ELEMENTS.map((e) => `<span>${head(e)}</span>`).join('');
+  document.querySelector('[data-stats]').innerHTML = STATS.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+
+  const rows = document.querySelector('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    [...rows.rows].forEach((tr, i) => {
+      tr.hidden = term && !`${PERSONAS[i].name} ${PERSONAS[i].arcana}`.toLowerCase().includes(term);
+    });
+  });
+  document.querySelectorAll('.modes button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.modes button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+
+  /* ---- Pointer: the glasses clear the fog where you look. ---- */
+  const fog = document.querySelector('.fog');
+  const glasses = document.querySelector('.glasses');
+  let frame = 0;
+  addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      fog.style.setProperty('--mx', `${e.clientX}px`);
+      fog.style.setProperty('--my', `${e.clientY}px`);
+      glasses.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      glasses.classList.add('is-on');
+    });
+  });
+  document.documentElement.addEventListener('pointerleave', () => {
+    glasses.classList.remove('is-on');
+    fog.style.setProperty('--mx', '-999px');
+  });
+
+  /* ---- Signature: the page opens in fog, which lifts outward from the result. ---- */
+  const veil = document.querySelector('.veil');
+  const from = document.querySelector('[data-reveal-from]');
+  const done = () => { veil.hidden = true; };
+  function lift() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return done();
+    const r = from.getBoundingClientRect();
+    veil.style.setProperty('--cx', `${r.left + r.width / 2}px`);
+    veil.style.setProperty('--cy', `${r.top + r.height / 2}px`);
+    setTimeout(() => veil.classList.add('is-lifted'), 350);
+    veil.addEventListener('transitionend', (e) => { if (e.propertyName === 'opacity') done(); });
+    setTimeout(done, 2600); // fallback where @property transitions are unsupported
+  }
+  lift();
+  document.addEventListener('pointerdown', done);
+  document.addEventListener('keydown', done);
+</script>
+</body>
+</html>

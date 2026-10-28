@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Case Board · P4G Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Gochi+Hand&family=Special+Elite&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Tokens. --accent is the highlighter and the pushpins: drive it off
+     --p-primary-300 (P4G yellow). Cork and paper become this skin's surface
+     ramp; --yarn is a fixed red, the board's one connective device.
+     Layout idea: the Investigation Team's corkboard. Parents are index cards,
+     the result is the photo they point to, the list is a typed sheet.
+     ------------------------------------------------------------------ */
+  :root {
+    --accent: #ffe14d;          /* highlighter + pins */
+    --yarn: #c62828;
+    --cork: #2c2119;            /* cork in a dim room */
+    --cork-ink: #f1e6d4;
+    --cork-dim: #c9b8a0;        /* 8:1 on cork */
+    --paper: #f3ead8;
+    --paper-ink: #241d16;
+    --paper-dim: #5e5243;       /* 6.4:1 on paper */
+    --paper-rule: #c9d6e6;      /* index-card blue rules */
+    --type: 'Courier Prime', 'Courier New', monospace;
+    --stamp: 'Special Elite', 'Courier New', monospace;
+    --hand: 'Gochi Hand', 'Comic Sans MS', cursive;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    color: var(--cork-ink);
+    font: 400 15px/1.5 var(--type);
+    background-color: var(--cork);
+    /* Cork grain: three offset dot fields. */
+    background-image:
+      radial-gradient(rgba(0, 0, 0, 0.35) 1px, transparent 1.5px),
+      radial-gradient(rgba(255, 220, 170, 0.06) 1px, transparent 1.5px),
+      radial-gradient(rgba(0, 0, 0, 0.2) 1.5px, transparent 2px);
+    background-size: 7px 7px, 11px 11px, 17px 17px;
+    background-position: 0 0, 3px 5px, 8px 2px;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  /* Highlighter stroke: uneven ends, sits under the text. */
+  mark {
+    color: inherit;
+    padding: 0 0.15em;
+    background: linear-gradient(100deg, transparent 0.2em, var(--accent) 0.25em, var(--accent) calc(100% - 0.3em), transparent calc(100% - 0.2em));
+    background-size: 100% 70%;
+    background-position: 0 70%;
+    background-repeat: no-repeat;
+  }
+
+  /* ------------------------------------------------------------------ header: folder tabs */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: end;
+    gap: 2rem;
+    padding: 0.8rem 1.5rem 0;
+    background: #1b140f;
+    border-bottom: 3px solid #d8c39a;
+  }
+  .brand {
+    align-self: center;
+    padding-bottom: 0.7rem;
+    text-decoration: none;
+    font: 400 1.4rem/1 var(--stamp);
+    white-space: nowrap;
+  }
+  .nav {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1;
+
+    a {
+      padding: 0.45rem 1rem 0.4rem;
+      border-radius: 8px 8px 0 0;
+      background: #3a2e22;
+      color: var(--cork-ink);
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+
+      &:hover { background: #4a3b2c; }
+      &[aria-current='page'] { background: #d8c39a; color: var(--paper-ink); }
+    }
+  }
+  .bar__status { align-self: center; padding-bottom: 0.7rem; color: var(--cork-dim); font-size: 0.85rem; white-space: nowrap; }
+
+  /* ------------------------------------------------------------------ layout */
+  main {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 2.25rem 1.5rem 5rem;
+  }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 2rem;
+
+    h1 {
+      margin: 0;
+      font: 400 clamp(2.2rem, 4.5vw, 3.2rem)/1 var(--stamp);
+      text-wrap: balance;
+    }
+    p { margin: 0.4rem 0 0; font: 400 1.35rem/1.1 var(--hand); color: var(--accent); }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 0.5rem;
+
+    button {
+      font: 700 0.9rem/1 var(--type);
+      padding: 0.55rem 0.9rem;
+      border: 2px solid var(--cork-dim);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--cork-ink);
+      cursor: pointer;
+
+      &:hover { border-color: var(--accent); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--paper); color: var(--paper-ink); border-color: var(--paper); }
+    }
+  }
+
+  /* ------------------------------------------------------------------ the board */
+  .board {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.5fr);
+    gap: 2.5rem 4.5rem;
+    align-items: start;
+  }
+  .leads { display: grid; gap: 2.6rem; padding-top: 0.5rem; }
+
+  /* Pinned paper: every card has a pin; hover lifts it off the cork. */
+  .pinned {
+    position: relative;
+    background: var(--paper);
+    color: var(--paper-ink);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 14px 22px -12px rgba(0, 0, 0, 0.8);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.18s, box-shadow 0.18s;
+
+    &:hover, &:focus-within {
+      transform: rotate(0deg) translateY(-3px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 22px 30px -14px rgba(0, 0, 0, 0.85);
+    }
+  }
+  .pin {
+    position: absolute;
+    top: -0.55rem;
+    left: 50%;
+    z-index: 3;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: -0.55rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff6b8, var(--accent) 45%, #b39400);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.55);
+  }
+
+  /* Index card: blue rules, red header line. */
+  .card {
+    padding: 1.1rem 1.1rem 1rem;
+    background:
+      linear-gradient(var(--paper), var(--paper)) 0 0 / 100% 2.6rem no-repeat,
+      linear-gradient(to bottom, transparent 2.55rem, #d9534f 2.55rem 2.65rem, transparent 2.65rem) 0 0 / 100% 100% no-repeat,
+      repeating-linear-gradient(to bottom, var(--paper) 0 1.45rem, var(--paper-rule) 1.45rem calc(1.45rem + 1px)) 0 2.65rem / 100% 100%,
+      var(--paper);
+
+    h2 { margin: 0; font: 700 0.8rem/1 var(--type); color: var(--paper-dim); }
+  }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.15rem 0 0.55rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--paper-ink);
+      font: 400 1.55rem/1.2 var(--stamp);
+
+      &:focus-visible { outline: 2px dashed var(--yarn); outline-offset: 2px; }
+    }
+    button {
+      border: 0;
+      background: none;
+      font: 700 0.78rem/1 var(--type);
+      color: var(--yarn);
+      cursor: pointer;
+      padding: 0.25rem;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  .meta { margin: 0 0 0.35rem; font-size: 0.85rem; }
+  .meta b { font-weight: 700; }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    column-gap: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.45rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--paper-dim); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+
+  /* The result: a photo with a typed caption, stamped and annotated. */
+  .photo {
+    --tilt: -0.8deg;
+    padding: 1rem 1rem 1.25rem;
+  }
+  .photo__frame {
+    position: relative;
+    display: grid;
+    align-content: end;
+    min-height: 9.5rem;
+    padding: 1rem 1.2rem;
+    background:
+      radial-gradient(120% 120% at 70% 20%, #3c5a73, #1b2733 70%);
+    color: #eef6ff;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 38%, rgba(255, 255, 255, 0.5) 0 2.4rem, transparent 2.5rem),
+        radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.25) 0 4.3rem, transparent 4.4rem);
+      opacity: 0.35;
+    }
+    p { margin: 0; position: relative; z-index: 1; font: 700 0.85rem/1 var(--type); opacity: 0.9; }
+    h2 { margin: 0.2rem 0 0; position: relative; z-index: 1; font: 400 clamp(2.6rem, 5vw, 3.8rem)/0.95 var(--stamp); }
+  }
+  .stamp {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.4rem;
+    z-index: 4;
+    padding: 0.2rem 0.6rem;
+    border: 3px solid var(--yarn);
+    border-radius: 4px;
+    color: var(--yarn);
+    background: rgba(243, 234, 216, 0.9);
+    font: 400 1.15rem/1.1 var(--stamp);
+    transform: rotate(8deg);
+  }
+  .caption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 1.1rem 1.6rem;
+    margin-top: 1rem;
+
+    h3 { margin: 0 0 0.35rem; font: 700 0.85rem/1 var(--type); border-bottom: 1px solid var(--paper-ink); padding-bottom: 0.25rem; }
+  }
+  .stats {
+    margin: 0;
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+
+    div { display: grid; grid-template-columns: 2rem 1fr 2ch; gap: 0.5rem; align-items: center; }
+    dt { font-weight: 700; }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  }
+  /* Tally bar drawn in pencil. 99 is P4G's cap. */
+  .meter { height: 0.5rem; border: 1px solid var(--paper-ink); }
+  .meter i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); background: repeating-linear-gradient(-55deg, var(--paper-ink) 0 1px, transparent 1px 3px); }
+
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(2.2rem, 1fr));
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 0.15rem; }
+    .h { font-weight: 700; color: var(--paper-dim); }
+    .v { font-weight: 700; padding: 0.1rem 0; position: relative; }
+    .n { font-weight: 400; color: var(--paper-dim); }
+    /* Weakness: circled in red pen and highlighted. Two signals, not colour alone. */
+    .wk { background: var(--accent); }
+    .wk::after {
+      content: '';
+      position: absolute;
+      inset: -0.15rem 0.05rem;
+      border: 2px solid var(--yarn);
+      border-radius: 50% 45% 55% 48%;
+      transform: rotate(-6deg);
+    }
+    .nu, .rp, .dr { text-decoration: underline 2px; text-underline-offset: 3px; }
+  }
+  .legend { margin: 0.35rem 0 0; font-size: 0.72rem; color: var(--paper-dim); }
+
+  /* Handwritten notes on the cork. */
+  .note {
+    font: 400 1.3rem/1.15 var(--hand);
+    color: var(--accent);
+    margin: 0;
+  }
+  .note--rule {
+    margin-top: -0.6rem;
+    padding-left: 1rem;
+    transform: rotate(-2deg);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    transition: opacity 0.4s;
+  }
+  .sticky {
+    --tilt: 2deg;
+    margin: 1.5rem 0 0 auto;
+    width: min(18rem, 100%);
+    padding: 0.9rem 1rem 1rem;
+    background: var(--accent);
+    color: var(--paper-ink);
+    font: 400 1.15rem/1.25 var(--hand);
+  }
+
+  /* The yarn. An SVG laid over the board, paths measured from the pins. */
+  .yarn {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+
+    path {
+      fill: none;
+      stroke: var(--yarn);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.6));
+    }
+  }
+
+  /* ------------------------------------------------------------------ suspect list */
+  .sheet {
+    --tilt: 0.3deg;
+    margin-top: 3.25rem;
+    padding: 1.6rem 1.5rem 1.1rem;
+  }
+  .sheet__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+
+    h2 { margin: 0; font: 400 1.7rem/1 var(--stamp); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 700; font-size: 0.85rem; }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.4rem 0.2rem;
+      border: 0;
+      border-bottom: 2px solid var(--paper-ink);
+      background: transparent;
+      color: var(--paper-ink);
+      font: inherit;
+
+      &::placeholder { color: var(--paper-dim); }
+      &:focus-visible { outline: none; border-bottom-color: var(--yarn); background: color-mix(in srgb, var(--accent) 35%, transparent); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 44rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th { text-align: left; font-size: 0.78rem; color: var(--paper-dim); padding: 0 0.75rem 0.45rem 0; border-bottom: 2px solid var(--paper-ink); }
+    td { padding: 0.45rem 0.75rem 0.45rem 0; border-bottom: 1px solid var(--paper-rule); }
+    tr:last-child td { border-bottom: 0; }
+    td.lv { width: 3rem; text-align: right; padding-right: 1.25rem; font-variant-numeric: tabular-nums; }
+    td.name { font-weight: 700; }
+    td.arcana { color: var(--paper-dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { background: color-mix(in srgb, var(--accent) 40%, transparent); outline: none; }
+      &:focus-visible td.name { text-decoration: underline 2px var(--yarn); text-underline-offset: 4px; }
+    }
+    .lead { margin-left: 0.6rem; font: 400 1.05rem/1 var(--hand); color: var(--yarn); }
+    .aff { grid-template-columns: repeat(7, 2.4rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .board { grid-template-columns: 1fr; gap: 2.5rem; }
+    .bar { flex-wrap: wrap; gap: 0.25rem 1rem; padding: 0.7rem 1rem 0; }
+    .bar__status { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
+    main { padding: 1.75rem 1rem 5rem; }
+  }
+  @media (max-width: 560px) {
+    .caption { grid-template-columns: 1fr; }
+    .photo .aff { grid-template-columns: repeat(4, 1fr); row-gap: 0.5rem; }
+    .stamp { top: 1.2rem; right: 1rem; font-size: 0.95rem; }
+    .bar__status { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pinned { transition: none; }
+    .pinned:hover, .pinned:focus-within { transform: rotate(var(--tilt, 0deg)); }
+    .note--rule { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P4G Companion home">P4G Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <div class="bar__status">205 personas on file</div>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p>Two leads in, one answer out.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="board" data-board>
+    <svg class="yarn" aria-hidden="true"><path data-yarn="1" /><path data-yarn="2" /></svg>
+
+    <div class="leads">
+      <section class="card pinned" style="--tilt:-1.6deg" aria-labelledby="p1-title" data-pin-from>
+        <span class="pin" aria-hidden="true"></span>
+        <h2 id="p1-title">Parent 1</h2>
+        <div class="slot">
+          <label for="p1">Parent 1 persona</label>
+          <input id="p1" value="Angel" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent 1">Clear</button>
+        </div>
+        <p class="meta">Justice · Lv <b>4</b> · inherits wind</p>
+        <ul class="skills">
+          <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+          <li><span class="innate">Patra</span><span class="lv">innate</span></li>
+          <li><span>Hama</span><span class="lv">Lv 5</span></li>
+          <li><span>Sukukaja</span><span class="lv">Lv 6</span></li>
+          <li><span>Regenerate 1</span><span class="lv">Lv 8</span></li>
+          <li><span>Hama Boost</span><span class="lv">Lv 9</span></li>
+        </ul>
+      </section>
+
+      <section class="card pinned" style="--tilt:1.2deg" aria-labelledby="p2-title" data-pin-from>
+        <span class="pin" aria-hidden="true"></span>
+        <h2 id="p2-title">Parent 2</h2>
+        <div class="slot">
+          <label for="p2">Parent 2 persona</label>
+          <input id="p2" value="Anzu" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent 2">Clear</button>
+        </div>
+        <p class="meta">Hierophant · Lv <b>15</b> · inherits wind</p>
+        <ul class="skills">
+          <li><span class="innate">Garu</span><span class="lv">innate</span></li>
+          <li><span class="innate">Balzac</span><span class="lv">innate</span></li>
+          <li><span class="innate">Alertness</span><span class="lv">innate</span></li>
+          <li><span>Magaru</span><span class="lv">Lv 17</span></li>
+          <li><span>Red Wall</span><span class="lv">Lv 18</span></li>
+          <li><span>Mahama</span><span class="lv">Lv 19</span></li>
+          <li><span>Auto-Sukukaja</span><span class="lv">Lv 20</span></li>
+        </ul>
+      </section>
+      <p class="note note--rule" data-note>Justice × Hierophant = Magician.<br />(4 + 15) ÷ 2, round down, + 1 = Lv 10 → first Magician at 10+</p>
+    </div>
+
+    <div>
+      <section class="photo pinned" aria-labelledby="r-name" aria-live="polite" data-pin-to>
+        <span class="pin" aria-hidden="true"></span>
+        <span class="stamp" aria-hidden="true">Identified</span>
+        <div class="photo__frame">
+          <p>Result · Magician · Lv 16</p>
+          <h2 id="r-name">Jack Frost</h2>
+        </div>
+        <div class="caption">
+          <div>
+            <h3>Stats</h3>
+            <dl class="stats" data-stats></dl>
+            <h3 style="margin-top:0.9rem">Affinities</h3>
+            <div class="aff" data-aff="result"></div>
+            <p class="legend">Circled = weak · underlined = null</p>
+          </div>
+          <div>
+            <h3>Skills</h3>
+            <ul class="skills" style="grid-template-columns:1fr">
+              <li><span class="innate">Mabufu</span><span class="lv">innate</span></li>
+              <li><span class="innate">Ice Break</span><span class="lv">innate</span></li>
+              <li><span class="innate">Me Patra</span><span class="lv">innate</span></li>
+              <li><span>Ice Boost</span><span class="lv">Lv 18</span></li>
+              <li><span>Bufula</span><span class="lv">Lv 19</span></li>
+              <li><span>Dodge Fire</span><span class="lv">Lv 20</span></li>
+              <li><span>Mind Charge</span><span class="lv">Lv 25</span></li>
+            </ul>
+            <p class="meta" style="margin-top:0.6rem">Weak to <mark>Fire</mark>. Inherits ice.</p>
+          </div>
+        </div>
+      </section>
+      <p class="sticky pinned">Weak to fire. One Agi knocks it down, so keep it out of the front line against fire users.</p>
+    </div>
+  </div>
+
+  <section class="sheet pinned" aria-labelledby="list-title">
+    <span class="pin" aria-hidden="true"></span>
+    <div class="sheet__head">
+      <h2 id="list-title">Persona list</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr>
+        </thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script>
+  if (location.hash === '#preview') document.documentElement.classList.add('is-preview');
+
+  // Real P4G data (aqiu384/megaten-fusion-tool @ f7d41c3, golden-demon-data.json).
+  const ELEMENTS = ['Phys', 'Fire', 'Ice', 'Elec', 'Wind', 'Light', 'Dark'];
+  const PERSONAS = [
+    { lv: 1, name: 'Izanagi', arcana: 'Fool', aff: { Elec: 'Rs', Wind: 'Wk', Dark: 'Nu' } },
+    { lv: 2, name: 'Pixie', arcana: 'Magician', aff: { Fire: 'Wk', Wind: 'Rs' } },
+    { lv: 4, name: 'Angel', arcana: 'Justice', aff: { Wind: 'Rs', Light: 'Rs', Dark: 'Wk' }, lead: 'lead' },
+    { lv: 9, name: 'Senri', arcana: 'Empress', aff: { Fire: 'Nu', Elec: 'Wk' } },
+    { lv: 15, name: 'Anzu', arcana: 'Hierophant', aff: { Fire: 'Wk', Elec: 'Rs', Wind: 'Nu' }, lead: 'lead' },
+    { lv: 16, name: 'Jack Frost', arcana: 'Magician', aff: { Fire: 'Wk', Ice: 'Nu' }, lead: 'the answer' },
+  ];
+  const STATS = [['St', 10], ['Ma', 14], ['En', 12], ['Ag', 11], ['Lu', 8]];
+
+  const val = (v) => v ? `<span class="v ${v.toLowerCase()}">${v}</span>` : '<span class="v n" aria-label="neutral">–</span>';
+  const head = (e) => `<span class="h" title="${e}">${e.slice(0, 3)}</span>`;
+  const strip = (aff, withHead) => ELEMENTS.map((e) => `<span>${withHead ? head(e) : ''}${val(aff[e])}</span>`).join('');
+
+  document.querySelector('[data-aff="result"]').innerHTML = strip(PERSONAS[5].aff, true);
+  document.querySelector('[data-aff-head]').innerHTML = ELEMENTS.map((e) => `<span>${head(e)}</span>`).join('');
+  document.querySelector('[data-stats]').innerHTML = STATS.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+
+  const rows = document.querySelector('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.lead ? `<span class="lead">← ${p.lead}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    [...rows.rows].forEach((tr, i) => {
+      tr.hidden = term && !`${PERSONAS[i].name} ${PERSONAS[i].arcana}`.toLowerCase().includes(term);
+    });
+  });
+  document.querySelectorAll('.modes button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.modes button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+
+  /* ---- The yarn: measured from pin to pin, drawn with a little sag. ---- */
+  const board = document.querySelector('[data-board]');
+  const svg = board.querySelector('.yarn');
+  const paths = [...svg.querySelectorAll('path')];
+  const froms = [...board.querySelectorAll('[data-pin-from] .pin')];
+  const to = board.querySelector('[data-pin-to] .pin');
+  const note = board.querySelector('[data-note]');
+  const centre = (el, box) => {
+    const r = el.getBoundingClientRect();
+    return [r.left + r.width / 2 - box.left, r.top + r.height / 2 - box.top];
+  };
+  function layout() {
+    const box = board.getBoundingClientRect();
+    const [tx, ty] = centre(to, box);
+    froms.forEach((pin, i) => {
+      const [fx, fy] = centre(pin, box);
+      const sag = Math.min(70, Math.hypot(tx - fx, ty - fy) * 0.16);
+      const mx = (fx + tx) / 2, my = (fy + ty) / 2 + sag;
+      paths[i].setAttribute('d', `M${fx},${fy} Q${mx},${my} ${tx},${ty}`);
+    });
+  }
+  new ResizeObserver(layout).observe(board);
+  document.fonts.ready.then(layout);
+
+  /* ---- Signature: the yarn is strung pin to pin, then the note is written. ---- */
+  let anims = [];
+  let playing = false;
+  const finish = () => {
+    anims.forEach((a) => a.finish());
+    anims = [];
+    playing = false;
+    note.style.opacity = '';
+  };
+  async function string() {
+    layout();
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    playing = true;
+    note.style.opacity = '0';
+    anims = paths.map((p, i) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      return p.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+        { duration: 650, delay: 250 + i * 300, easing: 'cubic-bezier(0.5, 0, 0.3, 1)', fill: 'backwards' });
+    });
+    try { await Promise.all(anims.map((a) => a.finished)); } catch { return; }
+    if (playing) { note.style.opacity = ''; playing = false; }
+  }
+  document.fonts.ready.then(string);
+  document.addEventListener('pointerdown', () => playing && finish());
+  document.addEventListener('keydown', () => playing && finish());
+</script>
+</body>
+</html>
