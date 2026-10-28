@@ -1,14 +1,26 @@
+import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
 
-import { DEFAULT_GAME_ID, GAMES } from './games/game.registry';
+import { LastGameService } from './core/last-game/last-game.service';
+import { DEFAULT_GAME_ID, GAMES, getGame } from './games/game.registry';
 
 /**
- * Top-level routes. Built from the game registry (§9.2) — `/` redirects to the
- * only game, and each game mounts its own child routes under `/<id>/*`. Nothing
- * here names a specific game; adding one is a registry entry, not a route edit.
+ * Where `/` lands: the game the user last had open, if it is still a registered
+ * game, else the default. Runs in the route's injection context.
+ */
+export function rootRedirect(): string {
+  const last = inject(LastGameService).get();
+  return getGame(last)?.id ?? DEFAULT_GAME_ID;
+}
+
+/**
+ * Top-level routes. Built from the game registry (§9.2) — `/` reopens the last
+ * game (default for a first visit), and each game mounts its own child routes
+ * under `/<id>/*`. Nothing here names a specific game; adding one is a registry
+ * entry, not a route edit.
  */
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: DEFAULT_GAME_ID },
+  { path: '', pathMatch: 'full', redirectTo: rootRedirect },
 
   ...GAMES.map((game) => ({ path: game.id, children: game.routes })),
 

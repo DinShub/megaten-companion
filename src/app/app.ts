@@ -5,6 +5,7 @@ import { PrimeNG } from 'primeng/config';
 import { filter, map } from 'rxjs/operators';
 
 import { PRIMEUI_LICENSE_KEY } from '../environments/license';
+import { LastGameService } from './core/last-game/last-game.service';
 import { StorageService } from './core/storage/storage.service';
 import { ThemeService } from './core/theme/theme.service';
 import type { GameDefinition, GameFeature, PrimaryColor } from './games/game.model';
@@ -56,6 +57,7 @@ export class App {
   protected readonly theme = inject(ThemeService);
   private readonly storage = inject(StorageService);
   private readonly primeng = inject(PrimeNG);
+  private readonly lastGame = inject(LastGameService);
 
   /**
    * The primary colour currently applied to the PrimeNG theme. Seeded to the
@@ -112,13 +114,16 @@ export class App {
         this.drawerOpen.set(false);
         // Re-point the primary accent at the active game's colour (§4.8).
         this.applyGameTheme(this.gameFromUrl(e.urlAfterRedirects).theme.primary);
+        // Remember a real game visit so `/` reopens it next time. A not-found URL
+        // has no game segment and must not overwrite the last good one.
+        const visited = getGame(firstSegment(e.urlAfterRedirects));
+        if (visited) this.lastGame.remember(visited.id);
       });
   }
 
   /** Resolve the active game from a URL's first path segment (fallback: default). */
   private gameFromUrl(url: string): GameDefinition {
-    const first = url.split(/[?#]/)[0].split('/').filter(Boolean)[0];
-    return getGame(first) ?? getGame(DEFAULT_GAME_ID) ?? GAMES[0];
+    return getGame(firstSegment(url)) ?? getGame(DEFAULT_GAME_ID) ?? GAMES[0];
   }
 
   /**
@@ -148,4 +153,9 @@ export class App {
   protected dismissStorageBanner(): void {
     this.storage.clearFailure();
   }
+}
+
+/** A URL's first path segment — the game id for every game route. */
+function firstSegment(url: string): string | undefined {
+  return url.split(/[?#]/)[0].split('/').filter(Boolean)[0];
 }
