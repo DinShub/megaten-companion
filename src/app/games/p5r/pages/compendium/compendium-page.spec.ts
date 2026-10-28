@@ -63,7 +63,7 @@ describe('CompendiumPage (integration)', () => {
     const { fixture } = mount();
     const el = fixture.nativeElement as HTMLElement;
     const text = el.textContent ?? '';
-    expect(text).toContain('Your compendium is empty');
+    expect(text).toContain('No masks in your collection yet');
     // Links to the persona list via a routerLink (game-relative).
     const links = [...el.querySelectorAll('a[routerLink], a[href]')].map((a) => a.textContent?.trim());
     expect(links.some((t) => t?.includes('browse the persona list'))).toBe(true);
@@ -84,7 +84,7 @@ describe('CompendiumPage (integration)', () => {
 
     // The roster row now shows, and the empty state is gone.
     const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
-    expect(text).not.toContain('Your compendium is empty');
+    expect(text).not.toContain('No masks in your collection yet');
     expect(text).toContain('Jack Frost');
   });
 

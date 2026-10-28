@@ -91,7 +91,7 @@ const RACE_INDEX = new Map(RACE_ORDER.map((r, i) => [r, i] as const));
             }
           </ul>
         } @else if (store.count() === 0) {
-          <p class="s3-empty">Nothing registered yet. Register the demons you have in-game, and the calculator and route finder will fuse from them.</p>
+          <p class="s3-empty">Compendium empty. Register the demons you have in-game; the calculator and route finder fuse from them.</p>
         } @else {
           <p class="s3-empty">No registered demon matches “{{ query() }}”.</p>
         }
@@ -101,7 +101,7 @@ const RACE_INDEX = new Map(RACE_ORDER.map((r, i) => [r, i] as const));
     }
   `,
   styles: `
-    .cp__row { flex-direction: column; align-items: stretch; }
+    .s3-list > .cp__row { flex-direction: column; align-items: stretch; }
     .cp__main { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.75rem; }
     .cp__skills { flex: 1 1 14rem; font-size: 0.8rem; }
     .cp__actions { display: inline-flex; gap: 0.35rem; margin-left: auto; }

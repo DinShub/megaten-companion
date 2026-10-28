@@ -21,6 +21,7 @@ import {
   serializeShadowFilter,
   sortShadows,
 } from './shadow-filter';
+import { RansomTitle } from '../../ui/ransom-title';
 
 /**
  * Mementos sub-boss list (§4.2, task 21). The 28 sub-bosses from upstream's
@@ -30,12 +31,12 @@ import {
 @Component({
   selector: 'app-subboss-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, AffinityGrid, LoadState, ShadowFilterBar, VirtualList],
+  imports: [RouterLink, AffinityGrid, LoadState, ShadowFilterBar, VirtualList, RansomTitle],
   template: `
     @if (data.shadowsReady()) {
       <div class="page list-page list-page--tabbed">
         <header class="page__head">
-          <h1 class="page__title">Sub-bosses</h1>
+          <app-ransom-title class="page__title" text="Sub-bosses" />
           <span class="page__count">{{ visible().length }} of {{ subbosses().length }}</span>
         </header>
 
@@ -75,7 +76,7 @@ import {
           </ng-template>
 
           @if (visible().length === 0) {
-            <p class="empty">No sub-bosses match these filters. <button type="button" class="linkbtn" (click)="clear()">Clear filters</button></p>
+            <p class="empty">No sub-boss fits that profile. <button type="button" class="linkbtn" (click)="clear()">Clear filters</button></p>
           }
         </div>
       </div>

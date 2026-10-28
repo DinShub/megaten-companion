@@ -39,21 +39,23 @@ export const SKINS: Readonly<Record<GameSkin, SkinTokens>> = {
     },
     radius: SQUARE,
   },
-  // A CRT: near-black warmed toward the ember phosphor, text in warm off-white.
+  // A CRT: near-black warmed toward the ember phosphor. Text (0) is pale
+  // phosphor rather than white, muted text (400) a dim amber that still clears
+  // AA on the 900 page, and 700 — Lara's border colour — a soft ember rule.
   comp: {
     surface: {
-      0: '#fff7ef',
-      50: '#fbefe3',
-      100: '#f1e0cf',
-      200: '#dcc6b0',
-      300: '#bea58c',
-      400: '#988069',
-      500: '#6f5a48',
-      600: '#4c3c30',
-      700: '#33271f',
-      800: '#21170f',
-      900: '#120b07',
-      950: '#0a0604',
+      0: '#fbd7be',
+      50: '#f5ceb2',
+      100: '#efc4a5',
+      200: '#e3b18e',
+      300: '#d69c74',
+      400: '#c68860',
+      500: '#96613f',
+      600: '#6b4228',
+      700: '#472b19',
+      800: '#1d110b',
+      900: '#130b07',
+      950: '#0b0604',
     },
     radius: SQUARE,
   },

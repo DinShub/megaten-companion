@@ -48,23 +48,25 @@ type Chart = 'normal' | 'cursed';
           </div>
         </section>
 
-        <section class="s3-panel chart__gridwrap">
+        <section class="s3-panel">
           <h2>Full chart</h2>
-          <table class="chart__grid">
-            <thead>
-              <tr><th></th>@for (b of races(); track b) { <th scope="col" [title]="raceLabel(b)"><span>{{ abbrev(b) }}</span></th> }</tr>
-            </thead>
-            <tbody>
-              @for (a of races(); track a) {
-                <tr [class.is-sel]="a === raceA()">
-                  <th scope="row" (click)="raceA.set(a)">{{ raceLabel(a) }}</th>
-                  @for (b of races(); track b) {
-                    <td [title]="raceLabel(a) + ' × ' + raceLabel(b) + ' = ' + (cell(a, b) ? resultLabel(cell(a, b)!) : 'nothing')" [class.is-el]="isElement(cell(a, b))">{{ cell(a, b) ? abbrev(cell(a, b)!) : '' }}</td>
-                  }
-                </tr>
-              }
-            </tbody>
-          </table>
+          <div class="chart__gridwrap">
+            <table class="chart__grid">
+              <thead>
+                <tr><th></th>@for (b of races(); track b) { <th scope="col" [title]="raceLabel(b)"><span>{{ abbrev(b) }}</span></th> }</tr>
+              </thead>
+              <tbody>
+                @for (a of races(); track a) {
+                  <tr [class.is-sel]="a === raceA()">
+                    <th scope="row" (click)="raceA.set(a)">{{ raceLabel(a) }}</th>
+                    @for (b of races(); track b) {
+                      <td [title]="raceLabel(a) + ' × ' + raceLabel(b) + ' = ' + (cell(a, b) ? resultLabel(cell(a, b)!) : 'nothing')" [class.is-el]="isElement(cell(a, b))">{{ cell(a, b) ? abbrev(cell(a, b)!) : '' }}</td>
+                    }
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <div class="s3-cols">

@@ -21,6 +21,7 @@ import {
   serializeShadowFilter,
   sortShadows,
 } from './shadow-filter';
+import { RansomTitle } from '../../ui/ransom-title';
 
 /**
  * Regular shadow list (§4.2, task 21). Sub-bosses have their own tab; this lists
@@ -30,12 +31,12 @@ import {
 @Component({
   selector: 'app-shadow-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, AffinityGrid, LoadState, ShadowFilterBar, VirtualList],
+  imports: [RouterLink, AffinityGrid, LoadState, ShadowFilterBar, VirtualList, RansomTitle],
   template: `
     @if (data.shadowsReady()) {
       <div class="page list-page list-page--tabbed">
         <header class="page__head">
-          <h1 class="page__title">Shadows</h1>
+          <app-ransom-title class="page__title" text="Shadows" />
           <span class="page__count">{{ visible().length }} of {{ shadows().length }}</span>
         </header>
 
@@ -78,7 +79,7 @@ import {
           </ng-template>
 
           @if (visible().length === 0) {
-            <p class="empty">No shadows match these filters. <button type="button" class="linkbtn" (click)="clear()">Clear filters</button></p>
+            <p class="empty">No shadow fits that profile. <button type="button" class="linkbtn" (click)="clear()">Clear filters</button></p>
           }
         </div>
       </div>

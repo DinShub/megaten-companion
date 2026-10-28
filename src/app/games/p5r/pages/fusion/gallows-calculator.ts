@@ -77,6 +77,8 @@ interface SkillRow {
           @if (t.id === s.id) {
             <p class="note"><i class="pi pi-info-circle" aria-hidden="true"></i> Pick two different personas — a persona can't be sacrificed into itself.</p>
           } @else if (plan(); as p) {
+            <!-- Keyed on the pair so a new pairing re-mounts the card (and re-runs its stamp-in). -->
+            @for (key of [t.id + "/" + s.id]; track key) {
             <section class="result">
               <header class="result__head">
                 <div>
@@ -141,6 +143,7 @@ interface SkillRow {
                 }
               </section>
             </section>
+            }
           }
         } @else {
           <p class="prompt">Now pick a persona to sacrifice into {{ t.name }}.</p>

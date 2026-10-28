@@ -16,6 +16,7 @@ import type { CompendiumEntry, Persona } from '../../model';
 import { SettingsStore } from '../../settings/settings.store';
 import { titleCase } from '../../ui/format';
 import { EntryEditor } from './entry-editor';
+import { RansomTitle } from '../../ui/ransom-title';
 
 type SortKey = 'name' | 'arcana' | 'level';
 
@@ -47,12 +48,12 @@ interface Row {
 @Component({
   selector: 'app-compendium-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, LoadState, VirtualList, PersonaPicker, EntryEditor, FocusTrap],
+  imports: [RouterLink, LoadState, VirtualList, PersonaPicker, EntryEditor, FocusTrap, RansomTitle],
   template: `
     @if (data.ready()) {
       <div class="page list-page">
         <header class="page__head">
-          <h1 class="page__title">Compendium</h1>
+          <app-ransom-title class="page__title" text="Compendium" />
           <span class="page__count">{{ store.count() }} registered</span>
         </header>
 
@@ -91,7 +92,7 @@ interface Row {
         @if (store.count() === 0) {
           <div class="empty">
             <i class="pi pi-book empty__icon" aria-hidden="true"></i>
-            <h2>Your compendium is empty</h2>
+            <h2>No masks in your collection yet</h2>
             <p>Register the personas you own so the fusion tools can plan from what you actually have —
               recipes you can make now, skills you can inherit, costs to re-summon.</p>
             <p>Use the search above, or <a [routerLink]="nav.link('personas')">browse the persona list</a>.</p>

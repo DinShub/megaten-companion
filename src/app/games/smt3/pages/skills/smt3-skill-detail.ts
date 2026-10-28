@@ -86,7 +86,7 @@ import { formatSkillCost, INHERIT_LABEL, raceLabel, SKILL_ELEMENT_LABEL } from '
         </article>
       } @else {
         <div class="s3-missing">
-          <p>No skill with id “{{ id() }}”.</p>
+          <p>Lookup failed: no skill with id “{{ id() }}” on file.</p>
           <a class="s3-btn" [routerLink]="nav.link('skills')">Back to skills</a>
         </div>
       }

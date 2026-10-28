@@ -93,6 +93,8 @@ interface ItemCard {
 
       @if (outcome(); as o) {
         @if (o.ok && result(); as r) {
+          <!-- Keyed on the result so a new result re-mounts the card (and re-runs its stamp-in). -->
+          @for (key of [r.id]; track key) {
           <section class="result">
             <header class="result__head">
               <div>
@@ -190,6 +192,7 @@ interface ItemCard {
               </aside>
             </div>
           </section>
+          }
         } @else if (!o.ok) {
           <section class="invalid" role="alert">
             <i class="pi pi-exclamation-triangle" aria-hidden="true"></i>
@@ -200,7 +203,7 @@ interface ItemCard {
           </section>
         }
       } @else {
-        <p class="prompt">Choose at least two personas to see what they make.</p>
+        <p class="prompt">Pick two personas and see what they become.</p>
       }
     </div>
   `,

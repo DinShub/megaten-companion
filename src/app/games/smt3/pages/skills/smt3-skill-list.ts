@@ -37,7 +37,7 @@ const INHERIT_OPTIONS: readonly ChipOption[] = [
       <div class="s3-page list-page">
         <header class="s3-head">
           <h1>Skills</h1>
-          <span class="s3-count">{{ visible().length }} of {{ skills().length }}</span>
+          <span class="s3-count">{{ visible().length }} of {{ skills().length }} on file</span>
         </header>
 
         <div class="s3-toolbar">

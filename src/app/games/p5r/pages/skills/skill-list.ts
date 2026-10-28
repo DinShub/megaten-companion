@@ -22,6 +22,7 @@ import {
   serializeSkillFilter,
   sortSkills,
 } from './skill-filter';
+import { RansomTitle } from '../../ui/ransom-title';
 
 const SKILL_ELEMENTS: readonly string[] = [
   'phys', 'gun', 'fire', 'ice', 'elec', 'wind', 'psy', 'nuke', 'bless', 'curse',
@@ -58,12 +59,12 @@ const INHERITANCE_OPTIONS: readonly ChipOption[] = [
 @Component({
   selector: 'app-skill-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, ChipMultiselect, RangeControl, SkillChip, LoadState, VirtualList],
+  imports: [RouterLink, ChipMultiselect, RangeControl, SkillChip, LoadState, VirtualList, RansomTitle],
   template: `
     @if (data.ready()) {
       <div class="page list-page">
         <header class="page__head">
-          <h1 class="page__title">Skills</h1>
+          <app-ransom-title class="page__title" text="Skills" />
           <span class="page__count">{{ visible().length }} of {{ skills().length }}</span>
         </header>
 

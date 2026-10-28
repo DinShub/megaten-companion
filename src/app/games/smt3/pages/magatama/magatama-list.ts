@@ -24,7 +24,7 @@ type SortKey = 'level' | 'name';
       <div class="s3-page">
         <header class="s3-head">
           <h1>Magatama</h1>
-          <span class="s3-count">{{ visible().length }} of {{ all().length }}</span>
+          <span class="s3-count">{{ visible().length }} of {{ all().length }} on file</span>
         </header>
         <div class="s3-toolbar">
           <span class="s3-search">

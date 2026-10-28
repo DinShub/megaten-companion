@@ -110,6 +110,6 @@ describe('DemonDetail (integration)', () => {
   });
 
   it('says so for an unknown id', () => {
-    expect(text(mount('nobody'))).toContain('No demon with id “nobody”');
+    expect(text(mount('nobody'))).toContain('no demon with id “nobody”');
   });
 });

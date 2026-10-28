@@ -23,6 +23,7 @@ import {
   serializePersonaFilter,
   sortPersonas,
 } from './persona-filter';
+import { RansomTitle } from '../../ui/ransom-title';
 
 const KIND_LABELS: Record<Persona['kind'], string> = {
   normal: 'Fusable',
@@ -52,12 +53,12 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
 @Component({
   selector: 'app-persona-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, AffinityGrid, ChipMultiselect, RangeControl, LoadState, VirtualList],
+  imports: [RouterLink, AffinityGrid, ChipMultiselect, RangeControl, LoadState, VirtualList, RansomTitle],
   template: `
     @if (data.ready()) {
       <div class="page list-page">
         <header class="page__head">
-          <h1 class="page__title">Personas</h1>
+          <app-ransom-title class="page__title" text="Personas" />
           <span class="page__count">{{ visible().length }} of {{ personas().length }}</span>
         </header>
 
@@ -165,7 +166,7 @@ const RELATIONS: readonly Affinity[] = ['weak', 'resist', 'null', 'repel', 'drai
           </ng-template>
 
           @if (visible().length === 0) {
-            <p class="empty">No personas match these filters. <button type="button" class="linkbtn" (click)="clear()">Clear filters</button></p>
+            <p class="empty">No persona fits that profile. <button type="button" class="linkbtn" (click)="clear()">Clear filters</button></p>
           }
         </div>
       </div>

@@ -21,20 +21,11 @@ import {
   raceLabel,
   SMT3_AFFINITY_ELEMENTS,
   SMT3_INHERIT_ELEMENTS,
+  STAT_COLUMNS,
   UNLOCK_LABEL,
 } from '../../ui/smt3-format';
 import { Smt3RecipeTable } from '../../ui/smt3-recipe-table';
 import { Smt3FusionStore } from '../fusion/smt3-fusion.store';
-
-const STAT_CELLS = [
-  { key: 'hp', label: 'HP' },
-  { key: 'mp', label: 'MP' },
-  { key: 'strength', label: 'St' },
-  { key: 'magic', label: 'Ma' },
-  { key: 'vitality', label: 'Vi' },
-  { key: 'agility', label: 'Ag' },
-  { key: 'luck', label: 'Lu' },
-] as const;
 
 /**
  * Demon detail: everything a companion needs on one page — stats, affinities,
@@ -96,10 +87,17 @@ const STAT_CELLS = [
             <section class="s3-panel">
               <h2>Stats</h2>
               <div class="s3-statcells">
-                @for (s of statCells; track s.key) {
-                  <div><small>{{ s.label }}</small><strong>{{ d.stats[s.key] }}</strong></div>
-                }
+                <div><small>HP</small><strong>{{ d.stats.hp }}</strong></div>
+                <div><small>MP</small><strong>{{ d.stats.mp }}</strong></div>
               </div>
+              <dl class="s3-meters">
+                @for (s of statCols; track s.key) {
+                  <div [title]="s.label">
+                    <dt>{{ s.abbrev }}</dt>
+                    <dd><span class="s3-num">{{ d.stats[s.key] }}</span><span class="s3-meter" [style.--v]="d.stats[s.key]" aria-hidden="true"></span></dd>
+                  </div>
+                }
+              </dl>
               <p class="s3-note">Est. compendium recall cost: {{ cost(d) }} Macca (upstream's estimate from base stats).</p>
               @if (evolveTo(); as e) {
                 <h2>Evolves into</h2>
@@ -179,7 +177,7 @@ const STAT_CELLS = [
         </article>
       } @else {
         <div class="s3-missing">
-          <p>No demon with id “{{ id() }}”.</p>
+          <p>Lookup failed: no demon with id “{{ id() }}” on file.</p>
           <a class="s3-btn" [routerLink]="nav.link('demons')">Back to demons</a>
         </div>
       }
@@ -195,7 +193,7 @@ export class DemonDetail {
   private readonly fusion = inject(Smt3FusionStore);
   private readonly route = inject(ActivatedRoute);
 
-  protected readonly statCells = STAT_CELLS;
+  protected readonly statCols = STAT_COLUMNS;
   protected readonly affinityElements = SMT3_AFFINITY_ELEMENTS;
   protected readonly inheritElements = SMT3_INHERIT_ELEMENTS;
   protected readonly kindLabel = KIND_LABEL;

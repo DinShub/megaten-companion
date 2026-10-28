@@ -68,59 +68,67 @@ const PATH_LABEL: Record<FusionPath, string> = {
 
           @if (outcome(); as o) {
             @if (o.ok && result(); as r) {
-              <section class="s3-panel calc__result">
-                <div class="s3-detail-head">
-                  <div>
-                    <span class="s3-eyebrow">{{ pathLabel[o.path] }}</span>
-                    <h3 class="calc__name">
-                      <a [routerLink]="nav.link('demons', r.id)">{{ r.name }}</a>
-                      <app-ownership-badge [registered]="store.isOwned(r.id)" [level]="store.ownedLevel(r.id)" />
-                    </h3>
-                    <div class="s3-tags">
-                      <span class="s3-tag">{{ raceLabel(r.race) }}</span>
-                      <span class="s3-tag">Lv {{ r.level }}</span>
-                      @if (o.targetLevel !== null) { <span class="s3-tag" title="(a + b) / 2 + 1">Target Lv {{ o.targetLevel }}</span> }
+              <!-- Keyed on the pair, so a new fusion re-runs the log's typing sequence. -->
+              @for (run of [command()]; track run) {
+                <section class="s3-panel calc__result">
+                  <h2>Result</h2>
+                  <ul class="calc__log">
+                    <li aria-hidden="true">Fusion program ready. 2 demons loaded.</li>
+                    <li class="calc__cmd" aria-hidden="true" [style.--n]="run.length">{{ run }}</li>
+                    <li class="calc__ok">{{ pathLabel[o.path] }}. Analysis complete.</li>
+                  </ul>
+                  <div class="s3-detail-head calc__body">
+                    <div>
+                      <h3 class="calc__name">
+                        <a [routerLink]="nav.link('demons', r.id)">{{ r.name }}</a>
+                        <app-ownership-badge [registered]="store.isOwned(r.id)" [level]="store.ownedLevel(r.id)" />
+                      </h3>
+                      <div class="s3-tags">
+                        <span class="s3-tag">{{ raceLabel(r.race) }}</span>
+                        <span class="s3-tag">Lv {{ r.level }}</span>
+                        @if (o.targetLevel !== null) { <span class="s3-tag" title="(a + b) / 2 + 1">Target Lv {{ o.targetLevel }}</span> }
+                      </div>
+                    </div>
+                    <div class="calc__mask">
+                      <span class="s3-eyebrow">Can inherit</span>
+                      <app-inherit-mask [allowed]="inheritRow(r)" [elements]="inheritElements" />
                     </div>
                   </div>
-                  <div class="calc__mask">
-                    <span class="s3-eyebrow">Can inherit</span>
-                    <app-inherit-mask [allowed]="inheritRow(r)" [elements]="inheritElements" />
-                  </div>
-                </div>
 
-                @if (o.blockedByLevel) {
-                  <p class="s3-warn"><i class="pi pi-lock" aria-hidden="true"></i> {{ r.name }} is level {{ r.level }} — above your Demi-fiend (Lv {{ store.protagonistLevel() }}). <a [routerLink]="nav.link('settings')">Raise it or lift the cap</a>.</p>
-                }
-                @if (o.clampedToCeiling) {
-                  <p class="s3-warn"><i class="pi pi-arrow-up" aria-hidden="true"></i> The parents overshoot the {{ raceLabel(r.race) }} race — clamped to its highest demon.</p>
-                }
-                @for (f of deathstone(); track f.id) {
-                  <p class="s3-info"><i class="pi pi-moon" aria-hidden="true"></i> Holding a Deathstone: <a [routerLink]="nav.link('demons', f.id)">{{ f.name }}</a> instead — {{ f.condition }}</p>
-                }
-                @if (o.cursedRace) {
-                  <p class="s3-note">Cursed chart (Full Kagutsuchi, reference only): {{ raceLabel(o.cursedRace) }}.</p>
-                }
+                  @if (o.blockedByLevel) {
+                    <p class="s3-warn"><i class="pi pi-lock" aria-hidden="true"></i> {{ r.name }} is level {{ r.level }} — above your Demi-fiend (Lv {{ store.protagonistLevel() }}). <a [routerLink]="nav.link('settings')">Raise it or lift the cap</a>.</p>
+                  }
+                  @if (o.clampedToCeiling) {
+                    <p class="s3-warn"><i class="pi pi-arrow-up" aria-hidden="true"></i> The parents overshoot the {{ raceLabel(r.race) }} race — clamped to its highest demon.</p>
+                  }
+                  @for (f of deathstone(); track f.id) {
+                    <p class="s3-info"><i class="pi pi-moon" aria-hidden="true"></i> Holding a Deathstone: <a [routerLink]="nav.link('demons', f.id)">{{ f.name }}</a> instead — {{ f.condition }}</p>
+                  }
+                  @if (o.cursedRace) {
+                    <p class="s3-note">Cursed chart (Full Kagutsuchi, reference only): {{ raceLabel(o.cursedRace) }}.</p>
+                  }
 
-                <h2>Inheritable skills</h2>
-                @if (inheritRows().length) {
-                  <ul class="calc__skills">
-                    @for (s of inheritRows(); track s.id) {
-                      <li [class.is-off]="!s.eligible">
-                        <app-skill-chip [name]="s.name" [element]="s.element" [unique]="s.note === 'Unique'" />
-                        @if (s.note) { <small class="s3-muted">{{ s.note }}</small> }
-                      </li>
-                    }
-                  </ul>
-                  <p class="s3-note">Every skill the parents carry (registered parents: their recorded skills). How many the game passes on per fusion isn't modelled upstream, so only the 8-skill capacity is assumed.</p>
-                } @else {
-                  <p class="s3-muted">Neither parent carries a skill to pass on.</p>
-                }
-              </section>
+                  <h2>Inheritable skills</h2>
+                  @if (inheritRows().length) {
+                    <ul class="calc__skills">
+                      @for (s of inheritRows(); track s.id) {
+                        <li [class.is-off]="!s.eligible">
+                          <app-skill-chip [name]="s.name" [element]="s.element" [unique]="s.note === 'Unique'" />
+                          @if (s.note) { <small class="s3-muted">{{ s.note }}</small> }
+                        </li>
+                      }
+                    </ul>
+                    <p class="s3-note">Every skill the parents carry (registered parents: their recorded skills). How many the game passes on per fusion isn't modelled upstream, so only the 8-skill capacity is assumed.</p>
+                  } @else {
+                    <p class="s3-muted">Neither parent carries a skill to pass on.</p>
+                  }
+                </section>
+              }
             } @else if (!o.ok) {
               <p class="s3-invalid" role="alert"><i class="pi pi-exclamation-triangle" aria-hidden="true"></i> {{ o.message }}</p>
             }
           } @else {
-            <p class="s3-empty">Choose two demons to see what they make.</p>
+            <p class="s3-empty">Awaiting input. Choose two demons to fuse.</p>
           }
         } @else {
           <div class="s3-panel">
@@ -163,7 +171,7 @@ const PATH_LABEL: Record<FusionPath, string> = {
     .calc__slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.75rem; }
     .calc__slot { display: flex; flex-direction: column; gap: 0.45rem; }
     .calc__chip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; margin-top: 0.35rem; .s3-linkbtn { margin-left: auto; } }
-    .calc__result { display: flex; flex-direction: column; gap: 0.75rem; border-color: var(--p-primary-color); }
+    .calc__result { display: flex; flex-direction: column; gap: 0.75rem; }
     .calc__name { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0.2rem 0 0.45rem; font-size: 1.5rem; }
     .calc__mask { display: flex; flex-direction: column; gap: 0.3rem; min-width: 11rem; }
     .calc__skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; list-style: none;
@@ -189,6 +197,9 @@ export class Smt3FusionCalculator {
   protected readonly targetId = signal<string | null>(this.query.get('target'));
 
   private readonly parentIds = computed(() => this.slots().filter((id): id is string => id != null));
+
+  /** The pair as the program's command line, e.g. `fuse pixie kodama`. */
+  protected readonly command = computed(() => ['fuse', ...this.parentIds()].join(' '));
 
   protected readonly outcome = computed<FusionOutcome | null>(() => {
     const engine = this.store.engine();

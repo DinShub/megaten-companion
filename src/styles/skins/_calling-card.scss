@@ -1,11 +1,1389 @@
 /* Calling Card skin (P5R): graphic pop. True-black halftone page, white
    cut-corner "paper" panels with hard accent shadows, slanted tabs, ransom-letter
-   titles. */
+   titles (RansomTitle), a result card that stamps in.
+
+   Every P5R page wears this skin and nothing else does, so the page rules below
+   target P5R's own class vocabulary (`.panel`, `.grid--row`, `.seg__btn`, …)
+   directly. They live here rather than in each component because the per-
+   component style budget is 4 kB. Page rules sit under `.app-main`: with the
+   `:root[data-skin]` prefix that out-specifies the components' emulated
+   `.x[_ngcontent-…]` selectors, including their two-class descendant rules.
+
+   Contexts. The page is ink (white on black); a paper panel flips to black on
+   white; the result card is accent. Each context re-points the text, surface,
+   border and input tokens at once, so whatever is nested inside — shared
+   components included — reads correctly without knowing where it sits.
+   `--cc-fg` / `--cc-bg` are the context's ink and ground, for the few marks
+   (tags, verdict tiles) that invert against it. */
 
 @use '../mixins' as *;
 
+$cut: 14px;
+$slant: -12deg;
+$shadow: 6px;
+
+/* ---- Contexts ------------------------------------------------------------ */
+
+@mixin cc-paper-tokens {
+  --cc-fg: #000;
+  --cc-bg: #fff;
+  --cc-focus: #000;
+  --p-text-color: #000;
+  --p-text-muted-color: #4d4d4d;
+  --p-text-hover-color: #000;
+  --p-content-background: #fff;
+  --p-content-border-color: #000;
+  --p-highlight-background: #ececec;
+  /* Bright red on white is under 4.5:1; the deep stop carries accent text here. */
+  --p-primary-color: var(--cc-accent-deep);
+  --app-panel: #fff;
+  --app-panel-2: #ececec;
+  --app-success: #15803d;
+  --app-danger: #b91c1c;
+  --app-warn: #92400e;
+  --p-inputtext-background: #fff;
+  --p-inputtext-color: #000;
+  --p-inputtext-border-color: #000;
+  --p-inputtext-hover-border-color: #000;
+  --p-inputtext-focus-border-color: var(--cc-accent-deep);
+  --p-inputtext-placeholder-color: #5c5c5c;
+  --p-inputnumber-button-background: #fff;
+  --p-inputnumber-button-color: #000;
+  --p-inputnumber-button-border-color: #000;
+  --p-toggleswitch-background: #bdbdbd;
+  --p-toggleswitch-hover-background: #a8a8a8;
+  --p-toggleswitch-checked-background: #000;
+  --p-toggleswitch-checked-hover-background: #262626;
+  --p-toggleswitch-handle-background: #fff;
+  --p-toggleswitch-handle-checked-background: var(--cc-accent);
+  --p-card-background: transparent;
+  --p-card-color: #000;
+  --p-card-shadow: none;
+  --p-card-subtitle-color: #4d4d4d;
+  color: #000;
+}
+
+/* The accent field: black on red. */
+@mixin cc-accent-tokens {
+  --cc-fg: #000;
+  --cc-bg: var(--cc-accent);
+  --cc-focus: #000;
+  --p-text-color: #000;
+  --p-text-muted-color: #1f1f1f;
+  --p-primary-color: #000;
+  color: #000;
+}
+
+/* The cut-corner sheet: paper (::before) over an offset shadow (::after). The
+   shapes are pseudo-elements, not a clip-path on the panel, so dropdowns and
+   focus rings inside are never clipped. */
+@mixin cc-sheet {
+  position: relative;
+  isolation: isolate;
+  border-color: transparent;
+  border-radius: 0;
+  background: transparent;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, calc(100% - #{$cut}) 0, 100% $cut, 100% 100%, $cut 100%, 0 calc(100% - #{$cut}));
+  }
+  &::before {
+    z-index: -1;
+    background: var(--cc-paper);
+  }
+  &::after {
+    z-index: -2;
+    background: var(--cc-accent);
+    transform: translate($shadow, $shadow);
+  }
+  /* Lift an open panel (its dropdown) over the panels that follow it. */
+  &:focus-within {
+    z-index: 3;
+  }
+}
+
+/* The paper token set, shared as one rule rather than repeated per use. */
+%cc-paper-ink {
+  @include cc-paper-tokens;
+}
+
+%cc-paper {
+  @extend %cc-paper-ink;
+  @include cc-sheet;
+}
+
+/* A paper panel that holds a parent/subject: a thick ink spine down the left. */
+%cc-paper-spine {
+  @extend %cc-paper;
+  padding-left: 1.6rem;
+
+  &::before {
+    /* Inset by a sliver of paper, or it would vanish into the black page. */
+    background: linear-gradient(90deg, var(--cc-paper) 0 4px, #000 4px 11px, var(--cc-paper) 11px);
+  }
+}
+
+/* A dialog: square paper with a hard shadow. It scrolls (or clips its own
+   scroller), so the pseudo-element sheet — which would scroll away with the
+   content or be clipped — is the wrong tool here. */
+%cc-dialog {
+  @extend %cc-paper-ink;
+  border: 3px solid #000;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: 8px 8px 0 var(--cc-accent);
+}
+
+/* Slanted control; its children are counter-skewed so text stays upright. */
+%cc-slant {
+  transform: skewX($slant);
+
+  > * {
+    display: inline-block;
+    transform: skewX(-$slant);
+  }
+}
+
+/* A square, slanted, outlined button in the context's ink. */
+%cc-button {
+  @extend %cc-slant;
+  border: 2px solid var(--cc-fg);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cc-fg);
+  font-family: var(--app-font-body);
+  font-weight: 800;
+  transition: background-color 0.12s, color 0.12s;
+
+  &:hover:not(:disabled) {
+    border-color: var(--cc-accent);
+    background: var(--cc-accent);
+    color: #000;
+  }
+  /* Lift the ring over the neighbouring plate it overlaps. */
+  &:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline-offset: 3px;
+  }
+}
+
+%cc-button-on {
+  border-color: var(--cc-accent);
+  background: var(--cc-accent);
+  color: #000;
+
+  small {
+    color: inherit;
+  }
+}
+
+/* A text field cut from paper: white, inked edge, accent kick-shadow. */
+%cc-field {
+  @extend %cc-paper-ink;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--cc-accent);
+
+  &:focus-within {
+    outline: 3px solid var(--cc-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* A small slanted label: the context's ink as the ground. */
+%cc-tag {
+  display: inline-block;
+  border-radius: 0;
+  background: var(--cc-fg);
+  color: var(--cc-bg);
+  font-weight: 800;
+  transform: skewX($slant);
+}
+
+/* A section heading inside a sheet. */
+%cc-sheet-title {
+  color: var(--p-text-color);
+  font-family: var(--app-font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* A row in a dense list: a dark bar, separated by a strip of page. */
+%cc-bar {
+  border: 0;
+  border-top: 3px solid #000;
+  border-radius: 0;
+  background: var(--cc-row);
+
+  &:hover {
+    background: var(--cc-row-hover);
+    box-shadow: inset 5px 0 0 var(--cc-accent);
+  }
+}
+
+/* An instruction or empty state: the page's next move, not a shrug. */
+%cc-prompt {
+  padding: 1.5rem 1rem;
+  border: 2px dashed #4a4a4a;
+  color: var(--cc-smoke);
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes cc-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.3) rotate(-5deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(0.97) rotate(0.8deg);
+  }
+  78% {
+    transform: scale(1.01) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cc-kicker {
+  0%,
+  45% {
+    opacity: 0;
+    transform: rotate(-3deg) translateX(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-3deg);
+  }
+}
+
 @include skin('calling-card') {
+  /* ---- Tokens ----------------------------------------------------------- */
   --app-font-body: 'Archivo', system-ui, sans-serif;
   --app-font-display: 'Dela Gothic One', 'Archivo', sans-serif;
   --app-font-data: 'Archivo Narrow', 'Archivo', sans-serif;
+
+  --cc-accent: var(--p-primary-500);
+  --cc-accent-deep: var(--p-primary-700);
+  --cc-accent-dark: var(--p-primary-900);
+  --cc-paper: #fff;
+  --cc-smoke: #c9c9c9;
+  --cc-row: #141414;
+  --cc-row-hover: #1f1f1f;
+  --cc-fg: #fff;
+  --cc-bg: #000;
+  --cc-focus: var(--cc-accent);
+
+  --p-primary-color: var(--cc-accent);
+  --p-primary-contrast-color: #000;
+  --p-text-muted-color: #b8b8b8;
+  --p-content-border-color: #3a3a3a;
+  --p-highlight-background: #1f1f1f;
+  --p-border-radius: 0;
+  --p-border-radius-sm: 0;
+  --app-panel: #141414;
+  --app-panel-2: #262626;
+  --p-inputtext-background: #fff;
+  --p-inputtext-color: #000;
+  --p-inputtext-border-color: #000;
+  --p-inputtext-placeholder-color: #5c5c5c;
+  --p-button-primary-background: var(--cc-accent);
+  --p-button-primary-border-color: var(--cc-accent);
+  --p-button-primary-color: #000;
+  --p-button-primary-hover-background: #fff;
+  --p-button-primary-hover-border-color: #fff;
+  --p-button-primary-hover-color: #000;
+
+  color-scheme: dark;
+  accent-color: var(--cc-accent);
+
+  body {
+    background: #000;
+
+    /* Halftone: a dot screen in the darkest accent, thinning toward the lower
+       left — grain without an image. Fixed, behind everything, never input. */
+    &::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 100% 0, transparent 0 35%, #000 78%),
+        radial-gradient(var(--cc-accent-dark) 1.5px, transparent 1.9px) 0 0 / 9px 9px;
+    }
+  }
+
+  ::selection {
+    background: var(--cc-accent);
+    color: #000;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--cc-focus);
+    outline-offset: 2px;
+  }
+
+  code {
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+  }
+
+  /* ---- Shell ------------------------------------------------------------ */
+  .app-bar {
+    gap: 1.25rem;
+    border-bottom: 4px solid var(--cc-accent);
+    background: #000;
+  }
+
+  .app-bar__brand {
+    gap: 0.6rem;
+    font-family: var(--app-font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    .pi {
+      display: none;
+    }
+    &::before {
+      content: '';
+      width: 1.75rem;
+      height: 1.75rem;
+      background: var(--cc-accent);
+      clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+  }
+
+  .app-gameswitch {
+    border: 2px solid #fff;
+    background: #000;
+    font-weight: 800;
+  }
+
+  .app-iconbtn {
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 2px solid #fff;
+    border-radius: 0;
+    transform: rotate(-4deg);
+
+    &:hover {
+      border-color: var(--cc-accent);
+      background: var(--cc-accent);
+      color: #000;
+    }
+  }
+
+  /* Tabs hang from the accent rule, like index cards slid into the bar. */
+  .app-nav {
+    align-self: stretch;
+    align-items: flex-end;
+    gap: 0.2rem;
+  }
+
+  .app-nav__link {
+    @extend %cc-slant;
+    gap: 0.45rem;
+    padding: 0.55rem 1rem 0.5rem;
+    border-radius: 0;
+    color: var(--cc-smoke);
+    font-weight: 800;
+    font-size: 0.92rem;
+
+    &:hover {
+      background: #222;
+      color: #fff;
+    }
+    &.is-active {
+      background: #fff;
+      color: #000;
+      box-shadow: 4px -4px 0 var(--cc-accent);
+    }
+  }
+
+  .app-tabbar {
+    border-top: 4px solid var(--cc-accent);
+    background: #000;
+  }
+
+  .app-tabbar__item {
+    color: var(--cc-smoke);
+    font-weight: 700;
+
+    &.is-active {
+      background: var(--cc-accent);
+      color: #000;
+    }
+  }
+
+  .app-scrim,
+  .modal__scrim {
+    background: rgba(0, 0, 0, 0.72);
+  }
+
+  .app-drawer {
+    border-left: 4px solid var(--cc-accent);
+    background: #000;
+  }
+
+  .app-drawer__head,
+  .app-drawer__group {
+    border-color: #333;
+  }
+
+  .app-drawer__title {
+    font-family: var(--app-font-display);
+    font-weight: 400;
+  }
+
+  .app-drawer__section {
+    color: var(--cc-smoke);
+    font-size: 0.8rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .app-drawer__link {
+    border-radius: 0;
+    font-weight: 700;
+
+    &.is-active {
+      background: #fff;
+      color: #000;
+      box-shadow: 4px 4px 0 var(--cc-accent);
+    }
+  }
+
+  .app-alert--warn {
+    background: #fff;
+    color: #000;
+    box-shadow: inset 8px 0 0 var(--cc-accent);
+  }
+
+  /* ---- Shared components ------------------------------------------------ */
+
+  /* Section tabs (Fusion, Shadows): the nav's slanted cards, on the page. */
+  app-section-layout .section-tabs {
+    gap: 0.3rem;
+    /* Room for the skew, so the slanted ends never trip the strip's scrollbar. */
+    padding: 0 0.6rem;
+    scrollbar-width: none;
+    border-bottom: 4px solid #fff;
+  }
+
+  app-section-layout .section-tabs__tab {
+    @extend %cc-slant;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem;
+    border: 0;
+    color: var(--cc-smoke);
+    font-weight: 800;
+
+    &:hover {
+      background: #222;
+      color: #fff;
+    }
+    &.is-active {
+      background: #fff;
+      color: #000;
+      box-shadow: 4px -4px 0 var(--cc-accent);
+    }
+    /* The strip scrolls, which would clip an outside ring: draw it inside. */
+    &:focus-visible {
+      outline-offset: -5px;
+    }
+  }
+
+  /* Affinity verdicts each get their own shape, so they read in greyscale:
+     Wk solid accent · Rs inverted · Nu hatched · Rp accent-ringed · Dr double. */
+  app-affinity-grid {
+    .grid {
+      gap: 3px;
+    }
+    .cell {
+      border: 2px solid color-mix(in srgb, var(--cc-fg) 22%, transparent);
+      border-radius: 0;
+      background: transparent;
+    }
+    .cell__el {
+      color: var(--p-text-muted-color);
+      font-family: var(--app-font-data);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .cell__aff {
+      font-weight: 800;
+    }
+    .aff-neutral .cell__aff {
+      color: color-mix(in srgb, var(--cc-fg) 40%, transparent);
+    }
+    .aff-weak {
+      border-color: var(--cc-accent);
+      background: var(--cc-accent);
+
+      .cell__el,
+      .cell__aff {
+        color: #000;
+      }
+    }
+    .aff-resist {
+      border-color: var(--cc-fg);
+      background: var(--cc-fg);
+
+      .cell__el,
+      .cell__aff {
+        color: var(--cc-bg);
+      }
+    }
+    .aff-null {
+      border-color: var(--cc-fg);
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent 0 4px,
+        color-mix(in srgb, var(--cc-fg) 30%, transparent) 4px 6px
+      );
+
+      .cell__aff {
+        color: var(--cc-fg);
+      }
+    }
+    .aff-repel {
+      border-color: var(--cc-accent);
+      background: var(--cc-bg);
+
+      .cell__aff {
+        color: var(--p-primary-color);
+      }
+    }
+    .aff-drain {
+      border: 4px double var(--cc-fg);
+
+      .cell__aff {
+        color: var(--cc-fg);
+      }
+    }
+  }
+
+  app-inherit-mask {
+    .mask {
+      gap: 3px;
+    }
+    .mask__cell {
+      border: 2px solid color-mix(in srgb, var(--cc-fg) 22%, transparent);
+      border-radius: 0;
+      background: transparent;
+      opacity: 0.6;
+
+      &.is-allowed {
+        border-color: var(--cc-fg);
+        background: var(--cc-fg);
+        opacity: 1;
+
+        .mask__el,
+        .mask__mark {
+          color: var(--cc-bg);
+        }
+      }
+    }
+    .mask__el {
+      font-family: var(--app-font-data);
+      font-weight: 700;
+    }
+  }
+
+  app-skill-chip .chip {
+    border: 2px solid color-mix(in srgb, var(--cc-fg) 35%, transparent);
+    border-radius: 0;
+    background: transparent;
+    font-weight: 700;
+  }
+
+  app-skill-chip .chip__dot,
+  .el-dot {
+    border-radius: 0;
+    transform: rotate(45deg) scale(0.85);
+  }
+
+  /* Context-aware: outlined in the context ink, filled once registered. */
+  app-ownership-badge .badge {
+    border: 2px solid color-mix(in srgb, var(--cc-fg) 40%, transparent);
+    border-radius: 0;
+    background: transparent;
+    color: var(--p-text-muted-color);
+    font-weight: 700;
+
+    &--owned {
+      border-color: var(--cc-fg);
+      background: var(--cc-fg);
+      color: var(--cc-bg);
+    }
+  }
+
+  app-persona-picker {
+    .picker__field {
+      @extend %cc-field;
+    }
+    .picker__toggle {
+      border: 2px solid #000;
+      border-radius: 0;
+      color: #000;
+      font-weight: 700;
+
+      &:hover,
+      &[aria-pressed='true'] {
+        border-color: #000;
+        background: #000;
+        color: #fff;
+      }
+    }
+    .picker__list {
+      @extend %cc-paper-ink;
+      border: 2px solid #000;
+      border-radius: 0;
+      background: #fff;
+      box-shadow: 5px 5px 0 var(--cc-accent);
+    }
+    .picker__opt {
+      border-radius: 0;
+
+      &:hover,
+      &.is-active {
+        background: var(--cc-accent);
+        color: #000;
+
+        .opt__arcana {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  app-chip-multiselect .chips__chip {
+    border: 2px solid color-mix(in srgb, var(--cc-fg) 35%, transparent);
+    border-radius: 0;
+    font-weight: 700;
+
+    &.is-on {
+      @extend %cc-button-on;
+    }
+  }
+
+  app-range-control .range__input {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+  }
+
+  app-load-state {
+    .load__msg {
+      color: var(--cc-smoke);
+    }
+    .load__retry {
+      @extend %cc-button;
+    }
+  }
+
+  app-not-found {
+    .not-found__code {
+      font-family: var(--app-font-display);
+      font-size: clamp(4rem, 14vw, 7rem);
+      font-weight: 400;
+      color: #fff;
+      -webkit-text-stroke: 3px #000;
+      paint-order: stroke fill;
+      text-shadow: 6px 6px 0 var(--cc-accent);
+      transform: rotate(-4deg);
+    }
+    .not-found__title {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+    }
+  }
+
+  /* PrimeNG: square, inked, slanted. */
+  .p-button {
+    @extend %cc-slant;
+    border-width: 2px;
+    font-weight: 800;
+    box-shadow: 4px 4px 0 var(--cc-fg);
+
+    &:active {
+      box-shadow: 1px 1px 0 var(--cc-fg);
+    }
+  }
+
+  .p-card {
+    @extend %cc-paper;
+  }
+
+  .p-card-title {
+    @extend %cc-sheet-title;
+    font-size: 1.15rem;
+  }
+
+  .p-inputtext {
+    border-width: 2px;
+    font-weight: 700;
+  }
+
+  /* ---- Global (non-component) chrome ----------------------------------- */
+  .protag,
+  .quickadd {
+    @extend %cc-paper;
+  }
+
+  .modal__panel {
+    @extend %cc-dialog;
+  }
+
+  .modal__title,
+  .quickadd__title {
+    @extend %cc-sheet-title;
+  }
+
+  .quickadd__title {
+    font-size: 1rem;
+  }
+
+  .protag input,
+  .lvedit {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+    font-family: var(--app-font-data);
+    font-weight: 700;
+  }
+
+  .iconbtn {
+    border-radius: 0;
+
+    &:hover {
+      background: var(--cc-accent);
+      color: #000;
+    }
+  }
+
+  .banner--error {
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+    box-shadow: inset 8px 0 0 var(--cc-accent);
+  }
+
+  /* ---- Pages ------------------------------------------------------------ */
+  .app-main {
+    /* Paper: every bordered panel, card and sheet on a P5R page. */
+    :is(.panel, .slot, .role, .target, .subject, .card-col, .controls, .filters, .route, .exp, .qa) {
+      @extend %cc-paper;
+    }
+
+    /* The subjects of a calculation carry a spine, like the prototype's parents. */
+    :is(.slot, .role, .target, .subject) {
+      @extend %cc-paper-spine;
+    }
+
+    :is(.panel__title, .slot__label, .role__label, .target-pick__label, .pick__label, .ctl__label, .card-col__lbl, .cards__lbl, .item__lbl, .drops__lbl, .group__title, .block__title, .editor__title) {
+      @extend %cc-sheet-title;
+    }
+
+    :is(.slot__label, .role__label, .target-pick__label, .pick__label, .ctl__label, .card-col__lbl, .cards__lbl, .item__lbl, .drops__lbl) {
+      font-size: 0.85rem;
+    }
+
+    :is(.mini, .result__path, .grp__with, .qa__a-label, .filters__label, .editor__label) {
+      font-family: var(--app-font-data);
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    /* Detail names: paper letters with an accent print-shadow. */
+    :is(.head__name, .subject__name, .target__name, .settings__title, .about__title, .placeholder__title) {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .head__name {
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      text-shadow: 5px 5px 0 var(--cc-accent);
+    }
+
+    .settings__title,
+    .about__title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+    }
+
+    /* The ransom title is wide; let the count drop below it on a phone. */
+    .page__head {
+      flex-wrap: wrap;
+      row-gap: 0.4rem;
+    }
+
+    .page__count,
+    .group__meta {
+      color: var(--cc-smoke);
+      font-family: var(--app-font-data);
+      font-weight: 700;
+    }
+
+    /* The tilted tiles overhang their line box; give the lead room below. */
+    .classroom__lead {
+      margin-top: 0.35rem;
+      color: var(--cc-smoke);
+    }
+
+    .back {
+      color: var(--cc-smoke);
+      font-weight: 700;
+
+      &:hover {
+        color: var(--cc-accent);
+      }
+    }
+
+    /* Tags, pills and metrics: small slanted labels in the context's ink. */
+    :is(.tag, .group__count, .metric, .rankbadge, .skills__origin, .qa__date) {
+      @extend %cc-tag;
+      padding: 0.18rem 0.5rem;
+      border: 0;
+      font-size: 0.78rem;
+    }
+
+    :is(.tag--kind, .tag--unique, .metric.is-active) {
+      background: var(--cc-accent);
+      color: #000;
+    }
+
+    /* Fusion-path badges: off-palette hues become ink, paper and accent. */
+    .badge-path {
+      background: #2a2a2a;
+      color: var(--cc-smoke);
+
+      &[data-path='same-arcana'] {
+        background: #fff;
+        color: #000;
+      }
+      &[data-path='treasure'] {
+        background: var(--cc-accent);
+        color: #000;
+      }
+      &[data-path='advanced'] {
+        background: transparent;
+        box-shadow: inset 0 0 0 2px var(--cc-accent);
+        color: var(--cc-accent);
+      }
+    }
+
+    .tag--full {
+      background: #fff;
+      color: var(--app-warn);
+    }
+
+    :is(.pill, .chip, .chip-toggle, .type, .suggest__chip, .badge-path, .badge-cap, .alarm__state) {
+      border-radius: 0;
+      font-weight: 700;
+    }
+
+    :is(.pill, .chip, .chip-toggle, .type, .suggest__chip, app-shadow-detail .skills__link) {
+      border-radius: 0;
+      border: 2px solid color-mix(in srgb, var(--cc-fg) 35%, transparent);
+      background: transparent;
+    }
+
+    :is(.chip-toggle.is-on, .type.is-on, .chip--owned) {
+      @extend %cc-button-on;
+    }
+
+    /* Buttons. */
+    /* (The depth stepper's .step is scoped to its page: route steps reuse the name.) */
+    :is(.btn, .toolbar__btn, .ghost, .trait, .seg__btn, .tab, .alarm, .load__retry),
+    app-route-finder .step {
+      @extend %cc-button;
+    }
+
+    :is(.btn--primary, .btn--go, .seg__btn.is-on, .tab.is-on, .toolbar__btn.is-on, .trait.is-sel, .alarm.is-on) {
+      @extend %cc-button-on;
+    }
+
+    .btn--owned {
+      border-color: var(--app-success);
+      color: var(--app-success);
+    }
+
+    .btn--cancel {
+      border-color: #fff;
+      background: #fff;
+      color: #000;
+    }
+
+    .toolbar__btn--danger {
+      border-color: var(--cc-accent);
+      color: var(--cc-accent);
+    }
+
+    .toolbar__dot {
+      border-radius: 0;
+      background: #000;
+    }
+
+    .ghost {
+      border-style: dashed;
+    }
+
+    /* Segmented switches: a run of slanted plates, no capsule around them. */
+    /* Wrap rather than scroll: a scroller would clip the plates' focus rings. */
+    .seg,
+    .tabs {
+      flex-wrap: wrap;
+      gap: 0.4rem 0;
+      padding: 0 0.3rem;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .seg__btn,
+    .tab {
+      margin-left: -2px;
+      padding: 0.5rem 1rem;
+      border-color: var(--cc-fg);
+
+      small {
+        font-weight: 600;
+        opacity: 0.85;
+      }
+    }
+
+    :is(.linkbtn, .link, a.link) {
+      color: var(--p-primary-color);
+      font-weight: 700;
+    }
+
+    /* Long runs of links (drop sources) would turn whole paragraphs red: keep
+       them in ink, lighter, with the accent only as the underline. */
+    .mats__sources .link {
+      color: var(--p-text-color);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: var(--p-primary-color);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+
+      &:hover {
+        color: var(--p-primary-color);
+      }
+    }
+
+    /* Fields. */
+    .toolbar__search,
+    .add__field {
+      @extend %cc-field;
+    }
+
+    :is(.filters select, .editor__num, .editor__select, .filters__affinity select) {
+      border: 2px solid #000;
+      border-radius: 0;
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* Dense lists: dark bars on the halftone, the header in smoke. */
+    .grid--head {
+      border-bottom: 0;
+      background: #000;
+      color: var(--cc-smoke);
+      font-family: var(--app-font-data);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+
+      button.cell {
+        font-weight: 700;
+
+        &.is-sort {
+          color: var(--cc-accent);
+        }
+      }
+    }
+
+    .grid--row {
+      @extend %cc-bar;
+      font-family: var(--app-font-data);
+      font-weight: 500;
+
+      &.is-selected {
+        background: #2a2a2a;
+        box-shadow: inset 5px 0 0 var(--cc-accent);
+      }
+    }
+
+    .grid--row > .cell--name,
+    .grid--row .cell--name {
+      font-family: var(--app-font-body);
+      font-weight: 800;
+    }
+
+    app-persona-list .grid--row > .cell--lv {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+    }
+
+    :is(.row, .mats__row, .list__row, .skills__row, .assign) {
+      border-color: var(--p-content-border-color);
+    }
+
+    /* Recipe rows on the reverse calculator: the same bars as the lists. */
+    .rows .row {
+      @extend %cc-bar;
+      padding: 0.6rem 0.85rem;
+    }
+
+    .row--ready {
+      box-shadow: inset 5px 0 0 var(--app-success);
+    }
+
+    /* Inside sheets, rules are inked. */
+    :is(.panel .skills__row, .panel .list__row, .qa__a, .editor .skills__row) {
+      border-top-width: 2px;
+    }
+
+    .skills__acq.is-innate,
+    .list__acq.is-innate {
+      padding: 0.12rem 0.4rem;
+      background: var(--cc-accent);
+      color: #000;
+      font-weight: 800;
+    }
+
+    .stats__cell {
+      border-radius: 0;
+      background: #000;
+      color: #fff;
+    }
+
+    .stats__abbr {
+      color: var(--cc-smoke);
+      font-family: var(--app-font-data);
+      font-weight: 700;
+    }
+
+    .stats__grow {
+      color: var(--cc-accent);
+    }
+
+    .stats__val {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+    }
+
+    /* Notices. */
+    :is(.warn, .invalid, .deadend) {
+      @extend %cc-paper-ink;
+      border-radius: 0;
+      background: #fff;
+      color: #000;
+      box-shadow: inset 8px 0 0 var(--cc-accent);
+      padding-left: 1.2rem;
+    }
+
+    .note {
+      border-radius: 0;
+      background: #1a1a1a;
+      box-shadow: inset 4px 0 0 #fff;
+      color: var(--cc-smoke);
+    }
+
+    .panel .note,
+    .controls .note {
+      background: #ececec;
+      color: #333;
+      box-shadow: inset 4px 0 0 #000;
+    }
+
+    :is(.prompt, .empty, .empty-rows, .missing) {
+      @extend %cc-prompt;
+    }
+
+    /* Compendium's empty state is an invitation; let it speak up. */
+    .empty h2 {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .empty__icon {
+      color: var(--cc-accent);
+    }
+
+    /* Route steps: numbered stamps and inked units. */
+    .step__n {
+      border-radius: 0;
+      background: #000;
+      color: #fff;
+      font-family: var(--app-font-display);
+      transform: rotate(-6deg);
+    }
+
+    .unit {
+      border: 2px solid #000;
+      border-radius: 0;
+      background: #fff;
+    }
+
+    .unit--made {
+      border-style: dashed;
+    }
+
+    .unit--result {
+      background: var(--cc-accent);
+
+      .uname,
+      .ulv,
+      .tgt {
+        color: #000;
+      }
+    }
+
+    .route__rank {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+      color: var(--p-primary-color);
+    }
+
+    /* Persona forward fusions: inner groups are inked boxes on the sheet. */
+    .grp {
+      border: 2px solid #000;
+      border-radius: 0;
+    }
+
+    .grp__name {
+      font-weight: 800;
+    }
+
+    .qa {
+      border: 0;
+      padding-left: 1.3rem;
+
+      &::before {
+        background: linear-gradient(90deg, var(--cc-accent) 0 6px, var(--cc-paper) 6px);
+      }
+    }
+
+    .qa--exam::before {
+      background: linear-gradient(90deg, #000 0 4px, #fff 4px 7px, #000 7px 11px, var(--cc-paper) 11px);
+    }
+
+    .qa__a-text,
+    .qa__a-list li {
+      color: var(--cc-accent-deep);
+    }
+
+    .about__sect,
+    .about__datasets li {
+      border-color: #3a3a3a;
+    }
+
+    .about__head {
+      font-family: var(--app-font-display);
+      font-weight: 400;
+      font-size: 1.15rem;
+    }
+
+    .about__link {
+      color: var(--cc-accent);
+      font-weight: 700;
+    }
+
+    .placeholder__icon {
+      color: var(--cc-accent);
+    }
+
+    /* ---- The result card: accent halftone, the loud one ----------------- */
+    app-forward-calculator .result,
+    app-gallows-calculator .result {
+      @include cc-accent-tokens;
+      position: relative;
+      isolation: isolate;
+      padding: 1.4rem 1.5rem 1.6rem;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      animation: cc-stamp 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+      transform-origin: 30% 30%;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        clip-path: polygon(0 1.5%, 100% 0, 99.4% 100%, 0.6% 98.5%);
+      }
+      &::before {
+        z-index: -1;
+        background:
+          radial-gradient(var(--cc-accent-deep) 2px, transparent 2.4px) 0 0 / 11px 11px,
+          var(--cc-accent);
+      }
+      &::after {
+        z-index: -2;
+        background: #fff;
+        transform: translate(8px, 8px);
+      }
+
+      .result__path,
+      .result__kicker,
+      .mini {
+        display: inline-block;
+        letter-spacing: 0;
+        text-transform: none;
+        padding: 0.25rem 0.6rem;
+        background: #000;
+        color: #fff;
+        font-family: var(--app-font-body);
+        font-size: 0.82rem;
+        font-weight: 800;
+        transform: rotate(-3deg);
+        animation: cc-kicker 0.65s ease-out both;
+      }
+
+      .mini {
+        animation: none;
+        transform: none;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.45rem;
+        align-self: flex-start;
+      }
+
+      .result__name {
+        margin: 0.55rem 0 0.6rem;
+
+        a {
+          color: #fff;
+          font-family: var(--app-font-display);
+          font-size: clamp(2.4rem, 7vw, 4.2rem);
+          font-weight: 400;
+          line-height: 0.95;
+          -webkit-text-stroke: 3px #000;
+          paint-order: stroke fill;
+          text-shadow: 5px 5px 0 #000;
+        }
+      }
+
+      .tag {
+        background: #fff;
+        color: #000;
+
+        &:first-child {
+          background: #000;
+          color: #fff;
+        }
+      }
+
+      /* Sheets on the accent field cast an ink shadow instead. */
+      .panel,
+      .exp {
+        &::after {
+          background: #000;
+        }
+      }
+
+      .panels {
+        gap: 1.25rem;
+      }
+
+      .skills__ok {
+        color: #000;
+      }
+    }
+
+    /* ---- Small screens -------------------------------------------------- */
+    @media (max-width: 767.98px) {
+      /* Let switch runs wrap rather than scroll a slanted plate off-screen, and
+         drop the hint text the phone has no room for. */
+      .seg__btn small {
+        display: none;
+      }
+
+      .head__name {
+        text-shadow: 3px 3px 0 var(--cc-accent);
+      }
+
+      app-forward-calculator .result,
+      app-gallows-calculator .result {
+        padding: 1.2rem 1.1rem 1.4rem;
+
+        .result__name a {
+          -webkit-text-stroke-width: 2px;
+          text-shadow: 3px 3px 0 #000;
+        }
+      }
+    }
+  }
+
+  /* The global search is a modal over the page, not inside `.app-main`. */
+  app-global-search {
+    .gs__panel {
+      @extend %cc-dialog;
+    }
+    /* The dialog is the frame; its field is just a ruled line. */
+    .gs__field {
+      border-bottom: 3px solid #000;
+
+      &:focus-within {
+        background: #f3f3f3;
+      }
+    }
+    .gs__input:focus-visible {
+      outline: none;
+    }
+    .gs__grouphead {
+      @extend %cc-sheet-title;
+      font-size: 0.85rem;
+    }
+    .gs__item:hover,
+    .gs__item:focus-visible {
+      background: var(--cc-accent);
+      color: #000;
+    }
+  }
+
+  @media (max-width: 559.98px) {
+    app-section-layout .section-tabs__tab {
+      padding: 0.5rem 0.7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-main {
+      app-forward-calculator .result,
+      app-gallows-calculator .result {
+        animation: none;
+
+        .result__path,
+        .result__kicker {
+          animation: none;
+        }
+      }
+    }
+  }
 }

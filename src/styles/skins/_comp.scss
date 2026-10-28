@@ -1,10 +1,965 @@
 /* COMP skin (Nocturne): the demon-summoning program. Accent phosphor on a warm
-   near-black terminal, box-drawn panels, monospace data, VT323 readouts. */
+   near-black terminal, box-drawn panels, monospace data, VT323 readouts.
+
+   Every Nocturne page wears this skin and nothing else does, so the page rules
+   below target the game's own `.smt3 .s3-*` vocabulary directly. They live here
+   rather than in the game's lazy style hosts because those are capped by the
+   4 kB per-component budget. Shared components and the shell are restyled from
+   outside: `:root[data-skin]` plus one class out-specifies their emulated
+   `.x[_ngcontent-…]` selectors. */
 
 @use '../mixins' as *;
 
+/* ---- Building blocks ---------------------------------------------------- */
+
+/* The one loud state: reverse video. Active nav, pressed toggles, weaknesses. */
+%comp-reverse {
+  background: var(--p-primary-color);
+  color: var(--comp-bg);
+  font-weight: 600;
+}
+
+/* A flat, square, outlined control. */
+%comp-control {
+  border: 1px solid var(--comp-line);
+  border-radius: 0;
+  background: var(--comp-bg);
+  color: var(--comp-ink);
+  font-family: var(--app-font-body);
+}
+
+/* A square ember-ruled box. Positioning is left alone, so overlays (dropdowns,
+   palettes, modals) can wear it too. */
+%comp-box {
+  border: 1px solid var(--comp-line);
+  border-radius: 0;
+  background: var(--comp-raise);
+}
+
+/* An in-flow box whose title is cut into its top rule (see comp-frame-title). */
+%comp-frame {
+  @extend %comp-box;
+  position: relative;
+}
+
+/* ┤ title ├ — a label sitting in a frame's top border, box-drawing in CSS so the
+   frame stays fluid. Its background masks the rule behind it, so it must match
+   whatever the frame sits on (the page). */
+@mixin comp-frame-title($left: '┤ ', $right: ' ├', $rule: var(--comp-line)) {
+  position: absolute;
+  top: 0;
+  left: 0.9rem;
+  max-width: calc(100% - 1.8rem);
+  margin: 0;
+  padding: 0 0.15rem;
+  transform: translateY(-50%);
+  background: var(--comp-bg);
+  color: var(--p-primary-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &::before,
+  &::after {
+    color: $rule;
+    font-weight: 400;
+  }
+  &::before {
+    content: $left;
+  }
+  &::after {
+    content: $right;
+  }
+}
+
+/* "── Section" — an in-frame section label. */
+@mixin comp-rule-label {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--comp-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+
+  &::before {
+    content: '── ' / '';
+    color: var(--comp-line);
+  }
+}
+
+/* The VT323 readout face: only for large text, where its pixels read. */
+@mixin comp-readout($size) {
+  font-family: var(--app-font-display);
+  font-size: $size;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@mixin comp-glow {
+  text-shadow:
+    0 0 10px var(--comp-glow),
+    0 0 2px var(--comp-glow);
+}
+
 @include skin('comp') {
+  /* ---- Tokens ----------------------------------------------------------- */
   --app-font-body: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
   --app-font-display: 'VT323', 'IBM Plex Mono', monospace;
   --app-font-data: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --comp-bg: var(--p-surface-900);
+  --comp-raise: color-mix(in srgb, var(--p-surface-800) 70%, transparent);
+  --comp-ink: var(--p-surface-0);
+  --comp-dim: var(--p-surface-400);
+  --comp-line: color-mix(in srgb, var(--p-primary-color) 42%, #2a2420);
+  --comp-line-soft: var(--p-surface-700);
+  --comp-glow: color-mix(in srgb, var(--p-primary-color) 55%, transparent);
+
+  /* Square everything; the components that fall back to these pick it up. */
+  --p-border-radius: 0;
+  --p-border-radius-sm: 0;
+  --app-border: var(--comp-line);
+  --app-panel: var(--comp-raise);
+  --app-panel-2: color-mix(in srgb, var(--p-primary-color) 8%, var(--comp-bg));
+
+  /* Status colours stay in the phosphor family; icons and words carry meaning. */
+  --app-success: #e8d27a;
+  --app-warn: #f6b54a;
+  --app-danger: #ff8a73;
+
+  color-scheme: dark;
+  scrollbar-color: var(--comp-line) transparent;
+
+  body {
+    background:
+      radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--p-primary-900) 30%, transparent), transparent 60%)
+        fixed,
+      var(--comp-bg);
+    color: var(--comp-ink);
+    font-size: 0.9375rem;
+
+    /* Scanlines + vignette: one fixed overlay that never takes input. */
+    &::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px),
+        radial-gradient(140% 110% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  ::selection {
+    @extend %comp-reverse;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--p-primary-color);
+    outline-offset: 2px;
+  }
+
+  code {
+    border-radius: 0;
+    background: var(--app-panel-2);
+  }
+
+  /* ---- Shell ------------------------------------------------------------ */
+  .app-bar {
+    gap: 1.5rem;
+    border-bottom-color: var(--comp-line);
+    background: color-mix(in srgb, var(--comp-bg) 88%, transparent);
+    backdrop-filter: blur(4px);
+  }
+
+  .app-bar__brand {
+    align-items: baseline;
+    @include comp-readout(1.75rem);
+    @include comp-glow;
+    color: var(--p-primary-color);
+
+    .pi {
+      display: none;
+    }
+    &::after {
+      content: 'COMP' / '';
+      font: 500 0.7rem/1 var(--app-font-body);
+      color: var(--comp-dim);
+      text-shadow: none;
+    }
+  }
+
+  .app-gameswitch,
+  .app-iconbtn {
+    @extend %comp-control;
+  }
+
+  .app-gameswitch {
+    font-size: 0.85rem;
+  }
+
+  .app-iconbtn {
+    border-color: transparent;
+    background: transparent;
+
+    &:hover {
+      border-color: var(--comp-line);
+      background: transparent;
+      color: var(--p-primary-color);
+    }
+  }
+
+  /* Nav links number themselves: 1–5 are the section hotkeys (Smt3Layout). */
+  .app-nav {
+    counter-reset: comp-nav;
+    gap: 0.25rem;
+  }
+
+  .app-nav__link {
+    gap: 0.45rem;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: var(--comp-ink);
+    font-size: 0.9rem;
+    counter-increment: comp-nav;
+
+    .pi {
+      display: none;
+    }
+    &::before {
+      content: counter(comp-nav);
+      padding: 0.1em 0.35em;
+      border: 1px solid var(--comp-line);
+      color: var(--comp-dim);
+      font-size: 0.75em;
+      line-height: 1.1;
+    }
+    &:hover {
+      border-color: var(--comp-line);
+      background: transparent;
+    }
+    &.is-active {
+      @extend %comp-reverse;
+
+      &::before {
+        border-color: color-mix(in srgb, var(--comp-bg) 45%, transparent);
+        color: var(--comp-bg);
+      }
+    }
+  }
+
+  .app-tabbar {
+    border-top-color: var(--comp-line);
+    background: var(--comp-bg);
+  }
+
+  .app-tabbar__item {
+    color: var(--comp-dim);
+    font-size: 0.68rem;
+
+    &.is-active {
+      color: var(--p-primary-color);
+      box-shadow: inset 0 2px 0 var(--p-primary-color);
+    }
+  }
+
+  .app-scrim,
+  .modal__scrim {
+    background: rgba(0, 0, 0, 0.65);
+  }
+
+  .app-drawer {
+    border-left-color: var(--comp-line);
+    background: var(--comp-bg);
+  }
+
+  .app-drawer__head,
+  .app-drawer__group {
+    border-color: var(--comp-line-soft);
+  }
+
+  .app-drawer__title {
+    @include comp-readout(1.4rem);
+    color: var(--p-primary-color);
+  }
+
+  .app-drawer__section {
+    color: var(--comp-dim);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .app-drawer__link {
+    border-radius: 0;
+
+    &.is-active {
+      @extend %comp-reverse;
+    }
+  }
+
+  .app-alert {
+    border-bottom: 1px solid var(--comp-line);
+  }
+
+  .modal__panel {
+    @extend %comp-box;
+    background: var(--comp-bg);
+    box-shadow: 0 0 0 1px var(--comp-bg), 0 18px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  .modal__title {
+    @include comp-readout(1.8rem);
+    color: var(--p-primary-color);
+  }
+
+  /* ---- Shared components ------------------------------------------------ */
+
+  /* Section tabs (SectionLayout). */
+  /* Horizontal strips scroll by touch on phones; their scrollbars would read as
+     a stray rule under the tabs, so they're hidden. */
+  .section-tabs,
+  .smt3 .s3-seg {
+    scrollbar-width: none;
+  }
+
+  .section-tabs {
+    gap: 0;
+    border-bottom-color: var(--comp-line);
+  }
+
+  .section-tabs .section-tabs__tab {
+    margin-bottom: 0;
+    padding: 0.45rem 0.8rem;
+    border-bottom: 0;
+    color: var(--comp-dim);
+    font-size: 0.88rem;
+
+    &:hover {
+      color: var(--comp-ink);
+    }
+    &.is-active {
+      @extend %comp-reverse;
+    }
+  }
+
+  /* Affinities: neutral recedes, resistances read in bright ink, weaknesses are
+     reverse video — the one thing the eye should catch. */
+  .grid .cell {
+    border-radius: 0;
+    border-top: 1px solid var(--comp-line-soft);
+    background: transparent;
+
+    .cell__el {
+      color: var(--comp-dim);
+      text-transform: none;
+    }
+    .cell__aff {
+      color: var(--comp-ink);
+      font-weight: 600;
+    }
+    &.aff-neutral .cell__aff {
+      color: color-mix(in srgb, var(--comp-dim) 65%, transparent);
+      font-weight: 400;
+    }
+    &.aff-weak {
+      @extend %comp-reverse;
+      border-top-color: var(--p-primary-color);
+
+      .cell__el,
+      .cell__aff {
+        color: var(--comp-bg);
+      }
+    }
+    &.aff-drain .cell__aff,
+    &.aff-repel .cell__aff {
+      text-decoration: underline;
+      text-decoration-color: var(--p-primary-color);
+      text-underline-offset: 3px;
+    }
+  }
+
+  .mask .mask__cell {
+    border-radius: 0;
+    border-top: 1px solid var(--comp-line-soft);
+    background: transparent;
+    opacity: 0.6;
+
+    .mask__el {
+      color: var(--comp-dim);
+      text-transform: none;
+    }
+    &.is-allowed {
+      border-top-color: var(--p-primary-color);
+      opacity: 1;
+
+      .mask__mark {
+        color: var(--p-primary-color);
+      }
+    }
+  }
+
+  .chip,
+  .badge,
+  .chips__chip,
+  .picker__toggle {
+    border: 1px solid var(--comp-line-soft);
+    border-radius: 0;
+    background: transparent;
+    color: var(--comp-ink);
+  }
+
+  .chip .chip__dot,
+  .el-dot {
+    border-radius: 0;
+  }
+
+  .badge {
+    color: var(--comp-dim);
+
+    &.badge--owned {
+      border-color: color-mix(in srgb, var(--app-success) 45%, transparent);
+      background: transparent;
+      color: var(--app-success);
+    }
+  }
+
+  .chips .chips__chip {
+    border-color: var(--comp-line);
+
+    &:hover {
+      border-color: var(--p-primary-color);
+    }
+    &.is-on {
+      @extend %comp-reverse;
+      border-color: var(--p-primary-color);
+    }
+  }
+
+  .picker .picker__field,
+  .range .range__input {
+    @extend %comp-control;
+  }
+
+  .picker {
+    .picker__field:focus-within {
+      border-color: var(--p-primary-color);
+    }
+    .pi-search {
+      color: var(--p-primary-color);
+    }
+    .picker__toggle {
+      border-color: var(--comp-line);
+      color: var(--comp-dim);
+
+      &[aria-pressed='true'] {
+        color: var(--p-primary-color);
+      }
+    }
+    .picker__list {
+      @extend %comp-box;
+      padding: 0;
+      background: var(--comp-bg);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    }
+    .picker__opt {
+      border-radius: 0;
+
+      &:hover,
+      &.is-active {
+        @extend %comp-reverse;
+
+        .opt__arcana {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .load {
+    .load__icon {
+      color: var(--p-primary-color);
+    }
+    .load__retry {
+      @extend %comp-control;
+      border-color: var(--p-primary-color);
+      color: var(--p-primary-color);
+    }
+  }
+
+  .not-found .not-found__code {
+    @include comp-readout(5rem);
+    @include comp-glow;
+  }
+
+  /* PrimeNG buttons (not-found's "Go home"): flat reverse video. */
+  .p-button {
+    border-radius: 0;
+    font-family: var(--app-font-body);
+    font-weight: 600;
+  }
+
+  /* ---- Nocturne pages ---------------------------------------------------- */
+  .smt3 {
+    a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .s3-page {
+      gap: 1.25rem;
+    }
+
+    h1 {
+      @include comp-readout(2.6rem);
+      color: var(--comp-ink);
+      @include comp-glow;
+    }
+
+    .s3-detail-head h1 {
+      @include comp-readout(3.4rem);
+      color: var(--p-primary-color);
+    }
+
+    .s3-count,
+    .s3-muted,
+    .s3-note,
+    .s3-eyebrow,
+    .s3-plus,
+    .s3-back {
+      color: var(--comp-dim);
+    }
+
+    .s3-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .s3-back:hover {
+      color: var(--p-primary-color);
+    }
+
+    .s3-linkbtn {
+      color: var(--p-primary-color);
+    }
+
+    /* Frames: each panel's first heading is cut into its top rule. */
+    .s3-panel,
+    .s3-filters {
+      @extend %comp-frame;
+    }
+
+    .s3-panel {
+      padding: 1.35rem 1.1rem 1.1rem;
+
+      > h2:first-child,
+      > .s3-eyebrow:first-child {
+        @include comp-frame-title;
+      }
+      > h2:not(:first-child) {
+        @include comp-rule-label;
+      }
+    }
+
+    .s3-cols {
+      gap: 1.6rem 1.25rem;
+    }
+
+    /* Controls */
+    .s3-search,
+    .s3-select,
+    .s3-input,
+    .s3-btn {
+      @extend %comp-control;
+    }
+
+    .s3-search {
+      &:focus-within {
+        border-color: var(--p-primary-color);
+      }
+      .pi {
+        color: var(--p-primary-color);
+      }
+      input {
+        caret-color: var(--p-primary-color);
+        font-family: var(--app-font-body);
+      }
+    }
+
+    .s3-btn {
+      background: transparent;
+      font-size: 0.85rem;
+
+      &:hover:not(:disabled, .s3-btn--owned, .s3-btn--primary, .is-on) {
+        border-color: var(--p-primary-color);
+        color: var(--p-primary-color);
+      }
+      &.is-on,
+      &.s3-btn--primary {
+        @extend %comp-reverse;
+        border-color: var(--p-primary-color);
+      }
+      &--owned {
+        border-color: color-mix(in srgb, var(--app-success) 45%, transparent);
+        color: var(--app-success);
+      }
+    }
+
+    .s3-seg {
+      gap: 0;
+      padding: 0;
+      border: 1px solid var(--comp-line);
+      border-radius: 0;
+
+      button {
+        padding: 0.5rem 0.85rem;
+        border-radius: 0;
+        color: var(--comp-dim);
+        font-size: 0.85rem;
+
+        + button {
+          border-left: 1px solid var(--comp-line);
+        }
+        &:hover {
+          color: var(--comp-ink);
+        }
+        &.is-on {
+          @extend %comp-reverse;
+        }
+      }
+    }
+
+    .s3-filters {
+      label,
+      .s3-filters__label {
+        color: var(--comp-dim);
+      }
+    }
+
+    /* Tables: terminal rows, the hovered one marked by an accent bar. */
+    .s3-row--head {
+      border-bottom-color: var(--comp-line);
+      background: var(--comp-bg);
+      color: var(--comp-dim);
+      text-transform: none;
+      letter-spacing: 0;
+
+      button.is-sort {
+        color: var(--p-primary-color);
+      }
+    }
+
+    .s3-row--body {
+      border-bottom-color: var(--comp-line-soft);
+
+      &:hover {
+        background: var(--app-panel-2);
+        box-shadow: inset 3px 0 0 var(--p-primary-color);
+      }
+    }
+
+    .s3-strong {
+      font-weight: 500;
+    }
+
+    .s3-stats-inline :is(span, button) {
+      color: var(--comp-ink);
+    }
+
+    /* Tags and pills: square, outlined. */
+    .s3-tag,
+    .s3-pill {
+      border: 1px solid var(--comp-line-soft);
+      border-radius: 0;
+      background: transparent;
+      color: var(--comp-ink);
+
+      &--accent {
+        border-color: var(--p-primary-color);
+        color: var(--p-primary-color);
+      }
+    }
+
+    .s3-pill:hover {
+      border-color: var(--p-primary-color);
+    }
+
+    .s3-statcells {
+      gap: 0.4rem;
+
+      > div {
+        min-width: 3.4rem;
+        border: 1px solid var(--comp-line-soft);
+        border-radius: 0;
+        background: transparent;
+      }
+      small {
+        color: var(--comp-dim);
+      }
+      strong {
+        @include comp-readout(1.7rem);
+      }
+    }
+
+    /* Core stats as segmented phosphor bars: 20 cells of 2 points, 40 being
+       Nocturne's stat cap. */
+    .s3-meters {
+      display: grid;
+      gap: 0.3rem;
+      margin: 1rem 0 0;
+      font-size: 0.875rem;
+
+      > div {
+        display: grid;
+        grid-template-columns: 2.4ch 1fr;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      dt {
+        color: var(--comp-dim);
+      }
+      dd {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0;
+
+        .s3-num {
+          width: 2.5ch;
+          text-align: right;
+        }
+      }
+    }
+
+    .s3-meter {
+      --v: 0;
+      flex: 1 1 auto;
+      max-width: 16rem;
+      height: 0.7rem;
+      background:
+        linear-gradient(to right, var(--p-primary-color) calc(round(up, var(--v) / 2, 1) * 5%), transparent 0),
+        var(--comp-line-soft);
+      mask: repeating-linear-gradient(to right, #000 0 calc(5% - 3px), transparent 0 5%);
+    }
+
+    .s3-list > li {
+      border-top-color: var(--comp-line-soft);
+    }
+
+    .s3-kv dt {
+      color: var(--comp-dim);
+    }
+
+    /* Notices are log lines: a left rule in their status colour. Block, not
+       flex, so a sentence with a link in it wraps as prose. */
+    .s3-warn,
+    .s3-invalid,
+    .s3-info {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-left: 3px solid var(--app-warn);
+      border-radius: 0;
+      background: color-mix(in srgb, var(--app-warn) 8%, transparent);
+      line-height: 1.5;
+
+      > .pi {
+        margin-right: 0.4rem;
+        color: var(--app-warn);
+      }
+    }
+
+    .s3-invalid {
+      border-left-color: var(--app-danger);
+      background: color-mix(in srgb, var(--app-danger) 8%, transparent);
+
+      > .pi {
+        color: var(--app-danger);
+      }
+    }
+
+    .s3-info {
+      border-left-color: var(--p-primary-color);
+      background: color-mix(in srgb, var(--p-primary-color) 7%, transparent);
+
+      > .pi {
+        color: var(--p-primary-color);
+      }
+    }
+
+    /* Empty and missing states read as a prompt waiting for input — left-set,
+       like a terminal line, rather than centred. */
+    .s3-empty {
+      padding: 1.5rem 0.25rem;
+      text-align: left;
+    }
+
+    .s3-missing {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .s3-empty,
+    .s3-missing > p:first-child {
+      &::before {
+        content: '> ' / '';
+        color: var(--p-primary-color);
+      }
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 0.55em;
+        height: 1.05em;
+        margin-left: 0.15em;
+        vertical-align: -0.18em;
+        background: var(--p-primary-color);
+        animation: comp-blink 1.06s steps(1) infinite;
+      }
+    }
+
+    /* Fusion calculator: the result is the program's output — a double frame,
+       a short command log, then the readout. */
+    .calc__chip a.s3-strong {
+      @include comp-readout(1.9rem);
+      color: var(--comp-ink);
+      text-decoration: none;
+
+      &::before {
+        content: '> ' / '';
+        color: var(--p-primary-color);
+      }
+      &:hover {
+        color: var(--p-primary-color);
+      }
+    }
+
+    .calc__result {
+      border: 3px double var(--p-primary-600);
+
+      > h2:first-child {
+        @include comp-frame-title('╡ ', ' ╞', var(--p-primary-600));
+      }
+    }
+
+    .calc__log {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--comp-dim);
+      font-size: 0.85rem;
+
+      .calc__cmd {
+        /* Prompt + command, with a cell of slack so the last glyph never clips. */
+        max-width: calc((var(--n) + 3) * 1ch);
+        overflow: hidden;
+        white-space: nowrap;
+        color: var(--comp-ink);
+
+        &::before {
+          content: '> ' / '';
+          color: var(--p-primary-color);
+        }
+      }
+      .calc__ok {
+        color: var(--p-primary-color);
+
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 0.55em;
+          height: 1.05em;
+          margin-left: 0.15em;
+          vertical-align: -0.18em;
+          background: var(--p-primary-color);
+          animation: comp-blink 1.06s steps(1) infinite;
+        }
+      }
+    }
+
+    .calc__name {
+      @include comp-readout(clamp(3rem, 8vw, 4.75rem));
+      @include comp-glow;
+      margin: 0.1rem 0 0.4rem;
+
+      a {
+        color: var(--p-primary-color);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+        }
+      }
+      .badge {
+        text-shadow: none;
+      }
+    }
+
+    /* The one orchestrated moment: the command types out, the program answers,
+       then the readout steps in. Re-runs per pair (the result is keyed on it). */
+    @media (prefers-reduced-motion: no-preference) {
+      .calc__log .calc__cmd {
+        animation: comp-type 0.42s steps(var(--n)) 0.1s both;
+      }
+      .calc__log .calc__ok {
+        animation: comp-appear 0.01s 0.6s both;
+      }
+      .calc__result > :nth-child(n + 3) {
+        animation: comp-appear 0.2s steps(3) 0.72s both;
+      }
+    }
+
+    /* Global search: a command palette. */
+    .s3-gs__panel {
+      @extend %comp-box;
+      background: var(--comp-bg);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .s3-gs__item:is(:hover, :focus-visible) {
+      @extend %comp-reverse;
+
+      .s3-muted {
+        color: inherit;
+      }
+    }
+
+    .s3-gs__group {
+      color: var(--comp-dim);
+    }
+  }
+}
+
+@keyframes comp-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes comp-type {
+  from {
+    max-width: 0;
+  }
+}
+
+@keyframes comp-appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @include skin('comp') {
+    .smt3 :is(.s3-empty, .s3-missing > p:first-child, .calc__ok)::after {
+      animation: none;
+    }
+  }
 }

@@ -14,6 +14,7 @@ import {
   serializeClassroomState,
   sortByOrder,
 } from './classroom-filter';
+import { RansomTitle } from '../../ui/ransom-title';
 
 /**
  * Classroom answers (§4.5, task 64). A straight reference: every class and exam
@@ -27,7 +28,7 @@ import {
 @Component({
   selector: 'app-classroom-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgTemplateOutlet, LoadState],
+  imports: [NgTemplateOutlet, LoadState, RansomTitle],
   template: `
     @if (data.classroomReady()) {
       <div class="page classroom">
@@ -52,11 +53,11 @@ import {
         </ng-template>
 
         <header class="page__head">
-          <h1 class="page__title">Classroom Answers</h1>
+          <app-ransom-title class="page__title" text="Classroom Answers" />
           <span class="page__count">{{ entries().length }} questions</span>
         </header>
         <p class="classroom__lead">
-          Search the question the game just asked, or browse by date. Every answer is shown right away.
+          Put on the spot in class? Search the question, or browse by date — every answer is right here.
         </p>
 
         <div class="toolbar">

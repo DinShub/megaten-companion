@@ -58,7 +58,7 @@ import { SMT3_AFFINITY_ELEMENTS, STAT_COLUMNS } from '../../ui/smt3-format';
         </article>
       } @else {
         <div class="s3-missing">
-          <p>No magatama with id “{{ id() }}”.</p>
+          <p>Lookup failed: no magatama with id “{{ id() }}” on file.</p>
           <a class="s3-btn" [routerLink]="nav.link('magatama')">Back to magatama</a>
         </div>
       }
