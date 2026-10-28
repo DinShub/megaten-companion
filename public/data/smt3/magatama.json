@@ -1,0 +1,1129 @@
+[
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "resist",
+      "elec": "repel",
+      "expel": "resist",
+      "fire": "neutral",
+      "force": "weak",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "adama",
+    "learnedSkills": [
+      {
+        "level": 60,
+        "skillId": "bolt-storm"
+      },
+      {
+        "level": 62,
+        "skillId": "mana-surge"
+      },
+      {
+        "level": 67,
+        "skillId": "elec-drain"
+      }
+    ],
+    "level": 60,
+    "name": "Adama",
+    "obtain": "Dropped by Albion",
+    "stats": {
+      "agility": 2,
+      "luck": 2,
+      "magic": 2,
+      "strength": 3,
+      "vitality": 8
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "null",
+      "elec": "neutral",
+      "expel": "weak",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "anathema",
+    "learnedSkills": [
+      {
+        "level": 28,
+        "skillId": "mana-drain"
+      },
+      {
+        "level": 32,
+        "skillId": "anti-dark"
+      },
+      {
+        "level": 35,
+        "skillId": "mamudo"
+      },
+      {
+        "level": 38,
+        "skillId": "evil-gaze"
+      },
+      {
+        "level": 49,
+        "skillId": "mamudoon"
+      }
+    ],
+    "level": 28,
+    "name": "Anathema",
+    "obtain": "Dropped by Ose",
+    "stats": {
+      "agility": 1,
+      "luck": 1,
+      "magic": 8,
+      "strength": 0,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "weak",
+      "elec": "neutral",
+      "expel": "null",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "ankh",
+    "learnedSkills": [
+      {
+        "level": 5,
+        "skillId": "dia"
+      },
+      {
+        "level": 12,
+        "skillId": "fast-retreat"
+      },
+      {
+        "level": 19,
+        "skillId": "media"
+      }
+    ],
+    "level": 5,
+    "name": "Ankh",
+    "obtain": "Buy from Underpass Junk Shop",
+    "stats": {
+      "agility": 0,
+      "luck": 2,
+      "magic": 1,
+      "strength": 1,
+      "vitality": 4
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "resist",
+      "elec": "neutral",
+      "expel": "resist",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "djed",
+    "learnedSkills": [
+      {
+        "level": 42,
+        "skillId": "tarukaja"
+      },
+      {
+        "level": 43,
+        "skillId": "sukukaja"
+      },
+      {
+        "level": 44,
+        "skillId": "makakaja"
+      },
+      {
+        "level": 45,
+        "skillId": "rakukaja"
+      },
+      {
+        "level": 46,
+        "skillId": "dekaja"
+      }
+    ],
+    "level": 42,
+    "name": "Djed",
+    "obtain": "Dropped by Atropos",
+    "stats": {
+      "agility": 2,
+      "luck": 2,
+      "magic": 6,
+      "strength": 2,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "weak",
+      "elec": "neutral",
+      "expel": "weak",
+      "fire": "neutral",
+      "force": "weak",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "resist"
+    },
+    "id": "gaea",
+    "learnedSkills": [
+      {
+        "level": 61,
+        "skillId": "deathbound"
+      },
+      {
+        "level": 69,
+        "skillId": "avenge"
+      },
+      {
+        "level": 74,
+        "skillId": "gaea-rage"
+      },
+      {
+        "level": 76,
+        "skillId": "attack-all"
+      }
+    ],
+    "level": 61,
+    "name": "Gaea",
+    "obtain": "Open door in Mantra HQ with 24 base St",
+    "stats": {
+      "agility": 0,
+      "luck": 0,
+      "magic": 0,
+      "strength": 10,
+      "vitality": 10
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "drain",
+      "force": "neutral",
+      "ice": "weak",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "gehenna",
+    "learnedSkills": [
+      {
+        "level": 33,
+        "skillId": "hellfire"
+      },
+      {
+        "level": 42,
+        "skillId": "null-fire"
+      },
+      {
+        "level": 45,
+        "skillId": "mana-gain"
+      },
+      {
+        "level": 60,
+        "skillId": "fire-drain"
+      },
+      {
+        "level": 65,
+        "skillId": "magma-axis"
+      }
+    ],
+    "level": 33,
+    "name": "Gehenna",
+    "obtain": "Buy from Asakusa Junk Shop",
+    "stats": {
+      "agility": 3,
+      "luck": 3,
+      "magic": 3,
+      "strength": 3,
+      "vitality": 3
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "null",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "geis",
+    "learnedSkills": [
+      {
+        "level": 37,
+        "skillId": "diarama"
+      },
+      {
+        "level": 39,
+        "skillId": "life-refill"
+      },
+      {
+        "level": 41,
+        "skillId": "tetraja"
+      },
+      {
+        "level": 44,
+        "skillId": "mediarama"
+      },
+      {
+        "level": 47,
+        "skillId": "diarahan"
+      },
+      {
+        "level": 51,
+        "skillId": "mana-refill"
+      }
+    ],
+    "level": 37,
+    "name": "Geis",
+    "obtain": "Prize from Asakusa Puzzle Boy",
+    "stats": {
+      "agility": 4,
+      "luck": 4,
+      "magic": 2,
+      "strength": 2,
+      "vitality": 4
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "weak",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "drain",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "gundari",
+    "learnedSkills": [
+      {
+        "level": 64,
+        "skillId": "wind-cutter"
+      },
+      {
+        "level": 66,
+        "skillId": "force-drain"
+      },
+      {
+        "level": 72,
+        "skillId": "spiral-viper"
+      }
+    ],
+    "level": 64,
+    "name": "Gundari",
+    "obtain": "Dropped by Bishamontenten",
+    "stats": {
+      "agility": 9,
+      "luck": 3,
+      "magic": 1,
+      "strength": 4,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "weak",
+      "force": "null",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "hifumi",
+    "learnedSkills": [
+      {
+        "level": 17,
+        "skillId": "tornado"
+      },
+      {
+        "level": 22,
+        "skillId": "force-boost"
+      },
+      {
+        "level": 24,
+        "skillId": "war-cry"
+      },
+      {
+        "level": 27,
+        "skillId": "anti-force"
+      },
+      {
+        "level": 40,
+        "skillId": "null-force"
+      }
+    ],
+    "level": 17,
+    "name": "Hifumi",
+    "obtain": "Buy from Underpass Junk Shop",
+    "stats": {
+      "agility": 0,
+      "luck": 0,
+      "magic": 0,
+      "strength": 0,
+      "vitality": 0
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "null",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "iyomante",
+    "learnedSkills": [
+      {
+        "level": 10,
+        "skillId": "tarunda"
+      },
+      {
+        "level": 13,
+        "skillId": "sukunda"
+      },
+      {
+        "level": 16,
+        "skillId": "rakunda"
+      },
+      {
+        "level": 36,
+        "skillId": "life-aid"
+      }
+    ],
+    "level": 10,
+    "name": "Iyomante",
+    "obtain": "Buy from Shibuya Junk Shop",
+    "stats": {
+      "agility": 2,
+      "luck": 3,
+      "magic": 0,
+      "strength": 2,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "kailash",
+    "learnedSkills": [
+      {
+        "level": 72,
+        "skillId": "makarakarn"
+      },
+      {
+        "level": 75,
+        "skillId": "megido"
+      },
+      {
+        "level": 78,
+        "skillId": "tetrakarn"
+      },
+      {
+        "level": 80,
+        "skillId": "freikugel"
+      },
+      {
+        "level": 84,
+        "skillId": "megidola"
+      }
+    ],
+    "level": 72,
+    "name": "Kailash",
+    "obtain": "Buy from Kagutsuchi Junk Shop",
+    "stats": {
+      "agility": 1,
+      "luck": 2,
+      "magic": 10,
+      "strength": 2,
+      "vitality": 5
+    }
+  },
+  {
+    "affinities": {
+      "curse": "weak",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "weak",
+      "nerve": "weak",
+      "phys": "resist"
+    },
+    "id": "kamudo",
+    "learnedSkills": [
+      {
+        "level": 18,
+        "skillId": "heat-wave"
+      },
+      {
+        "level": 23,
+        "skillId": "focus"
+      },
+      {
+        "level": 25,
+        "skillId": "minds-eye"
+      },
+      {
+        "level": 29,
+        "skillId": "might"
+      }
+    ],
+    "level": 18,
+    "name": "Kamudo",
+    "obtain": "Buy from Underpass Junk Shop",
+    "stats": {
+      "agility": 3,
+      "luck": 0,
+      "magic": 0,
+      "strength": 5,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "resist",
+      "elec": "weak",
+      "expel": "resist",
+      "fire": "weak",
+      "force": "weak",
+      "ice": "weak",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "resist"
+    },
+    "id": "kamurogi",
+    "learnedSkills": [
+      {
+        "level": 45,
+        "skillId": "blight"
+      },
+      {
+        "level": 46,
+        "skillId": "life-gain"
+      },
+      {
+        "level": 48,
+        "skillId": "iron-claw"
+      },
+      {
+        "level": 54,
+        "skillId": "retaliate"
+      },
+      {
+        "level": 64,
+        "skillId": "oni-kagura"
+      }
+    ],
+    "level": 45,
+    "name": "Kamurogi",
+    "obtain": "Buy from Asakusa Junk Shop",
+    "stats": {
+      "agility": 4,
+      "luck": 4,
+      "magic": 0,
+      "strength": 8,
+      "vitality": 0
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "marogareh",
+    "learnedSkills": [
+      {
+        "level": 3,
+        "skillId": "lunge"
+      },
+      {
+        "level": 4,
+        "skillId": "analyze"
+      },
+      {
+        "level": 6,
+        "skillId": "life-bonus"
+      },
+      {
+        "level": 10,
+        "skillId": "berserk"
+      },
+      {
+        "level": 20,
+        "skillId": "counter"
+      },
+      {
+        "level": null,
+        "skillId": "pierce"
+      }
+    ],
+    "level": 3,
+    "name": "Marogareh",
+    "obtain": "Equipped by default",
+    "stats": {
+      "agility": 1,
+      "luck": 1,
+      "magic": 1,
+      "strength": 2,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "null",
+      "death": "null",
+      "elec": "null",
+      "expel": "null",
+      "fire": "null",
+      "force": "null",
+      "ice": "null",
+      "mind": "null",
+      "nerve": "null",
+      "phys": "null"
+    },
+    "id": "masakados",
+    "learnedSkills": [
+      {
+        "level": 1,
+        "skillId": "megidolaon"
+      },
+      {
+        "level": 1,
+        "skillId": "radiance"
+      },
+      {
+        "level": 1,
+        "skillId": "fire-repel"
+      },
+      {
+        "level": 1,
+        "skillId": "ice-repel"
+      },
+      {
+        "level": 1,
+        "skillId": "elec-repel"
+      },
+      {
+        "level": 1,
+        "skillId": "force-repel"
+      },
+      {
+        "level": 1,
+        "skillId": "phys-repel"
+      }
+    ],
+    "level": 1,
+    "name": "Masakados",
+    "obtain": "Dropped by Masakado",
+    "stats": {
+      "agility": 10,
+      "luck": 0,
+      "magic": 10,
+      "strength": 10,
+      "vitality": 10
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "weak",
+      "force": "neutral",
+      "ice": "null",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "miasma",
+    "learnedSkills": [
+      {
+        "level": 31,
+        "skillId": "wild-dance"
+      },
+      {
+        "level": 45,
+        "skillId": "null-ice"
+      },
+      {
+        "level": 52,
+        "skillId": "glacial-blast"
+      },
+      {
+        "level": 60,
+        "skillId": "ice-drain"
+      }
+    ],
+    "level": 31,
+    "name": "Miasma",
+    "obtain": "Dropped by Mizuchi",
+    "stats": {
+      "agility": 2,
+      "luck": 2,
+      "magic": 5,
+      "strength": 2,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "weak",
+      "force": "neutral",
+      "ice": "weak",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "resist"
+    },
+    "id": "murakumo",
+    "learnedSkills": [
+      {
+        "level": 34,
+        "skillId": "null-mind"
+      },
+      {
+        "level": 37,
+        "skillId": "null-nerve"
+      },
+      {
+        "level": 40,
+        "skillId": "chaos-blade"
+      },
+      {
+        "level": 42,
+        "skillId": "null-curse"
+      }
+    ],
+    "level": 34,
+    "name": "Murakumo",
+    "obtain": "Dropped by Ongyo-Ki",
+    "stats": {
+      "agility": 4,
+      "luck": 1,
+      "magic": 4,
+      "strength": 4,
+      "vitality": 1
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "resist",
+      "nerve": "resist",
+      "phys": "neutral"
+    },
+    "id": "muspell",
+    "learnedSkills": [
+      {
+        "level": 49,
+        "skillId": "tentarafoo"
+      },
+      {
+        "level": 53,
+        "skillId": "makajamon"
+      },
+      {
+        "level": 56,
+        "skillId": "xeros-beat"
+      }
+    ],
+    "level": 49,
+    "name": "Muspell",
+    "obtain": "Dropped by Mara",
+    "stats": {
+      "agility": 0,
+      "luck": 0,
+      "magic": 8,
+      "strength": 0,
+      "vitality": 7
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "null",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "weak",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "narukami",
+    "learnedSkills": [
+      {
+        "level": 21,
+        "skillId": "shock"
+      },
+      {
+        "level": 26,
+        "skillId": "elec-boost"
+      },
+      {
+        "level": 30,
+        "skillId": "anti-elec"
+      },
+      {
+        "level": 44,
+        "skillId": "null-elec"
+      }
+    ],
+    "level": 21,
+    "name": "Narukami",
+    "obtain": "Dropped by Thor",
+    "stats": {
+      "agility": 0,
+      "luck": 0,
+      "magic": 6,
+      "strength": 5,
+      "vitality": 0
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "weak",
+      "elec": "neutral",
+      "expel": "null",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "nirvana",
+    "learnedSkills": [
+      {
+        "level": 32,
+        "skillId": "violet-flash"
+      },
+      {
+        "level": 33,
+        "skillId": "anti-light"
+      },
+      {
+        "level": 41,
+        "skillId": "divine-shot"
+      },
+      {
+        "level": 56,
+        "skillId": "null-light"
+      }
+    ],
+    "level": 32,
+    "name": "Nirvana",
+    "obtain": "Buy from Asakusa Junk Shop",
+    "stats": {
+      "agility": 2,
+      "luck": 8,
+      "magic": 1,
+      "strength": 1,
+      "vitality": 2
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "null",
+      "elec": "neutral",
+      "expel": "weak",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "satan",
+    "learnedSkills": [
+      {
+        "level": 51,
+        "skillId": "jive-talk"
+      },
+      {
+        "level": 55,
+        "skillId": "null-dark"
+      },
+      {
+        "level": 58,
+        "skillId": "mana-aid"
+      },
+      {
+        "level": 60,
+        "skillId": "charisma"
+      },
+      {
+        "level": 65,
+        "skillId": "deadly-fury"
+      }
+    ],
+    "level": 51,
+    "name": "Satan",
+    "obtain": "Dropped by Black Frost",
+    "stats": {
+      "agility": 1,
+      "luck": 4,
+      "magic": 8,
+      "strength": 2,
+      "vitality": 1
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "null",
+      "force": "weak",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "shiranui",
+    "learnedSkills": [
+      {
+        "level": 9,
+        "skillId": "fire-breath"
+      },
+      {
+        "level": 14,
+        "skillId": "fire-boost"
+      },
+      {
+        "level": 19,
+        "skillId": "taunt"
+      },
+      {
+        "level": 23,
+        "skillId": "anti-fire"
+      }
+    ],
+    "level": 9,
+    "name": "Shiranui",
+    "obtain": "Buy from Shibuya Junk Shop",
+    "stats": {
+      "agility": 4,
+      "luck": 0,
+      "magic": 5,
+      "strength": 0,
+      "vitality": 0
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "resist",
+      "elec": "neutral",
+      "expel": "null",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "sophia",
+    "learnedSkills": [
+      {
+        "level": 45,
+        "skillId": "thunderclap"
+      },
+      {
+        "level": 57,
+        "skillId": "samarecarm"
+      },
+      {
+        "level": 59,
+        "skillId": "drain-attack"
+      },
+      {
+        "level": 63,
+        "skillId": "mediarahan"
+      },
+      {
+        "level": 70,
+        "skillId": "holy-wrath"
+      }
+    ],
+    "level": 45,
+    "name": "Sophia",
+    "obtain": "Buy from Collector's Junk Shop",
+    "stats": {
+      "agility": 7,
+      "luck": 4,
+      "magic": 2,
+      "strength": 1,
+      "vitality": 5
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "neutral",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "neutral",
+      "mind": "neutral",
+      "nerve": "null",
+      "phys": "neutral"
+    },
+    "id": "vimana",
+    "learnedSkills": [
+      {
+        "level": 50,
+        "skillId": "endure"
+      },
+      {
+        "level": 59,
+        "skillId": "tempest"
+      },
+      {
+        "level": 68,
+        "skillId": "javelin-rain"
+      },
+      {
+        "level": 71,
+        "skillId": "life-surge"
+      },
+      {
+        "level": 73,
+        "skillId": "hades-blast"
+      }
+    ],
+    "level": 50,
+    "name": "Vimana",
+    "obtain": "Buy from Collector's Junk Shop",
+    "stats": {
+      "agility": 2,
+      "luck": 5,
+      "magic": 1,
+      "strength": 7,
+      "vitality": 3
+    }
+  },
+  {
+    "affinities": {
+      "curse": "neutral",
+      "death": "neutral",
+      "elec": "weak",
+      "expel": "neutral",
+      "fire": "neutral",
+      "force": "neutral",
+      "ice": "null",
+      "mind": "neutral",
+      "nerve": "neutral",
+      "phys": "neutral"
+    },
+    "id": "wadatsumi",
+    "learnedSkills": [
+      {
+        "level": 7,
+        "skillId": "ice-breath"
+      },
+      {
+        "level": 11,
+        "skillId": "mana-bonus"
+      },
+      {
+        "level": 15,
+        "skillId": "ice-boost"
+      },
+      {
+        "level": 21,
+        "skillId": "fog-breath"
+      },
+      {
+        "level": 24,
+        "skillId": "anti-ice"
+      }
+    ],
+    "level": 7,
+    "name": "Wadatsumi",
+    "obtain": "Dropped by Forneus",
+    "stats": {
+      "agility": 2,
+      "luck": 1,
+      "magic": 3,
+      "strength": 0,
+      "vitality": 2
+    }
+  }
+]

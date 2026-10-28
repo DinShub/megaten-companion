@@ -73,6 +73,13 @@ export const SKILL_ELEMENT_CLS: Readonly<Record<string, string>> = {
   support: 'el-support',
   healing: 'el-healing',
   passive: 'el-passive',
+  force: 'el-force',
+  expel: 'el-expel',
+  death: 'el-death',
+  mind: 'el-mind',
+  nerve: 'el-nerve',
+  special: 'el-special',
+  talk: 'el-talk',
 };
 
 export const SKILL_ELEMENT_LABEL: Readonly<Record<string, string>> = {
@@ -91,4 +98,11 @@ export const SKILL_ELEMENT_LABEL: Readonly<Record<string, string>> = {
   support: 'Support',
   healing: 'Healing',
   passive: 'Passive',
+  force: 'Force',
+  expel: 'Expel',
+  death: 'Death',
+  mind: 'Mind',
+  nerve: 'Nerve',
+  special: 'Special',
+  talk: 'Talk',
 };

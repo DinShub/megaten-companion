@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Validates the committed P5R datasets against the §8.4 invariants, independent
+// Validates the committed P5R and SMT III datasets against the §8.4 invariants, independent
 // of the (gitignored) importer, so CI catches data rot in `public/data/p5r/`
 // without re-running the import. Exits non-zero on any failure.
 //
@@ -114,6 +114,64 @@ for (const p of personas) {
   }
 }
 
+// ---- SMT III: Nocturne (public/data/smt3/) ----------------------------------
+const SMT3_DIR = new URL('../public/data/smt3/', import.meta.url);
+const loadSmt3 = (name) => JSON.parse(readFileSync(new URL(`${name}.json`, SMT3_DIR), 'utf8'));
+const smt3 = {
+  demons: loadSmt3('demons'),
+  skills: loadSmt3('skills'),
+  magatama: loadSmt3('magatama'),
+  fusion: loadSmt3('fusion-chart'),
+  element: loadSmt3('element-chart'),
+  special: loadSmt3('special-recipes'),
+};
+{
+  const demonById = new Map(smt3.demons.map((d) => [d.id, d]));
+  const smt3SkillIds = idSet(smt3.skills);
+  for (const [list, label] of [[smt3.demons, 'smt3 demon'], [smt3.skills, 'smt3 skill'], [smt3.magatama, 'smt3 magatama']]) {
+    const seen = new Set();
+    for (const x of list) {
+      if (seen.has(x.id)) fail(`duplicate ${label} id: ${x.id}`);
+      seen.add(x.id);
+    }
+  }
+  const demonRef = (id, where) => {
+    if (!demonById.has(id)) fail(`${where}: unresolved smt3 demon "${id}"`);
+  };
+  for (const d of smt3.demons) {
+    for (const ls of d.learnedSkills) ref(smt3SkillIds, ls.skillId, `smt3 demon ${d.id} learnedSkills`);
+    for (const sid of d.enemy?.skillIds ?? []) ref(smt3SkillIds, sid, `smt3 demon ${d.id} enemy.skillIds`);
+    if (d.evolvesTo) demonRef(d.evolvesTo.demonId, `smt3 demon ${d.id} evolvesTo`);
+    if (d.evolvesFrom) demonRef(d.evolvesFrom.demonId, `smt3 demon ${d.id} evolvesFrom`);
+    if (Object.keys(d.affinities).length !== 10) fail(`smt3 demon ${d.id}: ${Object.keys(d.affinities).length} affinity axes`);
+  }
+  for (const m of smt3.magatama) {
+    for (const ls of m.learnedSkills) ref(smt3SkillIds, ls.skillId, `smt3 magatama ${m.id} learnedSkills`);
+  }
+  for (const [name, chart] of [['normal', smt3.fusion.normal], ['cursed', smt3.fusion.cursed]]) {
+    for (const [a, row] of Object.entries(chart)) {
+      for (const [b, r] of Object.entries(row)) {
+        if (chart[b]?.[a] !== r) fail(`smt3 ${name} chart asymmetric at ${a} × ${b}`);
+      }
+    }
+  }
+  for (const [race, id] of Object.entries(smt3.fusion.sameRace)) {
+    if (demonById.get(id)?.kind !== 'element') fail(`smt3 same-race ${race}: ${id} is not an Element`);
+  }
+  for (const m of smt3.element.mitama) {
+    if (demonById.get(m.resultId)?.kind !== 'mitama') fail(`smt3 mitama pair → ${m.resultId}: not a Mitama`);
+    for (const id of m.ingredientIds) demonRef(id, `smt3 mitama pair → ${m.resultId}`);
+  }
+  for (const p of smt3.special.pairs) {
+    demonRef(p.resultId, 'smt3 special recipe');
+    for (const id of p.ingredientIds) demonRef(id, `smt3 special recipe → ${p.resultId}`);
+  }
+  for (const d of smt3.demons) {
+    if (d.kind === 'special' && !smt3.special.pairs.some((p) => p.resultId === d.id)) fail(`smt3 special demon ${d.id} has no recipe`);
+    if (d.kind === 'fiend' && !smt3.special.deathstone.some((f) => f.resultId === d.id)) fail(`smt3 fiend ${d.id} has no deathstone entry`);
+  }
+}
+
 // ---- Report -----------------------------------------------------------------
 if (errors.length) {
   console.error(`✗ data validation FAILED — ${errors.length} error(s):`);
@@ -125,5 +183,6 @@ console.log(
   `✓ data validation passed — ${personas.length} personas, ${skills.length} skills, ` +
     `${shadows.length} shadows, ${traits.length} traits, ${accessories.length} accessories, ` +
     `${classroom.length} classroom answers; ` +
-    `fusion chart 24×24 symmetric; special/treasure gates and all id references resolve.`,
+    `fusion chart 24×24 symmetric; special/treasure gates and all id references resolve. ` +
+    `SMT III: ${smt3.demons.length} demons, ${smt3.skills.length} skills, ${smt3.magatama.length} magatama; charts symmetric, recipes resolve.`,
 );

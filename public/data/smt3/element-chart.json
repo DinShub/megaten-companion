@@ -1,0 +1,203 @@
+{
+  "elementIds": [
+    "erthys",
+    "aeros",
+    "aquans",
+    "flaemis"
+  ],
+  "mitama": [
+    {
+      "ingredientIds": [
+        "erthys",
+        "aeros"
+      ],
+      "resultId": "nigi-mitama"
+    },
+    {
+      "ingredientIds": [
+        "erthys",
+        "aquans"
+      ],
+      "resultId": "ara-mitama"
+    },
+    {
+      "ingredientIds": [
+        "aeros",
+        "aquans"
+      ],
+      "resultId": "kusi-mitama"
+    },
+    {
+      "ingredientIds": [
+        "erthys",
+        "flaemis"
+      ],
+      "resultId": "kusi-mitama"
+    },
+    {
+      "ingredientIds": [
+        "aeros",
+        "flaemis"
+      ],
+      "resultId": "ara-mitama"
+    },
+    {
+      "ingredientIds": [
+        "aquans",
+        "flaemis"
+      ],
+      "resultId": "saki-mitama"
+    }
+  ],
+  "races": [
+    "deity",
+    "megami",
+    "fury",
+    "lady",
+    "kishin",
+    "holy",
+    "yoma",
+    "fairy",
+    "divine",
+    "fallen",
+    "snake",
+    "beast",
+    "jirae",
+    "brute",
+    "femme",
+    "vile",
+    "tyrant",
+    "night",
+    "wilder",
+    "haunt",
+    "foul"
+  ],
+  "shifts": {
+    "beast": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": 1
+    },
+    "brute": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": 1,
+      "flaemis": 1
+    },
+    "deity": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "divine": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": 1
+    },
+    "fairy": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": 1,
+      "flaemis": -1
+    },
+    "fallen": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": 1
+    },
+    "femme": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": 1,
+      "flaemis": 1
+    },
+    "foul": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "fury": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "haunt": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "holy": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": 1
+    },
+    "jirae": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": 1,
+      "flaemis": -1
+    },
+    "kishin": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": 1,
+      "flaemis": -1
+    },
+    "lady": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": 1,
+      "flaemis": -1
+    },
+    "megami": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "night": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "snake": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": 1
+    },
+    "tyrant": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "vile": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1
+    },
+    "wilder": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": 1
+    },
+    "yoma": {
+      "aeros": 1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": -1
+    }
+  }
+}

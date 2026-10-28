@@ -1,0 +1,74 @@
+{
+  "datasets": {
+    "demons": {
+      "bytes": 341000,
+      "entries": 195,
+      "file": "demons.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/demon-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/demon-extras.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/demon-unlocks.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/fusion-prereqs.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/evolutions.json"
+      ]
+    },
+    "element-chart": {
+      "bytes": 3182,
+      "entries": 27,
+      "file": "element-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/element-chart.json"
+      ]
+    },
+    "fusion-chart": {
+      "bytes": 34429,
+      "entries": 30,
+      "file": "fusion-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/fusion-chart.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/cursed-chart.json"
+      ]
+    },
+    "magatama": {
+      "bytes": 21041,
+      "entries": 25,
+      "file": "magatama.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/magatama-data.json"
+      ]
+    },
+    "skills": {
+      "bytes": 103772,
+      "entries": 326,
+      "file": "skills.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/compendium/data/skill-effects.json"
+      ]
+    },
+    "special-recipes": {
+      "bytes": 3235,
+      "entries": 32,
+      "file": "special-recipes.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt3/data/special-recipes.json"
+      ]
+    }
+  },
+  "game": "smt3",
+  "importedAt": "2026-10-28",
+  "notes": [
+    "Skill inheritance: a skill is gated only when its inherit code (upstream c[2], else its element) is one of the nine body-type categories (Thrust, Claw, Bite, Weapon, Mouth, Wings, Eye, Talk, Maiden); every other skill is inheritable by any demon, as upstream's recipe generator encodes it. Rank > 89 is never inheritable.",
+    "Kinds: an empty special-recipe list marks a demon fusion cannot make — `evolution` when evolutions.json produces it, else `recruit`. A one-pair recipe naming the result itself (e.g. \"Matador x Apsaras\") is upstream's totem encoding for a Deathstone Fiend and becomes `deathstone[]` with the totem's race.",
+    "The cursed chart (cursed-chart.json) ships upstream but upstream's own Nocturne calculator does not wire it; it is imported for reference only and the app labels it so.",
+    "`resmods` dropped: five demons carry per-element damage multipliers that no calculation in this app reads.",
+    "demon-extras.json key \"Laksmi\" is mapped to Lakshmi; personality \"gantle\" is normalised to \"gentle\"; magatama prereq typo \"Droppped\" fixed.",
+    "Magatama learn levels above 0x3FF are an upstream packed code, not a level (only Marogareh's Pierce: 5268, shown upstream as \"5-148\"); upstream documents no meaning for it, so it imports as `level: null` — a special unlock.",
+    "Upstream `alp` (Strength-based Almighty) imports as `almighty`; the two element-less enemy actions (`-`) import as `special`."
+  ],
+  "upstream": {
+    "licence": "The Unlicense (public domain)",
+    "repo": "aqiu384/megaten-fusion-tool",
+    "sha": "f7d41c3f947a232d41bd8272de4221eb55f721c8"
+  }
+}

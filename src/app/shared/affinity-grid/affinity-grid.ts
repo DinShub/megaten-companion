@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-import { AFFINITY_ELEMENTS, AFFINITY_META, type Affinity } from '../element-visuals';
+import { AFFINITY_ELEMENTS, AFFINITY_META, type Affinity, type ElementVisual } from '../element-visuals';
 
 interface Cell {
   readonly abbrev: string;
@@ -22,7 +22,7 @@ interface Cell {
   selector: 'app-affinity-grid',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="grid" role="list" [attr.aria-label]="'Elemental affinities'">
+    <div class="grid" role="list" [attr.aria-label]="'Elemental affinities'" [style.grid-template-columns]="columns()">
       @for (cell of cells(); track cell.abbrev) {
         <div class="cell" [class]="cell.cls" role="listitem" [attr.aria-label]="cell.aria" [title]="cell.aria">
           <span class="cell__el">{{ cell.abbrev }}</span>
@@ -98,10 +98,14 @@ interface Cell {
 export class AffinityGrid {
   /** `elementId → affinity`; e.g. `{ fire: 'weak', ice: 'drain' }`. */
   readonly affinities = input.required<Readonly<Record<string, Affinity>>>();
+  /** The axes to show, in order. Defaults to the ten-element Persona set; a game with other axes passes its own. */
+  readonly elements = input<readonly ElementVisual[]>(AFFINITY_ELEMENTS);
+
+  protected readonly columns = computed(() => `repeat(${this.elements().length}, minmax(0, 1fr))`);
 
   protected readonly cells = computed<Cell[]>(() => {
     const map = this.affinities();
-    return AFFINITY_ELEMENTS.map((el) => {
+    return this.elements().map((el) => {
       const affinity: Affinity = map[el.id] ?? 'neutral';
       const meta = AFFINITY_META[affinity];
       return {

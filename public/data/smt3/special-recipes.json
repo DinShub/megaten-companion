@@ -1,0 +1,203 @@
+{
+  "deathstone": [
+    {
+      "race": "night",
+      "resultId": "black-rider"
+    },
+    {
+      "race": "night",
+      "resultId": "daisoujou"
+    },
+    {
+      "race": "fairy",
+      "resultId": "hell-biker"
+    },
+    {
+      "race": "yoma",
+      "resultId": "matador"
+    },
+    {
+      "race": "tyrant",
+      "resultId": "mother-harlot"
+    },
+    {
+      "race": "tyrant",
+      "resultId": "pale-rider"
+    },
+    {
+      "race": "fairy",
+      "resultId": "red-rider"
+    },
+    {
+      "race": "tyrant",
+      "resultId": "trumpeter"
+    },
+    {
+      "race": "yoma",
+      "resultId": "white-rider"
+    }
+  ],
+  "pairs": [
+    {
+      "ingredientIds": [
+        "yatagarasu",
+        "take-mikazuchi"
+      ],
+      "resultId": "amaterasu"
+    },
+    {
+      "ingredientIds": [
+        "throne",
+        "raphael"
+      ],
+      "resultId": "gabriel"
+    },
+    {
+      "ingredientIds": [
+        "pulukishi",
+        "pulukishi"
+      ],
+      "resultId": "girimekhala"
+    },
+    {
+      "ingredientIds": [
+        "suparna",
+        "suparna"
+      ],
+      "resultId": "gurulu"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "angel"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "archangel"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "dominion"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "gabriel"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "power"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "principality"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "raphael"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "throne"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "uriel"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "michael",
+        "virtue"
+      ],
+      "resultId": "metatron"
+    },
+    {
+      "ingredientIds": [
+        "uriel",
+        "raphael"
+      ],
+      "resultId": "michael"
+    },
+    {
+      "ingredientIds": [
+        "kin-ki",
+        "sui-ki"
+      ],
+      "resultId": "ongyo-ki"
+    },
+    {
+      "ingredientIds": [
+        "dominion",
+        "uriel"
+      ],
+      "resultId": "raphael"
+    },
+    {
+      "ingredientIds": [
+        "phantom",
+        "aquans"
+      ],
+      "resultId": "sakahagi"
+    },
+    {
+      "ingredientIds": [
+        "shadow",
+        "aeros"
+      ],
+      "resultId": "sakahagi"
+    },
+    {
+      "ingredientIds": [
+        "shadow",
+        "erthys"
+      ],
+      "resultId": "sakahagi"
+    },
+    {
+      "ingredientIds": [
+        "shadow",
+        "flaemis"
+      ],
+      "resultId": "sakahagi"
+    },
+    {
+      "ingredientIds": [
+        "throne",
+        "throne"
+      ],
+      "resultId": "samael"
+    },
+    {
+      "ingredientIds": [
+        "rangda",
+        "barong"
+      ],
+      "resultId": "shiva"
+    }
+  ]
+}

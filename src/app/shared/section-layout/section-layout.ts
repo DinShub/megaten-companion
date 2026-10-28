@@ -50,6 +50,7 @@ export interface SectionTab {
       border-bottom: 1px solid
         var(--app-border, var(--p-content-border-color, rgba(127, 127, 127, 0.25)));
       overflow-x: auto;
+      overflow-y: hidden;
     }
     .section-tabs__tab {
       padding: 0.55rem 0.9rem;

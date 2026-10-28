@@ -1,0 +1,24 @@
+// Shared placeholders for the two Nocturne style hosts.
+%muted {
+  color: var(--p-text-muted-color);
+}
+
+%eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  @extend %muted;
+}
+
+%bordered {
+  border: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.25));
+  border-radius: var(--p-border-radius, 8px);
+}
+
+%control {
+  @extend %bordered;
+  border-radius: var(--p-border-radius, 6px);
+  background: transparent;
+  color: var(--p-text-color);
+  font: inherit;
+}

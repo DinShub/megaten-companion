@@ -59,12 +59,31 @@ Don't set an inline `color-scheme` on `<html>`: it outranks the theme's rule and
 To follow the OS setting instead, use `darkModeSelector: 'system'` and drop the class from
 `index.html`.
 
+## Games
+
+| Game                              | Route    | Code               | Data                 |
+| --------------------------------- | -------- | ------------------ | -------------------- |
+| Persona 5 Royal                   | `/p5r`   | `src/app/games/p5r`  | `public/data/p5r/`   |
+| Shin Megami Tensei III: Nocturne  | `/smt3`  | `src/app/games/smt3` | `public/data/smt3/`  |
+
+Each game is a self-contained folder registered in `src/app/games/game.registry.ts`; the shell,
+routing and shared components read only the `GameDefinition` seam. The header's game switcher
+appears because more than one game is registered.
+
+The Nocturne companion covers all 195 demons (stats, affinities, ailment resistances, body-type
+inheritance, learn-sets, evolutions, field encounter data), 326 skills, the 25 magatama, a fusion
+calculator (forward and reverse: normal, same-race → Element, Element rank shifts, Element pairs →
+Mitama, special recipes, Deathstone Fiends), a skill-aware route finder over your compendium and
+optional field recruits, the race and element charts, a compendium with export/import, and its own
+settings (Demi-fiend level cap, unlock groups).
+
 ## Game data
 
 `public/data/p5r/` holds the committed P5R datasets — personas, skills, traits, shadows, the fusion
-and element charts, advanced recipes, and the inheritance matrix. They are static assets fetched at
-runtime, not bundled, so they stay out of the initial-bundle budget and cache independently of app
-code. **A fresh clone needs no network access to produce them.**
+and element charts, advanced recipes, and the inheritance matrix. `public/data/smt3/` holds
+Nocturne's demons, skills, magatama, fusion/element charts and special recipes. They are static
+assets fetched at runtime, not bundled, so they stay out of the initial-bundle budget and cache
+independently of app code. **A fresh clone needs no network access to produce them.**
 
 `meta.json` records the pinned upstream commit, per-dataset entry counts and source URLs, and the
 import decisions that the data cannot explain for itself.
@@ -82,7 +101,13 @@ hand, and not part of `npm install`, `npm start`, or `npm run build`. If you hav
 node scripts/import/import.mjs --dry-run   # list the upstream inventory
 node scripts/import/import.mjs             # fetch, convert, validate, write
 node --test "scripts/import/test/*.test.mjs"
+
+node scripts/import/smt3/import.mjs        # Nocturne: same upstream, same pinned commit
+node --test scripts/import/smt3/test/smt3.test.mjs
 ```
+
+`node scripts/validate-data.mjs` (run in CI) re-checks both games' committed datasets without the
+importer.
 
 Upstream is pinned by SHA in `scripts/import/sources.mjs`; fetched files are cached under
 `scripts/import/.cache/` so re-runs are offline. Every run re-checks referential integrity and

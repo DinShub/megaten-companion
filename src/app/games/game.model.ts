@@ -15,7 +15,9 @@ export type GameFeature =
   | 'personas'
   | 'shadows'
   | 'skills'
-  | 'classroom';
+  | 'classroom'
+  | 'demons'
+  | 'magatama';
 
 /**
  * A primitive colour ramp from the base theme palette, naming the game's primary

@@ -1,0 +1,248 @@
+// Detail-page half of the shared Nocturne styles (the list/table half is
+// smt3-layout.scss). Split only to keep each host under the 4 kB component-style
+// budget; both load with the game's lazy layout chunk.
+@use '../smt3-placeholders' as *;
+
+.smt3 {
+  // ---- detail pages -----------------------------------------------------
+  .s3-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    font-size: 0.9rem;
+    text-decoration: none;
+    @extend %muted;
+
+    &:hover {
+      color: var(--p-primary-color);
+    }
+  }
+
+  .s3-detail-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  .s3-tags,
+  .s3-actions,
+  .s3-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .s3-actions {
+    gap: 0.5rem;
+  }
+
+  .s3-tag,
+  .s3-pill {
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background: var(--app-panel-2);
+    font-size: 0.82rem;
+    color: var(--p-text-color);
+
+    &--accent {
+      color: var(--p-primary-color);
+    }
+  }
+
+  .s3-pill {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--p-primary-color);
+    }
+  }
+
+  .s3-line {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.5rem 0 0;
+    font-size: 0.88rem;
+    @extend %muted;
+  }
+
+  .s3-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  .s3-panel {
+    @extend %bordered;
+    padding: 1rem 1.15rem;
+    background: var(--app-panel);
+
+    h2 {
+      margin: 0 0 0.6rem;
+      @extend %eyebrow;
+      font-size: 0.78rem;
+    }
+
+    h2:not(:first-child) {
+      margin-top: 1.1rem;
+    }
+  }
+
+  .s3-statcells {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 3rem;
+      padding: 0.4rem;
+      border-radius: 6px;
+      background: var(--app-panel-2);
+    }
+
+    small {
+      font-size: 0.7rem;
+      @extend %muted;
+    }
+
+    strong {
+      font-size: 1.1rem;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  .s3-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-top: 1px solid var(--p-content-border-color, rgba(127, 127, 127, 0.12));
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--p-text-color);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--p-primary-color);
+      }
+    }
+
+    .s3-side {
+      font-size: 0.8rem;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      @extend %muted;
+
+      &.is-accent {
+        color: var(--p-primary-color);
+      }
+    }
+  }
+
+  .s3-kv {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35rem 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+
+    dt {
+      @extend %muted;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  .s3-warn,
+  .s3-invalid {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    background: color-mix(in srgb, #f59e0b 12%, transparent);
+    font-size: 0.88rem;
+  }
+
+  .s3-info {
+    @extend .s3-warn;
+    background: color-mix(in srgb, var(--p-primary-color) 10%, transparent);
+  }
+
+  .s3-plus {
+    @extend %muted;
+  }
+
+
+  // ---- segmented control ------------------------------------------------
+  .s3-seg {
+    @extend %bordered;
+    display: inline-flex;
+    gap: 0.25rem;
+    max-width: 100%;
+    padding: 0.25rem;
+    border-radius: 999px;
+    overflow-x: auto;
+
+    button {
+      padding: 0.4rem 0.9rem;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      font: inherit;
+      white-space: nowrap;
+      cursor: pointer;
+      @extend %muted;
+
+      &:hover {
+        color: var(--p-text-color);
+      }
+
+      &.is-on {
+        background: var(--p-primary-color);
+        color: var(--p-primary-contrast-color, #fff);
+      }
+    }
+  }
+
+  .s3-missing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    text-align: center;
+    @extend %muted;
+  }
+}

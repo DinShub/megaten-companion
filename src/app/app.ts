@@ -34,6 +34,8 @@ interface NavEntry {
 const NAV: readonly NavEntry[] = [
   { feature: 'fusion', label: 'Fusion', icon: 'pi pi-bolt', segments: ['fusion'], primary: true },
   { feature: 'compendium', label: 'Compendium', icon: 'pi pi-book', segments: ['compendium'], primary: true },
+  { feature: 'demons', label: 'Demons', icon: 'pi pi-users', segments: ['demons'], primary: true },
+  { feature: 'magatama', label: 'Magatama', icon: 'pi pi-circle', segments: ['magatama'], primary: true },
   { feature: 'personas', label: 'Personas', icon: 'pi pi-users', segments: ['personas'], primary: true },
   { feature: 'shadows', label: 'Shadows', icon: 'pi pi-eye', segments: ['shadows'], primary: true },
   { feature: 'skills', label: 'Skills', icon: 'pi pi-sparkles', segments: ['skills'] },

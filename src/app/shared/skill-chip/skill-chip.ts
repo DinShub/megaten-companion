@@ -61,6 +61,13 @@ import { SKILL_ELEMENT_CLS, SKILL_ELEMENT_LABEL } from '../element-visuals';
     .el-support { background: #60a5fa; }
     .el-healing { background: #4ade80; }
     .el-passive { background: #94a3b8; }
+    .el-force { background: #34d399; }
+    .el-expel { background: #fde68a; }
+    .el-death { background: #a855f7; }
+    .el-mind { background: #f0abfc; }
+    .el-nerve { background: #fb923c; }
+    .el-special { background: #2dd4bf; }
+    .el-talk { background: #f9a8d4; }
   `,
 })
 export class SkillChip {

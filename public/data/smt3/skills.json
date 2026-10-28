@@ -1,0 +1,5296 @@
+[
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "37 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "agi",
+    "inheritCategory": null,
+    "name": "Agi",
+    "power": 37,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "75 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "agidyne",
+    "inheritCategory": null,
+    "name": "Agidyne",
+    "power": 75,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "55 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "agilao",
+    "inheritCategory": null,
+    "name": "Agilao",
+    "power": 55,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 13
+    },
+    "description": "45% Charm",
+    "element": "mind",
+    "hits": null,
+    "id": "allure",
+    "inheritCategory": null,
+    "name": "Allure",
+    "power": null,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 2
+    },
+    "description": "Displays previously defeated enemy data",
+    "element": "special",
+    "hits": null,
+    "id": "analyze",
+    "inheritCategory": null,
+    "name": "Analyze",
+    "power": null,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 6
+    },
+    "description": "32 pwr, 1-4 hits",
+    "element": "phys",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "andalucia",
+    "inheritCategory": null,
+    "name": "Andalucia",
+    "power": 32,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Curse dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-curse",
+    "inheritCategory": null,
+    "name": "Anti-Curse",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Dark dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-dark",
+    "inheritCategory": null,
+    "name": "Anti-Dark",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Elec dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-elec",
+    "inheritCategory": null,
+    "name": "Anti-Elec",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Fire dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-fire",
+    "inheritCategory": null,
+    "name": "Anti-Fire",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Force dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-force",
+    "inheritCategory": null,
+    "name": "Anti-Force",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Ice dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-ice",
+    "inheritCategory": null,
+    "name": "Anti-Ice",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Light dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-light",
+    "inheritCategory": null,
+    "name": "Anti-Light",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Mind dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-mind",
+    "inheritCategory": null,
+    "name": "Anti-Mind",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nerve dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-nerve",
+    "inheritCategory": null,
+    "name": "Anti-Nerve",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Phys dmg taken x0.5, does not override weakness",
+    "element": "passive",
+    "hits": null,
+    "id": "anti-phys",
+    "inheritCategory": null,
+    "name": "Anti-Phys",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "68 pwr, 200% acc",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "apocalypse",
+    "inheritCategory": null,
+    "name": "Apocalypse",
+    "power": 68,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Soothes an enraged demon",
+    "element": "passive",
+    "hits": null,
+    "id": "arbitration",
+    "inheritCategory": null,
+    "name": "Arbitration",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "31 pwr, 74% acc, 26% crit, 60% Stone",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "arid-needle",
+    "inheritCategory": null,
+    "name": "Arid Needle",
+    "power": 31,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "30 pwr, St-based",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "attack",
+    "inheritCategory": null,
+    "name": "Attack",
+    "power": 30,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Normal attack hits all foes",
+    "element": "passive",
+    "hits": null,
+    "id": "attack-all",
+    "inheritCategory": null,
+    "name": "Attack All",
+    "power": null,
+    "rank": 10,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "255% acc, shifts resistances",
+    "element": "special",
+    "hits": null,
+    "id": "aurora",
+    "inheritCategory": null,
+    "name": "Aurora",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "55 pwr, 50% chance to counter Phys attack with Phys dmg",
+    "element": "passive",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "avenge",
+    "inheritCategory": null,
+    "name": "Avenge",
+    "power": 55,
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "55 pwr, 255% acc",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "avenge-b",
+    "inheritCategory": null,
+    "name": "Avenge B",
+    "power": 55,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "200% acc, 90% Fly",
+    "element": "curse",
+    "hits": null,
+    "id": "baels-bane",
+    "inheritCategory": null,
+    "name": "Bael's Bane",
+    "power": null,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, gains 2 half icons",
+    "element": "special",
+    "hits": null,
+    "id": "beast-eye",
+    "inheritCategory": null,
+    "name": "Beast Eye",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 37
+    },
+    "description": "80 pwr, absorbs 10% dmg dealt as HP",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "beast-roar",
+    "inheritCategory": null,
+    "name": "Beast Roar",
+    "power": 80,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "Summons random ally",
+    "element": "special",
+    "hits": null,
+    "id": "beckon-call",
+    "inheritCategory": null,
+    "name": "Beckon Call",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests Macca or Item. Effective when talker is 10 levels lower than target",
+    "element": "talk",
+    "hits": null,
+    "id": "begging",
+    "inheritCategory": "talk",
+    "name": "Begging",
+    "power": null,
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "16 pwr, 1-5 hits, 13% crit",
+    "element": "phys",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "berserk",
+    "inheritCategory": "thrust",
+    "name": "Berserk",
+    "power": 16,
+    "rank": 6,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective when talker is 10 levels lower than target (65%). Adverse when talker is 10 levels higher than target (25%)",
+    "element": "talk",
+    "hits": null,
+    "id": "beseech",
+    "inheritCategory": "talk",
+    "name": "Beseech",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 14
+    },
+    "description": "20% Bind",
+    "element": "nerve",
+    "hits": null,
+    "id": "binding-cry",
+    "inheritCategory": "mouth",
+    "name": "Binding Cry",
+    "power": null,
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 36
+    },
+    "description": "22 pwr, 36% crit, 20% Poison, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "blight",
+    "inheritCategory": "weapon",
+    "name": "Blight",
+    "power": 22,
+    "rank": 10,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr, 1-4 hits, 15% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "bolt-storm",
+    "inheritCategory": null,
+    "name": "Bolt Storm",
+    "power": 65,
+    "rank": 9,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "32 pwr, 1-4 hits, 13% crit",
+    "element": "phys",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "boogie-woogie",
+    "inheritCategory": null,
+    "name": "Boogie-Woogie",
+    "power": 32,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective when talker is 10 levels higher than target",
+    "element": "talk",
+    "hits": null,
+    "id": "brainwash",
+    "inheritCategory": "talk",
+    "name": "Brainwash",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Normal attacks always crit during full Kagutsuchi",
+    "element": "passive",
+    "hits": null,
+    "id": "bright-might",
+    "inheritCategory": null,
+    "name": "Bright Might",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "50 pwr, 74% acc, 26% crit, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "brutal-slash",
+    "inheritCategory": "weapon",
+    "name": "Brutal Slash",
+    "power": 50,
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "30 pwr, 20% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "bufu",
+    "inheritCategory": null,
+    "name": "Bufu",
+    "power": 30,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "65 pwr, 30% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "bufudyne",
+    "inheritCategory": null,
+    "name": "Bufudyne",
+    "power": 65,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "45 pwr, 25% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "bufula",
+    "inheritCategory": null,
+    "name": "Bufula",
+    "power": 45,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Summons Virtue",
+    "element": "special",
+    "hits": null,
+    "id": "call-angel",
+    "inheritCategory": null,
+    "name": "Call Angel",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons Loa",
+    "element": "special",
+    "hits": null,
+    "id": "call-evil",
+    "inheritCategory": null,
+    "name": "Call Evil",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons Power",
+    "element": "special",
+    "hits": null,
+    "id": "call-soldier",
+    "inheritCategory": null,
+    "name": "Call Soldier",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons Legion",
+    "element": "special",
+    "hits": null,
+    "id": "call-souls",
+    "inheritCategory": null,
+    "name": "Call Souls",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 32
+    },
+    "description": "22 pwr, 1-5 hits, 20% crit, 30% Panic, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "chaos-blade",
+    "inheritCategory": "weapon",
+    "name": "Chaos Blade",
+    "power": 22,
+    "rank": 10,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Equipper's other conversational skills have 50% chance of instant success for normal or adverse results",
+    "element": "passive",
+    "hits": null,
+    "id": "charisma",
+    "inheritCategory": null,
+    "name": "Charisma",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "41 pwr, 76% acc, 24% crit, 55% Charm",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "charm-bite",
+    "inheritCategory": "bite",
+    "name": "Charm Bite",
+    "power": 41,
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Summons Zoas",
+    "element": "special",
+    "hits": null,
+    "id": "conjuration",
+    "inheritCategory": null,
+    "name": "Conjuration",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "31 pwr, 50% chance to counter Phys attack with Phys dmg",
+    "element": "passive",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "counter",
+    "inheritCategory": null,
+    "name": "Counter",
+    "power": 31,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "31 pwr, 255% acc",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "counter-b",
+    "inheritCategory": null,
+    "name": "Counter B",
+    "power": 31,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "hits": null,
+    "id": "dark-howl",
+    "inheritCategory": null,
+    "name": "Dark Howl",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Normal attacks always crit during new Kagutsuchi",
+    "element": "passive",
+    "hits": null,
+    "id": "dark-might",
+    "inheritCategory": null,
+    "name": "Dark Might",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Recruit Enemy. Effective during new Kagutsuchi phase",
+    "element": "talk",
+    "hits": null,
+    "id": "dark-pledge",
+    "inheritCategory": "talk",
+    "name": "Dark Pledge",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "53 pwr, 60% acc, 40% crit, 40% Mute, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "dark-sword",
+    "inheritCategory": "weapon",
+    "name": "Dark Sword",
+    "power": 53,
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 32
+    },
+    "description": "41 pwr, 50% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "deadly-fury",
+    "inheritCategory": null,
+    "name": "Deadly Fury",
+    "power": 41,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 50
+    },
+    "description": "90 pwr, 255% instakill when not immune to Dark",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "death-flies",
+    "inheritCategory": null,
+    "name": "Death Flies",
+    "power": 90,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 50
+    },
+    "description": "90 pwr, 255% instakill when not immune to Dark",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "death-flies-b",
+    "inheritCategory": null,
+    "name": "Death Flies B",
+    "power": 90,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "50 pwr, 20% Charm",
+    "element": "mind",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "death-lust",
+    "inheritCategory": null,
+    "name": "Death Lust",
+    "power": 50,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective on any target. Petrifies targets occasionally should they refuse",
+    "element": "talk",
+    "hits": null,
+    "id": "death-pact",
+    "inheritCategory": "talk",
+    "name": "Death Pact",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "38 pwr, 1-5 hits, 21% crit, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "deathbound",
+    "inheritCategory": "weapon",
+    "name": "Deathbound",
+    "power": 38,
+    "rank": 11,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "30 pwr, absorbs HP",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "deathtouch",
+    "inheritCategory": null,
+    "name": "Deathtouch",
+    "power": 30,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 48
+    },
+    "description": "Tarunda + Rakunda + Sukunda",
+    "element": "support",
+    "hits": null,
+    "id": "debilitate",
+    "inheritCategory": null,
+    "name": "Debilitate",
+    "power": null,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "Removes -kaja effects",
+    "element": "support",
+    "hits": null,
+    "id": "dekaja",
+    "inheritCategory": null,
+    "name": "Dekaja",
+    "power": null,
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "Removes -kunda effects",
+    "element": "support",
+    "hits": null,
+    "id": "dekunda",
+    "inheritCategory": null,
+    "name": "Dekunda",
+    "power": null,
+    "rank": 1,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Prevents target from leaving midway",
+    "element": "passive",
+    "hits": null,
+    "id": "detain",
+    "inheritCategory": null,
+    "name": "Detain",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "10 pwr, HP restore",
+    "element": "healing",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "dia",
+    "inheritCategory": null,
+    "name": "Dia",
+    "power": 10,
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "100% HP restore",
+    "element": "healing",
+    "hits": null,
+    "id": "diarahan",
+    "inheritCategory": null,
+    "name": "Diarahan",
+    "power": null,
+    "rank": 9,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 7
+    },
+    "description": "17 pwr, HP restore",
+    "element": "healing",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "diarama",
+    "inheritCategory": null,
+    "name": "Diarama",
+    "power": 17,
+    "rank": 6,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "55 pwr, 15% Mute",
+    "element": "curse",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "dismal-tune",
+    "inheritCategory": null,
+    "name": "Dismal Tune",
+    "power": 55,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "50 pwr, 30% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "divine-shot",
+    "inheritCategory": null,
+    "name": "Divine Shot",
+    "power": 50,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons Hallels",
+    "element": "special",
+    "hits": null,
+    "id": "divine-will",
+    "inheritCategory": null,
+    "name": "Divine Will",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 9
+    },
+    "description": "30% Sleep",
+    "element": "mind",
+    "hits": null,
+    "id": "dormina",
+    "inheritCategory": null,
+    "name": "Dormina",
+    "power": null,
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, gains 4 half icons",
+    "element": "special",
+    "hits": null,
+    "id": "dragon-eye",
+    "inheritCategory": null,
+    "name": "Dragon Eye",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Normal attack absorbs HP",
+    "element": "passive",
+    "hits": null,
+    "id": "drain-attack",
+    "inheritCategory": null,
+    "name": "Drain Attack",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "32 pwr, 1-4 hits, 13% crit",
+    "element": "phys",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "e-i",
+    "inheritCategory": null,
+    "name": "E & I",
+    "power": 32,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 45
+    },
+    "description": "70 pwr, 190% acc, cannot crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "earthquake",
+    "inheritCategory": null,
+    "name": "Earthquake",
+    "power": 70,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Elec dmg dealt x1.5",
+    "element": "passive",
+    "hits": null,
+    "id": "elec-boost",
+    "inheritCategory": null,
+    "name": "Elec Boost",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Drains Elec dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "elec-drain",
+    "inheritCategory": null,
+    "name": "Elec Drain",
+    "power": null,
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Repels Elec dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "elec-repel",
+    "inheritCategory": null,
+    "name": "Elec Repel",
+    "power": null,
+    "rank": 10,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Endure with 1 HP after a mortal blow once per battle",
+    "element": "passive",
+    "hits": null,
+    "id": "endure",
+    "inheritCategory": null,
+    "name": "Endure",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "36 pwr, 198% acc, 50% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "enter-yoshitsune",
+    "inheritCategory": null,
+    "name": "Enter Yoshitsune",
+    "power": 36,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "Lowers encounter rate until new Kagutsuchi",
+    "element": "special",
+    "hits": null,
+    "id": "estoma",
+    "inheritCategory": null,
+    "name": "Estoma",
+    "power": null,
+    "rank": 7,
+    "target": "Field",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 16
+    },
+    "description": "255% acc, 255% instakill when Sleep",
+    "element": "mind",
+    "hits": null,
+    "id": "eternal-rest",
+    "inheritCategory": null,
+    "name": "Eternal Rest",
+    "power": null,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "55% acc, reduces curr HP to 1",
+    "element": "death",
+    "hits": null,
+    "id": "evil-gaze",
+    "inheritCategory": "eye",
+    "name": "Evil Gaze",
+    "power": null,
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "60% Charm",
+    "element": "mind",
+    "hits": null,
+    "id": "evil-gleam",
+    "inheritCategory": null,
+    "name": "Evil Gleam",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, 255% instakill to lowest curr % HP",
+    "element": "almighty",
+    "hits": null,
+    "id": "evil-melody",
+    "inheritCategory": null,
+    "name": "Evil Melody",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Escape rate x2",
+    "element": "passive",
+    "hits": null,
+    "id": "fast-retreat",
+    "inheritCategory": null,
+    "name": "Fast Retreat",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "44 pwr, 76% acc, 24% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "feral-bite",
+    "inheritCategory": "bite",
+    "name": "Feral Bite",
+    "power": 44,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 6
+    },
+    "description": "34 pwr, 75% acc, 25% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "feral-claw",
+    "inheritCategory": "claw",
+    "name": "Feral Claw",
+    "power": 34,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Fire dmg dealt x1.5",
+    "element": "passive",
+    "hits": null,
+    "id": "fire-boost",
+    "inheritCategory": null,
+    "name": "Fire Boost",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 9
+    },
+    "description": "30 pwr, 1-5 hits",
+    "element": "fire",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "fire-breath",
+    "inheritCategory": "mouth",
+    "name": "Fire Breath",
+    "power": 30,
+    "rank": 5,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Drains Fire dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "fire-drain",
+    "inheritCategory": null,
+    "name": "Fire Drain",
+    "power": null,
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 50
+    },
+    "description": "90 pwr, 1-5 hits",
+    "element": "almighty",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "fire-of-sinai",
+    "inheritCategory": null,
+    "name": "Fire of Sinai",
+    "power": 90,
+    "rank": 99,
+    "target": "Rand foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 50
+    },
+    "description": "90 pwr, 1-5 hits",
+    "element": "almighty",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "fire-of-sinai-b",
+    "inheritCategory": null,
+    "name": "Fire of Sinai B",
+    "power": 90,
+    "rank": 99,
+    "target": "Rand foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Repels Fire dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "fire-repel",
+    "inheritCategory": null,
+    "name": "Fire Repel",
+    "power": null,
+    "rank": 10,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Urges an indecisive demon. Effective when user is 10 levels lower than target",
+    "element": "passive",
+    "hits": null,
+    "id": "flatter",
+    "inheritCategory": null,
+    "name": "Flatter",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Dmg dealt by next Phys or St-based attack x2.5",
+    "element": "support",
+    "hits": null,
+    "id": "focus",
+    "inheritCategory": null,
+    "name": "Focus",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "Sukunda x2",
+    "element": "support",
+    "hits": null,
+    "id": "fog-breath",
+    "inheritCategory": "mouth",
+    "name": "Fog Breath",
+    "power": null,
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Force dmg dealt x1.5",
+    "element": "passive",
+    "hits": null,
+    "id": "force-boost",
+    "inheritCategory": null,
+    "name": "Force Boost",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Drains Force dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "force-drain",
+    "inheritCategory": null,
+    "name": "Force Drain",
+    "power": null,
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Repels Force dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "force-repel",
+    "inheritCategory": null,
+    "name": "Force Repel",
+    "power": null,
+    "rank": 10,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "23 pwr",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "foul-havoc",
+    "inheritCategory": null,
+    "name": "Foul Havoc",
+    "power": 23,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons Specter",
+    "element": "special",
+    "hits": null,
+    "id": "foul-union",
+    "inheritCategory": null,
+    "name": "Foul Union",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "65 pwr, 30% crit, St-based",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "freikugel",
+    "inheritCategory": null,
+    "name": "Freikugel",
+    "power": 65,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 35
+    },
+    "description": "47 pwr, 30% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "gaea-rage",
+    "inheritCategory": null,
+    "name": "Gaea Rage",
+    "power": 47,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons reinforcement",
+    "element": "special",
+    "hits": null,
+    "id": "gathering",
+    "inheritCategory": null,
+    "name": "Gathering",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr, 1-4 hits, 15% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "glacial-blast",
+    "inheritCategory": null,
+    "name": "Glacial Blast",
+    "power": 65,
+    "rank": 8,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "50% acc, reduces curr HP by 80%",
+    "element": "expel",
+    "hits": null,
+    "id": "godly-light",
+    "inheritCategory": null,
+    "name": "Godly Light",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "255% acc, 255% instakill when not immune to Light",
+    "element": "expel",
+    "hits": null,
+    "id": "gods-bow",
+    "inheritCategory": null,
+    "name": "God's Bow",
+    "power": null,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, 255% Sleep, Panic, Bind, Charm, Stun",
+    "element": "almighty",
+    "hits": null,
+    "id": "gods-curse",
+    "inheritCategory": null,
+    "name": "God's Curse",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "47 pwr, 67% acc, 33% crit, 40% Stun, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "guillotine",
+    "inheritCategory": "weapon",
+    "name": "Guillotine",
+    "power": 47,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 32
+    },
+    "description": "41 pwr, 43% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hades-blast",
+    "inheritCategory": "thrust",
+    "name": "Hades Blast",
+    "power": 41,
+    "rank": 11,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests demon to lower bribe cost",
+    "element": "passive",
+    "hits": null,
+    "id": "haggle",
+    "inheritCategory": null,
+    "name": "Haggle",
+    "power": null,
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "40% instakill",
+    "element": "expel",
+    "hits": null,
+    "id": "hama",
+    "inheritCategory": null,
+    "name": "Hama",
+    "power": null,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "60% instakill",
+    "element": "expel",
+    "hits": null,
+    "id": "hamaon",
+    "inheritCategory": null,
+    "name": "Hamaon",
+    "power": null,
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 35
+    },
+    "description": "47 pwr, 89% acc, 46% crit, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hassohappa",
+    "inheritCategory": "weapon",
+    "name": "Hassohappa",
+    "power": 47,
+    "rank": 11,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "19 pwr, 26% crit, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "heat-wave",
+    "inheritCategory": "weapon",
+    "name": "Heat Wave",
+    "power": 19,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "30 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hell-burner",
+    "inheritCategory": null,
+    "name": "Hell Burner",
+    "power": 30,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "40 pwr, Dekaja",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hell-exhaust",
+    "inheritCategory": null,
+    "name": "Hell Exhaust",
+    "power": 40,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "56 pwr, 55% acc, 45% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hell-fang",
+    "inheritCategory": "bite",
+    "name": "Hell Fang",
+    "power": 56,
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "70% instakill",
+    "element": "death",
+    "hits": null,
+    "id": "hell-gaze",
+    "inheritCategory": "eye",
+    "name": "Hell Gaze",
+    "power": null,
+    "rank": 9,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "31 pwr",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hell-spin",
+    "inheritCategory": null,
+    "name": "Hell Spin",
+    "power": 31,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, gains 3 half icons",
+    "element": "special",
+    "hits": null,
+    "id": "hell-throttle",
+    "inheritCategory": null,
+    "name": "Hell Throttle",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "47 pwr, 67% acc, 33% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hell-thrust",
+    "inheritCategory": "thrust",
+    "name": "Hell Thrust",
+    "power": 47,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 18
+    },
+    "description": "50 pwr, 1-4 hits",
+    "element": "fire",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "hellfire",
+    "inheritCategory": null,
+    "name": "Hellfire",
+    "power": 50,
+    "rank": 7,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, 255% instakill",
+    "element": "almighty",
+    "hits": null,
+    "id": "hells-call",
+    "inheritCategory": null,
+    "name": "Hell's Call",
+    "power": null,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "200 pwr, 255% acc, 40% Bind",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "high-king",
+    "inheritCategory": null,
+    "name": "High King",
+    "power": 200,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "hitokoto-storm",
+    "inheritCategory": null,
+    "name": "Hitokoto Storm",
+    "power": 65,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, 100% HP restore to lowest curr % HP",
+    "element": "almighty",
+    "hits": null,
+    "id": "holy-melody",
+    "inheritCategory": null,
+    "name": "Holy Melody",
+    "power": null,
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "Dekunda",
+    "element": "support",
+    "hits": null,
+    "id": "holy-star",
+    "inheritCategory": null,
+    "name": "Holy Star",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 36
+    },
+    "description": "Reduces curr HP by 50%",
+    "element": "expel",
+    "hits": null,
+    "id": "holy-wrath",
+    "inheritCategory": null,
+    "name": "Holy Wrath",
+    "power": null,
+    "rank": 11,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Ice dmg dealt x1.5",
+    "element": "passive",
+    "hits": null,
+    "id": "ice-boost",
+    "inheritCategory": null,
+    "name": "Ice Boost",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 9
+    },
+    "description": "25 pwr, 1-4 hits, 17% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "ice-breath",
+    "inheritCategory": "mouth",
+    "name": "Ice Breath",
+    "power": 25,
+    "rank": 5,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Drains Ice dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "ice-drain",
+    "inheritCategory": null,
+    "name": "Ice Drain",
+    "power": null,
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Repels Ice dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "ice-repel",
+    "inheritCategory": null,
+    "name": "Ice Repel",
+    "power": null,
+    "rank": 10,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "20 pwr, 5% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "icy-death",
+    "inheritCategory": null,
+    "name": "Icy Death",
+    "power": 20,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "200 pwr, 255% acc",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "infinite-light",
+    "inheritCategory": null,
+    "name": "Infinite Light",
+    "power": 200,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Urges an indecisive demon. Effective when user is 10 levels higher than target or youth or adult to child",
+    "element": "passive",
+    "hits": null,
+    "id": "intimidate",
+    "inheritCategory": null,
+    "name": "Intimidate",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "60% Panic",
+    "element": "mind",
+    "hits": null,
+    "id": "intoxicate",
+    "inheritCategory": null,
+    "name": "Intoxicate",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "56 pwr, 55% acc, 45% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "iron-claw",
+    "inheritCategory": "claw",
+    "name": "Iron Claw",
+    "power": 56,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 40
+    },
+    "description": "41 pwr, 30% crit, 20% Mute",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "javelin-rain",
+    "inheritCategory": null,
+    "name": "Javelin Rain",
+    "power": 41,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 40
+    },
+    "description": "90 pwr, 255% acc",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "jiraiya-dance",
+    "inheritCategory": null,
+    "name": "Jiraiya Dance",
+    "power": 90,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Recruit Foul, Haunt, and Wilder enemies under normal circumstances",
+    "element": "talk",
+    "hits": null,
+    "id": "jive-talk",
+    "inheritCategory": "talk",
+    "name": "Jive Talk",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 100
+    },
+    "description": "78 pwr, 10% crit, St-based",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "kamikaze",
+    "inheritCategory": null,
+    "name": "Kamikaze",
+    "power": 78,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective when adult or youth talker to child target. Adverse when child talker to adult or youth target.",
+    "element": "talk",
+    "hits": null,
+    "id": "kidnap",
+    "inheritCategory": "talk",
+    "name": "Kidnap",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Urges an indecisive demon. Effective when user is the same race as the target",
+    "element": "passive",
+    "hits": null,
+    "id": "kinspeak",
+    "inheritCategory": null,
+    "name": "Kinspeak",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 100
+    },
+    "description": "59 pwr, cannot crit, St-based",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "last-resort",
+    "inheritCategory": null,
+    "name": "Last Resort",
+    "power": 59,
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "hits": null,
+    "id": "laughter",
+    "inheritCategory": null,
+    "name": "Laughter",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "20% max HP restore after battle",
+    "element": "passive",
+    "hits": null,
+    "id": "life-aid",
+    "inheritCategory": null,
+    "name": "Life Aid",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Max HP +10%",
+    "element": "passive",
+    "hits": null,
+    "id": "life-bonus",
+    "inheritCategory": null,
+    "name": "Life Bonus",
+    "power": null,
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "30 pwr, absorbs HP and 15 pwr MP",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "life-drain",
+    "inheritCategory": null,
+    "name": "Life Drain",
+    "power": 30,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Max HP +20%",
+    "element": "passive",
+    "hits": null,
+    "id": "life-gain",
+    "inheritCategory": null,
+    "name": "Life Gain",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "HP restore while in party and walking",
+    "element": "passive",
+    "hits": null,
+    "id": "life-refill",
+    "inheritCategory": null,
+    "name": "Life Refill",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Max HP +30%",
+    "element": "passive",
+    "hits": null,
+    "id": "life-surge",
+    "inheritCategory": null,
+    "name": "Life Surge",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Negates damage floors until new Kagutsuchi",
+    "element": "special",
+    "hits": null,
+    "id": "liftoma",
+    "inheritCategory": null,
+    "name": "Liftoma",
+    "power": null,
+    "rank": 6,
+    "target": "Field",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "Lights up dark areas until new Kagutsuchi",
+    "element": "special",
+    "hits": null,
+    "id": "lightoma",
+    "inheritCategory": null,
+    "name": "Lightoma",
+    "power": null,
+    "rank": 5,
+    "target": "Field",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests Macca. After using on the same clan of demons thrice, demon of that clan will take away one third of player's Macca forcefully in the next encounter",
+    "element": "talk",
+    "hits": null,
+    "id": "loan",
+    "inheritCategory": "talk",
+    "name": "Loan",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Demon picks up items randomly around the world map while walking",
+    "element": "passive",
+    "hits": null,
+    "id": "lucky-find",
+    "inheritCategory": null,
+    "name": "Lucky Find",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "70% Sleep",
+    "element": "mind",
+    "hits": null,
+    "id": "lullaby",
+    "inheritCategory": null,
+    "name": "Lullaby",
+    "power": null,
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "41 pwr, 76% acc, 24% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "lunge",
+    "inheritCategory": "thrust",
+    "name": "Lunge",
+    "power": 41,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "20 pwr, 10% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mabufu",
+    "inheritCategory": null,
+    "name": "Mabufu",
+    "power": 20,
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "55 pwr, 15% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mabufudyne",
+    "inheritCategory": null,
+    "name": "Mabufudyne",
+    "power": 55,
+    "rank": 10,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "35 pwr, 13% Freeze",
+    "element": "ice",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mabufula",
+    "inheritCategory": null,
+    "name": "Mabufula",
+    "power": 35,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "48 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "magma-axis",
+    "inheritCategory": null,
+    "name": "Magma Axis",
+    "power": 48,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "20% instakill",
+    "element": "expel",
+    "hits": null,
+    "id": "mahama",
+    "inheritCategory": null,
+    "name": "Mahama",
+    "power": null,
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "30% instakill",
+    "element": "expel",
+    "hits": null,
+    "id": "mahamaon",
+    "inheritCategory": null,
+    "name": "Mahamaon",
+    "power": null,
+    "rank": 9,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Soothes an enraged demon. Effective when user is young female",
+    "element": "passive",
+    "hits": null,
+    "id": "maidens-plea",
+    "inheritCategory": "maiden",
+    "name": "Maiden's Plea",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 4
+    },
+    "description": "40% Mute",
+    "element": "curse",
+    "hits": null,
+    "id": "makajam",
+    "inheritCategory": null,
+    "name": "Makajam",
+    "power": null,
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 11
+    },
+    "description": "20% Mute",
+    "element": "curse",
+    "hits": null,
+    "id": "makajamon",
+    "inheritCategory": null,
+    "name": "Makajamon",
+    "power": null,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Magic attack +25%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "makakaja",
+    "inheritCategory": null,
+    "name": "Makakaja",
+    "power": null,
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 45
+    },
+    "description": "Repels next non-Almighty magic attack for 1 turn",
+    "element": "support",
+    "hits": null,
+    "id": "makarakarn",
+    "inheritCategory": null,
+    "name": "Makarakarn",
+    "power": null,
+    "rank": 8,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "10 pwr, MP restore",
+    "element": "healing",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "makatora",
+    "inheritCategory": null,
+    "name": "Makatora",
+    "power": 10,
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "20% instakill",
+    "element": "death",
+    "hits": null,
+    "id": "mamudo",
+    "inheritCategory": null,
+    "name": "Mamudo",
+    "power": null,
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "30% instakill",
+    "element": "death",
+    "hits": null,
+    "id": "mamudoon",
+    "inheritCategory": null,
+    "name": "Mamudoon",
+    "power": null,
+    "rank": 9,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "10% max MP restore after battle",
+    "element": "passive",
+    "hits": null,
+    "id": "mana-aid",
+    "inheritCategory": null,
+    "name": "Mana Aid",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Max MP +10%",
+    "element": "passive",
+    "hits": null,
+    "id": "mana-bonus",
+    "inheritCategory": null,
+    "name": "Mana Bonus",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 2
+    },
+    "description": "15 pwr, absorbs MP",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mana-drain",
+    "inheritCategory": null,
+    "name": "Mana Drain",
+    "power": 15,
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Max MP +20%",
+    "element": "passive",
+    "hits": null,
+    "id": "mana-gain",
+    "inheritCategory": null,
+    "name": "Mana Gain",
+    "power": null,
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "MP restore while in party and walking",
+    "element": "passive",
+    "hits": null,
+    "id": "mana-refill",
+    "inheritCategory": null,
+    "name": "Mana Refill",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Max MP +30%",
+    "element": "passive",
+    "hits": null,
+    "id": "mana-surge",
+    "inheritCategory": null,
+    "name": "Mana Surge",
+    "power": null,
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "30 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "maragi",
+    "inheritCategory": null,
+    "name": "Maragi",
+    "power": 30,
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "maragidyne",
+    "inheritCategory": null,
+    "name": "Maragidyne",
+    "power": 65,
+    "rank": 10,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "45 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "maragion",
+    "inheritCategory": null,
+    "name": "Maragion",
+    "power": 45,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "55% Charm",
+    "element": "mind",
+    "hits": null,
+    "id": "marin-karin",
+    "inheritCategory": null,
+    "name": "Marin Karin",
+    "power": null,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "30 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mazan",
+    "inheritCategory": null,
+    "name": "Mazan",
+    "power": 30,
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mazandyne",
+    "inheritCategory": null,
+    "name": "Mazandyne",
+    "power": 65,
+    "rank": 10,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "40 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mazanma",
+    "inheritCategory": null,
+    "name": "Mazanma",
+    "power": 40,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "20 pwr, 10% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mazio",
+    "inheritCategory": null,
+    "name": "Mazio",
+    "power": 20,
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "55 pwr, 15% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "maziodyne",
+    "inheritCategory": null,
+    "name": "Maziodyne",
+    "power": 55,
+    "rank": 10,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "35 pwr, 13% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mazionga",
+    "inheritCategory": null,
+    "name": "Mazionga",
+    "power": 35,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Removes Sleep, Panic, Bind",
+    "element": "healing",
+    "hits": null,
+    "id": "me-patra",
+    "inheritCategory": null,
+    "name": "Me Patra",
+    "power": null,
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "10 pwr, HP restore",
+    "element": "healing",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "media",
+    "inheritCategory": null,
+    "name": "Media",
+    "power": 10,
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 35
+    },
+    "description": "100% HP restore",
+    "element": "healing",
+    "hits": null,
+    "id": "mediarahan",
+    "inheritCategory": null,
+    "name": "Mediarahan",
+    "power": null,
+    "rank": 11,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "17 pwr, HP restore",
+    "element": "healing",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mediarama",
+    "inheritCategory": null,
+    "name": "Mediarama",
+    "power": 17,
+    "rank": 8,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "30 pwr, absorbs HP and 60 pwr MP",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "meditation",
+    "inheritCategory": null,
+    "name": "Meditation",
+    "power": 30,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "70 pwr",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "megido",
+    "inheritCategory": null,
+    "name": "Megido",
+    "power": 70,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 37
+    },
+    "description": "80 pwr",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "megidola",
+    "inheritCategory": null,
+    "name": "Megidola",
+    "power": 80,
+    "rank": 10,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 50
+    },
+    "description": "90 pwr",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "megidolaon",
+    "inheritCategory": null,
+    "name": "Megidolaon",
+    "power": 90,
+    "rank": 14,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "12% chance for normal attack to crit, overrides Drain Attack if it does",
+    "element": "passive",
+    "hits": null,
+    "id": "might",
+    "inheritCategory": null,
+    "name": "Might",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "53 pwr, 74% acc, 26% crit, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mighty-gust",
+    "inheritCategory": "weapon",
+    "name": "Mighty Gust",
+    "power": 53,
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Back attack rate x0.33",
+    "element": "passive",
+    "hits": null,
+    "id": "minds-eye",
+    "inheritCategory": null,
+    "name": "Mind's Eye",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "30 pwr, 70% Panic",
+    "element": "mind",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mirage",
+    "inheritCategory": null,
+    "name": "Mirage",
+    "power": 30,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Recruit Enemy. Effective when male talker to female target",
+    "element": "talk",
+    "hits": null,
+    "id": "mischief",
+    "inheritCategory": "talk",
+    "name": "Mischief",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "55 pwr, 15% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mishaguji-raiden",
+    "inheritCategory": null,
+    "name": "Mishaguji Raiden",
+    "power": 55,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "25 pwr, 252% acc, 30% Panic",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "mokoi-boomerang",
+    "inheritCategory": null,
+    "name": "Mokoi Boomerang",
+    "power": 25,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "40% instakill",
+    "element": "death",
+    "hits": null,
+    "id": "mudo",
+    "inheritCategory": null,
+    "name": "Mudo",
+    "power": null,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "60% instakill",
+    "element": "death",
+    "hits": null,
+    "id": "mudoon",
+    "inheritCategory": null,
+    "name": "Mudoon",
+    "power": null,
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "40% Mute",
+    "element": "curse",
+    "hits": null,
+    "id": "mute-gaze",
+    "inheritCategory": "eye",
+    "name": "Mute Gaze",
+    "power": null,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Removes Mute",
+    "element": "healing",
+    "hits": null,
+    "id": "mutudi",
+    "inheritCategory": null,
+    "name": "Mutudi",
+    "power": null,
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Urges an indecisive demon. Effective when young female to male or child to youth",
+    "element": "passive",
+    "hits": null,
+    "id": "nag",
+    "inheritCategory": null,
+    "name": "Nag",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "41 pwr, 76% acc, 24% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "needle-rush",
+    "inheritCategory": null,
+    "name": "Needle Rush",
+    "power": 41,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Endure",
+    "element": "passive",
+    "hits": null,
+    "id": "never-yield",
+    "inheritCategory": null,
+    "name": "Never Yield",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Curse dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-curse",
+    "inheritCategory": null,
+    "name": "Null Curse",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Dark dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-dark",
+    "inheritCategory": null,
+    "name": "Null Dark",
+    "power": null,
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Elec dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-elec",
+    "inheritCategory": null,
+    "name": "Null Elec",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Fire dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-fire",
+    "inheritCategory": null,
+    "name": "Null Fire",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Force dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-force",
+    "inheritCategory": null,
+    "name": "Null Force",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Ice dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-ice",
+    "inheritCategory": null,
+    "name": "Null Ice",
+    "power": null,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Light dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-light",
+    "inheritCategory": null,
+    "name": "Null Light",
+    "power": null,
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Mind dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-mind",
+    "inheritCategory": null,
+    "name": "Null Mind",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Nerve dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-nerve",
+    "inheritCategory": null,
+    "name": "Null Nerve",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Nullifies Phys dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "null-phys",
+    "inheritCategory": null,
+    "name": "Null Phys",
+    "power": null,
+    "rank": 10,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 30
+    },
+    "description": "38 pwr, 30% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "oni-kagura",
+    "inheritCategory": null,
+    "name": "Oni-Kagura",
+    "power": 38,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "30% Panic",
+    "element": "mind",
+    "hits": null,
+    "id": "panic-voice",
+    "inheritCategory": "mouth",
+    "name": "Panic Voice",
+    "power": null,
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Removes Stun",
+    "element": "healing",
+    "hits": null,
+    "id": "paraladi",
+    "inheritCategory": null,
+    "name": "Paraladi",
+    "power": null,
+    "rank": 3,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Removes Sleep, Panic, Bind",
+    "element": "healing",
+    "hits": null,
+    "id": "patra",
+    "inheritCategory": null,
+    "name": "Patra",
+    "power": null,
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Urges an indecisive demon. Ineffective when child target",
+    "element": "passive",
+    "hits": null,
+    "id": "persuade",
+    "inheritCategory": null,
+    "name": "Persuade",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 16
+    },
+    "description": "50 pwr, 255% acc, 255% instakill when Poison",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "pestilence",
+    "inheritCategory": null,
+    "name": "Pestilence",
+    "power": 50,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Removes Stone",
+    "element": "healing",
+    "hits": null,
+    "id": "petradi",
+    "inheritCategory": null,
+    "name": "Petradi",
+    "power": null,
+    "rank": 3,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "255% acc, advances Kagutsuchi 2 turns",
+    "element": "special",
+    "hits": null,
+    "id": "phase-shift",
+    "inheritCategory": null,
+    "name": "Phase Shift",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Drains Phys dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "phys-drain",
+    "inheritCategory": null,
+    "name": "Phys Drain",
+    "power": null,
+    "rank": 11,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Repels Phys dmg taken",
+    "element": "passive",
+    "hits": null,
+    "id": "phys-repel",
+    "inheritCategory": null,
+    "name": "Phys Repel",
+    "power": null,
+    "rank": 12,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Phys and St-based dmg dealt cannot be resisted, nullified, or drained",
+    "element": "passive",
+    "hits": null,
+    "id": "pierce",
+    "inheritCategory": null,
+    "name": "Pierce",
+    "power": null,
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests Macca or Item. Effective when young female talker to male target or child talker to youth or adult target. Adverse when child target",
+    "element": "talk",
+    "hits": null,
+    "id": "plead",
+    "inheritCategory": "talk",
+    "name": "Plead",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Removes Poison",
+    "element": "healing",
+    "hits": null,
+    "id": "posumudi",
+    "inheritCategory": null,
+    "name": "Posumudi",
+    "power": null,
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 50
+    },
+    "description": "100% HP restore + removes ailments",
+    "element": "healing",
+    "hits": null,
+    "id": "prayer",
+    "inheritCategory": null,
+    "name": "Prayer",
+    "power": null,
+    "rank": 11,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "20 pwr, 40% Sleep, Panic, Charm",
+    "element": "mind",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "preach",
+    "inheritCategory": null,
+    "name": "Preach",
+    "power": 20,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "90 pwr, 1-4 hits",
+    "element": "fire",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "prominence",
+    "inheritCategory": null,
+    "name": "Prominence",
+    "power": 90,
+    "rank": 10,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Taunt, MP restore to self",
+    "element": "support",
+    "hits": null,
+    "id": "provoke",
+    "inheritCategory": null,
+    "name": "Provoke",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "60% Panic",
+    "element": "mind",
+    "hits": null,
+    "id": "pulinpa",
+    "inheritCategory": null,
+    "name": "Pulinpa",
+    "power": null,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "75 pwr",
+    "element": "expel",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "radiance",
+    "inheritCategory": null,
+    "name": "Radiance",
+    "power": 75,
+    "rank": 11,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "80 pwr",
+    "element": "fire",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "ragnarok",
+    "inheritCategory": null,
+    "name": "Ragnarok",
+    "power": 80,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Pierce +  dmg dealt x1.5",
+    "element": "passive",
+    "hits": null,
+    "id": "raidou-the-eternal",
+    "inheritCategory": null,
+    "name": "Raidou the Eternal",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Defense +25%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "rakukaja",
+    "inheritCategory": null,
+    "name": "Rakukaja",
+    "power": null,
+    "rank": 7,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Defense -12.5%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "rakunda",
+    "inheritCategory": null,
+    "name": "Rakunda",
+    "power": null,
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "Dekunda",
+    "element": "support",
+    "hits": null,
+    "id": "raptor-guardian",
+    "inheritCategory": null,
+    "name": "Raptor Guardian",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "36 pwr, 198% acc, 50% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "rebellion",
+    "inheritCategory": null,
+    "name": "Rebellion",
+    "power": 36,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "Revive with 1 HP",
+    "element": "healing",
+    "hits": null,
+    "id": "recarm",
+    "inheritCategory": null,
+    "name": "Recarm",
+    "power": null,
+    "rank": 8,
+    "target": "1 stock",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 100
+    },
+    "description": "100% HP and MP restore + Recarm",
+    "element": "healing",
+    "hits": null,
+    "id": "recarmdra",
+    "inheritCategory": null,
+    "name": "Recarmdra",
+    "power": null,
+    "rank": 9,
+    "target": "Party",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Sukukaja x4",
+    "element": "support",
+    "hits": null,
+    "id": "red-capote",
+    "inheritCategory": null,
+    "name": "Red Capote",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Summons clones",
+    "element": "special",
+    "hits": null,
+    "id": "replicate",
+    "inheritCategory": null,
+    "name": "Replicate",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "50 pwr, 50% chance to counter Phys attack with Phys dmg",
+    "element": "passive",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "retaliate",
+    "inheritCategory": null,
+    "name": "Retaliate",
+    "power": 50,
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "50 pwr, 255% acc",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "retaliate-b",
+    "inheritCategory": null,
+    "name": "Retaliate B",
+    "power": 50,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "Escapes fixed encounter",
+    "element": "special",
+    "hits": null,
+    "id": "retreat",
+    "inheritCategory": null,
+    "name": "Retreat",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "Raises encounter rate until new Kagutsuchi",
+    "element": "special",
+    "hits": null,
+    "id": "riberama",
+    "inheritCategory": null,
+    "name": "Riberama",
+    "power": null,
+    "rank": 4,
+    "target": "Field",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "255% acc, 255% random ailment or HP reduction",
+    "element": "almighty",
+    "hits": null,
+    "id": "root-of-evil",
+    "inheritCategory": null,
+    "name": "Root of Evil",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "55 pwr, 15% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "roundtrip",
+    "inheritCategory": null,
+    "name": "Roundtrip",
+    "power": 55,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 100
+    },
+    "description": "56 pwr, 1-4 hits, 10% crit, St-based",
+    "element": "almighty",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "sacrifice",
+    "inheritCategory": null,
+    "name": "Sacrifice",
+    "power": 56,
+    "rank": 6,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 35
+    },
+    "description": "Revive with 100% HP",
+    "element": "healing",
+    "hits": null,
+    "id": "samarecarm",
+    "inheritCategory": null,
+    "name": "Samarecarm",
+    "power": null,
+    "rank": 11,
+    "target": "1 stock",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective when adult talker to female target. Adverse when child talker to female target",
+    "element": "talk",
+    "hits": null,
+    "id": "scout",
+    "inheritCategory": "talk",
+    "name": "Scout",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective when young female talker to male target. Adverse when male talker to male target",
+    "element": "talk",
+    "hits": null,
+    "id": "seduce",
+    "inheritCategory": "talk",
+    "name": "Seduce",
+    "power": null,
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "55% Charm",
+    "element": "mind",
+    "hits": null,
+    "id": "sexy-gaze",
+    "inheritCategory": "eye",
+    "name": "Sexy Gaze",
+    "power": null,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "65% Bind",
+    "element": "nerve",
+    "hits": null,
+    "id": "shibaboo",
+    "inheritCategory": null,
+    "name": "Shibaboo",
+    "power": null,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 9
+    },
+    "description": "25 pwr, 1-5 hits, 17% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "shock",
+    "inheritCategory": null,
+    "name": "Shock",
+    "power": 25,
+    "rank": 5,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 40
+    },
+    "description": "90 pwr, 255% acc",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "showtime",
+    "inheritCategory": null,
+    "name": "Showtime",
+    "power": 90,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, reduces curr HP to 1",
+    "element": "almighty",
+    "hits": null,
+    "id": "sol-niger",
+    "inheritCategory": null,
+    "name": "Sol Niger",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 9
+    },
+    "description": "20% Panic",
+    "element": "mind",
+    "hits": null,
+    "id": "sonic-wave",
+    "inheritCategory": null,
+    "name": "Sonic Wave",
+    "power": null,
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Pierce +  dmg dealt x1.5",
+    "element": "passive",
+    "hits": null,
+    "id": "sons-oath",
+    "inheritCategory": null,
+    "name": "Son's Oath",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 30
+    },
+    "description": "Reduces curr HP by 50%, 30% Mute",
+    "element": "curse",
+    "hits": null,
+    "id": "soul-divide",
+    "inheritCategory": null,
+    "name": "Soul Divide",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Recruit Enemy. Effective when male target",
+    "element": "talk",
+    "hits": null,
+    "id": "soul-recruit",
+    "inheritCategory": "talk",
+    "name": "Soul Recruit",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "62 pwr, 30% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "spiral-viper",
+    "inheritCategory": null,
+    "name": "Spiral Viper",
+    "power": 62,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 22
+    },
+    "description": "50 pwr",
+    "element": "expel",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "starlight",
+    "inheritCategory": null,
+    "name": "Starlight",
+    "power": 50,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "255% acc, gains 3 half icons",
+    "element": "special",
+    "hits": null,
+    "id": "startle",
+    "inheritCategory": null,
+    "name": "Startle",
+    "power": null,
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "53 pwr, 60% acc, 40% crit, 65% Bind, pwr scales with max HP",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "stasis-blade",
+    "inheritCategory": "weapon",
+    "name": "Stasis Blade",
+    "power": 53,
+    "rank": 9,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "40 pwr, 40% instakill, St-based",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "stinger",
+    "inheritCategory": null,
+    "name": "Stinger",
+    "power": 40,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "44 pwr, 74% acc, 26% crit, 60% Stone",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "stone-bite",
+    "inheritCategory": "bite",
+    "name": "Stone Bite",
+    "power": 44,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "50% Stone",
+    "element": "death",
+    "hits": null,
+    "id": "stone-gaze",
+    "inheritCategory": "eye",
+    "name": "Stone Gaze",
+    "power": null,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests gem",
+    "element": "talk",
+    "hits": null,
+    "id": "stone-hunt",
+    "inheritCategory": "talk",
+    "name": "Stone Hunt",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "44 pwr, 74% acc, 26% crit, 40% Stun",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "stun-bite",
+    "inheritCategory": "bite",
+    "name": "Stun Bite",
+    "power": 44,
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "44 pwr, 70% acc, 30% crit, 40% Stun",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "stun-claw",
+    "inheritCategory": "claw",
+    "name": "Stun Claw",
+    "power": 44,
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 5
+    },
+    "description": "40% Stun",
+    "element": "nerve",
+    "hits": null,
+    "id": "stun-gaze",
+    "inheritCategory": "eye",
+    "name": "Stun Gaze",
+    "power": null,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 7
+    },
+    "description": "31 pwr, 76% acc, 24% crit, 40% Stun",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "stun-needle",
+    "inheritCategory": null,
+    "name": "Stun Needle",
+    "power": 31,
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Hit + evade +25%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "sukukaja",
+    "inheritCategory": null,
+    "name": "Sukukaja",
+    "power": null,
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Hit + evade -12.5%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "sukunda",
+    "inheritCategory": null,
+    "name": "Sukunda",
+    "power": null,
+    "rank": 1,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Summons chosen ally",
+    "element": "special",
+    "hits": null,
+    "id": "summon",
+    "inheritCategory": null,
+    "name": "Summon",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy",
+    "element": "talk",
+    "hits": null,
+    "id": "talk",
+    "inheritCategory": "talk",
+    "name": "Talk",
+    "power": null,
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Phys attack +25%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "tarukaja",
+    "inheritCategory": null,
+    "name": "Tarukaja",
+    "power": null,
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "Phys + magic attack -12.5%, stacks up to 4",
+    "element": "support",
+    "hits": null,
+    "id": "tarunda",
+    "inheritCategory": null,
+    "name": "Tarunda",
+    "power": null,
+    "rank": 2,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 20
+    },
+    "description": "Rakunda + Tarukaja x2",
+    "element": "support",
+    "hits": null,
+    "id": "taunt",
+    "inheritCategory": null,
+    "name": "Taunt",
+    "power": null,
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 12
+    },
+    "description": "40 pwr, 40% instakill, St-based",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "tekisatsu",
+    "inheritCategory": null,
+    "name": "Tekisatsu",
+    "power": 40,
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "31 pwr, 70% acc, 30% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "tempest",
+    "inheritCategory": "thrust",
+    "name": "Tempest",
+    "power": 31,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 30
+    },
+    "description": "60 pwr, 70% acc, 30% crit",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "tentacle",
+    "inheritCategory": null,
+    "name": "Tentacle",
+    "power": 60,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "50 pwr, 20% Panic",
+    "element": "mind",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "tentarafoo",
+    "inheritCategory": null,
+    "name": "Tentarafoo",
+    "power": 50,
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "30 pwr, 1-5 hits, 30% Panic",
+    "element": "phys",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "terrorblade",
+    "inheritCategory": null,
+    "name": "Terrorblade",
+    "power": 30,
+    "rank": 99,
+    "target": "Rand foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 15
+    },
+    "description": "Nullifies next Light or Dark attack",
+    "element": "support",
+    "hits": null,
+    "id": "tetraja",
+    "inheritCategory": null,
+    "name": "Tetraja",
+    "power": null,
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 45
+    },
+    "description": "Repels next non-Almighty Phys attack for 1 turn",
+    "element": "support",
+    "hits": null,
+    "id": "tetrakarn",
+    "inheritCategory": null,
+    "name": "Tetrakarn",
+    "power": null,
+    "rank": 8,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests Macca or Item. Effective when talker is 10 levels higher than target. Adverse when talker is 10 levels lower than target",
+    "element": "talk",
+    "hits": null,
+    "id": "threaten",
+    "inheritCategory": "talk",
+    "name": "Threaten",
+    "power": null,
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 12
+    },
+    "description": "Reduces curr HP by 50%",
+    "element": "expel",
+    "hits": null,
+    "id": "thunderclap",
+    "inheritCategory": null,
+    "name": "Thunderclap",
+    "power": null,
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr, 1-4 hits",
+    "element": "force",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "tornado",
+    "inheritCategory": null,
+    "name": "Tornado",
+    "power": 65,
+    "rank": 7,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 8
+    },
+    "description": "25 pwr, 1-4 hits, 20% Poison",
+    "element": "curse",
+    "hits": {
+      "max": 4,
+      "min": 1
+    },
+    "id": "toxic-cloud",
+    "inheritCategory": "mouth",
+    "name": "Toxic Cloud",
+    "power": 25,
+    "rank": 4,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 7
+    },
+    "description": "31 pwr, 76% acc, 24% crit, 40% Poison",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "toxic-sting",
+    "inheritCategory": null,
+    "name": "Toxic Sting",
+    "power": 31,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Requests barter",
+    "element": "talk",
+    "hits": null,
+    "id": "trade",
+    "inheritCategory": "talk",
+    "name": "Trade",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "Escapes random encounters",
+    "element": "special",
+    "hits": null,
+    "id": "trafuri",
+    "inheritCategory": null,
+    "name": "Trafuri",
+    "power": null,
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "25 pwr, 252% acc, 30% Panic",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "twosome-time",
+    "inheritCategory": null,
+    "name": "Twosome Time",
+    "power": 25,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 1
+    },
+    "description": "75 pwr, 255% acc",
+    "element": "almighty",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "vast-light",
+    "inheritCategory": null,
+    "name": "Vast Light",
+    "power": 75,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "41 pwr, 76% acc, 24% crit, 40% Poison",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "venom-bite",
+    "inheritCategory": "bite",
+    "name": "Venom Bite",
+    "power": 41,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "41 pwr, 76% acc, 24% crit, 40% Poison",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "venom-claw",
+    "inheritCategory": "claw",
+    "name": "Venom Claw",
+    "power": 41,
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "100% max HP + MP restore after battle",
+    "element": "passive",
+    "hits": null,
+    "id": "victory-cry",
+    "inheritCategory": null,
+    "name": "Victory Cry",
+    "power": null,
+    "rank": 13,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "75 pwr",
+    "element": "expel",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "violet-flash",
+    "inheritCategory": null,
+    "name": "Violet Flash",
+    "power": 75,
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 40
+    },
+    "description": "Tarunda x2",
+    "element": "support",
+    "hits": null,
+    "id": "war-cry",
+    "inheritCategory": "mouth",
+    "name": "War Cry",
+    "power": null,
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Gains x0.5 battle exp while in stock",
+    "element": "passive",
+    "hits": null,
+    "id": "watchful",
+    "inheritCategory": null,
+    "name": "Watchful",
+    "power": null,
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr, 20% Stun",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "wet-wind",
+    "inheritCategory": null,
+    "name": "Wet Wind",
+    "power": 65,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 25
+    },
+    "description": "65 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "whirlwind",
+    "inheritCategory": null,
+    "name": "Whirlwind",
+    "power": 65,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 18
+    },
+    "description": "65% Panic",
+    "element": "mind",
+    "hits": null,
+    "id": "wild-dance",
+    "inheritCategory": null,
+    "name": "Wild Dance",
+    "power": null,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 13
+    },
+    "description": "90 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "wind-cutter",
+    "inheritCategory": null,
+    "name": "Wind Cutter",
+    "power": 90,
+    "rank": 9,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Solves all kinds of conversation troubles",
+    "element": "passive",
+    "hits": null,
+    "id": "wine-party",
+    "inheritCategory": null,
+    "name": "Wine Party",
+    "power": null,
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 9
+    },
+    "description": "30 pwr, 1-5 hits",
+    "element": "force",
+    "hits": {
+      "max": 5,
+      "min": 1
+    },
+    "id": "wing-buffet",
+    "inheritCategory": "wings",
+    "name": "Wing Buffet",
+    "power": 30,
+    "rank": 5,
+    "target": "Rand foes",
+    "unique": false
+  },
+  {
+    "cost": null,
+    "description": "Recruit enemy. Effective when young male talker to female target or older female talker is 10 levels higher than female target. Adverse when male talker to male target",
+    "element": "talk",
+    "hits": null,
+    "id": "wooing",
+    "inheritCategory": "talk",
+    "name": "Wooing",
+    "power": null,
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "hp-percent",
+      "value": 40
+    },
+    "description": "28 pwr, 30% crit, 30% Bind",
+    "element": "phys",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "xeros-beat",
+    "inheritCategory": null,
+    "name": "Xeros Beat",
+    "power": 28,
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "37 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "zan",
+    "inheritCategory": null,
+    "name": "Zan",
+    "power": 37,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "75 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "zandyne",
+    "inheritCategory": null,
+    "name": "Zandyne",
+    "power": 75,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "55 pwr",
+    "element": "force",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "zanma",
+    "inheritCategory": null,
+    "name": "Zanma",
+    "power": 55,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 3
+    },
+    "description": "30 pwr, 20% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "zio",
+    "inheritCategory": null,
+    "name": "Zio",
+    "power": 30,
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 10
+    },
+    "description": "65 pwr, 30% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "ziodyne",
+    "inheritCategory": null,
+    "name": "Ziodyne",
+    "power": 65,
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cost": {
+      "type": "mp",
+      "value": 6
+    },
+    "description": "45 pwr, 25% Shock",
+    "element": "elec",
+    "hits": {
+      "max": 1,
+      "min": 1
+    },
+    "id": "zionga",
+    "inheritCategory": null,
+    "name": "Zionga",
+    "power": 45,
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  }
+]

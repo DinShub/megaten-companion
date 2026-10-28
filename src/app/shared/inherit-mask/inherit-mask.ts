@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-import { INHERIT_ELEMENTS } from '../element-visuals';
+import { INHERIT_ELEMENTS, type ElementVisual } from '../element-visuals';
 
 interface MaskCell {
   readonly abbrev: string;
@@ -21,7 +21,7 @@ interface MaskCell {
   selector: 'app-inherit-mask',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="mask" role="list" aria-label="Inheritable skill elements">
+    <div class="mask" role="list" aria-label="Inheritable skill elements" [style.grid-template-columns]="columns()">
       @for (cell of cells(); track cell.abbrev) {
         <div
           class="mask__cell"
@@ -76,10 +76,14 @@ interface MaskCell {
 export class InheritMask {
   /** Resolved permission row: `elementId → can inherit`. */
   readonly allowed = input.required<Readonly<Record<string, boolean>>>();
+  /** The axes to show, in order. Defaults to the twelve Persona inherit axes. */
+  readonly elements = input<readonly ElementVisual[]>(INHERIT_ELEMENTS);
+
+  protected readonly columns = computed(() => `repeat(${this.elements().length}, minmax(0, 1fr))`);
 
   protected readonly cells = computed<MaskCell[]>(() => {
     const row = this.allowed();
-    return INHERIT_ELEMENTS.map((el) => {
+    return this.elements().map((el) => {
       const ok = row[el.id] === true;
       return { abbrev: el.abbrev, allowed: ok, aria: `${el.label}: ${ok ? 'yes' : 'no'}` };
     });
