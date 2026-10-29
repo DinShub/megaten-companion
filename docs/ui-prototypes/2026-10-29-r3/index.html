@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P3R Companion: round three</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #16171b;
+    --line: #33353c;
+    --text: #eceef2;
+    --muted: #a3a7b1;
+    --accent: #6ea2ff;          /* P3R blue */
+    color-scheme: dark;         /* single dark look, like the app */
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.55 'Familjen Grotesk', system-ui, sans-serif; }
+  main { max-width: 1180px; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; }
+  header { max-width: 62ch; margin-bottom: 2.75rem; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin: 0 0 1rem; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+  header p { color: var(--muted); margin: 0 0 0.75rem; }
+  header strong { color: var(--text); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+  .dir { display: flex; flex-direction: column; min-width: 0; }
+  .dir__shot {
+    --s: 0.38;
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #000;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }
+  .dir__shot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 900px;
+    border: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--s));
+    pointer-events: none;
+    transition: transform 0.4s ease;
+  }
+  .dir__shot:hover, .dir__shot:focus-visible { border-color: var(--accent); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9); transform: translateY(-3px); }
+  .dir__shot:hover iframe { transform: scale(calc(var(--s) * 1.02)); }
+  .dir__shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .dir h2 { font-size: 1.5rem; margin: 1.1rem 0 0.15rem; font-weight: 700; letter-spacing: -0.01em; }
+  .dir h2 a { color: inherit; text-decoration: none; }
+  .dir h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .dir__from { color: var(--muted); margin: 0 0 0.2rem; font-size: 0.93rem; }
+  .dir__lever { color: var(--accent); margin: 0 0 0.6rem; font-weight: 500; }
+  .dir p { margin: 0 0 0.6rem; max-width: 60ch; }
+  .dir__cost { color: var(--muted); font-size: 0.93rem; }
+  .dir__cost b { color: var(--text); font-weight: 500; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); max-width: 70ch; color: var(--muted); }
+  footer p { margin: 0 0 0.75rem; }
+  footer strong { color: var(--text); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dir__shot, .dir__shot iframe { transition: none; }
+    .dir__shot:hover, .dir__shot:focus-visible { transform: none; }
+    .dir__shot:hover iframe { transform: scale(var(--s)); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Round three: louder, bluer, more like P3R</h1>
+    <p>You said Monorail and Butterfly came closest, but round two was too quiet and didn't feel like P3R. So all four of these are deep blue and crisp white, open with a big image that fills the top of the page, and play one large moment instead of a subtle one. Two push those favourites much further, and two are new ideas built from the same parts.</p>
+    <p>They keep the <strong>same real screen</strong> (Orpheus + Jack Frost making Omoikane, plus a short persona list), using upstream's P3R data at the pinned commit. Click or press a key to skip a page's opening moment.</p>
+  </header>
+
+  <div class="grid">
+    <article class="dir">
+      <a class="dir__shot" href="last-train.html" aria-label="Open the Last Train prototype">
+        <iframe src="last-train.html#preview" title="Last Train prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="last-train.html">Last Train</a></h2>
+      <p class="dir__from">From Monorail, pushed</p>
+      <p class="dir__lever">Personality from the city at midnight</p>
+      <p>The top of the page is Iwatodai at midnight, with a big moon and a deep skyline under the elevated track. The result's name is written across the sky in giant faint letters. When the page opens, the last train runs through and its light turns the letters solid white as it passes. Below, the parents sit on crisp white cards and the result's details are on the one solid blue panel.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The city band is a shell header with a seeded SVG skyline and a train animated with the Web Animations API. The giant name has to fit any persona name, so long names need a fitting rule. White parent cards mean overriding PrimeNG inputs for dark ink.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="full-moon.html" aria-label="Open the Full Moon prototype">
+        <iframe src="full-moon.html#preview" title="Full Moon prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="full-moon.html">Full Moon</a></h2>
+      <p class="dir__from">From Butterfly, pushed</p>
+      <p class="dir__lever">Personality from silhouette against the moon</p>
+      <p>An enormous blue-white moon fills the top of the page, and the three personas stand in front of it as black coffin silhouettes with a thin glowing edge. Five blue butterflies fly in out of the dark, one after another, and settle on the coffins, three of them on the result. Hover a coffin and its butterflies startle. The details below use a crisp white panel for the result.</p>
+      <p class="dir__cost"><b>Porting effort: medium-high.</b> It needs a coffin component (a clip-path silhouette) and a small butterfly controller that measures perches with a ResizeObserver. Five animated SVGs is the limit for cheap animation. Coffins only fit one to three personas, so the lists stay tables.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="abyss.html" aria-label="Open the Abyss prototype">
+        <iframe src="abyss.html#preview" title="Abyss prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="abyss.html">Abyss</a></h2>
+      <p class="dir__from">New: the deep-blue feel of P3R's own menus</p>
+      <p class="dir__lever">Personality from water and light</p>
+      <p>The whole page is water: bright P3R blue at the surface, darkening to the deep at the bottom, with light rays swaying down and bubbles rising wherever the pointer moves. The parents are frosted glass and the result is the one solid white card, with its name in heavy italic. When the page opens, the result rises out of the deep, the light flares, and a burst of bubbles comes off it.</p>
+      <p class="dir__cost"><b>Porting effort: low-medium.</b> It's mostly tokens plus a fixed background layer in the shell, and it works on every page without new components. Glass panels need backdrop blur, which is costly on long lists, so the list keeps a flatter fill. The pointer bubbles and the swaying rays must stop under reduced motion.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="tartarus.html" aria-label="Open the Tartarus prototype">
+        <iframe src="tartarus.html#preview" title="Tartarus prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="tartarus.html">Tartarus</a></h2>
+      <p class="dir__from">New: Monorail's city and Butterfly's moon, made vertical</p>
+      <p class="dir__lever">Personality from height</p>
+      <p>A tower with glowing edges rises out of the midnight city toward the moon. The two parents are tagged in the street at its foot, and the result waits on a crisp white plate at the top. When the page opens, it starts in the street and climbs the tower to the result, while a small rail on the right shows how far up you are.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The tower is a generated SVG, and the climb is a single transform animation on one scene. It's the most opinionated layout, because the result's summary lives in the hero and the full details below. It needs a short version for phones, since the street tags crowd under 400 px.</p>
+    </article>
+  </div>
+
+  <footer>
+    <p><strong>Mixing is fair game.</strong> These share most of their parts on purpose: the same deep blue, crisp white cards, the moon and the city. The Last Train name in the sky could sit above the Full Moon coffins, and Abyss's water could be the background for every other page while Tartarus stays the calculator's hero.</p>
+    <p>These are mockups. The hovers, the search filter, the mode buttons and each page's opening moment all work: the train lighting the name, the butterflies landing, the result surfacing and the climb up the tower. No fusion logic is wired. The recipe was worked out from upstream's P3R chart with the normal level rule, not by the app's engine.</p>
+  </footer>
+</main>
+<script>
+  // Scale each 1440 × 900 live preview to its card's width.
+  const ro = new ResizeObserver((entries) => {
+    for (const e of entries) e.target.style.setProperty('--s', String(e.contentRect.width / 1440));
+  });
+  document.querySelectorAll('.dir__shot').forEach((el) => ro.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Last Train · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@700;800&family=Saira:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Round 3, from Monorail, made loud. Deep blue and white, crisp.
+     Tokens. --blue is the game accent (P3R blue, --p-primary-500);
+     --sky/--sky-2 become the surface ramp (--p-primary-950/800). --white
+     is the card stock: parents sit on white cards with blue ink.
+     Layout idea: the whole top of the page is Iwatodai at midnight, and
+     the result's name is written across the sky behind the elevated
+     track, larger than anything else. The last train runs through it and
+     lights it.
+     ------------------------------------------------------------------ */
+  :root {
+    --sky: #06133a;
+    --sky-2: #0b2a7a;
+    --line: #23418f;
+    --blue: #1f5bff;            /* P3R blue, --p-primary-500 */
+    --cyan: #7fd3ff;
+    --white: #f5f8ff;
+    --blue-ink: #061033;        /* text on white, 17:1 */
+    --dim: #a9bce6;             /* on --sky, 8.9:1 */
+    --dim-ink: #3c4f86;         /* secondary on white, 7.6:1 */
+    --display: 'Saira Extra Condensed', 'Arial Narrow', sans-serif;
+    --body: 'Saira', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--sky);
+    color: var(--white);
+    font: 400 15px/1.55 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
+
+  /* ------------------------------------------------------------------ the city */
+  .city {
+    position: relative;
+    height: clamp(32rem, 66vh, 42rem);
+    overflow: hidden;
+    background:
+      radial-gradient(60% 70% at 78% 18%, color-mix(in srgb, var(--blue) 55%, transparent), transparent 70%),
+      linear-gradient(to bottom, #030a24, var(--sky-2) 85%);
+  }
+  .moon {
+    position: absolute;
+    top: 6.5rem;
+    right: 9%;
+    width: clamp(7rem, 13vw, 12rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 38%, #ffffff, #d7e6ff 55%, #a9c5f5 72%);
+    box-shadow: 0 0 80px 20px rgba(127, 211, 255, 0.35), 0 0 220px 60px rgba(31, 91, 255, 0.35);
+  }
+  .bar {
+    position: relative;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 3vw;
+  }
+  .brand { font: 800 1.7rem/1 var(--display); text-decoration: none; white-space: nowrap; letter-spacing: 0.01em; }
+  .nav {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1;
+
+    a {
+      padding: 0.3rem 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--dim);
+      white-space: nowrap;
+
+      &:hover { color: var(--white); }
+      &[aria-current='page'] { background: var(--white); color: var(--blue-ink); }
+    }
+  }
+  .bar__count { color: var(--dim); white-space: nowrap; b { color: var(--white); } }
+
+  .city__head {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+    padding: 0.6rem 3vw 0;
+
+    h1 { margin: 0; font: 800 2.2rem/1 var(--display); }
+    p { margin: 0; color: var(--dim); }
+  }
+  .modes {
+    display: inline-flex;
+    margin-left: auto;
+
+    button {
+      padding: 0.55rem 1.1rem;
+      border: 2px solid var(--white);
+      background: var(--sky);
+      color: var(--white);
+      font: 700 0.95rem/1 var(--body);
+      cursor: pointer;
+
+      & + button { border-left: 0; }
+      &:hover { background: var(--sky-2); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--white); color: var(--blue-ink); }
+    }
+  }
+
+  /* The name across the sky. Left of --hidden the letters are a faint shape; right of it, lit white.
+     One element with gradient-clipped text, so there is no overlay layer to misalign. */
+  .sky-name {
+    position: absolute;
+    z-index: 1;
+    left: 2.4vw;
+    bottom: 11rem;
+    margin: 0;
+    padding: 0.06em 0;
+    font: 800 clamp(7rem, 19vw, 17.5rem)/0.82 var(--display);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: transparent;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--white) 16%, transparent) 0 var(--hidden, 0%), var(--white) var(--hidden, 0%));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .skyline { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; width: 100%; height: 12rem; }
+  .skyline .b { fill: #040c2c; }
+  .skyline .w { fill: #18307a; }
+  .skyline .lit { fill: #ffe9a8; }
+  .track { position: absolute; z-index: 3; left: 0; right: 0; bottom: 12.6rem; height: 5px; background: #040c2c; box-shadow: 0 1px 0 var(--line); }
+  .track::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5px;
+    height: 12.6rem;
+    background: repeating-linear-gradient(90deg, transparent 0 15rem, #040c2c 15rem calc(15rem + 10px));
+  }
+  .train {
+    position: absolute;
+    z-index: 4;
+    bottom: calc(12.6rem + 5px);
+    left: 0;
+    width: 52rem;
+    height: 2.1rem;
+    border-radius: 1.1rem 0.4rem 0.4rem 1.1rem;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 1rem, #f5f8ff 1rem 2.6rem, transparent 2.6rem 3.2rem) 0 0.55rem / 100% 0.8rem no-repeat,
+      #1a3a9a;
+    box-shadow: 0 0 40px 6px rgba(127, 211, 255, 0.45), 60rem 0 80px -10px rgba(127, 211, 255, 0.25);
+    transform: translateX(-60rem);
+    pointer-events: none;
+  }
+  .result-tag {
+    position: absolute;
+    z-index: 5;
+    left: 3vw;
+    bottom: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+
+    span {
+      padding: 0.3rem 0.7rem;
+      background: var(--white);
+      color: var(--blue-ink);
+      font-weight: 700;
+    }
+    .result-tag__eyebrow { background: var(--blue); color: var(--white); }
+  }
+
+  /* ------------------------------------------------------------------ below the city */
+  main { max-width: 1240px; margin: 0 auto; padding: 2.4rem 3vw 6rem; }
+  .deck {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 1.2rem;
+    align-items: start;
+  }
+  .deck > * { min-width: 0; }
+  /* Parents: crisp white cards with blue ink. */
+  .card {
+    padding: 1rem 1.2rem 1.2rem;
+    background: var(--white);
+    color: var(--blue-ink);
+    transition: transform 0.15s, box-shadow 0.15s;
+
+    &:hover, &:focus-within { transform: translateY(-2px); box-shadow: 0 0 0 3px var(--blue); }
+  }
+  .card__label { margin: 0; font-size: 0.82rem; color: var(--dim-ink); font-weight: 600; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: var(--blue-ink);
+      font: 800 2.4rem/1.05 var(--display);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--blue); }
+    }
+    button {
+      border: 2px solid var(--blue-ink);
+      background: transparent;
+      color: var(--blue-ink);
+      font: 700 0.75rem/1 var(--body);
+      padding: 0.3rem 0.55rem;
+      cursor: pointer;
+
+      &:hover { background: var(--blue-ink); color: var(--white); }
+    }
+  }
+  .meta { margin: 0.1rem 0 0.6rem; font-size: 0.86rem; color: var(--dim-ink); b { color: var(--blue-ink); } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    font-size: 0.9rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.15rem 0; border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent); }
+    .lv { opacity: 0.75; font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+
+  /* The result's details: the one blue panel. */
+  .detail {
+    padding: 1.2rem 1.4rem 1.4rem;
+    background: var(--blue);
+    color: var(--white);
+
+    h2 { margin: 0; font: 800 2.6rem/1 var(--display); }
+    h3 { margin: 1rem 0 0.4rem; font: 700 0.95rem/1.2 var(--body); }
+    .meta { color: color-mix(in srgb, var(--white) 85%, transparent); b { color: var(--white); } }
+    .skills { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); column-gap: 1.2rem; }
+  }
+  .stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    text-align: center;
+
+    div { padding: 0.35rem 0; background: color-mix(in srgb, var(--sky) 35%, transparent); }
+    dt { font-size: 0.8rem; font-weight: 600; }
+    dd { margin: 0; font: 800 1.9rem/1 var(--display); }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(1.9rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { font-weight: 600; }
+    .v { padding: 0.2rem 0; font-weight: 700; background: color-mix(in srgb, var(--sky) 35%, transparent); }
+    .n { font-weight: 400; opacity: 0.7; }
+    .wk { background: var(--white); color: var(--blue-ink); }
+    .nu, .rp, .dr { box-shadow: inset 0 0 0 2px var(--white); }
+  }
+  .legend { margin: 0.45rem 0 0; font-size: 0.76rem; }
+  .rule { margin: 1rem 0 0; font-size: 0.9rem; b { font-weight: 700; } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: 800 2.6rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 700; white-space: nowrap; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.5rem 0.8rem;
+      border: 2px solid var(--white);
+      background: transparent;
+      color: var(--white);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; background: color-mix(in srgb, var(--white) 10%, transparent); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 50rem;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+
+    th { text-align: left; color: var(--dim); font-size: 0.8rem; padding: 0 0.75rem 0.5rem 0; border-bottom: 2px solid var(--white); }
+    td { padding: 0.45rem 0.75rem 0.45rem 0; border-bottom: 1px solid var(--line); }
+    .lv { width: 3.6rem; font: 800 1.6rem/1 var(--display); }
+    td.name { font-weight: 700; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: var(--white); color: var(--blue-ink); }
+      &:hover td.arcana, &:focus-visible td.arcana { color: var(--dim-ink); }
+    }
+    .tag { margin-left: 0.5rem; padding: 0.05rem 0.45rem; background: var(--blue); color: var(--white); font-size: 0.72rem; font-weight: 700; }
+    .aff { grid-template-columns: repeat(9, 2.3rem); }
+    .aff .v { background: color-mix(in srgb, var(--sky-2) 80%, transparent); }
+    .aff .wk { background: var(--white); color: var(--blue-ink); }
+    tr:hover .aff .v, tr:focus-visible .aff .v { background: color-mix(in srgb, var(--blue-ink) 10%, transparent); }
+    tr:hover .aff .wk, tr:focus-visible .aff .wk { background: var(--blue); color: var(--white); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem 0; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
+    .city__head { padding: 0.6rem 1rem 0; }
+    .modes { margin-left: 0; }
+    main { padding: 2rem 1rem 5rem; }
+    .deck { grid-template-columns: 1fr 1fr; }
+    .detail { grid-column: 1 / -1; order: -1; }
+  }
+  @media (max-width: 560px) {
+    .deck { grid-template-columns: 1fr; }
+    .name { font-size: 5.6rem; bottom: 11.2rem; }
+    .detail .aff { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .train { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="city">
+  <header class="bar">
+    <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#" aria-current="page">Fusion</a>
+      <a href="#">Compendium</a>
+      <a href="#">Personas</a>
+      <a href="#">Skills</a>
+      <a href="#">Shadows</a>
+      <a href="#">Classroom</a>
+    </nav>
+    <span class="bar__count"><b data-total></b> personas</span>
+  </header>
+  <div class="city__head">
+    <h1>Fusion</h1>
+    <p>Pick two personas to see what they make.</p>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+  <div class="moon" aria-hidden="true"></div>
+  <h2 class="sky-name" id="r-name" data-r-name></h2>
+  <svg class="skyline" viewBox="0 0 1440 192" preserveAspectRatio="none" aria-hidden="true" data-city></svg>
+  <div class="track" aria-hidden="true"></div>
+  <div class="train" aria-hidden="true"></div>
+  <p class="result-tag" data-tag></p>
+</div>
+
+<main>
+  <div class="deck" data-deck></div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, PERSONAS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+
+  $('[data-total]').textContent = TOTAL;
+  document.querySelectorAll('[data-r-name]').forEach((n) => { n.textContent = RESULT.name; });
+  $('[data-tag]').innerHTML = `<span class="result-tag__eyebrow">Result</span><span>${RESULT.arcana}</span><span>Lv ${RESULT.lv}</span><span>Inherits ${RESULT.inherits}</span>`;
+
+  $('[data-deck]').innerHTML = `
+    ${PARENTS.map((p, i) => `
+      <section class="card" aria-labelledby="p${i}-t">
+        <h2 class="card__label" id="p${i}-t">Parent ${i + 1}</h2>
+        <div class="slot">
+          <label for="p${i}">Parent ${i + 1} persona</label>
+          <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+        </div>
+        <p class="meta">${p.arcana}, Lv <b>${p.lv}</b>, inherits <b>${p.inherits}</b></p>
+        <ul class="skills">${skillList(p.skills)}</ul>
+      </section>`).join('')}
+    <section class="detail" aria-label="${RESULT.name} details">
+      <h2>${RESULT.name}</h2>
+      <p class="meta">${RESULT.arcana}, Lv <b>${RESULT.lv}</b>, inherits <b>${RESULT.inherits}</b></p>
+      <dl class="stats">${RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+      <h3>Affinities</h3>
+      <div class="aff">${strip(RESULT.aff, true)}</div>
+      <p class="legend">Wk weak (white), Rs resist, Nu null (outlined)</p>
+      <h3>Skills</h3>
+      <ul class="skills">${skillList(RESULT.skills)}</ul>
+      <p class="rule"><b>${RULE.arcana.join(' + ')}</b> makes ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.</p>
+    </section>`;
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* The city: a seeded skyline, every window dark but one. */
+  let seed = 11;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  let x = 0;
+  let svg = '';
+  const wins = [];
+  while (x < 1440) {
+    const w = 34 + Math.floor(rnd() * 70);
+    const h = 60 + Math.floor(rnd() * 125);
+    svg += `<rect class="b" x="${x}" y="${192 - h}" width="${w - 4}" height="${h}"/>`;
+    for (let wy = 192 - h + 10; wy < 184; wy += 14) for (let wx = x + 6; wx < x + w - 12; wx += 11) if (rnd() < 0.3) wins.push([wx, wy]);
+    x += w;
+  }
+  const lit = Math.floor(wins.length * 0.62);
+  svg += wins.map(([wx, wy], i) => `<rect class="${i === lit ? 'lit' : 'w'}" x="${wx}" y="${wy}" width="5" height="7"/>`).join('');
+  $('[data-city]').innerHTML = svg;
+
+  /* ---- Signature: the last train runs right to left and its light fills the name as it passes. ---- */
+  const city = $('.city');
+  const train = $('.train');
+  const name = $('.sky-name');
+  const fill = name;
+  const anims = [];
+  moment((at, end) => {
+    const W = city.clientWidth;
+    const n = name.getBoundingClientRect();
+    const c = city.getBoundingClientRect();
+    const dur = 2200;
+    fill.style.setProperty('--hidden', '100%');
+    anims.push(train.animate([{ transform: `translateX(${W + 40}px)` }, { transform: 'translateX(-60rem)' }], { duration: dur, easing: 'cubic-bezier(0.3, 0, 0.7, 1)', fill: 'forwards' }));
+    // The fill follows the train's nose across the name's own box.
+    const start = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - start) / dur);
+      const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      const nose = W + 40 - e * (W + 40 + 960);
+      const p = Math.max(0, Math.min(100, ((nose - (n.left - c.left)) / n.width) * 100));
+      fill.style.setProperty('--hidden', `${p}%`);
+      if (k < 1) anims.raf = requestAnimationFrame(step);
+    };
+    anims.raf = requestAnimationFrame(step);
+    at(dur + 80, end);
+  }, () => {
+    cancelAnimationFrame(anims.raf);
+    anims.forEach((a) => a.cancel());
+    fill.style.setProperty('--hidden', '0%');
+  }).play();
+</script>
+</body>
+</html>

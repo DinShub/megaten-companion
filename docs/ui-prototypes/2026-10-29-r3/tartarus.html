@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Tartarus · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;800&family=Red+Hat+Text:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Round 3: Monorail's midnight city and Butterfly's moon, with one
+     vertical idea added. Deep blue and white, crisp.
+     Tokens. --blue is the game accent (P3R blue, --p-primary-500), and
+     --edge the lit edges of the tower (--p-primary-300). --night/--tower
+     are the surface ramp. --white is the card stock for the result.
+     Layout idea: the parents stand in the street at the foot of a tower
+     that rises out of the city at midnight, and the result waits at the top.
+     The page opens in the street and climbs to it.
+     ------------------------------------------------------------------ */
+  :root {
+    --night: #040b26;
+    --tower: #0b1a4a;
+    --line: #22408f;
+    --edge: #8fd0ff;
+    --blue: #2a62ff;            /* P3R blue, --p-primary-500 */
+    --white: #f5f8ff;
+    --ink: #040b26;             /* text on white, 18:1 */
+    --ink-dim: #3a4c85;
+    --dim: #a7bbe6;             /* on --night, 9:1 */
+    --display: 'Oxanium', system-ui, sans-serif;
+    --body: 'Red Hat Text', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--night);
+    color: var(--white);
+    font: 400 15px/1.55 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--edge); outline-offset: 2px; }
+
+  /* ------------------------------------------------------------------ the climb */
+  .hero {
+    position: relative;
+    height: clamp(36rem, 80vh, 50rem);
+    overflow: hidden;
+  }
+  .scene {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 175%;
+    background:
+      radial-gradient(40% 25% at 28% 10%, color-mix(in srgb, var(--blue) 45%, transparent), transparent 70%),
+      linear-gradient(to bottom, #020717 0%, var(--night) 40%, #0a1c55 100%);
+    will-change: transform;
+  }
+  .moon {
+    position: absolute;
+    top: 6%;
+    left: 14%;
+    width: clamp(8rem, 15vw, 14rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 42% 38%, #fff, #dbe8ff 55%, #aac6f7 72%);
+    box-shadow: 0 0 90px 24px rgba(143, 208, 255, 0.35), 0 0 240px 70px rgba(42, 98, 255, 0.3);
+  }
+  .tower { position: absolute; left: 50%; bottom: 0; height: 100%; width: 32rem; transform: translateX(-50%); }
+  .tower .t { fill: #06123a; stroke: var(--edge); stroke-width: 1.4; }
+  .tower .slit { fill: color-mix(in srgb, var(--edge) 55%, transparent); }
+  .tower .crown { fill: var(--edge); filter: drop-shadow(0 0 12px var(--edge)); }
+  .skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 16%; }
+  .skyline .b { fill: #030a26; }
+  .skyline .w { fill: #172d72; }
+
+  /* The two parents, tagged in the street. */
+  .street-tag {
+    position: absolute;
+    bottom: 17%;
+    display: grid;
+    gap: 0.1rem;
+    padding: 0.5rem 0.8rem;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.85rem;
+
+    b { font: 800 1.4rem/1 var(--display); }
+    &::after { content: ''; position: absolute; top: 100%; width: 2px; height: 3.2rem; background: var(--white); }
+  }
+  .street-tag--l { right: calc(50% + 9rem); &::after { right: 1rem; } }
+  .street-tag--r { left: calc(50% + 9rem); &::after { left: 1rem; } }
+
+  /* The result at the top: a crisp white floor plate beside the crown. */
+  .summit {
+    position: absolute;
+    top: 9%;
+    left: calc(50% + 7.5rem);
+    width: min(28rem, 40vw);
+    padding: 1.2rem 1.4rem 1.3rem;
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 0 0 4px rgba(143, 208, 255, 0.35), 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+
+    &::before { content: ''; position: absolute; right: 100%; top: 2.2rem; width: 3.6rem; height: 2px; background: var(--white); }
+  }
+  .summit__eyebrow { margin: 0; font-weight: 700; color: var(--ink-dim); }
+  .summit__name { margin: 0.1rem 0 0.4rem; font: 800 clamp(2.8rem, 5vw, 4.2rem)/0.95 var(--display); letter-spacing: -0.02em; color: var(--blue); }
+  .summit__facts { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; }
+  .summit__facts span { padding: 0.2rem 0.55rem; background: var(--ink); color: var(--white); font-weight: 700; font-size: 0.85rem; }
+
+  /* Header and title stay put over the climb. */
+  .bar {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 3vw;
+    background: linear-gradient(to bottom, rgba(2, 7, 23, 0.85), transparent);
+  }
+  .brand { font: 800 1.35rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1;
+
+    a {
+      padding: 0.35rem 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--dim);
+      white-space: nowrap;
+      border: 1px solid transparent;
+
+      &:hover { color: var(--white); border-color: var(--line); }
+      &[aria-current='page'] { color: var(--ink); background: var(--edge); }
+    }
+  }
+  .bar__count { color: var(--dim); white-space: nowrap; b { color: var(--white); } }
+  .hero__head {
+    position: absolute;
+    z-index: 5;
+    left: 3vw;
+    bottom: 2rem;
+    display: grid;
+    gap: 0.8rem;
+    justify-items: start;
+
+    h1 { margin: 0; font: 800 clamp(2.6rem, 5vw, 4rem)/1 var(--display); text-shadow: 0 2px 24px var(--night); }
+    p { margin: -0.4rem 0 0; color: var(--dim); }
+  }
+  .modes {
+    display: inline-flex;
+    border: 1px solid var(--edge);
+
+    button {
+      padding: 0.55rem 1.05rem;
+      border: 0;
+      background: color-mix(in srgb, var(--night) 70%, transparent);
+      color: var(--edge);
+      font: 600 0.92rem/1 var(--display);
+      cursor: pointer;
+
+      & + button { border-left: 1px solid var(--edge); }
+      &:hover { background: color-mix(in srgb, var(--edge) 18%, var(--night)); color: var(--white); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--edge); color: var(--ink); }
+    }
+  }
+  /* Where the climb is: street at the bottom, top at the top. */
+  .rail {
+    position: absolute;
+    z-index: 5;
+    right: 2.4vw;
+    top: 22%;
+    bottom: 14%;
+    width: 2px;
+    background: var(--line);
+
+    i { position: absolute; left: -4px; width: 10px; height: 10px; background: var(--edge); bottom: calc(var(--at, 1) * 100% - 5px); box-shadow: 0 0 10px var(--edge); }
+    span { position: absolute; right: 12px; font-size: 0.75rem; color: var(--dim); white-space: nowrap; }
+    span:first-child { top: -0.5rem; }
+    span:nth-child(2) { bottom: -0.5rem; }
+  }
+
+  /* ------------------------------------------------------------------ details */
+  main { max-width: 1240px; margin: 0 auto; padding: 2.4rem 3vw 6rem; }
+  .details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 1.2rem;
+    align-items: start;
+  }
+  .details > * { min-width: 0; }
+  .panel {
+    padding: 1.1rem 1.3rem 1.3rem;
+    background: var(--tower);
+    border: 1px solid var(--line);
+    box-shadow: inset 0 2px 0 var(--edge);
+    transition: border-color 0.15s;
+
+    &:hover, &:focus-within { border-color: var(--edge); }
+    h2 { margin: 0; font: 800 1.5rem/1.1 var(--display); }
+  }
+  .panel__label { margin: 0; font-size: 0.82rem; color: var(--dim); font-weight: 600; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--white);
+      font: 800 1.8rem/1.15 var(--display);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--edge); }
+    }
+    button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--dim);
+      font: 600 0.75rem/1 var(--body);
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+
+      &:hover { color: var(--white); border-color: var(--edge); }
+    }
+  }
+  .meta { margin: 0.1rem 0 0.6rem; font-size: 0.86rem; color: var(--dim); b { color: var(--white); } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    font-size: 0.9rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.12rem 0; }
+    .lv { opacity: 0.75; font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+  .panel--result {
+    background: var(--white);
+    color: var(--ink);
+    border-color: var(--white);
+    box-shadow: none;
+
+    h2 { font-size: 2.4rem; color: var(--blue); }
+    h3 { margin: 1rem 0 0.45rem; font: 800 0.95rem/1.2 var(--display); }
+    .meta { color: var(--ink-dim); b { color: var(--ink); } }
+    .skills { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); column-gap: 1.2rem; }
+  }
+  .stats {
+    margin: 0.4rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    text-align: center;
+
+    div { padding: 0.4rem 0; background: color-mix(in srgb, var(--blue) 10%, transparent); }
+    dt { font-size: 0.78rem; font-weight: 700; color: var(--ink-dim); }
+    dd { margin: 0; font: 800 1.7rem/1.05 var(--display); }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(1.9rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { font-weight: 700; opacity: 0.8; }
+    .v { padding: 0.2rem 0; font-weight: 700; background: color-mix(in srgb, currentColor 8%, transparent); }
+    .n { font-weight: 400; opacity: 0.65; }
+    .wk { background: var(--blue); color: var(--white); }
+    .nu, .rp, .dr { box-shadow: inset 0 0 0 2px currentColor; }
+  }
+  .legend { margin: 0.45rem 0 0; font-size: 0.76rem; color: var(--ink-dim); }
+  .rule { margin: 1rem 0 0; font-size: 0.9rem; color: var(--ink-dim); b { color: var(--ink); } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: 800 2.2rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 600; white-space: nowrap; color: var(--dim); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--line);
+      background: var(--tower);
+      color: var(--white);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--edge); }
+    }
+  }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); }
+  table {
+    width: 100%;
+    min-width: 50rem;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+
+    th { text-align: left; color: var(--dim); font: 600 0.8rem/1 var(--display); padding: 0.75rem 0.75rem 0.55rem; background: var(--tower); }
+    td { padding: 0.45rem 0.75rem; border-top: 1px solid var(--line); }
+    .lv { width: 3.6rem; font: 800 1.2rem/1 var(--display); color: var(--edge); }
+    td.name { font-weight: 700; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: color-mix(in srgb, var(--edge) 12%, transparent); }
+      &:focus-visible td.name { text-decoration: underline 2px var(--edge); text-underline-offset: 4px; }
+    }
+    .tag { margin-left: 0.5rem; padding: 0.05rem 0.45rem; background: var(--white); color: var(--ink); font-size: 0.7rem; font-weight: 700; }
+    .aff { grid-template-columns: repeat(9, 2.3rem); }
+    .aff .wk { background: var(--edge); color: var(--ink); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem 0; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
+    .hero__head { left: 1rem; }
+    .summit { left: auto; right: 1rem; width: min(22rem, calc(100% - 2rem)); top: 14%; &::before { display: none; } }
+    .rail { display: none; }
+    main { padding: 2rem 1rem 5rem; }
+    .details { grid-template-columns: 1fr 1fr; }
+    .panel--result { grid-column: 1 / -1; order: -1; }
+  }
+  @media (max-width: 560px) {
+    .tower { width: 22rem; }
+    .street-tag--l { right: auto; left: 1rem; }
+    .street-tag--r { left: auto; right: 1rem; }
+    .details { grid-template-columns: 1fr; }
+    .panel--result .aff { grid-template-columns: repeat(5, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="scene" data-scene>
+    <div class="moon" aria-hidden="true"></div>
+    <svg class="tower" viewBox="0 0 400 1000" preserveAspectRatio="xMidYMax meet" aria-hidden="true" data-tower></svg>
+    <svg class="skyline" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true" data-city></svg>
+    <section class="summit" aria-labelledby="r-name">
+      <p class="summit__eyebrow">Result</p>
+      <h2 class="summit__name" id="r-name" data-r-name></h2>
+      <p class="summit__facts" data-facts></p>
+    </section>
+    <div data-tags></div>
+  </div>
+  <header class="bar">
+    <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#" aria-current="page">Fusion</a>
+      <a href="#">Compendium</a>
+      <a href="#">Personas</a>
+      <a href="#">Skills</a>
+      <a href="#">Shadows</a>
+      <a href="#">Classroom</a>
+    </nav>
+    <span class="bar__count"><b data-total></b> personas</span>
+  </header>
+  <div class="hero__head">
+    <h1>Fusion</h1>
+    <p>Pick two personas to see what they make.</p>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+  <div class="rail" aria-hidden="true"><span>Result</span><span>Parents</span><i data-rail></i></div>
+</div>
+
+<main>
+  <div class="details" data-details></div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, PERSONAS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+
+  $('[data-total]').textContent = TOTAL;
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-facts]').innerHTML = `<span>${RESULT.arcana}</span><span>Lv ${RESULT.lv}</span><span>Inherits ${RESULT.inherits}</span>`;
+  $('[data-tags]').innerHTML = PARENTS.map((p, i) =>
+    `<p class="street-tag street-tag--${i ? 'r' : 'l'}"><span>Parent ${i + 1}</span><b>${p.name}</b><span>${p.arcana}, Lv ${p.lv}</span></p>`).join('');
+
+  $('[data-details]').innerHTML = `
+    ${PARENTS.map((p, i) => `
+      <section class="panel" aria-labelledby="p${i}-t">
+        <h2 class="panel__label" id="p${i}-t">Parent ${i + 1}</h2>
+        <div class="slot">
+          <label for="p${i}">Parent ${i + 1} persona</label>
+          <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+        </div>
+        <p class="meta">${p.arcana}, Lv <b>${p.lv}</b>, inherits <b>${p.inherits}</b></p>
+        <ul class="skills">${skillList(p.skills)}</ul>
+      </section>`).join('')}
+    <section class="panel panel--result" aria-label="${RESULT.name} details">
+      <h2>${RESULT.name}</h2>
+      <p class="meta">${RESULT.arcana}, Lv <b>${RESULT.lv}</b>, inherits <b>${RESULT.inherits}</b></p>
+      <dl class="stats">${RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+      <h3>Affinities</h3>
+      <div class="aff">${strip(RESULT.aff, true)}</div>
+      <p class="legend">Wk weak (blue), Rs resist, Nu null (outlined)</p>
+      <h3>Skills</h3>
+      <ul class="skills">${skillList(RESULT.skills)}</ul>
+      <p class="rule"><b>${RULE.arcana.join(' + ')}</b> makes ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.</p>
+    </section>`;
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* The tower: tiers narrowing upward, lit edges, slit windows, a glowing crown. */
+  let seed = 5;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  let t = '';
+  let y = 1000;
+  let w = 250;
+  for (let tier = 0; tier < 9; tier++) {
+    const h = 70 + Math.floor(rnd() * 50);
+    const x = 200 - w / 2;
+    t += `<path class="t" d="M${x} ${y} L${x + 6} ${y - h} L${x + w - 6} ${y - h} L${x + w} ${y} Z"/>`;
+    for (let sy = y - h + 14; sy < y - 8; sy += 16) for (let sx = x + 18; sx < x + w - 22; sx += 26) if (rnd() < 0.4) t += `<rect class="slit" x="${sx}" y="${sy}" width="10" height="2"/>`;
+    y -= h;
+    w = Math.max(40, w - 18 - Math.floor(rnd() * 12));
+  }
+  t += `<path class="crown" d="M${200 - w / 2} ${y} L200 ${y - 60} L${200 + w / 2} ${y} Z"/>`;
+  $('[data-tower]').innerHTML = t;
+
+  let x = 0;
+  let svg = '';
+  while (x < 1440) {
+    const bw = 30 + Math.floor(rnd() * 60);
+    const bh = 40 + Math.floor(rnd() * 110);
+    svg += `<rect class="b" x="${x}" y="${160 - bh}" width="${bw - 3}" height="${bh}"/>`;
+    for (let wy = 160 - bh + 9; wy < 152; wy += 12) for (let wx = x + 5; wx < x + bw - 10; wx += 10) if (rnd() < 0.25) svg += `<rect class="w" x="${wx}" y="${wy}" width="4" height="6"/>`;
+    x += bw;
+  }
+  $('[data-city]').innerHTML = svg;
+
+  /* ---- Signature: the page opens in the street with the parents and climbs the tower to the result. ---- */
+  const hero = $('.hero');
+  const scene = $('[data-scene]');
+  const rail = $('[data-rail]');
+  let anim;
+  moment((at, end) => {
+    const off = scene.offsetHeight - hero.clientHeight;
+    anim = scene.animate([{ transform: `translateY(${-off}px)` }, { transform: `translateY(${-off}px)`, offset: 0.18 }, { transform: 'translateY(0)' }],
+      { duration: 3000, easing: 'cubic-bezier(0.55, 0, 0.2, 1)', fill: 'forwards' });
+    rail.animate([{ bottom: '-5px' }, { bottom: '-5px', offset: 0.18 }, { bottom: 'calc(100% - 5px)' }], { duration: 3000, easing: 'cubic-bezier(0.55, 0, 0.2, 1)', fill: 'forwards' });
+    at(3050, end);
+  }, () => {
+    scene.getAnimations().forEach((a) => a.cancel());
+    rail.getAnimations().forEach((a) => a.cancel());
+    scene.style.transform = 'translateY(0)';
+    rail.style.bottom = 'calc(100% - 5px)';
+  }).play();
+</script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Abyss · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,800;1,800&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Round 3: the deep-blue, crisp-white feel of P3R's own menus.
+     Tokens. The page is water: --surface (the game accent, P3R blue,
+     --p-primary-500) at the top, darkening through --mid to --abyss at the
+     bottom (--p-primary-800/950). --white is the card stock: the result
+     is the one solid white card, everything else is glass on the water.
+     Layout idea: light comes down from the surface in rays, bubbles rise,
+     and the result surfaces out of the deep when the page opens.
+     ------------------------------------------------------------------ */
+  :root {
+    --surface: #1f6bff;         /* P3R blue, --p-primary-500 */
+    --mid: #0a2f8f;
+    --abyss: #04103a;
+    --white: #f4f8ff;
+    --ink: #061445;             /* text on white, 16:1 */
+    --ink-dim: #3d5193;
+    --foam: #bfe6ff;
+    --dim: #c3d4f5;             /* on --mid, 8:1 */
+    --glass: rgba(244, 248, 255, 0.09);
+    --glass-line: rgba(244, 248, 255, 0.28);
+    --type: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, var(--surface) 0%, #1550d6 18%, var(--mid) 48%, var(--abyss) 100%) fixed;
+    color: var(--white);
+    font: 400 15px/1.55 var(--type);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
+
+  /* Light from the surface: a few soft rays, swaying very slowly. */
+  .rays {
+    position: fixed;
+    inset: -10% -20% 30%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(100deg, transparent 18%, rgba(255, 255, 255, 0.13) 20%, transparent 24%),
+      linear-gradient(96deg, transparent 38%, rgba(255, 255, 255, 0.1) 41%, transparent 46%),
+      linear-gradient(104deg, transparent 58%, rgba(255, 255, 255, 0.12) 60%, transparent 63%),
+      linear-gradient(98deg, transparent 74%, rgba(255, 255, 255, 0.08) 77%, transparent 81%);
+    mask-image: linear-gradient(to bottom, #000, transparent);
+    transform-origin: 50% 0;
+    animation: sway 14s ease-in-out infinite alternate;
+    transition: opacity 1s;
+  }
+  @keyframes sway { from { transform: skewX(-4deg); } to { transform: skewX(4deg); } }
+  .rays.is-flare { opacity: 1.8; filter: brightness(1.6); }
+  /* The surface itself: a bright caustic band across the very top. */
+  .caustic {
+    position: fixed;
+    inset: 0 0 auto;
+    height: 5rem;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(40px 14px at 10% 40%, rgba(255, 255, 255, 0.35), transparent 70%),
+      radial-gradient(60px 16px at 28% 20%, rgba(255, 255, 255, 0.3), transparent 70%),
+      radial-gradient(50px 12px at 47% 50%, rgba(255, 255, 255, 0.28), transparent 70%),
+      radial-gradient(70px 18px at 66% 25%, rgba(255, 255, 255, 0.3), transparent 70%),
+      radial-gradient(40px 12px at 86% 45%, rgba(255, 255, 255, 0.32), transparent 70%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.18), transparent);
+  }
+  .bubble {
+    position: fixed;
+    z-index: 1;
+    width: var(--d, 8px);
+    height: var(--d, 8px);
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.7), transparent 45%);
+    pointer-events: none;
+    animation: rise var(--t, 2.4s) cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  }
+  @keyframes rise { to { transform: translate(var(--dx, 0px), var(--dy, -320px)); opacity: 0; } }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.1rem 3vw;
+  }
+  .brand { font: italic 800 1.45rem/1 var(--type); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1;
+
+    a {
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--foam);
+      white-space: nowrap;
+
+      &:hover { background: var(--glass); color: var(--white); }
+      &[aria-current='page'] { background: var(--white); color: var(--ink); }
+    }
+  }
+  .bar__count { color: var(--foam); white-space: nowrap; b { color: var(--white); } }
+
+  /* ------------------------------------------------------------------ layout */
+  main { position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 1.6rem 3vw 6rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 2rem;
+
+    h1 { margin: 0; font: italic 800 clamp(3.6rem, 9vw, 7rem)/0.85 var(--type); letter-spacing: -0.04em; }
+    p { margin: 0.6rem 0 0; color: var(--foam); }
+  }
+  .modes {
+    display: inline-flex;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 999px;
+    background: var(--glass);
+    border: 1px solid var(--glass-line);
+    backdrop-filter: blur(10px);
+
+    button {
+      padding: 0.6rem 1.15rem;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--foam);
+      font: 600 0.92rem/1 var(--type);
+      cursor: pointer;
+
+      &:hover { color: var(--white); background: var(--glass); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--white); color: var(--ink); }
+    }
+  }
+
+  .fusion {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  .fusion > *, .parents > * { min-width: 0; }
+  .parents { display: grid; gap: 1rem; }
+  /* Parents: glass on the water. */
+  .glass {
+    padding: 1.1rem 1.3rem 1.2rem;
+    border-radius: 22px;
+    background: var(--glass);
+    border: 1px solid var(--glass-line);
+    backdrop-filter: blur(14px);
+    transition: background 0.2s, border-color 0.2s;
+
+    &:hover, &:focus-within { background: rgba(244, 248, 255, 0.15); border-color: var(--white); }
+  }
+  .parent__label { margin: 0; color: var(--foam); font-size: 0.85rem; font-weight: 600; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: var(--white);
+      font: italic 800 2.1rem/1.15 var(--type);
+      letter-spacing: -0.02em;
+
+      &:focus-visible { outline: none; border-bottom-color: var(--white); }
+    }
+    button {
+      border: 1px solid var(--glass-line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--foam);
+      font: 600 0.75rem/1 var(--type);
+      padding: 0.4rem 0.7rem;
+      cursor: pointer;
+
+      &:hover { color: var(--ink); background: var(--white); }
+    }
+  }
+  .meta { margin: 0.15rem 0 0.6rem; font-size: 0.88rem; color: var(--foam); b { color: var(--white); } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.1rem 1.2rem;
+    font-size: 0.9rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { opacity: 0.75; font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 800; }
+  }
+
+  /* The result surfaces: the one solid white card. */
+  .result {
+    position: relative;
+    padding: 1.8rem 2rem 1.9rem;
+    border-radius: 28px;
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 40px 90px -30px rgba(2, 8, 40, 0.8), 0 0 0 6px rgba(244, 248, 255, 0.18);
+    transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.1s, opacity 0.8s;
+  }
+  .result[data-depth='deep'] { transform: translateY(160px) scale(0.96); filter: blur(10px) saturate(0.4); opacity: 0.25; }
+  .result__eyebrow { margin: 0; color: var(--ink-dim); font-weight: 600; }
+  .result__name { margin: 0 0 0.3rem -0.04em; font: italic 800 clamp(3.6rem, 8vw, 6.4rem)/0.9 var(--type); color: var(--surface); letter-spacing: -0.045em; }
+  .result__sub { margin: 0 0 1.4rem; color: var(--ink-dim); b { color: var(--ink); } }
+  .result h3 { margin: 0 0 0.5rem; font: 800 1rem/1.2 var(--type); }
+  .result-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr); gap: 1.2rem 2rem; margin-bottom: 1.3rem; }
+  .stats {
+    margin: 0;
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.88rem;
+
+    div { display: grid; grid-template-columns: 1.8rem 1fr 2ch; align-items: center; gap: 0.6rem; }
+    dt { font-weight: 800; }
+    dd { margin: 0; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+  }
+  .meter {
+    height: 0.55rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface) 14%, transparent);
+
+    i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); min-width: 0.55rem; border-radius: 999px; background: var(--surface); }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(1.9rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { font-weight: 800; opacity: 0.75; }
+    .v { padding: 0.2rem 0; border-radius: 8px; font-weight: 800; background: color-mix(in srgb, currentColor 8%, transparent); }
+    .n { font-weight: 400; opacity: 0.6; }
+    .wk { background: var(--surface); color: var(--white); }
+    .nu, .rp, .dr { box-shadow: inset 0 0 0 2px currentColor; }
+  }
+  .legend { margin: 0.45rem 0 0; font-size: 0.76rem; color: var(--ink-dim); }
+  .rule { margin: 1.2rem 0 0; color: var(--ink-dim); font-size: 0.9rem; b { color: var(--surface); } }
+  .result .skills .lv { color: var(--ink-dim); opacity: 1; }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3.4rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: italic 800 2.6rem/1 var(--type); letter-spacing: -0.03em; }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 600; color: var(--foam); white-space: nowrap; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--glass-line);
+      background: var(--glass);
+      color: var(--white);
+      font: inherit;
+      backdrop-filter: blur(10px);
+
+      &::placeholder { color: var(--foam); }
+      &:focus-visible { outline: none; border-color: var(--white); }
+    }
+  }
+  .table-scroll { overflow-x: auto; border-radius: 22px; background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(14px); }
+  table {
+    width: 100%;
+    min-width: 50rem;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+
+    th { text-align: left; color: var(--foam); font-size: 0.8rem; padding: 0.8rem 0.75rem 0.5rem; }
+    td { padding: 0.45rem 0.75rem; border-top: 1px solid rgba(244, 248, 255, 0.14); }
+    .lv { width: 3.6rem; font: italic 800 1.3rem/1 var(--type); }
+    td.name { font-weight: 800; }
+    td.arcana { color: var(--foam); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: var(--white); color: var(--ink); }
+      &:hover td.arcana, &:focus-visible td.arcana { color: var(--ink-dim); }
+    }
+    .tag { margin-left: 0.5rem; padding: 0.1rem 0.5rem; border-radius: 999px; background: var(--white); color: var(--ink); font-size: 0.7rem; font-weight: 800; }
+    tr:hover .tag, tr:focus-visible .tag { background: var(--surface); color: var(--white); }
+    .aff { grid-template-columns: repeat(9, 2.3rem); }
+    .aff .wk { background: var(--white); color: var(--ink); }
+    tr:hover .aff .wk, tr:focus-visible .aff .wk { background: var(--surface); color: var(--white); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem 0; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
+    main { padding: 1.4rem 1rem 5rem; }
+    .fusion { grid-template-columns: 1fr; }
+    .result { order: -1; }
+  }
+  @media (max-width: 560px) {
+    .result { padding: 1.3rem 1.2rem; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result .aff { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rays { animation: none; }
+    .result, .rays { transition: none; }
+    .bubble { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="rays" aria-hidden="true"></div>
+<div class="caustic" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <span class="bar__count"><b data-total></b> personas</span>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p>Pick two personas to see what they make.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="fusion">
+    <div class="parents" data-parents></div>
+
+    <section class="result" data-depth="surfaced" aria-labelledby="r-name">
+      <p class="result__eyebrow">Result</p>
+      <h2 class="result__name" id="r-name" data-r-name></h2>
+      <p class="result__sub" data-r-sub></p>
+      <div class="result-grid">
+        <div>
+          <h3>Stats</h3>
+          <dl class="stats" data-stats></dl>
+        </div>
+        <div>
+          <h3>Affinities</h3>
+          <div class="aff" data-aff></div>
+          <p class="legend">Wk weak (blue), Rs resist, Nu null (outlined)</p>
+        </div>
+      </div>
+      <h3>Skills</h3>
+      <ul class="skills" data-r-skills></ul>
+      <p class="rule" data-rule></p>
+    </section>
+  </div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, PERSONAS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+
+  $('[data-total]').textContent = TOTAL;
+  $('[data-parents]').innerHTML = PARENTS.map((p, i) => `
+    <section class="glass" aria-labelledby="p${i}-t">
+      <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+      <div class="slot">
+        <label for="p${i}">Parent ${i + 1} persona</label>
+        <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+      </div>
+      <p class="meta">${p.arcana}, Lv <b>${p.lv}</b>, inherits <b>${p.inherits}</b></p>
+      <ul class="skills">${skillList(p.skills)}</ul>
+    </section>`).join('');
+
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `${RESULT.arcana}, Lv <b>${RESULT.lv}</b>, inherits <b>${RESULT.inherits}</b>`;
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-aff]').innerHTML = strip(RESULT.aff, true);
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+  $('[data-rule]').innerHTML = `<b>${RULE.arcana.join(' + ')}</b> makes ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.`;
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* Bubbles: a few from wherever the pointer moves, and a burst when the result surfaces. */
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function bubble(x, y, { d = 6 + Math.random() * 10, t = 1.8 + Math.random() * 1.4, dx = (Math.random() - 0.5) * 60, dy = -220 - Math.random() * 200 } = {}) {
+    if (still) return;
+    const b = document.createElement('span');
+    b.className = 'bubble';
+    b.style.cssText = `left:${x}px;top:${y}px;--d:${d}px;--t:${t}s;--dx:${dx}px;--dy:${dy}px`;
+    document.body.append(b);
+    b.addEventListener('animationend', () => b.remove());
+  }
+  let last = 0;
+  document.addEventListener('pointermove', (e) => {
+    if (e.timeStamp - last < 90) return;
+    last = e.timeStamp;
+    bubble(e.clientX, e.clientY, { d: 5 + Math.random() * 6, dy: -140 - Math.random() * 80 });
+  });
+
+  /* ---- Signature: the result surfaces out of the deep, the light flares, bubbles burst off it. ---- */
+  const result = $('.result');
+  const rays = $('.rays');
+  moment((at, end) => {
+    result.dataset.depth = 'deep';
+    at(120, () => { result.dataset.depth = 'surfaced'; });
+    at(800, () => {
+      rays.classList.add('is-flare');
+      const r = result.getBoundingClientRect();
+      for (let i = 0; i < 26; i++) bubble(r.left + Math.random() * r.width, r.top + 10 + Math.random() * 40, { dy: -160 - Math.random() * 260 });
+    });
+    at(1900, () => rays.classList.remove('is-flare'));
+    at(2000, end);
+  }, () => { result.dataset.depth = 'surfaced'; rays.classList.remove('is-flare'); }).play();
+</script>
+</body>
+</html>
