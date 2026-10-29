@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Memento Mori · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Keywords: mortality, acceptance, time.
+     Tokens. --blue is the game accent with the colour drained out of it
+     (P3R blue, --p-primary-300 mixed toward the surface); --night/--raise
+     become the surface ramp. Nothing on this page is loud: weakness is a
+     bone fill, not a warning colour.
+     Layout idea: every persona lives somewhere on one line from Lv 1 to
+     Lv 99, a lifetime drawn across the page. The fusion is read as a
+     moment on that line, and the result is set quietly, like an inscription.
+     ------------------------------------------------------------------ */
+  :root {
+    --night: #15191f;           /* charcoal with a blue bias */
+    --raise: #1b2028;
+    --line: #313946;
+    --bone: #ece6da;            /* ink */
+    --ash: #a9afb8;             /* secondary, 7.6:1 on --night */
+    --blue: #8fb0e6;            /* faded P3R blue */
+    --blue-ink: #0e1726;
+    --display: 'Newsreader', Georgia, serif;
+    --body: 'Public Sans', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    background: var(--night);
+    color: var(--bone);
+    font: 400 15px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    display: flex;
+    align-items: baseline;
+    gap: 2.2rem;
+    padding: 1.1rem 2.5rem;
+  }
+  .brand { font: italic 400 1.45rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 1.3rem;
+    flex: 1;
+
+    a {
+      text-decoration: none;
+      color: var(--ash);
+      white-space: nowrap;
+
+      &:hover { color: var(--bone); }
+      &[aria-current='page'] { color: var(--bone); text-decoration: underline 1px var(--blue); text-underline-offset: 6px; }
+    }
+  }
+  .bar__count { color: var(--ash); white-space: nowrap; font-size: 0.9rem; }
+
+  /* ------------------------------------------------------------------ layout */
+  main { max-width: 1200px; margin: 0 auto; padding: 2.4rem 2.5rem 6rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+
+    h1 { margin: 0; font: 300 clamp(3rem, 6.5vw, 5rem)/1 var(--display); letter-spacing: -0.01em; }
+    p { margin: 0.4rem 0 0; color: var(--ash); max-width: 46ch; }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 1.2rem;
+
+    button {
+      padding: 0.3rem 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: none;
+      color: var(--ash);
+      font: 400 0.95rem/1.2 var(--body);
+      cursor: pointer;
+
+      &:hover { color: var(--bone); border-bottom-color: var(--line); }
+      &[aria-pressed='true'] { color: var(--bone); border-bottom-color: var(--blue); }
+    }
+  }
+
+  /* ------------------------------------------------------------------ the line, Lv 1 to 99 */
+  .life {
+    position: relative;
+    margin: 3rem 0 3.4rem;
+    height: 9rem;
+  }
+  .life__track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--line);
+  }
+  /* The part already lived: from Lv 1 up to the result. */
+  .life__lived {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 1px);
+    height: 3px;
+    width: var(--lived, 0%);
+    background: var(--blue);
+    transition: width 2.4s cubic-bezier(0.45, 0, 0.25, 1);
+  }
+  .life__ends {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    justify-content: space-between;
+    font: italic 300 1rem/1 var(--display);
+    color: var(--ash);
+  }
+  .tick {
+    position: absolute;
+    top: calc(50% - 5px);
+    width: 1px;
+    height: 11px;
+    background: var(--ash);
+    opacity: 0.6;
+    transition: opacity 0.2s, background 0.2s;
+
+    &.is-lit { opacity: 1; background: var(--bone); height: 15px; top: calc(50% - 7px); }
+  }
+  .mark {
+    position: absolute;
+    display: grid;
+    justify-items: start;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    color: var(--ash);
+    transition: opacity 0.6s;
+
+    /* Leader line from the label to the track. */
+    &::before { content: ''; position: absolute; left: 0; width: 1px; background: currentColor; opacity: 0.7; }
+    b { color: var(--bone); font: 400 1.05rem/1.2 var(--display); }
+  }
+  .mark--up { bottom: 50%; padding: 0 0 var(--rise, 1.2rem) 0.5rem; &::before { bottom: 0; height: var(--rise, 1.2rem); } }
+  .mark--down { top: 50%; padding: var(--rise, 1.2rem) 0 0 0.5rem; color: var(--blue); &::before { top: 0; height: var(--rise, 1.2rem); } b { font-style: italic; } }
+  .life[data-t='before'] .mark--down { opacity: 0; }
+
+  /* ------------------------------------------------------------------ fusion */
+  .fusion {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+    gap: 3rem;
+    align-items: start;
+  }
+  .fusion > *, .parents > * { min-width: 0; }
+  .parents { display: grid; gap: 1.6rem; }
+  .parent__label { margin: 0; font-size: 0.85rem; color: var(--ash); font-weight: 400; }
+  .slot {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--bone);
+      font: 300 2rem/1.25 var(--display);
+
+      &:hover { border-bottom-color: var(--ash); }
+      &:focus-visible { outline: none; border-bottom-color: var(--blue); }
+    }
+    button {
+      border: 0;
+      background: none;
+      color: var(--ash);
+      font: 400 0.82rem/1 var(--body);
+      cursor: pointer;
+      text-decoration: underline 1px transparent;
+      text-underline-offset: 3px;
+
+      &:hover { color: var(--bone); text-decoration-color: var(--ash); }
+    }
+  }
+  .meta { margin: 0.45rem 0 0.6rem; color: var(--ash); font-size: 0.88rem; b { color: var(--bone); font-weight: 600; } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.1rem 1.4rem;
+    font-size: 0.9rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--ash); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 600; }
+  }
+
+  /* The result, set like an inscription: generous space, one face, no box shouting. */
+  .result {
+    padding: 2rem 2.4rem 2.2rem;
+    background: var(--raise);
+    border-radius: 2px;
+  }
+  .result__eyebrow { margin: 0; color: var(--ash); font-size: 0.88rem; }
+  .result__name { margin: 0.1rem 0 0.2rem; font: italic 300 clamp(3.4rem, 7vw, 5.6rem)/1 var(--display); letter-spacing: -0.01em; }
+  .result__sub { margin: 0 0 1.8rem; font: 300 1.3rem/1.4 var(--display); color: var(--ash); b { color: var(--bone); font-weight: 400; } }
+  .result h3 { margin: 0 0 0.55rem; font: 400 1.15rem/1.2 var(--display); }
+  .result-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr); gap: 1.4rem 2.4rem; margin-bottom: 1.6rem; }
+  .stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: start;
+    gap: 0 1.4rem;
+
+    dt { color: var(--ash); font-size: 0.82rem; }
+    dd { margin: 0; font: 300 2rem/1.1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(2rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 3px; }
+    .h { color: var(--ash); }
+    .v { padding: 0.15rem 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+    .n { font-weight: 400; color: var(--ash); }
+    .wk { background: var(--bone); color: var(--blue-ink); border-color: var(--bone); }
+    .nu, .rp, .dr { border-bottom: 2px solid var(--blue); }
+  }
+  .legend { margin: 0.5rem 0 0; font-size: 0.78rem; color: var(--ash); }
+  .rule { margin: 1.6rem 0 0; color: var(--ash); font: italic 300 1.1rem/1.5 var(--display); b { color: var(--bone); font-weight: 400; } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 4rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.9rem;
+
+    h2 { margin: 0; font: 300 2.4rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--ash); white-space: nowrap; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.35rem 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--bone);
+      font: italic 300 1.15rem/1.2 var(--display);
+
+      &::placeholder { color: var(--ash); }
+      &:focus-visible { outline: none; border-bottom-color: var(--blue); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 48rem;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+
+    th { text-align: left; font-weight: 400; color: var(--ash); padding: 0 0.75rem 0.6rem 0; font-size: 0.82rem; }
+    td { padding: 0.55rem 0.75rem 0.55rem 0; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+    .lv { width: 3.5rem; font: 300 1.35rem/1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
+    td.name { font: 400 1.1rem/1.2 var(--display); }
+    td.arcana { color: var(--ash); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: var(--raise); }
+      &:focus-visible td.name { text-decoration: underline 1px var(--blue); text-underline-offset: 5px; }
+    }
+    .tag { margin-left: 0.6rem; font: italic 300 0.95rem/1 var(--display); color: var(--blue); }
+    .aff { grid-template-columns: repeat(9, 2.3rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.6rem 1.2rem; padding: 1rem 1rem 0; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: none; }
+    main { padding: 1.6rem 1rem 5rem; }
+    .fusion { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 560px) {
+    .result { padding: 1.4rem 1.2rem; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result .aff { grid-template-columns: repeat(5, 1fr); }
+    .life { height: 10rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .life__lived, .mark { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <span class="bar__count"><span data-total></span> personas</span>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p>Two personas give way to a third. Pick them to see what follows.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <figure class="life" data-t="after" aria-label="Levels from 1 to 99, with the two parents and the result marked">
+    <div class="life__track"></div>
+    <div class="life__lived"></div>
+    <div data-ticks></div>
+    <div data-marks></div>
+    <figcaption class="life__ends"><span>Lv 1</span><span data-of></span><span>Lv 99</span></figcaption>
+  </figure>
+
+  <div class="fusion">
+    <div class="parents" data-parents></div>
+
+    <section class="result" aria-labelledby="r-name">
+      <p class="result__eyebrow">Result</p>
+      <h2 class="result__name" id="r-name" data-r-name></h2>
+      <p class="result__sub" data-r-sub></p>
+      <div class="result-grid">
+        <div>
+          <h3>Stats</h3>
+          <dl class="stats" data-stats></dl>
+        </div>
+        <div>
+          <h3>Affinities</h3>
+          <div class="aff" data-aff></div>
+          <p class="legend">Wk weak (filled), Rs resist, Nu null (underlined)</p>
+        </div>
+      </div>
+      <h3>Skills</h3>
+      <ul class="skills" data-r-skills></ul>
+      <p class="rule" data-rule></p>
+    </section>
+  </div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, PERSONAS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+  const at = (lv) => `${((lv - 1) / 98) * 100}%`;
+
+  $('[data-total]').textContent = TOTAL;
+  $('[data-parents]').innerHTML = PARENTS.map((p, i) => `
+    <section aria-labelledby="p${i}-t">
+      <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+      <div class="slot">
+        <label for="p${i}">Parent ${i + 1} persona</label>
+        <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+      </div>
+      <p class="meta">${p.arcana}, Lv <b>${p.lv}</b>, inherits <b>${p.inherits}</b></p>
+      <ul class="skills">${skillList(p.skills)}</ul>
+    </section>`).join('');
+
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `${RESULT.arcana}, Lv <b data-r-lv>${RESULT.lv}</b>, inherits <b>${RESULT.inherits}</b>`;
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-aff]').innerHTML = strip(RESULT.aff, true);
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+  $('[data-rule]').innerHTML = `<b>${RULE.arcana.join(' and ')}</b> make ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.`;
+  $('[data-of]').textContent = `${RESULT.name} is Lv ${RESULT.lv} of 99`;
+
+  /* The line: a tick for every listed persona, labels for the three in this fusion. */
+  $('[data-ticks]').innerHTML = PERSONAS.map((p) => `<span class="tick" data-name="${p.name}" style="left:${at(p.lv)}" aria-hidden="true"></span>`).join('');
+  const MARKS = [
+    { p: PARENTS[0], side: 'up', rise: '1.1rem' },
+    { p: PARENTS[1], side: 'up', rise: '3.1rem' },
+    { p: RESULT, side: 'down', rise: '1.4rem' },
+  ];
+  $('[data-marks]').innerHTML = MARKS.map(({ p, side, rise }) =>
+    `<span class="mark mark--${side}" style="left:${at(p.lv)};--rise:${rise}"><b>${p.name}</b>Lv ${p.lv}</span>`).join('');
+  const life = $('.life');
+  life.style.setProperty('--lived', at(RESULT.lv));
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0" data-name="${p.name}">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag.toLowerCase()}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* A row lights its own tick on the line. */
+  const tickOf = (n) => document.querySelector(`.tick[data-name="${n}"]`);
+  [...rows.rows].forEach((tr) => {
+    const on = () => tickOf(tr.dataset.name).classList.add('is-lit');
+    const off = () => tickOf(tr.dataset.name).classList.remove('is-lit');
+    tr.addEventListener('pointerenter', on);
+    tr.addEventListener('pointerleave', off);
+    tr.addEventListener('focus', on);
+    tr.addEventListener('blur', off);
+  });
+
+  /* ---- Signature: time passes along the line. It fills slowly from Lv 1; the level counts up with it. ---- */
+  const lvEl = $('[data-r-lv]');
+  moment((tick, end) => {
+    life.dataset.t = 'before';
+    life.style.setProperty('--lived', '0%');
+    lvEl.textContent = '1';
+    tick(80, () => life.style.setProperty('--lived', at(RESULT.lv)));
+    for (let l = 2; l <= RESULT.lv; l++) tick(80 + (l - 1) * (2300 / (RESULT.lv - 1)), () => { lvEl.textContent = String(l); });
+    tick(2500, end);
+  }, () => {
+    life.dataset.t = 'after';
+    life.style.setProperty('--lived', at(RESULT.lv));
+    lvEl.textContent = String(RESULT.lv);
+  }).play();
+</script>
+</body>
+</html>

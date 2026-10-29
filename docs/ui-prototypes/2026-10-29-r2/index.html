@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P3R Companion: four more directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #16171b;
+    --panel: #1f2025;
+    --line: #33353c;
+    --text: #eceef2;
+    --muted: #a3a7b1;
+    --accent: #6ea2ff;          /* P3R blue */
+    color-scheme: dark;         /* single dark look, like the app */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 1rem/1.55 'Familjen Grotesk', system-ui, sans-serif;
+  }
+  main { max-width: 1180px; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; }
+  header { max-width: 62ch; margin-bottom: 2.75rem; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin: 0 0 1rem; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+  header p { color: var(--muted); margin: 0 0 0.75rem; }
+  header strong { color: var(--text); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+
+  .dir { display: flex; flex-direction: column; min-width: 0; }
+  .dir__shot {
+    --s: 0.38;
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #000;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }
+  .dir__shot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 900px;
+    border: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--s));
+    pointer-events: none;
+    transition: transform 0.4s ease;
+  }
+  .dir__shot:hover, .dir__shot:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9);
+    transform: translateY(-3px);
+  }
+  .dir__shot:hover iframe { transform: scale(calc(var(--s) * 1.02)); }
+  .dir__shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .dir h2 { font-size: 1.5rem; margin: 1.1rem 0 0.15rem; font-weight: 700; letter-spacing: -0.01em; }
+  .dir h2 a { color: inherit; text-decoration: none; }
+  .dir h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .dir__keys { color: var(--muted); margin: 0 0 0.2rem; font-size: 0.93rem; }
+  .dir__lever { color: var(--accent); margin: 0 0 0.6rem; font-weight: 500; }
+  .dir p { margin: 0 0 0.6rem; max-width: 60ch; }
+  .dir__cost { color: var(--muted); font-size: 0.93rem; }
+  .dir__cost b { color: var(--text); font-weight: 500; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); max-width: 70ch; color: var(--muted); }
+  footer p { margin: 0 0 0.75rem; }
+  footer strong { color: var(--text); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dir__shot, .dir__shot iframe { transition: none; }
+    .dir__shot:hover, .dir__shot:focus-visible { transform: none; }
+    .dir__shot:hover iframe { transform: scale(var(--s)); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Four more ways to give Persona 3 Reload its own skin</h1>
+    <p>This is the second round. The first four (Tide, Dark Hour, Velvet Room, Navigator) didn't land, so each of these starts from one of your four sets of keywords. They keep the <strong>same real screen</strong>: the fusion calculator with Orpheus + Jack Frost making Omoikane, plus a short persona list, using upstream's P3R data at the pinned commit.</p>
+    <p>All four stay dark-only and are built around P3R blue. Each has one moment that plays when the page opens. Click or press a key to skip it.</p>
+  </header>
+
+  <div class="grid">
+    <article class="dir">
+      <a class="dir__shot" href="memento-mori.html" aria-label="Open the Memento Mori prototype">
+        <iframe src="memento-mori.html#preview" title="Memento Mori prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="memento-mori.html">Memento Mori</a></h2>
+      <p class="dir__keys">Mortality, acceptance, time</p>
+      <p class="dir__lever">Personality from time</p>
+      <p>One thin line crosses the page from Lv 1 to Lv 99, like a lifetime, and every persona sits somewhere on it. On load the line fills slowly up to the result while its level counts up beside the name. The palette is ash and bone with the blue drained out, the type is a light serif, and nothing is loud. Even a weakness is a quiet bone fill.</p>
+      <p class="dir__cost"><b>Porting effort: low-medium.</b> It's mostly tokens and one light serif. The lifeline is a small component fed from the dataset's level spread, and it could appear on persona detail and the compendium as well. Its quietness costs some scan speed, because weak and resist read softer than in the other skins.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="monorail.html" aria-label="Open the Monorail prototype">
+        <iframe src="monorail.html#preview" title="Monorail prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="monorail.html">Monorail</a></h2>
+      <p class="dir__keys">Midnight, isolation, blue</p>
+      <p class="dir__lever">Personality from empty space</p>
+      <p>The top of the page is a city at midnight under an elevated track, every window dark except one warm one. The last train crosses once as the page opens, and then the night is empty. Below, the calculator is one narrow column with the space to its right left empty on purpose. Everything is a single blue, and the result is the one glowing panel.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The night band is a shell header with a seeded SVG skyline and a CSS train, both cheap. The narrow column fights the wide pages (compendium, route steps), so those would need their own width rule. It uses one sans family and no new components.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="butterfly.html" aria-label="Open the Butterfly prototype">
+        <iframe src="butterfly.html#preview" title="Butterfly prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="butterfly.html">Butterfly</a></h2>
+      <p class="dir__keys">Butterfly, coffin, moon</p>
+      <p class="dir__lever">Personality from silhouette</p>
+      <p>The three personas stand as coffins in a moonlit street, with the result tallest in the middle under a full moon. Each coffin carries its arcana, level and main affinities, and its outline lights blue on hover. A blue butterfly flies in from the dark and settles on top of the result. The full stats and skills sit on plain panels below, set in a readable gothic.</p>
+      <p class="dir__cost"><b>Porting effort: medium-high.</b> It needs a coffin component (a clip-path shape with a fixed aspect ratio) for the calculator, plus a butterfly that measures its perch with a ResizeObserver. Coffins only work for one to three personas, so lists stay tables. The gothic display face needs a fallback check at small sizes.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="bonds.html" aria-label="Open the Bonds prototype">
+        <iframe src="bonds.html#preview" title="Bonds prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="bonds.html">Bonds</a></h2>
+      <p class="dir__keys">Connection, sacrifice, tomorrow</p>
+      <p class="dir__lever">Personality from a connection</p>
+      <p>Gold threads run from both parents, labelled with their arcana, and tie together beside the result. When they meet, the parents step back and say they are used up in this fusion, which is true in the game. Then a dawn comes up along the bottom of the window. Hover a parent and its thread pulls tight. The night is already ending, so the palette moves from navy to rose and gold.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The threads are one SVG overlay measured from the two parent panels and the result, which is the same seam the route finder could reuse for its step list. The dawn is a fixed layer in the shell. The parents dimming must never reduce what can be edited, so it stays a style only.</p>
+    </article>
+  </div>
+
+  <footer>
+    <p><strong>Mixing is fair game.</strong> Each direction is built from separate parts: a palette, a typeface, one signature element, and a tone. The Memento Mori lifeline would sit well under the Butterfly street, and the Bonds threads could link the Monorail column to its glowing result.</p>
+    <p>These are mockups. The hovers, the search filter, the mode buttons and each page's opening moment all work: the line filling, the train crossing, the butterfly landing and the threads meeting at dawn. No fusion logic is wired. The recipe was worked out from upstream's P3R chart with the normal level rule, not by the app's engine.</p>
+  </footer>
+</main>
+<script>
+  // Scale each 1440 × 900 live preview to its card's width.
+  const ro = new ResizeObserver((entries) => {
+    for (const e of entries) e.target.style.setProperty('--s', String(e.contentRect.width / 1440));
+  });
+  document.querySelectorAll('.dir__shot').forEach((el) => ro.observe(el));
+</script>
+</body>
+</html>

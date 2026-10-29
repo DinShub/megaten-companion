@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Butterfly · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Keywords: butterfly, coffin, moon.
+     Tokens. --wing is the game accent (P3R blue, --p-primary-400) and is
+     only ever the butterfly and the things it marks. --wood/--night become
+     the surface ramp; --moon is a skin-only token.
+     Layout idea: three coffins standing in a moonlit street. The parents
+     flank the result, which stands tallest under a full moon. A blue
+     butterfly flies in and settles on the result. The details sit
+     below the street on plain panels.
+     ------------------------------------------------------------------ */
+  :root {
+    --night: #0d0c1a;
+    --raise: #161427;
+    --wood: #1d1730;
+    --line: #3a3558;
+    --bone: #ebe6d6;
+    --dim: #aba6c4;             /* 7.9:1 on --night */
+    --wing: #5aa8ff;            /* P3R blue, --p-primary-400 */
+    --wing-ink: #071428;
+    --moon: #f1eccd;
+    --display: 'Grenze Gotisch', 'UnifrakturMaguntia', Georgia, serif;
+    --body: 'Crimson Pro', Georgia, serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--night);
+    color: var(--bone);
+    font: 400 17px/1.55 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--wing); outline-offset: 3px; }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 1rem 2.2rem;
+  }
+  .brand { font: 700 1.7rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 1.2rem;
+    flex: 1;
+
+    a {
+      text-decoration: none;
+      color: var(--dim);
+      white-space: nowrap;
+
+      &:hover { color: var(--bone); }
+      &[aria-current='page'] { color: var(--wing); }
+    }
+  }
+  .bar__count { color: var(--dim); white-space: nowrap; }
+
+  /* ------------------------------------------------------------------ the street */
+  .street {
+    position: relative;
+    padding: 1rem 2.2rem 0;
+    overflow: hidden;
+  }
+  .moon {
+    position: absolute;
+    left: 50%;
+    top: -3rem;
+    width: 26rem;
+    height: 26rem;
+    margin-left: -13rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 44% 42%, var(--moon), color-mix(in srgb, var(--moon) 80%, #9aa3c8) 64%, transparent 70.5%);
+    box-shadow: 0 0 120px 30px rgba(241, 236, 205, 0.12);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .street__head {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    h1 { margin: 0; font: 700 clamp(2.8rem, 6vw, 4.4rem)/1 var(--display); }
+    p { margin: 0.2rem 0 0; color: var(--dim); font-style: italic; }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 0.4rem;
+
+    button {
+      padding: 0.4rem 0.95rem;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--night) 70%, transparent);
+      color: var(--dim);
+      font: 600 0.95rem/1 var(--body);
+      cursor: pointer;
+
+      &:hover { color: var(--bone); border-color: var(--dim); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--wing); border-color: var(--wing); color: var(--wing-ink); }
+    }
+  }
+
+  .coffins {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1fr;
+    align-items: end;
+    gap: 2.2rem;
+    max-width: 720px;
+    margin: 0.6rem auto 0;
+    padding-bottom: 2rem;
+  }
+  .coffins > * { min-width: 0; }
+  /* The ground line the coffins stand on. */
+  .coffins::after {
+    content: '';
+    position: absolute;
+    left: -30%;
+    right: -30%;
+    bottom: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
+  }
+
+  /* A coffin: an outlined six-sided silhouette. The outer box is the outline; ::before is the wood. */
+  .coffin {
+    --cut: polygon(28% 0, 72% 0, 100% 19%, 84% 100%, 16% 100%, 0 19%);
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    aspect-ratio: 5 / 7.6;
+    padding: 12% 20% 8%;
+    text-align: center;
+    clip-path: var(--cut);
+    background: var(--line);
+    transition: background 0.2s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      z-index: -1;
+      clip-path: var(--cut);
+      background: linear-gradient(170deg, color-mix(in srgb, var(--wood) 85%, var(--wing)), var(--wood) 45%, #120e1f);
+    }
+    &:hover, &:focus-within { background: var(--wing); }
+  }
+  .coffin { isolation: isolate; }
+  .coffin--result { aspect-ratio: 5 / 8.2; }
+  .coffin__arcana { margin: 0; color: var(--dim); font-style: italic; font-size: 0.95rem; }
+  .coffin__label { margin: 0.4rem 0 0; color: var(--dim); font-size: 0.85rem; }
+  .coffin input {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    color: var(--bone);
+    font: 700 1.75rem/1.1 var(--display);
+    text-align: center;
+
+    &:hover { border-bottom-color: var(--line); }
+    &:focus-visible { outline: none; border-bottom-color: var(--wing); }
+  }
+  .coffin__name { margin: 0.2rem 0 0; font: 700 clamp(2rem, 3.4vw, 2.8rem)/1 var(--display); color: var(--bone); }
+  .coffin__lv { margin-top: 0.4rem; font: 700 2.6rem/1 var(--display); color: var(--bone); }
+  .coffin__lv small { display: block; font: 400 0.85rem/1.2 var(--body); color: var(--dim); }
+  .coffin--result .coffin__lv { color: var(--wing); font-size: 3.4rem; }
+  .coffin .aff { margin-top: 0.9rem; display: flex; justify-content: center; gap: 3px; > span { width: 2.1rem; } }
+
+  /* ------------------------------------------------------------------ the butterfly */
+  .butterfly {
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 62px;
+    height: 46px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px rgba(90, 168, 255, 0.7));
+  }
+  .butterfly .wing { fill: var(--wing); transform-box: view-box; transform-origin: 23px 17px; }
+  .butterfly .wing--back { fill: color-mix(in srgb, var(--wing) 70%, white); }
+  .butterfly .body { fill: var(--bone); }
+  .butterfly.is-flying .wing { animation: flap 0.18s ease-in-out infinite alternate; }
+  .butterfly.is-resting .wing { animation: rest 3.6s ease-in-out infinite; }
+  @keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(0.25); } }
+  @keyframes rest { 0%, 86%, 100% { transform: scaleX(1); } 92% { transform: scaleX(0.4); } }
+
+  /* ------------------------------------------------------------------ details */
+  main { max-width: 1180px; margin: 0 auto; padding: 0.5rem 2.2rem 6rem; }
+  .details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 1.4rem;
+  }
+  .details > * { min-width: 0; }
+  .panel {
+    padding: 1.1rem 1.3rem 1.2rem;
+    background: var(--raise);
+    border: 1px solid var(--line);
+
+    h2 { margin: 0 0 0.1rem; font: 700 1.6rem/1.1 var(--display); }
+    h3 { margin: 1rem 0 0.4rem; font: 600 1rem/1.2 var(--body); color: var(--dim); }
+  }
+  .panel--result { border-color: color-mix(in srgb, var(--wing) 55%, var(--line)); }
+  .meta { margin: 0 0 0.5rem; color: var(--dim); font-size: 0.95rem; b { color: var(--bone); font-weight: 600; } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    font-size: 0.98rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--dim); font-variant-numeric: lining-nums tabular-nums; }
+    .innate { font-weight: 600; }
+  }
+  .panel--result .skills { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); column-gap: 1.4rem; }
+  .stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+
+    dt { color: var(--dim); font-size: 0.85rem; }
+    dd { margin: 0; font: 700 1.7rem/1 var(--display); }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(1.9rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.85rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { color: var(--dim); }
+    .v { padding: 0.05rem 0; border: 1px solid var(--line); font-weight: 600; }
+    .n { color: var(--dim); font-weight: 400; }
+    .wk { background: var(--wing); border-color: var(--wing); color: var(--wing-ink); }
+    .nu, .rp, .dr { border-color: var(--bone); }
+  }
+  .legend { margin: 0.45rem 0 0; font-size: 0.85rem; color: var(--dim); }
+  .rule { margin: 1rem 0 0; color: var(--dim); font-style: italic; b { color: var(--bone); font-style: normal; font-weight: 600; } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3.4rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: 700 2.2rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--dim); white-space: nowrap; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.4rem 0.7rem;
+      border: 1px solid var(--line);
+      background: var(--raise);
+      color: var(--bone);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--wing); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 50rem;
+    border-collapse: collapse;
+
+    th { text-align: left; font-weight: 600; color: var(--dim); padding: 0 0.75rem 0.5rem 0; font-size: 0.88rem; border-bottom: 1px solid var(--line); }
+    td { padding: 0.45rem 0.75rem 0.45rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+    .lv { width: 3.3rem; font: 700 1.35rem/1 var(--display); }
+    td.name { font-weight: 600; }
+    td.arcana { color: var(--dim); font-style: italic; }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: color-mix(in srgb, var(--wing) 8%, transparent); }
+      &:focus-visible td.name { text-decoration: underline 1px var(--wing); text-underline-offset: 4px; }
+    }
+    .tag { margin-left: 0.5rem; color: var(--wing); font-style: italic; font-size: 0.9rem; }
+    .aff { grid-template-columns: repeat(9, 2.2rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem 0; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
+    .street { padding: 1rem 1rem 0; }
+    main { padding: 0.5rem 1rem 5rem; }
+    .details { grid-template-columns: 1fr 1fr; }
+    .panel--result { grid-column: 1 / -1; order: -1; }
+    .coffins { gap: 1rem; }
+  }
+  @media (max-width: 640px) {
+    .coffins { grid-template-columns: 1fr 1fr; }
+    .coffin--result { grid-column: 1 / -1; order: -1; width: 62%; justify-self: center; }
+    .coffin input { font-size: 1.3rem; }
+    .coffin .aff { display: none; }
+    .details { grid-template-columns: 1fr; }
+    .moon { width: 18rem; height: 18rem; margin-left: -9rem; }
+    .panel--result .aff { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .butterfly.is-flying .wing, .butterfly.is-resting .wing { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <span class="bar__count"><span data-total></span> personas</span>
+</header>
+
+<div class="street">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="street__head">
+    <div>
+      <h1>Fusion</h1>
+      <p>Pick two personas to see what they make.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+  <div class="coffins" data-coffins></div>
+  <svg class="butterfly" viewBox="0 0 46 34" aria-hidden="true">
+    <path class="wing wing--back" d="M23 18 C17 22 9 32 5 28 C1 25 9 19 22 16 Z M23 18 C29 22 37 32 41 28 C45 25 37 19 24 16 Z" />
+    <path class="wing" d="M23 16 C17 6 4 -1 1 5 C-1 11 9 18 22 17 Z M23 16 C29 6 42 -1 45 5 C47 11 37 18 24 17 Z" />
+    <rect class="body" x="22" y="9" width="2" height="16" rx="1" />
+  </svg>
+</div>
+
+<main>
+  <div class="details" data-details></div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { ELEMENTS, PARENTS, RESULT, RULE, PERSONAS, TOTAL, cell, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+
+  // On a coffin, only the affinities that aren't neutral (at most three); the full strip is in the panel below.
+  const top3 = (aff) => ELEMENTS.filter(([e]) => aff[e]).slice(0, 3)
+    .map(([e, ab]) => `<span><span class="h">${ab}</span>${cell(aff[e])}</span>`).join('');
+  const parentCoffin = (p, i) => `
+    <section class="coffin" aria-labelledby="p${i}-t">
+      <p class="coffin__arcana">${p.arcana}</p>
+      <p class="coffin__label" id="p${i}-t">Parent ${i + 1}</p>
+      <label for="p${i}" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Parent ${i + 1} persona</label>
+      <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+      <div class="coffin__lv">${p.lv}<small>Lv</small></div>
+      <div class="aff">${top3(p.aff)}</div>
+    </section>`;
+
+  $('[data-total]').textContent = TOTAL;
+  $('[data-coffins]').innerHTML = `
+    ${parentCoffin(PARENTS[0], 0)}
+    <section class="coffin coffin--result" aria-labelledby="r-name" aria-live="polite">
+      <p class="coffin__arcana">${RESULT.arcana}</p>
+      <p class="coffin__label">Result</p>
+      <h2 class="coffin__name" id="r-name">${RESULT.name}</h2>
+      <div class="coffin__lv">${RESULT.lv}<small>Lv</small></div>
+      <div class="aff">${top3(RESULT.aff)}</div>
+    </section>
+    ${parentCoffin(PARENTS[1], 1)}`;
+
+  $('[data-details]').innerHTML = `
+    ${PARENTS.map((p) => `
+      <section class="panel" aria-label="${p.name} details">
+        <h2>${p.name}</h2>
+        <p class="meta">${p.arcana}, Lv <b>${p.lv}</b>, inherits <b>${p.inherits}</b></p>
+        <ul class="skills">${skillList(p.skills)}</ul>
+      </section>`).join('')}
+    <section class="panel panel--result" aria-label="${RESULT.name} details">
+      <h2>${RESULT.name}</h2>
+      <p class="meta">${RESULT.arcana}, Lv <b>${RESULT.lv}</b>, inherits <b>${RESULT.inherits}</b></p>
+      <dl class="stats">${RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+      <h3>Affinities</h3>
+      <div class="aff">${strip(RESULT.aff, true)}</div>
+      <p class="legend">Wk weak (blue), Rs resist, Nu null (outlined)</p>
+      <h3>Skills</h3>
+      <ul class="skills">${skillList(RESULT.skills)}</ul>
+      <p class="rule"><b>${RULE.arcana.join(' and ')}</b> make ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.</p>
+    </section>`;
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag.toLowerCase()}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* ---- Signature: the butterfly flies in from the dark and settles on the result's coffin. ---- */
+  const street = $('.street');
+  const fly = $('.butterfly');
+  const target = $('.coffin--result');
+  const perch = () => {
+    const s = street.getBoundingClientRect();
+    const t = target.getBoundingClientRect();
+    return { x: t.left - s.left + t.width / 2 - 31, y: t.top - s.top - 28 };
+  };
+  const settle = () => {
+    const p = perch();
+    fly.getAnimations().forEach((a) => a.cancel());
+    fly.style.transform = `translate(${p.x}px, ${p.y}px)`;
+    fly.classList.remove('is-flying');
+    fly.classList.add('is-resting');
+  };
+  new ResizeObserver(() => { if (!fly.classList.contains('is-flying')) settle(); }).observe(street);
+
+  moment((at, end) => {
+    const p = perch();
+    const w = street.clientWidth;
+    fly.classList.add('is-flying');
+    const path = [
+      [-60, p.y + 220, -12], [w * 0.18, p.y + 40, 10], [w * 0.34, p.y + 160, -8],
+      [w * 0.62, p.y - 30, 12], [p.x + 70, p.y + 60, -6], [p.x, p.y, 0],
+    ];
+    fly.animate(path.map(([x, y, r]) => ({ transform: `translate(${x}px, ${y}px) rotate(${r}deg)` })),
+      { duration: 2600, easing: 'cubic-bezier(0.3, 0, 0.3, 1)', fill: 'forwards' });
+    at(2650, end);
+  }, settle).play();
+</script>
+</body>
+</html>

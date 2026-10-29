@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Bonds · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Keywords: connection, sacrifice, tomorrow.
+     Tokens. --blue is the game accent (P3R blue, --p-primary-300) for
+     controls and focus; --gold is the bond itself (threads, weakness) and
+     --dawn the light coming up at the bottom of the page. Both are
+     skin-only. The surfaces are a night that is already ending.
+     Layout idea: the parents are joined to the result by two threads. When
+     the threads meet, the parents step back (they are used up in the
+     fusion) and the dawn rises under the result.
+     ------------------------------------------------------------------ */
+  :root {
+    --night: #0f1a3c;
+    --raise: #17234d;
+    --line: #34407a;
+    --ink: #f4f0ff;
+    --dim: #b7b6dd;             /* 8.1:1 on --night */
+    --blue: #7fb0ff;            /* P3R blue, --p-primary-300 */
+    --blue-ink: #08142e;
+    --gold: #ffd98a;
+    --gold-ink: #2a1a00;
+    --dawn: #f39a8f;
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --body: 'Mulish', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, var(--night) 0%, #191d4a 55%, #2c2556 100%);
+    color: var(--ink);
+    font: 400 15px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Tomorrow: a band of dawn along the bottom of the window. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: auto 0 0;
+    height: 45vh;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(120% 100% at 60% 100%, color-mix(in srgb, var(--dawn) 55%, transparent), color-mix(in srgb, var(--gold) 12%, transparent) 45%, transparent 75%);
+    opacity: var(--day, 0.85);
+    transition: opacity 1.6s ease;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.95rem 2.2rem;
+  }
+  .brand { font: 800 1.35rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+
+    a {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--dim);
+      font-weight: 600;
+      white-space: nowrap;
+
+      &:hover { color: var(--ink); background: color-mix(in srgb, var(--raise) 80%, transparent); }
+      &[aria-current='page'] { color: var(--blue-ink); background: var(--blue); }
+    }
+  }
+  .bar__count { color: var(--dim); white-space: nowrap; }
+
+  /* ------------------------------------------------------------------ layout */
+  main { position: relative; z-index: 1; max-width: 1220px; margin: 0 auto; padding: 1.8rem 2.2rem 6rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 2rem;
+
+    h1 { margin: 0; font: 800 clamp(2.8rem, 6vw, 4.4rem)/0.95 var(--display); letter-spacing: -0.02em; }
+    p { margin: 0.5rem 0 0; color: var(--dim); max-width: 48ch; }
+  }
+  .modes {
+    display: inline-flex;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--raise) 80%, transparent);
+
+    button {
+      padding: 0.55rem 1.05rem;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--dim);
+      font: 700 0.9rem/1 var(--body);
+      cursor: pointer;
+
+      &:hover { color: var(--ink); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--ink); color: var(--night); }
+    }
+  }
+
+  /* ------------------------------------------------------------------ the bond */
+  .bond {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) 8rem minmax(0, 1.3fr);
+    grid-template-rows: auto auto;
+    gap: 1.2rem 0;
+    align-items: center;
+  }
+  .bond > * { min-width: 0; }
+  .threads { grid-column: 2; grid-row: 1 / 3; align-self: stretch; position: relative; }
+  .threads svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .thread {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(255, 217, 138, 0.55));
+    transition: stroke-width 0.15s;
+  }
+  .thread.is-lit { stroke-width: 3.5; }
+  .knot { fill: var(--gold); }
+  .threads__label {
+    position: absolute;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+    transform: translate(-50%, -140%);
+  }
+
+  .parent {
+    position: relative;
+    padding: 1rem 1.2rem 1.1rem;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--raise) 85%, transparent);
+    border: 1px solid var(--line);
+    transition: opacity 0.9s, filter 0.9s, border-color 0.15s;
+
+    &:hover, &:focus-within { border-color: var(--gold); opacity: 1; filter: none; }
+  }
+  .parent--1 { grid-column: 1; grid-row: 1; }
+  .parent--2 { grid-column: 1; grid-row: 2; }
+  /* Sacrifice: once the bond is made, the parents step back. They stay fully usable. */
+  .bond[data-made='true'] .parent:not(:hover, :focus-within) { opacity: 0.72; filter: saturate(0.5); }
+  .given {
+    margin: 0.55rem 0 0;
+    font-size: 0.8rem;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.6s 0.4s;
+  }
+  .bond[data-made='true'] .given { opacity: 1; }
+  .parent__label { margin: 0; font-size: 0.82rem; color: var(--dim); font-weight: 600; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font: 700 1.8rem/1.2 var(--display);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--blue); }
+    }
+    button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--dim);
+      font: 700 0.75rem/1 var(--body);
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+
+      &:hover { color: var(--ink); border-color: var(--dim); }
+    }
+  }
+  .meta { margin: 0.1rem 0 0.55rem; font-size: 0.86rem; color: var(--dim); b { color: var(--ink); } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.3rem, 1fr));
+    gap: 0.05rem 1.2rem;
+    font-size: 0.88rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--dim); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+
+  .result {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    position: relative;
+    padding: 1.7rem 1.9rem 1.8rem;
+    border-radius: 26px;
+    background:
+      radial-gradient(90% 60% at 50% 110%, color-mix(in srgb, var(--dawn) 30%, transparent), transparent 70%),
+      color-mix(in srgb, var(--raise) 92%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gold) 50%, var(--line));
+    box-shadow: 0 30px 80px -30px rgba(243, 154, 143, 0.45);
+  }
+  .result__eyebrow { margin: 0; color: var(--dim); font-weight: 600; }
+  .result__name { margin: 0.05rem 0 0.25rem; font: 800 clamp(3.2rem, 7vw, 5.4rem)/0.95 var(--display); letter-spacing: -0.03em; }
+  .result__sub { margin: 0 0 1.4rem; color: var(--dim); b { color: var(--ink); } }
+  .result h3 { margin: 0 0 0.5rem; font: 700 1.05rem/1.2 var(--display); }
+  .result-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr); gap: 1.2rem 2rem; margin-bottom: 1.3rem; }
+  .stats {
+    margin: 0;
+    display: grid;
+    gap: 0.3rem;
+    font-size: 0.88rem;
+
+    div { display: grid; grid-template-columns: 1.8rem 1fr 2ch; align-items: center; gap: 0.6rem; }
+    dt { font-weight: 700; color: var(--dim); }
+    dd { margin: 0; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+  }
+  .meter {
+    height: 0.45rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--line) 70%, transparent);
+
+    i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); min-width: 0.45rem; border-radius: 999px; background: linear-gradient(90deg, var(--blue), var(--gold)); }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(2rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { color: var(--dim); font-weight: 700; }
+    .v { padding: 0.18rem 0; border-radius: 6px; background: color-mix(in srgb, var(--ink) 7%, transparent); font-weight: 700; }
+    .n { color: var(--dim); font-weight: 400; }
+    .wk { background: var(--gold); color: var(--gold-ink); }
+    .nu, .rp, .dr { box-shadow: inset 0 0 0 1.5px var(--ink); }
+  }
+  .legend { margin: 0.45rem 0 0; font-size: 0.76rem; color: var(--dim); }
+  .rule { margin: 1.3rem 0 0; color: var(--dim); font-size: 0.9rem; b { color: var(--gold); } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3.4rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: 800 2rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--dim); white-space: nowrap; font-weight: 600; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--night) 80%, transparent);
+      color: var(--ink);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--blue); }
+    }
+  }
+  .table-scroll { overflow-x: auto; border-radius: 18px; background: color-mix(in srgb, var(--raise) 80%, transparent); border: 1px solid var(--line); }
+  table {
+    width: 100%;
+    min-width: 50rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th { text-align: left; color: var(--dim); font-size: 0.8rem; padding: 0.75rem 0.75rem 0.5rem; }
+    td { padding: 0.45rem 0.75rem; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+    .lv { width: 3.5rem; font: 800 1.15rem/1 var(--display); color: var(--blue); }
+    td.name { font-weight: 700; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: color-mix(in srgb, var(--gold) 8%, transparent); }
+      &:focus-visible td.name { text-decoration: underline 2px var(--blue); text-underline-offset: 4px; }
+    }
+    .tag { margin-left: 0.5rem; padding: 0.1rem 0.5rem; border-radius: 999px; background: color-mix(in srgb, var(--gold) 20%, transparent); color: var(--gold); font-size: 0.72rem; font-weight: 700; }
+    .aff { grid-template-columns: repeat(9, 2.3rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.8rem 1rem 0; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; padding-bottom: 0.4rem; scrollbar-width: none; }
+    main { padding: 1.4rem 1rem 5rem; }
+    /* Stacked: parents, a short vertical thread, then the result. */
+    .bond { grid-template-columns: 1fr; grid-template-rows: none; gap: 0.9rem; }
+    .parent--1, .parent--2, .result { grid-column: 1; grid-row: auto; }
+    .threads { grid-column: 1; grid-row: auto; height: 3.5rem; }
+  }
+  @media (max-width: 560px) {
+    .result { padding: 1.3rem 1.1rem; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result .aff { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::after, .parent, .given { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <span class="bar__count"><span data-total></span> personas</span>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p>Pick two personas. Both are used up to make the one they lead to.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="bond" data-made="true">
+    <div data-parents style="display:contents"></div>
+    <div class="threads" aria-hidden="true">
+      <svg data-svg><path class="thread" data-thread="0" /><path class="thread" data-thread="1" /><circle class="knot" r="5" /></svg>
+      <span class="threads__label" data-label="0"></span>
+      <span class="threads__label" data-label="1"></span>
+    </div>
+
+    <section class="result" aria-labelledby="r-name">
+      <p class="result__eyebrow">Result</p>
+      <h2 class="result__name" id="r-name" data-r-name></h2>
+      <p class="result__sub" data-r-sub></p>
+      <div class="result-grid">
+        <div>
+          <h3>Stats</h3>
+          <dl class="stats" data-stats></dl>
+        </div>
+        <div>
+          <h3>Affinities</h3>
+          <div class="aff" data-aff></div>
+          <p class="legend">Wk weak (gold), Rs resist, Nu null (outlined)</p>
+        </div>
+      </div>
+      <h3>Skills</h3>
+      <ul class="skills" data-r-skills></ul>
+      <p class="rule" data-rule></p>
+    </section>
+  </div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, PERSONAS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+
+  $('[data-total]').textContent = TOTAL;
+  $('[data-parents]').innerHTML = PARENTS.map((p, i) => `
+    <section class="parent parent--${i + 1}" data-i="${i}" aria-labelledby="p${i}-t">
+      <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+      <div class="slot">
+        <label for="p${i}">Parent ${i + 1} persona</label>
+        <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+      </div>
+      <p class="meta">${p.arcana}, Lv <b>${p.lv}</b>, inherits <b>${p.inherits}</b></p>
+      <ul class="skills">${skillList(p.skills)}</ul>
+      <p class="given">Used up in this fusion</p>
+    </section>`).join('');
+
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `${RESULT.arcana}, Lv <b>${RESULT.lv}</b>, inherits <b>${RESULT.inherits}</b>`;
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-aff]').innerHTML = strip(RESULT.aff, true);
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+  $('[data-rule]').innerHTML = `<b>${RULE.arcana.join(' and ')}</b> make ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.`;
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* ---- The threads: drawn from each parent's middle to one knot beside the result. ---- */
+  const bond = $('.bond');
+  const box = $('.threads');
+  const threads = [...document.querySelectorAll('.thread')];
+  const knot = $('.knot');
+  const labels = [...document.querySelectorAll('.threads__label')];
+  const parents = [...document.querySelectorAll('.parent')];
+  const stacked = () => matchMedia('(max-width: 960px)').matches;
+  function draw() {
+    const b = box.getBoundingClientRect();
+    const r = $('.result').getBoundingClientRect();
+    let end;
+    if (stacked()) {
+      end = [b.width / 2, b.height];
+      threads.forEach((t, i) => t.setAttribute('d', `M ${b.width / 2 + (i ? 14 : -14)} 0 C ${b.width / 2 + (i ? 14 : -14)} ${b.height * 0.6}, ${b.width / 2} ${b.height * 0.4}, ${end[0]} ${end[1]}`));
+      labels.forEach((l) => { l.hidden = true; });
+    } else {
+      end = [b.width, r.top + r.height / 2 - b.top];
+      parents.forEach((p, i) => {
+        const pr = p.getBoundingClientRect();
+        const y = pr.top + pr.height / 2 - b.top;
+        threads[i].setAttribute('d', `M 0 ${y} C ${b.width * 0.55} ${y}, ${b.width * 0.45} ${end[1]}, ${end[0]} ${end[1]}`);
+        Object.assign(labels[i].style, { left: `${b.width * 0.28}px`, top: `${y + (end[1] - y) * 0.12}px` });
+        labels[i].hidden = false;
+        labels[i].textContent = PARENTS[i].arcana;
+      });
+    }
+    knot.setAttribute('cx', end[0]);
+    knot.setAttribute('cy', end[1]);
+    threads.forEach((t) => { const L = t.getTotalLength(); t.style.strokeDasharray = L; t.dataset.len = L; });
+  }
+  new ResizeObserver(draw).observe(bond);
+  draw();
+
+  /* Hover a parent and its thread pulls tight. */
+  parents.forEach((p, i) => {
+    const lit = (on) => threads[i].classList.toggle('is-lit', on);
+    p.addEventListener('pointerenter', () => lit(true));
+    p.addEventListener('pointerleave', () => lit(false));
+    p.addEventListener('focusin', () => lit(true));
+    p.addEventListener('focusout', () => lit(false));
+  });
+
+  /* ---- Signature: the threads reach the result, the parents step back, and the dawn comes up. ---- */
+  const root = document.documentElement;
+  const setThreads = (drawn, ms) => threads.forEach((t) => {
+    t.style.transition = ms ? `stroke-dashoffset ${ms}ms cubic-bezier(0.5, 0, 0.2, 1)` : 'none';
+    t.style.strokeDashoffset = drawn ? '0' : t.dataset.len;
+  });
+  moment((at, end) => {
+    bond.dataset.made = 'false';
+    root.style.setProperty('--day', '0.15');
+    knot.style.opacity = '0';
+    setThreads(false, 0);
+    at(60, () => setThreads(true, 1500));
+    at(1550, () => { knot.style.opacity = '1'; bond.dataset.made = 'true'; root.style.setProperty('--day', '0.85'); });
+    at(3000, end);
+  }, () => {
+    setThreads(true, 0);
+    knot.style.opacity = '1';
+    bond.dataset.made = 'true';
+    root.style.setProperty('--day', '0.85');
+  }).play();
+</script>
+</body>
+</html>
