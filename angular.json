@@ -29,7 +29,14 @@
                 "input": "public"
               }
             ],
-            "styles": ["node_modules/primeicons/primeicons.css", "src/styles.scss"]
+            "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "src/styles.scss",
+              { "input": "src/styles/skin-bundles/calling-card.scss", "bundleName": "skin-calling-card", "inject": false },
+              { "input": "src/styles/skin-bundles/comp.scss", "bundleName": "skin-comp", "inject": false },
+              { "input": "src/styles/skin-bundles/midnight-channel.scss", "bundleName": "skin-midnight-channel", "inject": false },
+              { "input": "src/styles/skin-bundles/abyss.scss", "bundleName": "skin-abyss", "inject": false }
+            ]
           },
           "configurations": {
             "production": {

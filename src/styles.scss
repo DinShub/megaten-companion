@@ -1,13 +1,13 @@
 /* Global styles. Every --p-* custom property below is emitted by the PrimeNG
    preset (src/app/theme/app-preset.ts), rebuilt from the active game's theme.
    The app is dark-only; each game's skin (GameTheme.skin) layers its own look on
-   top from styles/skins/, scoped under `:root[data-skin='<skin>']`. */
+   top from styles/skins/, scoped under `:root[data-skin='<skin>']`. Skins are not
+   part of this sheet: each builds to its own lazy `skin-<name>.css`
+   (styles/skin-bundles/, angular.json) and theme/skin-stylesheet.ts loads only the
+   active game's, which keeps them out of the initial budget. */
 
 @use 'styles/mixins' as *;
 @use 'styles/fonts';
-@use 'styles/skins/calling-card';
-@use 'styles/skins/comp';
-@use 'styles/skins/midnight-channel';
 
 html,
 body {
@@ -391,6 +391,10 @@ code {
   background: var(--p-text-muted-color);
 }
 .el-dot[data-el='phys'] { background: #f87171; }
+/* P3R splits physical damage three ways; three shades of the same red. */
+.el-dot[data-el='slash'] { background: #f87171; }
+.el-dot[data-el='strike'] { background: #fca5a5; }
+.el-dot[data-el='pierce'] { background: #ef4444; }
 .el-dot[data-el='gun'] { background: #fbbf24; }
 .el-dot[data-el='fire'] { background: #fb7185; }
 .el-dot[data-el='ice'] { background: #38bdf8; }

@@ -80,10 +80,13 @@ export const SKILL_ELEMENT_CLS: Readonly<Record<string, string>> = {
   nerve: 'el-nerve',
   special: 'el-special',
   talk: 'el-talk',
-  // P4G's names for the same colours.
+  // P4G's and P3R's names for the same colours; P3R splits physical three ways.
   light: 'el-bless',
   dark: 'el-curse',
   recovery: 'el-healing',
+  slash: 'el-phys',
+  strike: 'el-phys',
+  pierce: 'el-phys',
 };
 
 export const SKILL_ELEMENT_LABEL: Readonly<Record<string, string>> = {
@@ -112,4 +115,7 @@ export const SKILL_ELEMENT_LABEL: Readonly<Record<string, string>> = {
   light: 'Light',
   dark: 'Dark',
   recovery: 'Recovery',
+  slash: 'Slash',
+  strike: 'Strike',
+  pierce: 'Pierce',
 };

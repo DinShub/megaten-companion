@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Validates the committed P5R, P4G and SMT III datasets against the §8.4 invariants, independent
+// Validates the committed P5R, P4G, P3R and SMT III datasets against the §8.4 invariants, independent
 // of the (gitignored) importer, so CI catches data rot in `public/data/p5r/`
 // without re-running the import. Exits non-zero on any failure.
 //
@@ -217,6 +217,48 @@ const p4g = {
   }
 }
 
+// ---- Persona 3 Reload (public/data/p3r/) -------------------------------------
+const P3R_DIR = new URL('../public/data/p3r/', import.meta.url);
+const loadP3r = (name) => JSON.parse(readFileSync(new URL(`${name}.json`, P3R_DIR), 'utf8'));
+const p3r = {
+  personas: loadP3r('personas'),
+  skills: loadP3r('skills'),
+  shadows: loadP3r('shadows'),
+  fusion: loadP3r('fusion-chart'),
+  special: loadP3r('special-recipes'),
+  inherit: loadP3r('inherit-matrix'),
+};
+{
+  const personaById = new Map(p3r.personas.map((p) => [p.id, p]));
+  const p3rSkillIds = idSet(p3r.skills);
+  for (const [list, label] of [[p3r.personas, 'p3r persona'], [p3r.skills, 'p3r skill'], [p3r.shadows, 'p3r shadow']]) {
+    const seen = new Set();
+    for (const x of list) {
+      if (seen.has(x.id)) fail(`duplicate ${label} id "${x.id}"`);
+      seen.add(x.id);
+    }
+  }
+  const personaRef = (id, where) => {
+    if (!personaById.has(id)) fail(`${where}: unresolved p3r persona "${id}"`);
+  };
+  for (const p of p3r.personas) {
+    for (const ls of p.learnedSkills) ref(p3rSkillIds, ls.skillId, `p3r persona ${p.id} learnedSkills`);
+    if (Object.keys(p.affinities).length !== 10) fail(`p3r persona ${p.id}: ${Object.keys(p.affinities).length} affinity axes`);
+    if (!p3r.inherit[p.inheritType]) fail(`p3r persona ${p.id}: inherit type ${p.inheritType} not in the matrix`);
+    if (p.kind === 'special' && !p3r.special.some((r) => r.resultId === p.id)) fail(`p3r special persona ${p.id} has no recipe`);
+  }
+  for (const s of p3r.shadows) for (const id of s.skillIds) ref(p3rSkillIds, id, `p3r shadow ${s.id} skillIds`);
+  for (const [a, row] of Object.entries(p3r.fusion.normal)) {
+    for (const [b, r] of Object.entries(row)) {
+      if (p3r.fusion.normal[b]?.[a] !== r) fail(`p3r chart asymmetric at ${a} × ${b}`);
+    }
+  }
+  for (const r of p3r.special) {
+    if (personaById.get(r.resultId)?.kind !== 'special') fail(`p3r special recipe → ${r.resultId}: not a special persona`);
+    for (const id of r.ingredientIds) personaRef(id, `p3r special recipe → ${r.resultId}`);
+  }
+}
+
 // ---- Report -----------------------------------------------------------------
 if (errors.length) {
   console.error(`✗ data validation FAILED — ${errors.length} error(s):`);
@@ -230,5 +272,6 @@ console.log(
     `${classroom.length} classroom answers; ` +
     `fusion chart 24×24 symmetric; special/treasure gates and all id references resolve. ` +
     `SMT III: ${smt3.demons.length} demons, ${smt3.skills.length} skills, ${smt3.magatama.length} magatama; charts symmetric, recipes resolve. ` +
-    `P4G: ${p4g.personas.length} personas, ${p4g.skills.length} skills, ${p4g.shadows.length} shadows; charts symmetric, recipes resolve.`,
+    `P4G: ${p4g.personas.length} personas, ${p4g.skills.length} skills, ${p4g.shadows.length} shadows; charts symmetric, recipes resolve. ` +
+    `P3R: ${p3r.personas.length} personas, ${p3r.skills.length} skills, ${p3r.shadows.length} shadows; chart symmetric, recipes resolve.`,
 );

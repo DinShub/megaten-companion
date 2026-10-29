@@ -65,6 +65,7 @@ To follow the OS setting instead, use `darkModeSelector: 'system'` and drop the 
 | --------------------------------- | -------- | ------------------ | -------------------- |
 | Persona 5 Royal                   | `/p5r`   | `src/app/games/p5r`  | `public/data/p5r/`   |
 | Persona 4 Golden                  | `/p4g`   | `src/app/games/p4g`  | `public/data/p4g/`   |
+| Persona 3 Reload                  | `/p3r`   | `src/app/games/p3r`  | `public/data/p3r/`   |
 | Shin Megami Tensei III: Nocturne  | `/smt3`  | `src/app/games/smt3` | `public/data/smt3/`  |
 
 Each game is a self-contained folder registered in `src/app/games/game.registry.ts`; the shell,
@@ -92,13 +93,27 @@ triangle), a skill-aware route finder over your compendium and optionally every 
 level, both arcana charts, a compendium with export/import, and its own settings (protagonist level
 cap, unlock groups). It wears the Midnight Channel skin: the fusion result plays on a TV set.
 
+The P3R companion covers all 194 Reload personas (stats, ten affinities, inheritance masks,
+learn-sets with Theurgies marked, heart items), 602 skills (with where each skill card is found),
+370 shadows (bosses marked, drops and areas), a fusion calculator (two-persona normal and
+same-arcana fusion plus special recipes — Reload has no triangle fusion; reverse lists every pair),
+a skill-aware route finder, the arcana chart, a compendium with export/import, and its own settings
+(protagonist level cap and four unlock groups, DLC off by default). Episode Aigis is not included.
+It wears the Abyss skin: deep water, light from the surface, and the result as a white card that
+surfaces.
+
+Skins are lazy: each builds to its own `skin-<name>.css` (`src/styles/skin-bundles/`, `angular.json`
+`inject: false`) and only the active game's sheet loads (`src/app/theme/skin-stylesheet.ts`), so a
+new skin costs nothing in the initial bundle.
+
 ## Game data
 
 `public/data/p5r/` holds the committed P5R datasets — personas, skills, traits, shadows, the fusion
 and element charts, advanced recipes, and the inheritance matrix. `public/data/smt3/` holds
 Nocturne's demons, skills, magatama, fusion/element charts and special recipes. `public/data/p4g/`
 holds Golden's personas, skills, shadows, the normal and triangle charts, special recipes and the
-inheritance matrix. They are static
+inheritance matrix. `public/data/p3r/` holds Reload's personas, skills, shadows, the arcana chart,
+special recipes and the inheritance masks. They are static
 assets fetched at runtime, not bundled, so they stay out of the initial-bundle budget and cache
 independently of app code. **A fresh clone needs no network access to produce them.**
 
@@ -124,6 +139,9 @@ node --test scripts/import/smt3/test/smt3.test.mjs
 
 node scripts/import/p4g/import.mjs         # Persona 4 Golden: same upstream, same pinned commit
 node --test scripts/import/p4g/test/p4g.test.mjs
+
+node scripts/import/p3r/import.mjs         # Persona 3 Reload: same upstream, same pinned commit
+node --test scripts/import/p3r/test/p3r.test.mjs
 ```
 
 `node scripts/validate-data.mjs` (run in CI) re-checks every game's committed datasets without the

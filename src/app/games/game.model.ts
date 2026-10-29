@@ -3,7 +3,7 @@ import type { Routes } from '@angular/router';
 /**
  * The multi-game seam (§9.2). Shared UI — the app shell, routing, the data
  * service — reads only this interface; nothing outside `games/<id>/` names a
- * specific game. Adding P4G means a new folder, new data, and a registry entry,
+ * specific game. Adding a game means a new folder, new data, and a registry entry,
  * with no change to shared code.
  *
  * The seam is intentionally thin: interfaces and namespacing only. The fusion
@@ -60,8 +60,11 @@ export type PrimaryColor =
  *   box-drawn panels, monospace data, a terse system voice (Nocturne).
  * - `midnight-channel` — a late-night broadcast in the rain: violet-black room,
  *   the result on a CRT set, condensed broadcast type, a yellow ticker (P4G).
+ * - `abyss` — deep water: bright blue at the surface darkening to the deep, light
+ *   rays, frosted-glass panels, and the result as one solid white card that
+ *   surfaces (P3R).
  */
-export type GameSkin = 'calling-card' | 'comp' | 'midnight-channel';
+export type GameSkin = 'calling-card' | 'comp' | 'midnight-channel' | 'abyss';
 
 /** A game's visual identity (§4.8). */
 export interface GameTheme {

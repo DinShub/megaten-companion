@@ -1,5 +1,5 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, provideAppInitializer, provideBrowserGlobalErrorListeners } from '@angular/core';
 import {
   PreloadAllModules,
   provideRouter,
@@ -10,11 +10,15 @@ import { providePrimeNG } from 'primeng/config';
 
 import { PRIMEUI_LICENSE_KEY } from '../environments/license';
 import { routes } from './app.routes';
-import { AppPreset, THEME_OPTIONS } from './theme/app-preset';
+import { AppPreset, bootTheme, THEME_OPTIONS } from './theme/app-preset';
+import { ensureSkinStylesheet } from './theme/skin-stylesheet';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+    // Hold the first render until the booting game's skin sheet is in, so the
+    // shell never paints unskinned. The loader times out rather than block.
+    provideAppInitializer(() => ensureSkinStylesheet(bootTheme().skin)),
     // Datasets are fetched as static assets at runtime (§8.5), so the app needs
     // an HttpClient. `withFetch` uses the Fetch API backend.
     provideHttpClient(withFetch()),

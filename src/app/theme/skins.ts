@@ -79,4 +79,25 @@ export const SKINS: Readonly<Record<GameSkin, SkinTokens>> = {
     },
     radius: { none: '0', xs: '4px', sm: '6px', md: '10px', lg: '14px', xl: '20px' },
   },
+  // Deep water: blue-black at the bottom of the page, lighter blues up toward
+  // the surface. Text (0) is a cool white, muted text (300/400) a pale foam blue
+  // that clears AA on the 900 page, and the radii are generous — glass panels
+  // and a rounded white result card, nothing cut or boxed.
+  abyss: {
+    surface: {
+      0: '#f4f8ff',
+      50: '#e4eeff',
+      100: '#cfe0fb',
+      200: '#bcd2f5',
+      300: '#a6bde8',
+      400: '#8ea6d6',
+      500: '#5f78b0',
+      600: '#3a5290',
+      700: '#26407c',
+      800: '#0d2462',
+      900: '#04103a',
+      950: '#020a26',
+    },
+    radius: { none: '0', xs: '6px', sm: '10px', md: '16px', lg: '22px', xl: '28px' },
+  },
 };

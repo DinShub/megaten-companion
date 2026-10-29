@@ -1,0 +1,641 @@
+/* Abyss skin (P3R): deep water. The page is bright blue at the surface and
+   darkens to the deep; light rays come down from the top, the panels are frosted
+   glass, and the fusion result is the one solid white card — it surfaces out of
+   the deep each time a new result lands.
+
+   Every P3R page wears this skin and nothing else does, so the page rules target
+   the game's own `.p3r .p3-*` vocabulary directly. Shared components and the
+   shell are restyled from outside: `:root[data-skin]` plus one class
+   out-specifies their emulated selectors. This partial is its own lazy sheet
+   (styles/skin-bundles/abyss.scss), loaded only while P3R is active. */
+
+@use '../mixins' as *;
+
+/* The one solid thing: white card stock with deep-blue ink. Weakness, the active
+   nav link and pressed toggles. */
+%ab-solid {
+  background: var(--ab-white);
+  color: var(--ab-ink);
+  font-weight: 700;
+}
+
+/* Frosted glass on the water. */
+%ab-glass {
+  border: 1px solid var(--ab-glass-line);
+  background: var(--ab-glass);
+  backdrop-filter: blur(14px);
+}
+
+/* A pill-shaped glass control. */
+%ab-control {
+  border: 1px solid var(--ab-glass-line);
+  border-radius: 999px;
+  background: var(--ab-glass);
+  color: var(--ab-white);
+  font-family: var(--app-font-body);
+}
+
+@mixin ab-display($size, $weight: 800) {
+  font-family: var(--app-font-display);
+  font-size: $size;
+  font-style: italic;
+  font-weight: $weight;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+@include skin('abyss') {
+  /* ---- Tokens ----------------------------------------------------------- */
+  --app-font-body: 'Archivo', system-ui, sans-serif;
+  --app-font-display: 'Archivo', system-ui, sans-serif;
+  --app-font-data: 'Archivo', system-ui, sans-serif;
+
+  /* The water, top to bottom. --ab-surface is the game accent's bright end. */
+  --ab-surface: #1a5ae6;
+  --ab-mid: #0a2f8f;
+  --ab-deep: var(--p-surface-900);
+  --ab-white: var(--p-surface-0);
+  --ab-ink: #061445;
+  --ab-ink-dim: #3d5193;
+  --ab-foam: var(--p-surface-200);
+  --ab-glass: rgba(244, 248, 255, 0.09);
+  --ab-glass-hi: rgba(244, 248, 255, 0.16);
+  --ab-glass-line: rgba(244, 248, 255, 0.26);
+
+  --app-border: var(--ab-glass-line);
+  --app-panel: var(--ab-glass);
+  --app-panel-2: var(--ab-glass-hi);
+  --app-success: #8ef0c4;
+  --app-warn: #ffd27a;
+  --app-danger: #ff8fa0;
+
+  color-scheme: dark;
+  scrollbar-color: var(--ab-glass-line) transparent;
+
+  body {
+    background: linear-gradient(to bottom, var(--ab-surface) 0%, #1550d6 16%, var(--ab-mid) 46%, var(--ab-deep) 100%) fixed;
+    color: var(--ab-white);
+
+    /* Light from the surface: a few soft rays. */
+    &::before {
+      content: '';
+      position: fixed;
+      inset: -10% -20% 35%;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(100deg, transparent 18%, rgba(255, 255, 255, 0.12) 20%, transparent 24%),
+        linear-gradient(96deg, transparent 38%, rgba(255, 255, 255, 0.09) 41%, transparent 46%),
+        linear-gradient(104deg, transparent 58%, rgba(255, 255, 255, 0.11) 60%, transparent 63%),
+        linear-gradient(98deg, transparent 74%, rgba(255, 255, 255, 0.07) 77%, transparent 81%);
+      mask-image: linear-gradient(to bottom, #000, transparent);
+      transform-origin: 50% 0;
+    }
+  }
+
+  ::selection {
+    @extend %ab-solid;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--ab-white);
+    outline-offset: 2px;
+  }
+
+  /* ---- Shell ------------------------------------------------------------ */
+  .app-bar {
+    border-bottom-color: transparent;
+    background: color-mix(in srgb, var(--ab-surface) 70%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .app-bar__brand {
+    @include ab-display(1.45rem);
+    color: var(--ab-white);
+
+    .pi {
+      display: none;
+    }
+  }
+
+  .app-gameswitch,
+  .app-iconbtn {
+    @extend %ab-control;
+  }
+
+  .app-iconbtn {
+    border-color: transparent;
+    background: transparent;
+
+    &:hover {
+      background: var(--ab-glass-hi);
+    }
+  }
+
+  .app-nav {
+    gap: 0.2rem;
+  }
+
+  .app-nav__link {
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    color: var(--ab-foam);
+    font-weight: 600;
+
+    .pi {
+      display: none;
+    }
+    &:hover {
+      background: var(--ab-glass);
+      color: var(--ab-white);
+    }
+    &.is-active {
+      @extend %ab-solid;
+    }
+  }
+
+  .app-tabbar {
+    border-top-color: var(--ab-glass-line);
+    background: color-mix(in srgb, var(--ab-deep) 88%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .app-tabbar__item.is-active {
+    color: var(--ab-white);
+  }
+
+  .app-drawer {
+    border-left-color: var(--ab-glass-line);
+    background: var(--ab-mid);
+  }
+
+  .app-drawer__title,
+  .modal__title {
+    @include ab-display(1.6rem);
+  }
+
+  .app-drawer__link {
+    border-radius: 999px;
+
+    &.is-active {
+      @extend %ab-solid;
+    }
+  }
+
+  .modal__panel {
+    @extend %ab-glass;
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--ab-mid) 92%, transparent);
+  }
+
+  /* ---- Shared components ------------------------------------------------ */
+  .section-tabs {
+    gap: 0.25rem;
+    border-bottom: 0;
+    scrollbar-width: none;
+  }
+
+  .section-tabs .section-tabs__tab {
+    margin-bottom: 0;
+    padding: 0.45rem 0.95rem;
+    border: 0;
+    border-radius: 999px;
+    color: var(--ab-foam);
+    font-weight: 600;
+
+    &:hover {
+      background: var(--ab-glass);
+      color: var(--ab-white);
+    }
+    &.is-active {
+      @extend %ab-solid;
+    }
+  }
+
+  /* Affinities: weakness is the signal — a solid white block plus its code,
+     never colour alone. Null, repel and drain are outlined. */
+  .grid .cell {
+    border-radius: 8px;
+    background: var(--ab-glass);
+
+    .cell__el {
+      color: var(--ab-foam);
+      text-transform: none;
+    }
+    .cell__aff {
+      color: var(--ab-white);
+      font-weight: 800;
+    }
+    &.aff-neutral .cell__aff {
+      color: var(--ab-foam);
+      font-weight: 400;
+      opacity: 0.6;
+    }
+    &.aff-weak {
+      @extend %ab-solid;
+
+      .cell__el,
+      .cell__aff {
+        color: var(--ab-ink);
+      }
+    }
+    &:is(.aff-null, .aff-repel, .aff-drain) {
+      box-shadow: inset 0 0 0 2px var(--ab-white);
+    }
+  }
+
+  .mask .mask__cell {
+    border-radius: 8px;
+    opacity: 0.5;
+
+    &.is-allowed {
+      opacity: 1;
+      box-shadow: inset 0 -2px 0 var(--ab-white);
+    }
+  }
+
+  .chip,
+  .badge,
+  .chips__chip,
+  .picker__toggle {
+    border: 1px solid var(--ab-glass-line);
+    border-radius: 999px;
+    background: var(--ab-glass);
+    color: var(--ab-white);
+  }
+
+  .badge--owned {
+    border-color: color-mix(in srgb, var(--app-success) 55%, transparent);
+    color: var(--app-success);
+  }
+
+  .chips .chips__chip {
+    &:hover {
+      border-color: var(--ab-white);
+    }
+    &.is-on {
+      @extend %ab-solid;
+      border-color: var(--ab-white);
+    }
+  }
+
+  .picker .picker__field,
+  .range .range__input {
+    @extend %ab-control;
+  }
+
+  .picker {
+    .picker__field:focus-within {
+      border-color: var(--ab-white);
+    }
+    .picker__list {
+      border: 1px solid var(--ab-glass-line);
+      border-radius: 18px;
+      background: var(--ab-mid);
+      box-shadow: 0 20px 50px rgba(2, 8, 40, 0.7);
+    }
+    .picker__opt {
+      border-radius: 10px;
+
+      &:hover,
+      &.is-active {
+        background: var(--ab-glass-hi);
+      }
+    }
+  }
+
+  .load .load__retry {
+    @extend %ab-control;
+    border-color: var(--ab-white);
+  }
+
+  .not-found .not-found__code {
+    @include ab-display(6rem);
+  }
+
+  .p-button {
+    border-radius: 999px;
+    font-family: var(--app-font-body);
+    font-weight: 700;
+  }
+
+  /* ---- P3R pages -------------------------------------------------------- */
+  .p3r {
+    /* Links are white on the water — the accent blue would sink into it. */
+    a {
+      color: var(--ab-white);
+      text-underline-offset: 3px;
+    }
+
+    h1 {
+      @include ab-display(clamp(2.6rem, 6vw, 4rem));
+      text-wrap: balance;
+    }
+
+    .p3-detail-head h1 {
+      @include ab-display(clamp(3rem, 7vw, 4.6rem));
+    }
+
+    .p3-count,
+    .p3-muted,
+    .p3-note,
+    .p3-eyebrow,
+    .p3-plus,
+    .p3-back {
+      color: var(--ab-foam);
+    }
+
+    .p3-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .p3-panel,
+    .p3-filters {
+      @extend %ab-glass;
+      border-radius: 22px;
+    }
+
+    .p3-panel > h2 {
+      @include ab-display(1.55rem);
+      margin: 0 0 0.6rem;
+      text-transform: none;
+    }
+
+    .p3-search,
+    .p3-select,
+    .p3-input,
+    .p3-btn {
+      @extend %ab-control;
+    }
+
+    .p3-search:focus-within,
+    .p3-select:focus-visible,
+    .p3-input:focus-visible {
+      border-color: var(--ab-white);
+    }
+
+    .p3-btn {
+      font-weight: 600;
+
+      &:hover:not(:disabled, .p3-btn--owned, .p3-btn--primary, .is-on) {
+        background: var(--ab-glass-hi);
+        border-color: var(--ab-white);
+      }
+      &.is-on,
+      &--primary {
+        @extend %ab-solid;
+        border-color: var(--ab-white);
+      }
+      &--owned {
+        border-color: color-mix(in srgb, var(--app-success) 55%, transparent);
+        color: var(--app-success);
+      }
+    }
+
+    .p3-seg {
+      gap: 0.25rem;
+      padding: 0.25rem;
+      @extend %ab-glass;
+      border-radius: 999px;
+
+      button {
+        border-radius: 999px;
+        color: var(--ab-foam);
+        font-weight: 600;
+
+        &:hover {
+          color: var(--ab-white);
+        }
+        &.is-on {
+          @extend %ab-solid;
+        }
+      }
+    }
+
+    /* Tables: glass rows; the hovered row turns to white card stock. */
+    .p3-row--head {
+      border-bottom-color: var(--ab-glass-line);
+      background: color-mix(in srgb, var(--ab-mid) 85%, transparent);
+      color: var(--ab-foam);
+      text-transform: none;
+      letter-spacing: 0;
+
+      button.is-sort {
+        color: var(--ab-white);
+      }
+    }
+
+    .p3-row--body {
+      border-bottom-color: rgba(244, 248, 255, 0.12);
+
+      &:hover {
+        background: var(--ab-glass-hi);
+      }
+    }
+
+    .p3-num {
+      font-family: var(--app-font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: 1.1em;
+    }
+
+    .p3-tag,
+    .p3-pill {
+      border: 1px solid var(--ab-glass-line);
+      border-radius: 999px;
+      background: var(--ab-glass);
+      color: var(--ab-white);
+
+      &--accent {
+        @extend %ab-solid;
+        border-color: var(--ab-white);
+      }
+    }
+
+    .p3-statcells > div {
+      border: 1px solid var(--ab-glass-line);
+      border-radius: 14px;
+      background: var(--ab-glass);
+
+      strong {
+        @include ab-display(1.8rem);
+      }
+    }
+
+    /* Stats as rounded white bars: 99 is P3R's cap. */
+    .p3-meters {
+      display: grid;
+      gap: 0.4rem;
+      margin: 0;
+
+      > div {
+        display: grid;
+        grid-template-columns: 2.2ch 1fr;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      dt {
+        font-weight: 700;
+      }
+      dd {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0;
+
+        .p3-num {
+          width: 2.5ch;
+          text-align: right;
+        }
+      }
+    }
+
+    .p3-meter {
+      --v: 0;
+      flex: 1 1 auto;
+      max-width: 16rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background:
+        linear-gradient(to right, var(--ab-white) calc(var(--v) / 99 * 100%), transparent 0),
+        rgba(244, 248, 255, 0.14);
+    }
+
+    .p3-warn,
+    .p3-invalid,
+    .p3-info {
+      border-radius: 16px;
+    }
+
+    /* Empty and missing states: open water. */
+    .p3-empty,
+    .p3-missing {
+      padding: 1.6rem 1rem;
+      border: 1px dashed var(--ab-glass-line);
+      border-radius: 22px;
+      background: var(--ab-glass);
+      text-align: center;
+    }
+
+    /* ---- Fusion result: the white card ------------------------------------ */
+    .calc__result {
+      border: 0;
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+
+      > h2:first-child {
+        @include ab-display(1.1rem);
+        margin: 0 0 0.2rem;
+        color: var(--ab-foam);
+      }
+    }
+
+    .calc__card {
+      padding: 1.5rem 1.7rem 1.4rem;
+      border-radius: 28px;
+      background: var(--ab-white);
+      color: var(--ab-ink);
+      box-shadow:
+        0 40px 90px -30px rgba(2, 8, 40, 0.8),
+        0 0 0 6px rgba(244, 248, 255, 0.18);
+
+      .p3-muted,
+      .p3-eyebrow {
+        color: var(--ab-ink-dim);
+      }
+      .p3-tag {
+        border-color: color-mix(in srgb, var(--ab-ink) 22%, transparent);
+        background: color-mix(in srgb, var(--ab-surface) 8%, transparent);
+        color: var(--ab-ink);
+      }
+      .badge {
+        border-color: color-mix(in srgb, var(--ab-ink) 22%, transparent);
+        background: transparent;
+        color: var(--ab-ink);
+      }
+      .mask .mask__cell {
+        color: var(--ab-ink);
+        background: color-mix(in srgb, var(--ab-surface) 8%, transparent);
+
+        &.is-allowed {
+          box-shadow: inset 0 -2px 0 var(--ab-surface);
+        }
+      }
+    }
+
+    .calc__name {
+      @include ab-display(clamp(3rem, 8vw, 5.6rem));
+      margin-left: -0.04em;
+
+      /* The ownership badge sits beside the name but keeps body type. */
+      .badge {
+        font: 600 0.78rem/1.2 var(--app-font-body);
+        letter-spacing: 0;
+      }
+
+      a {
+        color: var(--ab-surface);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: 3px;
+        }
+      }
+    }
+
+    .calc__rule {
+      margin: 1rem 0 0;
+      padding-top: 0.8rem;
+      border-top: 1px solid color-mix(in srgb, var(--ab-ink) 14%, transparent);
+      color: var(--ab-ink-dim);
+      font-size: 0.92rem;
+    }
+
+    /* The one orchestrated moment: the result surfaces out of the deep — it
+       rises, sharpens and brightens. Re-runs per fusion (the result is keyed on it). */
+    @media (prefers-reduced-motion: no-preference) {
+      .calc__card {
+        animation: ab-surface 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+    }
+
+    .p3-gs__panel {
+      @extend %ab-glass;
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--ab-mid) 94%, transparent);
+    }
+
+    .p3-gs__item:is(:hover, :focus-visible) {
+      background: var(--ab-glass-hi);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    body::before {
+      animation: ab-sway 14s ease-in-out infinite alternate;
+    }
+  }
+}
+
+@keyframes ab-surface {
+  from {
+    opacity: 0.25;
+    transform: translateY(120px) scale(0.97);
+    filter: blur(10px) saturate(0.4);
+  }
+}
+
+@keyframes ab-sway {
+  from {
+    transform: skewX(-4deg);
+  }
+  to {
+    transform: skewX(4deg);
+  }
+}

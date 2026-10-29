@@ -1,0 +1,202 @@
+[
+  {
+    "ingredientIds": [
+      "pixie",
+      "lilim",
+      "narcissus",
+      "titania"
+    ],
+    "resultId": "alice"
+  },
+  {
+    "ingredientIds": [
+      "tam-lin",
+      "jack-o-lantern",
+      "neko-shogun"
+    ],
+    "resultId": "arsene"
+  },
+  {
+    "ingredientIds": [
+      "rakshasa",
+      "girimekhala",
+      "bishamonten",
+      "qitian-dasheng",
+      "atavaka",
+      "vishnu"
+    ],
+    "resultId": "asura"
+  },
+  {
+    "ingredientIds": [
+      "incubus",
+      "succubus",
+      "pazuzu",
+      "lilith",
+      "baal-zebul",
+      "abaddon"
+    ],
+    "resultId": "beelzebub"
+  },
+  {
+    "ingredientIds": [
+      "jack-frost",
+      "jack-o-lantern",
+      "king-frost"
+    ],
+    "resultId": "black-frost"
+  },
+  {
+    "ingredientIds": [
+      "forneus",
+      "berith",
+      "eligor"
+    ],
+    "resultId": "flauros"
+  },
+  {
+    "ingredientIds": [
+      "angel",
+      "silky",
+      "unicorn"
+    ],
+    "resultId": "fortuna"
+  },
+  {
+    "ingredientIds": [
+      "genbu",
+      "seiryu",
+      "suzaku",
+      "byakko"
+    ],
+    "resultId": "kohryu"
+  },
+  {
+    "ingredientIds": [
+      "samael",
+      "abaddon",
+      "beelzebub",
+      "satan",
+      "helel"
+    ],
+    "resultId": "lucifer"
+  },
+  {
+    "ingredientIds": [
+      "hanuman",
+      "vasuki",
+      "naga-raja",
+      "ganesha"
+    ],
+    "resultId": "mada"
+  },
+  {
+    "ingredientIds": [
+      "incubus",
+      "pazuzu",
+      "mot",
+      "kumbhanda",
+      "attis"
+    ],
+    "resultId": "mara"
+  },
+  {
+    "ingredientIds": [
+      "zouchouten",
+      "jikokuten",
+      "koumokuten",
+      "bishamonten"
+    ],
+    "resultId": "masakado"
+  },
+  {
+    "ingredientIds": [
+      "orpheus",
+      "thanatos"
+    ],
+    "resultId": "messiah"
+  },
+  {
+    "ingredientIds": [
+      "uriel",
+      "raphael",
+      "gabriel",
+      "michael"
+    ],
+    "resultId": "metatron"
+  },
+  {
+    "ingredientIds": [
+      "clotho",
+      "lachesis",
+      "atropos"
+    ],
+    "resultId": "norn"
+  },
+  {
+    "ingredientIds": [
+      "thanatos",
+      "asura",
+      "chi-you",
+      "metatron",
+      "helel",
+      "messiah"
+    ],
+    "resultId": "orpheus-telos"
+  },
+  {
+    "ingredientIds": [
+      "berith",
+      "gurulu",
+      "matador"
+    ],
+    "resultId": "pale-rider"
+  },
+  {
+    "ingredientIds": [
+      "sati",
+      "sarasvati",
+      "dakini"
+    ],
+    "resultId": "parvati"
+  },
+  {
+    "ingredientIds": [
+      "orpheus",
+      "michael",
+      "thanatos",
+      "satan",
+      "helel",
+      "lucifer"
+    ],
+    "resultId": "satanael"
+  },
+  {
+    "ingredientIds": [
+      "rangda",
+      "barong"
+    ],
+    "resultId": "shiva"
+  },
+  {
+    "ingredientIds": [
+      "take-minakata",
+      "take-mikazuchi",
+      "okuninushi",
+      "shiki-ouji",
+      "kikuri-hime"
+    ],
+    "resultId": "susano-o"
+  },
+  {
+    "ingredientIds": [
+      "pisaca",
+      "pale-rider",
+      "loa",
+      "samael",
+      "mot",
+      "alice"
+    ],
+    "resultId": "thanatos"
+  }
+]

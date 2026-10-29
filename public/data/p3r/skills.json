@@ -1,0 +1,7902 @@
+[
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "accelerated-charging",
+    "name": "Accelerated Charging",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 2"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "√40 pwr",
+    "element": "fire",
+    "id": "agi",
+    "name": "Agi",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√220 pwr",
+    "element": "fire",
+    "id": "agidyne",
+    "name": "Agidyne",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "√100 pwr",
+    "element": "fire",
+    "id": "agilao",
+    "name": "Agilao",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "fire",
+    "id": "agilao-gem",
+    "name": "Agilao Gem",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Ailments affliction rate x1.25",
+    "element": "passive",
+    "id": "ailment-boost",
+    "name": "Ailment Boost",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Ally crit rate against foes with ailments +7%",
+    "element": "passive",
+    "id": "ailment-burst",
+    "name": "Ailment Burst",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Ally crit rate against foes with ailments +15%",
+    "element": "passive",
+    "id": "ailment-surge",
+    "name": "Ailment Surge",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√300 pwr, 1-2 hits, 88% acc, 12% crit",
+    "element": "strike",
+    "id": "akasha-arts",
+    "name": "Akasha Arts",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Incoming hit rate x0.5",
+    "element": "passive",
+    "id": "ali-dance",
+    "name": "Ali Dance",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% ailment",
+    "element": "passive",
+    "id": "all-ailments-high",
+    "name": "All Ailments (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% ailment",
+    "element": "passive",
+    "id": "all-ailments-low",
+    "name": "All Ailments (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% ailment",
+    "element": "passive",
+    "id": "all-ailments-med",
+    "name": "All Ailments (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√15 pwr",
+    "element": "almighty",
+    "id": "all-out-attack",
+    "name": "All-Out Attack",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Skill Mutation"
+    ],
+    "cost": null,
+    "description": "Almighty dmg dealt x1.5",
+    "element": "passive",
+    "id": "almighty-amp",
+    "name": "Almighty Amp",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "almighty",
+    "id": "almighty-attack",
+    "name": "Almighty Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Almighty dmg dealt x1.25",
+    "element": "passive",
+    "id": "almighty-boost",
+    "name": "Almighty Boost",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "Patra + Baisudi",
+    "element": "recovery",
+    "id": "amrita-drop",
+    "name": "Amrita Drop",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Amrita",
+    "element": "recovery",
+    "id": "amrita-gem",
+    "name": "Amrita Gem",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "Patra + Baisudi",
+    "element": "recovery",
+    "id": "amrita-shower",
+    "name": "Amrita Shower",
+    "rank": 6,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Fire, Ice, Wind, Elec, Light, Dark evasion x1.15",
+    "element": "passive",
+    "id": "angelic-grace",
+    "name": "Angelic Grace",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Begins battle with Resist Elec for 3 turns",
+    "element": "passive",
+    "id": "anti-electric-master",
+    "name": "Anti-Electric Master",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Begins battle with Resist Fire for 3 turns",
+    "element": "passive",
+    "id": "anti-fire-master",
+    "name": "Anti-Fire Master",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Begins battle with Resist Ice for 3 turns",
+    "element": "passive",
+    "id": "anti-ice-master",
+    "name": "Anti-Ice Master",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Begins battle with Resist Wind for 3 turns",
+    "element": "passive",
+    "id": "anti-wind-master",
+    "name": "Anti-Wind Master",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Shock",
+    "element": "recovery",
+    "id": "antistatic-paper",
+    "name": "Antistatic Paper",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√99 pwr",
+    "element": "almighty",
+    "id": "apocalypse",
+    "name": "Apocalypse",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Crit rate x2",
+    "element": "passive",
+    "id": "apt-pupil",
+    "name": "Apt Pupil",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift",
+    "name": "Arcana Shift",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-b",
+    "name": "Arcana Shift B",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-c",
+    "name": "Arcana Shift C",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-d",
+    "name": "Arcana Shift D",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-e",
+    "name": "Arcana Shift E",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-f",
+    "name": "Arcana Shift F",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-g",
+    "name": "Arcana Shift G",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-h",
+    "name": "Arcana Shift H",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-i",
+    "name": "Arcana Shift I",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-j",
+    "name": "Arcana Shift J",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-k",
+    "name": "Arcana Shift K",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-l",
+    "name": "Arcana Shift L",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "arcana-shift-m",
+    "name": "Arcana Shift M",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "9999 dmg dealt, reduces user's HP and SP to 1",
+    "element": "almighty",
+    "id": "armageddon",
+    "name": "Armageddon",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√2500 pwr",
+    "element": "pierce",
+    "id": "armor-piercing-shell",
+    "name": "Armor-Piercing Shell",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "HP costs x0.5",
+    "element": "passive",
+    "id": "arms-master",
+    "name": "Arms Master",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√27 pwr, 1-4 hits, 85% acc",
+    "element": "pierce",
+    "id": "arrow-rain",
+    "name": "Arrow Rain",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 11
+    },
+    "description": "√120 pwr, 88% acc, 13% crit",
+    "element": "strike",
+    "id": "assault-dive",
+    "name": "Assault Dive",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√80 pwr",
+    "element": "strike",
+    "id": "assault-dive-b",
+    "name": "Assault Dive B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√15 pwr",
+    "element": "slash",
+    "id": "attack",
+    "name": "Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Begins battle with Tarukaja + Rakukaja",
+    "element": "passive",
+    "id": "auto-bolster",
+    "name": "Auto Bolster",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Begins battle with Tarukaja + Rakukaja + Sukukaja",
+    "element": "passive",
+    "id": "auto-heat-riser",
+    "name": "Auto Heat Riser",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Begins battle with Marakukaja",
+    "element": "passive",
+    "id": "auto-maraku",
+    "name": "Auto Maraku",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Begins battle with Masukukaja",
+    "element": "passive",
+    "id": "auto-masuku",
+    "name": "Auto Masuku",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Begins battle with Masukunda",
+    "element": "passive",
+    "id": "auto-masukunda",
+    "name": "Auto Masukunda",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Begins battle with Matarukaja",
+    "element": "passive",
+    "id": "auto-mataru",
+    "name": "Auto Mataru",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Begins battle with Rakukaja",
+    "element": "passive",
+    "id": "auto-rakukaja",
+    "name": "Auto Rakukaja",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Begins battle with Rebellion",
+    "element": "passive",
+    "id": "auto-rebellion",
+    "name": "Auto Rebellion",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Begins battle with Sukukaja",
+    "element": "passive",
+    "id": "auto-sukukaja",
+    "name": "Auto Sukukaja",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Begins battle with Sukunda",
+    "element": "passive",
+    "id": "auto-sukunda",
+    "name": "Auto Sukunda",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Begins battle with Tarukaja",
+    "element": "passive",
+    "id": "auto-tarukaja",
+    "name": "Auto Tarukaja",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 1"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Removes Freeze, Shock, Poison, Down, Dizzy",
+    "element": "recovery",
+    "id": "baisudi",
+    "name": "Baisudi",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 1"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 7
+    },
+    "description": "√50 pwr, 8% crit",
+    "element": "strike",
+    "id": "bash",
+    "name": "Bash",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "bead",
+    "name": "Bead",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "bead-chain",
+    "name": "Bead Chain",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "Charge + Concentrate",
+    "element": "support",
+    "id": "best-friends",
+    "name": "Best Friends",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Distress",
+    "element": "ailment",
+    "id": "bewilder",
+    "name": "Bewilder",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr, HP restore",
+    "element": "recovery",
+    "id": "big-golden-tomato",
+    "name": "Big Golden Tomato",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 70
+    },
+    "description": "√1000 pwr",
+    "element": "almighty",
+    "id": "black-viper",
+    "name": "Black Viper",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√350 pwr, Debilitate",
+    "element": "almighty",
+    "id": "blade-of-execution",
+    "name": "Blade of Execution",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "√42 pwr, 2-4 hits, 80% acc, 10% crit",
+    "element": "slash",
+    "id": "blade-of-fury",
+    "name": "Blade of Fury",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√450 pwr, Diarahan to self, ignores resistances",
+    "element": "fire",
+    "id": "blaze-of-life",
+    "name": "Blaze of Life",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 44
+    },
+    "description": "√500 pwr",
+    "element": "fire",
+    "id": "blazing-hell",
+    "name": "Blazing Hell",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√280 pwr, 30% crit, ignores resistances",
+    "element": "strike",
+    "id": "bleeding-fury",
+    "name": "Bleeding Fury",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√180 pwr, 80% Freeze, ignores resistances",
+    "element": "ice",
+    "id": "blizzard-edge",
+    "name": "Blizzard Edge",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 40
+    },
+    "description": "Next phys attack x2.3 dmg and crit up",
+    "element": "support",
+    "id": "bloody-charge",
+    "name": "Bloody Charge",
+    "rank": 6,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√650 pwr, 20% crit",
+    "element": "slash",
+    "id": "brave-blade",
+    "name": "Brave Blade",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√20 pwr, HP restore",
+    "element": "recovery",
+    "id": "bread",
+    "name": "Bread",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "-kaja effects on self x1.3",
+    "element": "passive",
+    "id": "buff-amp",
+    "name": "Buff Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "-kaja effects on self x1.1",
+    "element": "passive",
+    "id": "buff-boost",
+    "name": "Buff Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 2"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr, 15% Freeze",
+    "element": "ice",
+    "id": "bufu",
+    "name": "Bufu",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "√220 pwr, 15% Freeze",
+    "element": "ice",
+    "id": "bufudyne",
+    "name": "Bufudyne",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr, 15% Freeze",
+    "element": "ice",
+    "id": "bufula",
+    "name": "Bufula",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, 8% Freeze",
+    "element": "ice",
+    "id": "bufula-gem",
+    "name": "Bufula Gem",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "50% HP restore + Sukukaja",
+    "element": "recovery",
+    "id": "cadenza",
+    "name": "Cadenza",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Dmg dealt by next phys attack x2.3",
+    "element": "support",
+    "id": "charge",
+    "name": "Charge",
+    "rank": 6,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√250 pwr, 15% crit, ignores resistances",
+    "element": "strike",
+    "id": "charging-blitz",
+    "name": "Charging Blitz",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "",
+    "element": "passive",
+    "id": "charging-complete",
+    "name": "Charging Complete",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Charm affliction rate x1.5",
+    "element": "passive",
+    "id": "charm-boost",
+    "name": "Charm Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Charm",
+    "element": "passive",
+    "id": "charm-high",
+    "name": "Charm (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Charm",
+    "element": "passive",
+    "id": "charm-low",
+    "name": "Charm (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Charm",
+    "element": "passive",
+    "id": "charm-med",
+    "name": "Charm (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "SP restore",
+    "element": "recovery",
+    "id": "chewing-soul",
+    "name": "Chewing Soul",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Dmg dealt by next magic attack x2.3",
+    "element": "support",
+    "id": "concentrate",
+    "name": "Concentrate",
+    "rank": 6,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Confuse affliction rate x1.5",
+    "element": "passive",
+    "id": "confuse-boost",
+    "name": "Confuse Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Confuse",
+    "element": "passive",
+    "id": "confuse-high",
+    "name": "Confuse (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Confuse",
+    "element": "passive",
+    "id": "confuse-low",
+    "name": "Confuse (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Confuse",
+    "element": "passive",
+    "id": "confuse-med",
+    "name": "Confuse (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "√550 pwr",
+    "element": "almighty",
+    "id": "cosmic-flare",
+    "name": "Cosmic Flare",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": null,
+    "description": "10% chance to repel phys dmg taken",
+    "element": "passive",
+    "id": "counter",
+    "name": "Counter",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "15% chance to repel phys dmg taken",
+    "element": "passive",
+    "id": "counterstrike",
+    "name": "Counterstrike",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Crit rate +15%, overwrites Crit Rate Boost",
+    "element": "passive",
+    "id": "crit-rate-amp",
+    "name": "Crit Rate Amp",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Crit rate +5%",
+    "element": "passive",
+    "id": "crit-rate-boost",
+    "name": "Crit Rate Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Crit rate +10%, crit dmg dealt x1.4",
+    "element": "passive",
+    "id": "critical-amp",
+    "name": "Critical Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Crit rate +5%, crit dmg dealt x1.2",
+    "element": "passive",
+    "id": "critical-boost",
+    "name": "Critical Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√150 pwr, 2 hits, 13% crit",
+    "element": "slash",
+    "id": "cross-slash",
+    "name": "Cross Slash",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "√200 pwr, dmg dealt x1.5 on Downed foes",
+    "element": "pierce",
+    "id": "cruel-attack",
+    "name": "Cruel Attack",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "40% Instakill",
+    "element": "dark",
+    "id": "curse-paper",
+    "name": "Curse Paper",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√75 pwr, HP restore",
+    "element": "recovery",
+    "id": "cutlet-sandwich",
+    "name": "Cutlet Sandwich",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√220 pwr, ignores resistances",
+    "element": "wind",
+    "id": "cyclone-arrow",
+    "name": "Cyclone Arrow",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Dark dmg dealt x1.5",
+    "element": "passive",
+    "id": "dark-amp",
+    "name": "Dark Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "dark",
+    "id": "dark-attack",
+    "name": "Dark Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Dark dmg dealt x1.25",
+    "element": "passive",
+    "id": "dark-boost",
+    "name": "Dark Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dark dmg dealt x1.75",
+    "element": "passive",
+    "id": "dark-driver",
+    "name": "Dark Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√9999 pwr",
+    "element": "almighty",
+    "id": "death",
+    "name": "Death",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 19
+    },
+    "description": "√350 pwr, 85% acc, 17% crit",
+    "element": "slash",
+    "id": "deathbound",
+    "name": "Deathbound",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 36
+    },
+    "description": "Tarunda + Rakunda + Sukunda",
+    "element": "support",
+    "id": "debilitate",
+    "name": "Debilitate",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Freeze",
+    "element": "recovery",
+    "id": "defrost-powder",
+    "name": "Defrost Powder",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes -kaja effects",
+    "element": "support",
+    "id": "dekaja",
+    "name": "Dekaja",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes -kunda effects",
+    "element": "support",
+    "id": "dekunda",
+    "name": "Dekunda",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "Reduces current HP by 50%",
+    "element": "dark",
+    "id": "demonic-decree",
+    "name": "Demonic Decree",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 1"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "√50 pwr, HP restore",
+    "element": "recovery",
+    "id": "dia",
+    "name": "Dia",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 46
+    },
+    "description": "√600 pwr, 60% Freeze",
+    "element": "ice",
+    "id": "diamond-dust",
+    "name": "Diamond Dust",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "100% HP restore",
+    "element": "recovery",
+    "id": "diarahan",
+    "name": "Diarahan",
+    "rank": 6,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√150 pwr, HP restore",
+    "element": "recovery",
+    "id": "diarama",
+    "name": "Diarama",
+    "rank": 4,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√1500 pwr",
+    "element": "recovery",
+    "id": "diarama-b",
+    "name": "Diarama B",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "70% Instakill",
+    "element": "dark",
+    "id": "die-for-me",
+    "name": "Die For Me!",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Charm",
+    "element": "recovery",
+    "id": "dis-charm",
+    "name": "Dis-Charm",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Confuse",
+    "element": "recovery",
+    "id": "dis-confuse",
+    "name": "Dis-Confuse",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Distress",
+    "element": "recovery",
+    "id": "dis-distress",
+    "name": "Dis-Distress",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Fear",
+    "element": "recovery",
+    "id": "dis-fear",
+    "name": "Dis-Fear",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Poison",
+    "element": "recovery",
+    "id": "dis-poison",
+    "name": "Dis-Poison",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Rage",
+    "element": "recovery",
+    "id": "dis-rage",
+    "name": "Dis-Rage",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Distress affliction rate x1.5",
+    "element": "passive",
+    "id": "distress-boost",
+    "name": "Distress Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Distress",
+    "element": "passive",
+    "id": "distress-high",
+    "name": "Distress (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Distress",
+    "element": "passive",
+    "id": "distress-low",
+    "name": "Distress (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Distress",
+    "element": "passive",
+    "id": "distress-med",
+    "name": "Distress (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "HP restore skill pwr x1.5",
+    "element": "passive",
+    "id": "divine-grace",
+    "name": "Divine Grace",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "Samarecarm + Diarahan + Tetrakarn + Makarakarn",
+    "element": "recovery",
+    "id": "divine-intervention",
+    "name": "Divine Intervention",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "Reduces current HP by 50%",
+    "element": "light",
+    "id": "divine-judgment",
+    "name": "Divine Judgment",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√230 pwr, ignores resistances",
+    "element": "light",
+    "id": "divine-retribution",
+    "name": "Divine Retribution",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dizzy affliction rate x1.25",
+    "element": "passive",
+    "id": "dizzy-boost",
+    "name": "Dizzy Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Dark evasion x1.15",
+    "element": "passive",
+    "id": "dodge-dark",
+    "name": "Dodge Dark",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Elec evasion x1.15",
+    "element": "passive",
+    "id": "dodge-elec",
+    "name": "Dodge Elec",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Fire evasion x1.15",
+    "element": "passive",
+    "id": "dodge-fire",
+    "name": "Dodge Fire",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Ice evasion x1.15",
+    "element": "passive",
+    "id": "dodge-ice",
+    "name": "Dodge Ice",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Light evasion x1.15",
+    "element": "passive",
+    "id": "dodge-light",
+    "name": "Dodge Light",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Pierce evasion x1.15",
+    "element": "passive",
+    "id": "dodge-pierce",
+    "name": "Dodge Pierce",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Slash evasion x1.15",
+    "element": "passive",
+    "id": "dodge-slash",
+    "name": "Dodge Slash",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Strike evasion x1.15",
+    "element": "passive",
+    "id": "dodge-strike",
+    "name": "Dodge Strike",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Wind evasion x1.15",
+    "element": "passive",
+    "id": "dodge-wind",
+    "name": "Dodge Wind",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "70% Fear",
+    "element": "ailment",
+    "id": "doomsday-doctrine",
+    "name": "Doomsday Doctrine",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "45% Fear",
+    "element": "ailment",
+    "id": "doomsday-doctrine-b",
+    "name": "Doomsday Doctrine B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": null,
+    "description": "Life Drain + Spirit Drain dmg dealt x2",
+    "element": "passive",
+    "id": "drain-ability",
+    "name": "Drain Ability",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Dark dmg taken",
+    "element": "passive",
+    "id": "drain-dark",
+    "name": "Drain Dark",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "Drains Elec dmg taken",
+    "element": "passive",
+    "id": "drain-elec",
+    "name": "Drain Elec",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "Drains Fire dmg taken",
+    "element": "passive",
+    "id": "drain-fire",
+    "name": "Drain Fire",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "Drains Ice dmg taken",
+    "element": "passive",
+    "id": "drain-ice",
+    "name": "Drain Ice",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Light dmg taken",
+    "element": "passive",
+    "id": "drain-light",
+    "name": "Drain Light",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Pierce dmg taken",
+    "element": "passive",
+    "id": "drain-pierce",
+    "name": "Drain Pierce",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Slash dmg taken",
+    "element": "passive",
+    "id": "drain-slash",
+    "name": "Drain Slash",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Drains Strike dmg taken",
+    "element": "passive",
+    "id": "drain-strike",
+    "name": "Drain Strike",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "Drains Wind dmg taken",
+    "element": "passive",
+    "id": "drain-wind",
+    "name": "Drain Wind",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√200 pwr, 80% Charm, ignores resistances",
+    "element": "dark",
+    "id": "dreamfest",
+    "name": "Dreamfest",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "drop-item",
+    "name": "Drop Item",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "drop-money",
+    "name": "Drop Money",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "50% Distress",
+    "element": "ailment",
+    "id": "eerie-sound",
+    "name": "Eerie Sound",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√140 pwr",
+    "element": "dark",
+    "id": "eiga",
+    "name": "Eiga",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "dark",
+    "id": "eiga-gem",
+    "name": "Eiga Gem",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "√350 pwr",
+    "element": "dark",
+    "id": "eigaon",
+    "name": "Eigaon",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 2"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√60 pwr",
+    "element": "dark",
+    "id": "eiha",
+    "name": "Eiha",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Elec dmg dealt x1.5",
+    "element": "passive",
+    "id": "elec-amp",
+    "name": "Elec Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Elec dmg dealt x1.25",
+    "element": "passive",
+    "id": "elec-boost",
+    "name": "Elec Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Removes Elec resistance for 3 turns",
+    "element": "support",
+    "id": "elec-break",
+    "name": "Elec Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Elec dmg dealt x1.75",
+    "element": "passive",
+    "id": "elec-driver",
+    "name": "Elec Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "elec",
+    "id": "electric-attack",
+    "name": "Electric Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√200 pwr, 80% Shock, ignores resistances",
+    "element": "elec",
+    "id": "electric-onslaught",
+    "name": "Electric Onslaught",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": null,
+    "description": "Survive with 1 HP after a mortal blow once per battle",
+    "element": "passive",
+    "id": "endure",
+    "name": "Endure",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "100% chance to endure Dark instakill",
+    "element": "passive",
+    "id": "endure-dark",
+    "name": "Endure Dark",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "100% chance to endure Light instakill",
+    "element": "passive",
+    "id": "endure-light",
+    "name": "Endure Light",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "Survive with 100% HP after a mortal blow once per battle",
+    "element": "passive",
+    "id": "enduring-soul",
+    "name": "Enduring Soul",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Return to the entrance of Tartarus.",
+    "element": "special",
+    "id": "escape-route",
+    "name": "Escape Route",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Dark evasion x1.4",
+    "element": "passive",
+    "id": "evade-dark",
+    "name": "Evade Dark",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Elec evasion x1.4",
+    "element": "passive",
+    "id": "evade-elec",
+    "name": "Evade Elec",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Fire evasion x1.4",
+    "element": "passive",
+    "id": "evade-fire",
+    "name": "Evade Fire",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Ice evasion x1.4",
+    "element": "passive",
+    "id": "evade-ice",
+    "name": "Evade Ice",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Light evasion x1.4",
+    "element": "passive",
+    "id": "evade-light",
+    "name": "Evade Light",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Pierce evasion x1.4",
+    "element": "passive",
+    "id": "evade-pierce",
+    "name": "Evade Pierce",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Slash evasion x1.4",
+    "element": "passive",
+    "id": "evade-slash",
+    "name": "Evade Slash",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Strike evasion x1.4",
+    "element": "passive",
+    "id": "evade-strike",
+    "name": "Evade Strike",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Wind evasion x1.4",
+    "element": "passive",
+    "id": "evade-wind",
+    "name": "Evade Wind",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "45% Fear",
+    "element": "ailment",
+    "id": "evil-smile",
+    "name": "Evil Smile",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Fear",
+    "element": "ailment",
+    "id": "evil-smile-b",
+    "name": "Evil Smile B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "60% Fear",
+    "element": "ailment",
+    "id": "evil-touch",
+    "name": "Evil Touch",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√200 pwr, 90% Confuse",
+    "element": "almighty",
+    "id": "ex-flash-grenade",
+    "name": "EX Flash Grenade",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Ailment recovery time x0.5",
+    "element": "passive",
+    "id": "fast-heal",
+    "name": "Fast Heal",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√110 pwr, 35% Fear",
+    "element": "slash",
+    "id": "fatal-end",
+    "name": "Fatal End",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Fear affliction rate x1.5",
+    "element": "passive",
+    "id": "fear-boost",
+    "name": "Fear Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Fear",
+    "element": "passive",
+    "id": "fear-high",
+    "name": "Fear (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Fear",
+    "element": "passive",
+    "id": "fear-low",
+    "name": "Fear (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Fear",
+    "element": "passive",
+    "id": "fear-med",
+    "name": "Fear (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Fire dmg dealt x1.5",
+    "element": "passive",
+    "id": "fire-amp",
+    "name": "Fire Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "fire",
+    "id": "fire-attack",
+    "name": "Fire Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Fire dmg dealt x1.25",
+    "element": "passive",
+    "id": "fire-boost",
+    "name": "Fire Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Removes Fire resistance for 3 turns",
+    "element": "support",
+    "id": "fire-break",
+    "name": "Fire Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Fire dmg dealt x1.75",
+    "element": "passive",
+    "id": "fire-driver",
+    "name": "Fire Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg taken x0.5 but cannot dodge",
+    "element": "passive",
+    "id": "firm-stance",
+    "name": "Firm Stance",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "first-aid-kit-m",
+    "name": "First Aid Kit M",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√350 pwr",
+    "element": "fire",
+    "id": "flame-grenade",
+    "name": "Flame Grenade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "fire",
+    "id": "flame-magatama",
+    "name": "Flame Magatama",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√100 pwr, 70% Confuse",
+    "element": "almighty",
+    "id": "flash-grenade",
+    "name": "Flash Grenade",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Raises ailment susceptibility for 3 turns",
+    "element": "almighty",
+    "id": "foul-breath",
+    "name": "Foul Breath",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√300 pwr",
+    "element": "fire",
+    "id": "frag-grenade",
+    "name": "Frag Grenade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Freeze affliction rate x1.5",
+    "element": "passive",
+    "id": "freeze-boost",
+    "name": "Freeze Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Freeze",
+    "element": "passive",
+    "id": "freeze-high",
+    "name": "Freeze (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Freeze",
+    "element": "passive",
+    "id": "freeze-low",
+    "name": "Freeze (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Freeze",
+    "element": "passive",
+    "id": "freeze-med",
+    "name": "Freeze (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr, 8% Freeze",
+    "element": "ice",
+    "id": "frigid-magatama",
+    "name": "Frigid Magatama",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 35
+    },
+    "description": "Fully reveal the affinities of 1 foe.",
+    "element": "special",
+    "id": "full-analysis",
+    "name": "Full Analysis",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "wind",
+    "id": "gale-magatama",
+    "name": "Gale Magatama",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 2"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "√40 pwr",
+    "element": "wind",
+    "id": "garu",
+    "name": "Garu",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "√220 pwr",
+    "element": "wind",
+    "id": "garudyne",
+    "name": "Garudyne",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "garula",
+    "name": "Garula",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "garula-gem",
+    "name": "Garula Gem",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "√180 pwr, 15% crit, dmg dealt x1.75 during Full Moon",
+    "element": "slash",
+    "id": "getsu-ei",
+    "name": "Getsu-ei",
+    "rank": 5,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 28
+    },
+    "description": "100% instakill when Fear",
+    "element": "almighty",
+    "id": "ghastly-wail",
+    "name": "Ghastly Wail",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "√600 pwr, 70% Shock",
+    "element": "elec",
+    "id": "giga-spark",
+    "name": "Giga Spark",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√380 pwr, 85% acc, 15% crit",
+    "element": "strike",
+    "id": "gigantic-fist",
+    "name": "Gigantic Fist",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 25
+    },
+    "description": "√800 pwr, 88% acc, 13% crit",
+    "element": "strike",
+    "id": "gods-hand",
+    "name": "God's Hand",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "golden-tomato",
+    "name": "Golden Tomato",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "golden-tomato-ex",
+    "name": "Golden Tomato EX",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 100
+    },
+    "description": "√1 pwr",
+    "element": "almighty",
+    "id": "great-seal",
+    "name": "Great Seal",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "grim-transcendence",
+    "name": "Grim Transcendence",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": null,
+    "description": "25% exp gained when not active",
+    "element": "passive",
+    "id": "growth-1",
+    "name": "Growth 1",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "50% exp gained when not active",
+    "element": "passive",
+    "id": "growth-2",
+    "name": "Growth 2",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": null,
+    "description": "100% exp gained when not active",
+    "element": "passive",
+    "id": "growth-3",
+    "name": "Growth 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√250 pwr, 20% crit, ignores resistances",
+    "element": "slash",
+    "id": "hack-n-blast",
+    "name": "Hack n' Blast",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "30% Instakill",
+    "element": "light",
+    "id": "hama",
+    "name": "Hama",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Light instakill affliction rate x1.5",
+    "element": "passive",
+    "id": "hama-boost",
+    "name": "Hama Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "50% Instakill",
+    "element": "light",
+    "id": "hamaon",
+    "name": "Hamaon",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "95% Instakill",
+    "element": "light",
+    "id": "hamaon-b",
+    "name": "Hamaon B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Recovery skill costs x0.25",
+    "element": "passive",
+    "id": "healing-apex",
+    "name": "Healing Apex",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Recovery skill costs x0.5",
+    "element": "passive",
+    "id": "healing-master",
+    "name": "Healing Master",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "√60 pwr, 100% Charm",
+    "element": "almighty",
+    "id": "heartbreaker",
+    "name": "Heartbreaker",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√350 pwr, 100% Charm",
+    "element": "almighty",
+    "id": "heartbreaker-b",
+    "name": "Heartbreaker B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 36
+    },
+    "description": "Tarukaja + Rakukaja + Sukukaja",
+    "element": "support",
+    "id": "heat-riser",
+    "name": "Heat Riser",
+    "rank": 8,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 20
+    },
+    "description": "√400 pwr, 10% crit",
+    "element": "strike",
+    "id": "heat-wave",
+    "name": "Heat Wave",
+    "rank": 6,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Skill Mutation"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 18
+    },
+    "description": "√500 pwr, 30% crit",
+    "element": "slash",
+    "id": "heavens-blade",
+    "name": "Heaven's Blade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "√230 pwr, 85% acc, 10% crit",
+    "element": "strike",
+    "id": "herculean-strike",
+    "name": "Herculean Strike",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": null,
+    "description": "20% chance to repel phys dmg taken",
+    "element": "passive",
+    "id": "high-counter",
+    "name": "High Counter",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√220 pwr, 50% crit",
+    "element": "pierce",
+    "id": "high-explosive-shell",
+    "name": "High-Explosive Shell",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "√250 pwr, 100% Shock",
+    "element": "elec",
+    "id": "high-volt-current",
+    "name": "High-Volt Current",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√320 pwr, 100% Shock",
+    "element": "elec",
+    "id": "high-volt-current-b",
+    "name": "High-Volt Current B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 1"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 8
+    },
+    "description": "√65 pwr, 35% Charm",
+    "element": "pierce",
+    "id": "holy-arrow",
+    "name": "Holy Arrow",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√150 pwr, 100% crit, 100% Charm",
+    "element": "pierce",
+    "id": "holy-arrow-b",
+    "name": "Holy Arrow B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "light",
+    "id": "holy-magatama",
+    "name": "Holy Magatama",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "homunculus",
+    "name": "Homunculus",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√220 pwr, ignores resistances",
+    "element": "dark",
+    "id": "hound-of-hades",
+    "name": "Hound of Hades",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√10 pwr",
+    "element": "recovery",
+    "id": "hp-drink",
+    "name": "HP Drink",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√450 pwr, 35% Freeze",
+    "element": "ice",
+    "id": "ice-age",
+    "name": "Ice Age",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Ice dmg dealt x1.5",
+    "element": "passive",
+    "id": "ice-amp",
+    "name": "Ice Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "ice",
+    "id": "ice-attack",
+    "name": "Ice Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Ice dmg dealt x1.25",
+    "element": "passive",
+    "id": "ice-boost",
+    "name": "Ice Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Removes Ice resistance for 3 turns",
+    "element": "support",
+    "id": "ice-break",
+    "name": "Ice Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Ice dmg dealt x1.75",
+    "element": "passive",
+    "id": "ice-driver",
+    "name": "Ice Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "√80 pwr, 1% Freeze",
+    "element": "ice",
+    "id": "ice-storm",
+    "name": "Ice Storm",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√600 pwr, 45% Freeze",
+    "element": "ice",
+    "id": "ice-storm-b",
+    "name": "Ice Storm B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "√600 pwr",
+    "element": "fire",
+    "id": "inferno",
+    "name": "Inferno",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "50% Rage",
+    "element": "ailment",
+    "id": "infuriate",
+    "name": "Infuriate",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Rage",
+    "element": "ailment",
+    "id": "infuriate-b",
+    "name": "Infuriate B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "initiate-charging",
+    "name": "Initiate Charging",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Ailment recovery time reduced to 1 turn",
+    "element": "passive",
+    "id": "insta-heal",
+    "name": "Insta-Heal",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "3 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-1",
+    "name": "Invigorate 1",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "5 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-2",
+    "name": "Invigorate 2",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": null,
+    "description": "7 SP restore each turn",
+    "element": "passive",
+    "id": "invigorate-3",
+    "name": "Invigorate 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "invitation-to-chaos",
+    "name": "Invitation to Chaos",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√80 pwr, 80% Down",
+    "element": "almighty",
+    "id": "jack-brothers",
+    "name": "Jack Brothers",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "Prevents detection by enemies until entering battle or changing floors.",
+    "element": "special",
+    "id": "jamming",
+    "name": "Jamming",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√80 pwr, 50% crit, ignores resistances",
+    "element": "pierce",
+    "id": "justice",
+    "name": "Justice",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√180 pwr, 50% Freeze, ignores resistances",
+    "element": "ice",
+    "id": "king-and-i",
+    "name": "King and I",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√140 pwr",
+    "element": "light",
+    "id": "kouga",
+    "name": "Kouga",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "light",
+    "id": "kouga-gem",
+    "name": "Kouga Gem",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 15
+    },
+    "description": "√350 pwr",
+    "element": "light",
+    "id": "kougaon",
+    "name": "Kougaon",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 2"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√60 pwr",
+    "element": "light",
+    "id": "kouha",
+    "name": "Kouha",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "SP restore",
+    "element": "recovery",
+    "id": "leafy-soul-spinach",
+    "name": "Leafy Soul Spinach",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "8% max HP + SP restore after battle",
+    "element": "passive",
+    "id": "life-aid",
+    "name": "Life Aid",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "35 dmg dealt, HP restore",
+    "element": "almighty",
+    "id": "life-drain",
+    "name": "Life Drain",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√100 pwr",
+    "element": "almighty",
+    "id": "life-drain-b",
+    "name": "Life Drain B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√1000 pwr",
+    "element": "almighty",
+    "id": "life-drain-c",
+    "name": "Life Drain C",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√200 pwr",
+    "element": "almighty",
+    "id": "life-drain-d",
+    "name": "Life Drain D",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√30 pwr",
+    "element": "recovery",
+    "id": "life-stone",
+    "name": "Life Stone",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Light dmg dealt x1.5",
+    "element": "passive",
+    "id": "light-amp",
+    "name": "Light Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "light",
+    "id": "light-attack",
+    "name": "Light Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Light dmg dealt x1.25",
+    "element": "passive",
+    "id": "light-boost",
+    "name": "Light Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Light dmg dealt x1.75",
+    "element": "passive",
+    "id": "light-driver",
+    "name": "Light Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√250 pwr, 50% Shock",
+    "element": "elec",
+    "id": "lightning-grenade",
+    "name": "Lightning Grenade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√100 pwr, 20% Shock, ignores resistances",
+    "element": "elec",
+    "id": "lightning-spike",
+    "name": "Lightning Spike",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes Freeze, Shock, Poison, Down, Dizzy",
+    "element": "recovery",
+    "id": "mabaisudi",
+    "name": "Mabaisudi",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr, 10% Freeze",
+    "element": "ice",
+    "id": "mabufu",
+    "name": "Mabufu",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr, 8% Freeze",
+    "element": "ice",
+    "id": "mabufu-gem",
+    "name": "Mabufu Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√220 pwr, 10% Freeze",
+    "element": "ice",
+    "id": "mabufudyne",
+    "name": "Mabufudyne",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr, 10% Freeze",
+    "element": "ice",
+    "id": "mabufula",
+    "name": "Mabufula",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√140 pwr",
+    "element": "dark",
+    "id": "maeiga",
+    "name": "Maeiga",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "√350 pwr",
+    "element": "dark",
+    "id": "maeigaon",
+    "name": "Maeigaon",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√60 pwr",
+    "element": "dark",
+    "id": "maeiha",
+    "name": "Maeiha",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "dark",
+    "id": "maeiha-gem",
+    "name": "Maeiha Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√40 pwr",
+    "element": "wind",
+    "id": "magaru",
+    "name": "Magaru",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "wind",
+    "id": "magaru-gem",
+    "name": "Magaru Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√220 pwr",
+    "element": "wind",
+    "id": "magarudyne",
+    "name": "Magarudyne",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "√100 pwr",
+    "element": "wind",
+    "id": "magarula",
+    "name": "Magarula",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 38
+    },
+    "description": "√300 pwr, 50% Fear, Confuse",
+    "element": "dark",
+    "id": "magatsu-mandala",
+    "name": "Magatsu Mandala",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Magic dmg dealt x1.25",
+    "element": "passive",
+    "id": "magic-ability",
+    "name": "Magic Ability",
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Skill Mutation"
+    ],
+    "cost": null,
+    "description": "Magic dmg dealt x1.5",
+    "element": "passive",
+    "id": "magic-mastery",
+    "name": "Magic Mastery",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "30% Instakill",
+    "element": "light",
+    "id": "mahama",
+    "name": "Mahama",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "10% Instakill",
+    "element": "light",
+    "id": "mahama-b",
+    "name": "Mahama B",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 26
+    },
+    "description": "50% Instakill",
+    "element": "light",
+    "id": "mahamaon",
+    "name": "Mahamaon",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "45% Instakill",
+    "element": "light",
+    "id": "mahamaon-b",
+    "name": "Mahamaon B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Repels next non-Almighty magic attack",
+    "element": "support",
+    "id": "makarakarn",
+    "name": "Makarakarn",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√140 pwr",
+    "element": "light",
+    "id": "makouga",
+    "name": "Makouga",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "√350 pwr",
+    "element": "light",
+    "id": "makougaon",
+    "name": "Makougaon",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√60 pwr",
+    "element": "light",
+    "id": "makouha",
+    "name": "Makouha",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "light",
+    "id": "makouha-gem",
+    "name": "Makouha Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr",
+    "element": "dark",
+    "id": "malice-magatama",
+    "name": "Malice Magatama",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "30% Instakill",
+    "element": "dark",
+    "id": "mamudo",
+    "name": "Mamudo",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 26
+    },
+    "description": "50% Instakill",
+    "element": "dark",
+    "id": "mamudoon",
+    "name": "Mamudoon",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "45% Instakill",
+    "element": "dark",
+    "id": "mamudoon-b",
+    "name": "Mamudoon B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√40 pwr",
+    "element": "fire",
+    "id": "maragi",
+    "name": "Maragi",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "fire",
+    "id": "maragi-gem",
+    "name": "Maragi Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√220 pwr",
+    "element": "fire",
+    "id": "maragidyne",
+    "name": "Maragidyne",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "√100 pwr",
+    "element": "fire",
+    "id": "maragion",
+    "name": "Maragion",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Defense x1.4 for 3 turns",
+    "element": "support",
+    "id": "marakukaja",
+    "name": "Marakukaja",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Defense x0.6 for 3 turns",
+    "element": "support",
+    "id": "marakunda",
+    "name": "Marakunda",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√220 pwr, 35% Charm",
+    "element": "fire",
+    "id": "maralagidyne",
+    "name": "Maralagidyne",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "60% Charm",
+    "element": "ailment",
+    "id": "marin-karin",
+    "name": "Marin Karin",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 24
+    },
+    "description": "√200 pwr, 2 hits, 30% crit",
+    "element": "slash",
+    "id": "masquerade",
+    "name": "Masquerade",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Hit and evasion x1.3 for 3 turns",
+    "element": "support",
+    "id": "masukukaja",
+    "name": "Masukukaja",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Hit and evasion x0.7 for 3 turns",
+    "element": "support",
+    "id": "masukunda",
+    "name": "Masukunda",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Attack x1.4 for 3 turns",
+    "element": "support",
+    "id": "matarukaja",
+    "name": "Matarukaja",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Attack x0.6 for 3 turns",
+    "element": "support",
+    "id": "matarunda",
+    "name": "Matarunda",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√250 pwr, 15% crit, ignores resistances",
+    "element": "pierce",
+    "id": "maximum-firepower",
+    "name": "Maximum Firepower",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√40 pwr, 10% Shock",
+    "element": "elec",
+    "id": "mazio",
+    "name": "Mazio",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr, 8% Shock",
+    "element": "elec",
+    "id": "mazio-gem",
+    "name": "Mazio Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√220 pwr, 10% Shock",
+    "element": "elec",
+    "id": "maziodyne",
+    "name": "Maziodyne",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√100 pwr, 10% Shock",
+    "element": "elec",
+    "id": "mazionga",
+    "name": "Mazionga",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "Removes Distress, Confuse, Charm, Rage, Fear",
+    "element": "recovery",
+    "id": "me-patra",
+    "name": "Me Patra",
+    "rank": 4,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Me Patra",
+    "element": "recovery",
+    "id": "me-patra-gem",
+    "name": "Me Patra Gem",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 7
+    },
+    "description": "√50 pwr, HP restore",
+    "element": "recovery",
+    "id": "media",
+    "name": "Media",
+    "rank": 3,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 44
+    },
+    "description": "100% HP restore",
+    "element": "recovery",
+    "id": "mediarahan",
+    "name": "Mediarahan",
+    "rank": 7,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 16
+    },
+    "description": "√150 pwr, HP restore",
+    "element": "recovery",
+    "id": "mediarama",
+    "name": "Mediarama",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "medical-powder",
+    "name": "Medical Powder",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr, HP restore",
+    "element": "recovery",
+    "id": "medicine",
+    "name": "Medicine",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√20 pwr",
+    "element": "recovery",
+    "id": "mega-kudzu",
+    "name": "Mega Kudzu",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "√400 pwr, 50% Shock",
+    "element": "elec",
+    "id": "mega-spark",
+    "name": "Mega Spark",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 20
+    },
+    "description": "√170 pwr",
+    "element": "almighty",
+    "id": "megido",
+    "name": "Megido",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "almighty",
+    "id": "megido-gem",
+    "name": "Megido Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 32
+    },
+    "description": "√380 pwr",
+    "element": "almighty",
+    "id": "megidola",
+    "name": "Megidola",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "√100 pwr",
+    "element": "almighty",
+    "id": "megidola-b",
+    "name": "Megidola B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 50
+    },
+    "description": "√690 pwr",
+    "element": "almighty",
+    "id": "megidolaon",
+    "name": "Megidolaon",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√9999 pwr",
+    "element": "almighty",
+    "id": "megidolaon-b",
+    "name": "Megidolaon B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√400 pwr",
+    "element": "almighty",
+    "id": "megidolaon-c",
+    "name": "Megidolaon C",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "√310 pwr",
+    "element": "almighty",
+    "id": "megidolaon-d",
+    "name": "Megidolaon D",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√200 pwr",
+    "element": "almighty",
+    "id": "megidolaon-gem",
+    "name": "Megidolaon Gem",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√30 pwr, 6 hits, 10% crit",
+    "element": "strike",
+    "id": "mobius-rondo",
+    "name": "Mobius Rondo",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 64
+    },
+    "description": "√850 pwr",
+    "element": "almighty",
+    "id": "morning-star",
+    "name": "Morning Star",
+    "rank": 9,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 6
+    },
+    "description": "30% Instakill",
+    "element": "dark",
+    "id": "mudo",
+    "name": "Mudo",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "Dark instakill affliction rate x1.5",
+    "element": "passive",
+    "id": "mudo-boost",
+    "name": "Mudo Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "50% Instakill",
+    "element": "dark",
+    "id": "mudoon",
+    "name": "Mudoon",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "95% Instakill",
+    "element": "dark",
+    "id": "mudoon-b",
+    "name": "Mudoon B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Multi-target skill dmg dealt x1.15",
+    "element": "passive",
+    "id": "multi-target-boost",
+    "name": "Multi-Target Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr, 20% Poison",
+    "element": "recovery",
+    "id": "muscle-drink",
+    "name": "Muscle Drink",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 19
+    },
+    "description": "√40 pwr, 2-5 hits, 88% acc",
+    "element": "pierce",
+    "id": "myriad-arrows",
+    "name": "Myriad Arrows",
+    "rank": 7,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 5
+    },
+    "description": "√20 pwr, 3-4 hits",
+    "element": "pierce",
+    "id": "myriad-arrows-b",
+    "name": "Myriad Arrows B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 16
+    },
+    "description": "√180 pwr, 50% Confuse",
+    "element": "slash",
+    "id": "neuro-slash",
+    "name": "Neuro Slash",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1
+    },
+    "description": "√400 pwr, 10% crit, 70% Confuse",
+    "element": "slash",
+    "id": "neuro-slash-b",
+    "name": "Neuro Slash B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "√180 pwr, 50% Confuse",
+    "element": "slash",
+    "id": "neuro-slash-c",
+    "name": "Neuro Slash C",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√1200 pwr, 100% Distress, Confuse, Fear, Rage",
+    "element": "almighty",
+    "id": "night-queen",
+    "name": "Night Queen",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Charm",
+    "element": "passive",
+    "id": "null-charm",
+    "name": "Null Charm",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Confuse",
+    "element": "passive",
+    "id": "null-confuse",
+    "name": "Null Confuse",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Nullifies Dark dmg taken",
+    "element": "passive",
+    "id": "null-dark",
+    "name": "Null Dark",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Distress",
+    "element": "passive",
+    "id": "null-distress",
+    "name": "Null Distress",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Dizzy",
+    "element": "passive",
+    "id": "null-dizzy",
+    "name": "Null Dizzy",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Elec dmg taken",
+    "element": "passive",
+    "id": "null-elec",
+    "name": "Null Elec",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Fear",
+    "element": "passive",
+    "id": "null-fear",
+    "name": "Null Fear",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Fire dmg taken",
+    "element": "passive",
+    "id": "null-fire",
+    "name": "Null Fire",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Freeze",
+    "element": "passive",
+    "id": "null-freeze",
+    "name": "Null Freeze",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Ice dmg taken",
+    "element": "passive",
+    "id": "null-ice",
+    "name": "Null Ice",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Nullifies Light dmg taken",
+    "element": "passive",
+    "id": "null-light",
+    "name": "Null Light",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Slash, Strike, Piece dmg taken",
+    "element": "passive",
+    "id": "null-phys",
+    "name": "Null Phys",
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Pierce dmg taken",
+    "element": "passive",
+    "id": "null-pierce",
+    "name": "Null Pierce",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Poison",
+    "element": "passive",
+    "id": "null-poison",
+    "name": "Null Poison",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Rage",
+    "element": "passive",
+    "id": "null-rage",
+    "name": "Null Rage",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Shock",
+    "element": "passive",
+    "id": "null-shock",
+    "name": "Null Shock",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Slash dmg taken",
+    "element": "passive",
+    "id": "null-slash",
+    "name": "Null Slash",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Strike dmg taken",
+    "element": "passive",
+    "id": "null-strike",
+    "name": "Null Strike",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Nullifies Wind dmg taken",
+    "element": "passive",
+    "id": "null-wind",
+    "name": "Null Wind",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr, 20% Fear",
+    "element": "recovery",
+    "id": "odd-morsel",
+    "name": "Odd Morsel",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 17
+    },
+    "description": "√250 pwr, 30% crit",
+    "element": "pierce",
+    "id": "one-shot-kill",
+    "name": "One-shot Kill",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "Grants 1 random positive effect to all allies.",
+    "element": "recovery",
+    "id": "oracle",
+    "name": "Oracle",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "recovery",
+    "id": "oracle-b",
+    "name": "Oracle B",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "support",
+    "id": "oracle-c",
+    "name": "Oracle C",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "oracle-d",
+    "name": "Oracle D",
+    "rank": 99,
+    "target": "Rand allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√100 pwr, 10% crit, ignores resistances, ignores orders for a time",
+    "element": "pierce",
+    "id": "orgia-mode",
+    "name": "Orgia Mode",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√100 pwr, 10% crit, ignores resistances, ignores orders for a time",
+    "element": "strike",
+    "id": "orgia-mode-b",
+    "name": "Orgia Mode B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "√600 pwr",
+    "element": "wind",
+    "id": "panta-rhei",
+    "name": "Panta Rhei",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "paradigm-shift",
+    "name": "Paradigm Shift",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√900 pwr, 90% Fear",
+    "element": "almighty",
+    "id": "paradise-of-quietus",
+    "name": "Paradise of Quietus",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "Removes Distress, Confuse, Charm, Rage, Fear",
+    "element": "recovery",
+    "id": "patra",
+    "name": "Patra",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Slash, Strike, Piece dmg dealt x1.2",
+    "element": "passive",
+    "id": "phys-amp",
+    "name": "Phys Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Slash, Strike, Piece dmg dealt x1.1",
+    "element": "passive",
+    "id": "phys-boost",
+    "name": "Phys Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Pierce dmg dealt x1.5",
+    "element": "passive",
+    "id": "pierce-amp",
+    "name": "Pierce Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "pierce",
+    "id": "pierce-attack",
+    "name": "Pierce Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, 15% crit",
+    "element": "pierce",
+    "id": "pierce-attack-b",
+    "name": "Pierce Attack B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "pierce",
+    "id": "pierce-attack-c",
+    "name": "Pierce Attack C",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Pierce dmg dealt x1.25",
+    "element": "passive",
+    "id": "pierce-boost",
+    "name": "Pierce Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Pierce dmg dealt x1.75",
+    "element": "passive",
+    "id": "pierce-driver",
+    "name": "Pierce Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√200 pwr, HP restore",
+    "element": "recovery",
+    "id": "platinum-tomato",
+    "name": "Platinum Tomato",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "plume-of-gold",
+    "name": "Plume of Gold",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Poison",
+    "element": "ailment",
+    "id": "poisma",
+    "name": "Poisma",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 13
+    },
+    "description": "√300 pwr, 50% Poison",
+    "element": "pierce",
+    "id": "poison-arrow",
+    "name": "Poison Arrow",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Poison affliction rate x1.5",
+    "element": "passive",
+    "id": "poison-boost",
+    "name": "Poison Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Poison",
+    "element": "passive",
+    "id": "poison-high",
+    "name": "Poison (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Poison",
+    "element": "passive",
+    "id": "poison-low",
+    "name": "Poison (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Poison",
+    "element": "passive",
+    "id": "poison-med",
+    "name": "Poison (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "50% Poison",
+    "element": "ailment",
+    "id": "poison-mist",
+    "name": "Poison Mist",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "100% Poison",
+    "element": "ailment",
+    "id": "poison-mist-b",
+    "name": "Poison Mist B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√1 pwr, HP restore",
+    "element": "recovery",
+    "id": "potent-medicine",
+    "name": "Potent Medicine",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√100 pwr, 100% Poison",
+    "element": "support",
+    "id": "potent-stim-injection",
+    "name": "Potent Stim Injection",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "Charge",
+    "element": "support",
+    "id": "power-howling",
+    "name": "Power Howling",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 1"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 7
+    },
+    "description": "√50 pwr",
+    "element": "slash",
+    "id": "power-slash",
+    "name": "Power Slash",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 23
+    },
+    "description": "√600 pwr, 20% crit, 50% Fear",
+    "element": "pierce",
+    "id": "pralaya",
+    "name": "Pralaya",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "HP restore",
+    "element": "recovery",
+    "id": "precious-egg",
+    "name": "Precious Egg",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 21
+    },
+    "description": "√580 pwr, 10% crit",
+    "element": "pierce",
+    "id": "primal-force",
+    "name": "Primal Force",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "70% Rage",
+    "element": "ailment",
+    "id": "provoke",
+    "name": "Provoke",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "60% Confuse",
+    "element": "ailment",
+    "id": "pulinpa",
+    "name": "Pulinpa",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "40% Instakill",
+    "element": "light",
+    "id": "purifying-rice",
+    "name": "Purifying Rice",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Rage affliction rate x1.5",
+    "element": "passive",
+    "id": "rage-boost",
+    "name": "Rage Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Rage",
+    "element": "passive",
+    "id": "rage-high",
+    "name": "Rage (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Rage",
+    "element": "passive",
+    "id": "rage-low",
+    "name": "Rage (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Rage",
+    "element": "passive",
+    "id": "rage-med",
+    "name": "Rage (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg dealt x1.5 when Enraged",
+    "element": "passive",
+    "id": "raging-tiger",
+    "name": "Raging Tiger",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Defense x1.4 for 3 turns",
+    "element": "support",
+    "id": "rakukaja",
+    "name": "Rakukaja",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Defense x0.6 for 3 turns",
+    "element": "support",
+    "id": "rakunda",
+    "name": "Rakunda",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr, 20% Confuse",
+    "element": "recovery",
+    "id": "rancid-gravy",
+    "name": "Rancid Gravy",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 7
+    },
+    "description": "Crit rate +7% for 3 turns",
+    "element": "support",
+    "id": "rebellion",
+    "name": "Rebellion",
+    "rank": 2,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 80
+    },
+    "description": "√700 pwr, dmg dealt x1.5 on Downed foes",
+    "element": "almighty",
+    "id": "rebellion-blade",
+    "name": "Rebellion Blade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "50% HP restore after reviving",
+    "element": "recovery",
+    "id": "recarm",
+    "name": "Recarm",
+    "rank": 3,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "100% HP restore, user's HP reduced to 1",
+    "element": "recovery",
+    "id": "recarmdra",
+    "name": "Recarmdra",
+    "rank": 5,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": null,
+    "description": "2% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-1",
+    "name": "Regenerate 1",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "4% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-2",
+    "name": "Regenerate 2",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": null,
+    "description": "6% HP restore each turn",
+    "element": "passive",
+    "id": "regenerate-3",
+    "name": "Regenerate 3",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Dark dmg taken",
+    "element": "passive",
+    "id": "repel-dark",
+    "name": "Repel Dark",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Elec dmg taken",
+    "element": "passive",
+    "id": "repel-elec",
+    "name": "Repel Elec",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Fire dmg taken",
+    "element": "passive",
+    "id": "repel-fire",
+    "name": "Repel Fire",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Ice dmg taken",
+    "element": "passive",
+    "id": "repel-ice",
+    "name": "Repel Ice",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Light dmg taken",
+    "element": "passive",
+    "id": "repel-light",
+    "name": "Repel Light",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Repels Pierce dmg taken",
+    "element": "passive",
+    "id": "repel-pierce",
+    "name": "Repel Pierce",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Repels Slash dmg taken",
+    "element": "passive",
+    "id": "repel-slash",
+    "name": "Repel Slash",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Repels Strike dmg taken",
+    "element": "passive",
+    "id": "repel-strike",
+    "name": "Repel Strike",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Repels Wind dmg taken",
+    "element": "passive",
+    "id": "repel-wind",
+    "name": "Repel Wind",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "All ailments except Dizzy susceptibility x0.75",
+    "element": "passive",
+    "id": "resist-ailments",
+    "name": "Resist Ailments",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Charm susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-charm",
+    "name": "Resist Charm",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Confuse susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-confuse",
+    "name": "Resist Confuse",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Dark dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-dark",
+    "name": "Resist Dark",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Distress susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-distress",
+    "name": "Resist Distress",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dizzy susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-dizzy",
+    "name": "Resist Dizzy",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Elec dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-elec",
+    "name": "Resist Elec",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Fear susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-fear",
+    "name": "Resist Fear",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Fire dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-fire",
+    "name": "Resist Fire",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Freeze susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-freeze",
+    "name": "Resist Freeze",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Ice dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-ice",
+    "name": "Resist Ice",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Light dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-light",
+    "name": "Resist Light",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Slash, Strike, Piece dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-phys",
+    "name": "Resist Phys",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Pierce dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-pierce",
+    "name": "Resist Pierce",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Poison susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-poison",
+    "name": "Resist Poison",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Rage susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-rage",
+    "name": "Resist Rage",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Shock susceptibility x0.5",
+    "element": "passive",
+    "id": "resist-shock",
+    "name": "Resist Shock",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Slash dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-slash",
+    "name": "Resist Slash",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Strike dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-strike",
+    "name": "Resist Strike",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": null,
+    "description": "Wind dmg taken x0.5",
+    "element": "passive",
+    "id": "resist-wind",
+    "name": "Resist Wind",
+    "rank": 5,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√500 pwr, 100% HP restore after reviving",
+    "element": "passive",
+    "id": "restore",
+    "name": "Restore",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "Grants 1 random enhanced positive effect to all allies.",
+    "element": "recovery",
+    "id": "revelation",
+    "name": "Revelation",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "recovery",
+    "id": "revelation-b",
+    "name": "Revelation B",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "support",
+    "id": "revelation-c",
+    "name": "Revelation C",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "support",
+    "id": "revelation-d",
+    "name": "Revelation D",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "revelation-e",
+    "name": "Revelation E",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "revelation-f",
+    "name": "Revelation F",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "Crit rate +15% for 3 turns",
+    "element": "support",
+    "id": "revolution",
+    "name": "Revolution",
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 60
+    },
+    "description": "Diarahan + Amrita",
+    "element": "recovery",
+    "id": "salvation",
+    "name": "Salvation",
+    "rank": 8,
+    "target": "All allies",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 35
+    },
+    "description": "100% HP restore after reviving",
+    "element": "recovery",
+    "id": "samarecarm",
+    "name": "Samarecarm",
+    "rank": 6,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 40
+    },
+    "description": "70% Instakill",
+    "element": "light",
+    "id": "samsara",
+    "name": "Samsara",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√250 pwr, 20% crit, ignores resistances",
+    "element": "slash",
+    "id": "scarlet-havoc",
+    "name": "Scarlet Havoc",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 1
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "seductive-breath",
+    "name": "Seductive Breath",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "separate",
+    "name": "Separate",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "45% Charm",
+    "element": "ailment",
+    "id": "sexy-dance",
+    "name": "Sexy Dance",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "60% Charm",
+    "element": "ailment",
+    "id": "sexy-dance-b",
+    "name": "Sexy Dance B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√300 pwr, 20% crit, 80% Fear, ignores resistances",
+    "element": "pierce",
+    "id": "shadow-hound",
+    "name": "Shadow Hound",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": null,
+    "description": "Incoming crit rate x0.5",
+    "element": "passive",
+    "id": "sharp-student",
+    "name": "Sharp Student",
+    "rank": 1,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg dealt x1.2 when receiving Shift",
+    "element": "passive",
+    "id": "shift-amp",
+    "name": "Shift Amp",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg dealt x1.1 when receiving Shift",
+    "element": "passive",
+    "id": "shift-boost",
+    "name": "Shift Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "√15 pwr, 4-8 hits",
+    "element": "light",
+    "id": "shining-arrows",
+    "name": "Shining Arrows",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Shock affliction rate x1.5",
+    "element": "passive",
+    "id": "shock-boost",
+    "name": "Shock Boost",
+    "rank": 2,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "√300 pwr, 70% Shock",
+    "element": "elec",
+    "id": "shock-grenade",
+    "name": "Shock Grenade",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "30% Shock",
+    "element": "passive",
+    "id": "shock-high",
+    "name": "Shock (high)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10% Shock",
+    "element": "passive",
+    "id": "shock-low",
+    "name": "Shock (low)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√150 pwr, 8% Shock",
+    "element": "elec",
+    "id": "shock-magatama",
+    "name": "Shock Magatama",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "20% Shock",
+    "element": "passive",
+    "id": "shock-med",
+    "name": "Shock (med)",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 30
+    },
+    "description": "Inflicts Distress on all foes on the current floor.",
+    "element": "special",
+    "id": "shock-noise",
+    "name": "Shock Noise",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 66
+    },
+    "description": "√700 pwr, 50% Dark instakill",
+    "element": "almighty",
+    "id": "sinful-shell",
+    "name": "Sinful Shell",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 1"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 6
+    },
+    "description": "√45 pwr",
+    "element": "pierce",
+    "id": "single-shot",
+    "name": "Single Shot",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 7"
+    ],
+    "cost": null,
+    "description": "Single-target skill dmg dealt x1.15",
+    "element": "passive",
+    "id": "single-target-boost",
+    "name": "Single-Target Boost",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "single-target-dekunda",
+    "name": "Single-target Dekunda",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg dealt x1.4 when receiving Shift from Aigis",
+    "element": "passive",
+    "id": "sister-amp",
+    "name": "Sister Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Dmg dealt x1.2 when receiving Shift from Aigis",
+    "element": "passive",
+    "id": "sister-boost",
+    "name": "Sister Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Slash dmg dealt x1.5",
+    "element": "passive",
+    "id": "slash-amp",
+    "name": "Slash Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "slash",
+    "id": "slash-attack",
+    "name": "Slash Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "slash",
+    "id": "slash-attack-b",
+    "name": "Slash Attack B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "slash",
+    "id": "slash-attack-c",
+    "name": "Slash Attack C",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Slash dmg dealt x1.25",
+    "element": "passive",
+    "id": "slash-boost",
+    "name": "Slash Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Slash dmg dealt x1.75",
+    "element": "passive",
+    "id": "slash-driver",
+    "name": "Slash Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Removes Amrita",
+    "element": "recovery",
+    "id": "smelling-salts",
+    "name": "Smelling Salts",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "SP restore",
+    "element": "recovery",
+    "id": "snuff-soul",
+    "name": "Snuff Soul",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP + SP restore",
+    "element": "recovery",
+    "id": "soma",
+    "name": "Soma",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 9
+    },
+    "description": "√70 pwr, 10% crit, 35% Distress",
+    "element": "strike",
+    "id": "sonic-punch",
+    "name": "Sonic Punch",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "5 SP restore when receiving Shift",
+    "element": "passive",
+    "id": "soul-chain",
+    "name": "Soul Chain",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "soul-drain",
+    "name": "Soul Drain",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "100% crit",
+    "element": "recovery",
+    "id": "soul-drop",
+    "name": "Soul Drop",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "8 SP restore when receiving Shift",
+    "element": "passive",
+    "id": "soul-link",
+    "name": "Soul Link",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "5 SP restore to ally when Shifting to them",
+    "element": "passive",
+    "id": "soul-shift",
+    "name": "Soul Shift",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "SP restore",
+    "element": "recovery",
+    "id": "soul-spinach",
+    "name": "Soul Spinach",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "SP restore",
+    "element": "recovery",
+    "id": "sp-drink",
+    "name": "SP Drink",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword K"
+    ],
+    "cost": null,
+    "description": "SP costs x0.5",
+    "element": "passive",
+    "id": "spell-master",
+    "name": "Spell Master",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 3
+    },
+    "description": "20 dmg dealt, SP restore",
+    "element": "almighty",
+    "id": "spirit-drain",
+    "name": "Spirit Drain",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "spirit-drain-b",
+    "name": "Spirit Drain B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "spirit-drain-c",
+    "name": "Spirit Drain C",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "5 SP restore each turn",
+    "element": "passive",
+    "id": "spirit-refresh",
+    "name": "Spirit Refresh",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "10 SP restore each turn",
+    "element": "passive",
+    "id": "spirit-restore",
+    "name": "Spirit Restore",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 5
+    },
+    "description": "√100 pwr",
+    "element": "recovery",
+    "id": "spring-of-life",
+    "name": "Spring of Life",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Raises ailment susceptibility for 3 turns",
+    "element": "almighty",
+    "id": "stagnant-air",
+    "name": "Stagnant Air",
+    "rank": 4,
+    "target": "Universal",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Strike dmg dealt x1.5",
+    "element": "passive",
+    "id": "strike-amp",
+    "name": "Strike Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "strike",
+    "id": "strike-attack",
+    "name": "Strike Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr",
+    "element": "strike",
+    "id": "strike-attack-b",
+    "name": "Strike Attack B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Strike dmg dealt x1.25",
+    "element": "passive",
+    "id": "strike-boost",
+    "name": "Strike Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Strike dmg dealt x1.75",
+    "element": "passive",
+    "id": "strike-driver",
+    "name": "Strike Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Hit and evasion x1.3 for 3 turns",
+    "element": "support",
+    "id": "sukukaja",
+    "name": "Sukukaja",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Hit and evasion x0.7 for 3 turns",
+    "element": "support",
+    "id": "sukunda",
+    "name": "Sukunda",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "summon",
+    "name": "Summon",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1
+    },
+    "description": "",
+    "element": "passive",
+    "id": "summon-b",
+    "name": "Summon B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√650 pwr, 10% crit",
+    "element": "slash",
+    "id": "sunder",
+    "name": "Sunder",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 9"
+    ],
+    "cost": null,
+    "description": "100% chance to endure instakill",
+    "element": "passive",
+    "id": "survival-trick",
+    "name": "Survival Trick",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "50% chance to endure Dark instakill",
+    "element": "passive",
+    "id": "survive-dark",
+    "name": "Survive Dark",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "50% chance to endure Light instakill",
+    "element": "passive",
+    "id": "survive-light",
+    "name": "Survive Light",
+    "rank": 4,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√350 pwr, 30% crit",
+    "element": "slash",
+    "id": "sweep",
+    "name": "Sweep",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "√60 pwr, 1-2 hits, 80% acc",
+    "element": "strike",
+    "id": "swift-strike",
+    "name": "Swift Strike",
+    "rank": 4,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Increases party's Attack, Defense, and Accuracy/Evasion in the next battle.",
+    "element": "special",
+    "id": "sylphid-aura",
+    "name": "Sylphid Aura",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 50
+    },
+    "description": "Fully reveals the current floor and provides a shortcut to the next floor.",
+    "element": "special",
+    "id": "tartarus-search",
+    "name": "Tartarus Search",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Attack x1.4 for 3 turns",
+    "element": "support",
+    "id": "tarukaja",
+    "name": "Tarukaja",
+    "rank": 1,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 3"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "Attack x0.6 for 3 turns",
+    "element": "support",
+    "id": "tarunda",
+    "name": "Tarunda",
+    "rank": 1,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√50 pwr, 1-4 hits, 8% crit",
+    "element": "slash",
+    "id": "tempest-slash",
+    "name": "Tempest Slash",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "45% Confuse",
+    "element": "ailment",
+    "id": "tentarafoo",
+    "name": "Tentarafoo",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 10
+    },
+    "description": "45% Confuse",
+    "element": "ailment",
+    "id": "tentarafoo-b",
+    "name": "Tentarafoo B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1
+    },
+    "description": "√800 pwr, 90% Shock",
+    "element": "elec",
+    "id": "tera-spark",
+    "name": "Tera Spark",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√600 pwr, 35% Shock",
+    "element": "elec",
+    "id": "tera-spark-b",
+    "name": "Tera Spark B",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 24
+    },
+    "description": "Repels next phys attack",
+    "element": "support",
+    "id": "tetrakarn",
+    "name": "Tetrakarn",
+    "rank": 5,
+    "target": "1 ally",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 46
+    },
+    "description": "√600 pwr, 60% Shock",
+    "element": "elec",
+    "id": "thunder-reign",
+    "name": "Thunder Reign",
+    "rank": 8,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "tiny-golden-tomato",
+    "name": "Tiny Golden Tomato",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 11
+    },
+    "description": "√30 pwr, 2-4 hits, 85% acc, 10% crit",
+    "element": "pierce",
+    "id": "torrent-shot",
+    "name": "Torrent Shot",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "traesto-gem",
+    "name": "Traesto Gem",
+    "rank": 99,
+    "target": "Party",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "special",
+    "id": "trafuri-gem",
+    "name": "Trafuri Gem",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "Concentrate",
+    "element": "support",
+    "id": "tranquility",
+    "name": "Tranquility",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "gauge",
+      "value": 0
+    },
+    "description": "√300 pwr, 80% ailment",
+    "element": "almighty",
+    "id": "trickster",
+    "name": "Trickster",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, HP restore",
+    "element": "recovery",
+    "id": "umugi-water",
+    "name": "Umugi Water",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "almighty",
+    "id": "unite",
+    "name": "Unite",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Prevents Confuse, Fear, Charm, Distress, Rage",
+    "element": "passive",
+    "id": "unshaken-will",
+    "name": "Unshaken Will",
+    "rank": 8,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 14
+    },
+    "description": "√85 pwr",
+    "element": "slash",
+    "id": "vacuum-slash",
+    "name": "Vacuum Slash",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 44
+    },
+    "description": "√500 pwr",
+    "element": "wind",
+    "id": "vacuum-wave",
+    "name": "Vacuum Wave",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√50 pwr",
+    "element": "recovery",
+    "id": "value-medicine",
+    "name": "Value Medicine",
+    "rank": 99,
+    "target": "All allies",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "100% max HP + SP restore after battle",
+    "element": "passive",
+    "id": "victory-cry",
+    "name": "Victory Cry",
+    "rank": 9,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": null,
+    "description": "Slash, Strike, Piece evasion x1.15",
+    "element": "passive",
+    "id": "vidyarajas-blessing",
+    "name": "Vidyaraja's Blessing",
+    "rank": 7,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword J"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 15
+    },
+    "description": "√400 pwr, dmg dealt x1.5 on Downed foes",
+    "element": "pierce",
+    "id": "vile-assault",
+    "name": "Vile Assault",
+    "rank": 7,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 8"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 25
+    },
+    "description": "√200 pwr, 40% Poison",
+    "element": "almighty",
+    "id": "virus-breath",
+    "name": "Virus Breath",
+    "rank": 5,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 22
+    },
+    "description": "√580 pwr, 13% crit",
+    "element": "slash",
+    "id": "vorpal-blade",
+    "name": "Vorpal Blade",
+    "rank": 8,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "60% compendium completion"
+    ],
+    "cost": null,
+    "description": "Striking weakness dmg dealt x1.2",
+    "element": "passive",
+    "id": "weakness-amp",
+    "name": "Weakness Amp",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "30% compendium completion"
+    ],
+    "cost": null,
+    "description": "Striking weakness dmg dealt x1.1",
+    "element": "passive",
+    "id": "weakness-boost",
+    "name": "Weakness Boost",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "All weakness dmg taken x0.9",
+    "element": "passive",
+    "id": "weakness-buffer",
+    "name": "Weakness Buffer",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "All weakness dmg taken x0.85",
+    "element": "passive",
+    "id": "weakness-mitigator",
+    "name": "Weakness Mitigator",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "hp-percent",
+      "value": 1000
+    },
+    "description": "",
+    "element": "almighty",
+    "id": "weakness-scan",
+    "name": "Weakness Scan",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, 20% Fear",
+    "element": "recovery",
+    "id": "weird-takoyaki",
+    "name": "Weird Takoyaki",
+    "rank": 99,
+    "target": "1 ally",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "wheel-of-fortune",
+    "name": "Wheel of Fortune",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√300 pwr",
+    "element": "almighty",
+    "id": "wheel-of-fortune-b",
+    "name": "Wheel of Fortune B",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "wheel-of-fortune-c",
+    "name": "Wheel of Fortune C",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "support",
+    "id": "wheel-of-fortune-d",
+    "name": "Wheel of Fortune D",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "",
+    "element": "passive",
+    "id": "wheel-of-fortune-e",
+    "name": "Wheel of Fortune E",
+    "rank": 99,
+    "target": "Universal",
+    "unique": true
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 48
+    },
+    "description": "√450 pwr, 35% Shock",
+    "element": "elec",
+    "id": "wild-thunder",
+    "name": "Wild Thunder",
+    "rank": 99,
+    "target": "All foes",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword Q"
+    ],
+    "cost": null,
+    "description": "Wind dmg dealt x1.5",
+    "element": "passive",
+    "id": "wind-amp",
+    "name": "Wind Amp",
+    "rank": 6,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√40 pwr, 80% acc",
+    "element": "wind",
+    "id": "wind-attack",
+    "name": "Wind Attack",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 5"
+    ],
+    "cost": null,
+    "description": "Wind dmg dealt x1.25",
+    "element": "passive",
+    "id": "wind-boost",
+    "name": "Wind Boost",
+    "rank": 3,
+    "target": "Self",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 4"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 12
+    },
+    "description": "Removes Wind resistance for 3 turns",
+    "element": "support",
+    "id": "wind-break",
+    "name": "Wind Break",
+    "rank": 3,
+    "target": "All foes",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "Wind dmg dealt x1.75",
+    "element": "passive",
+    "id": "wind-driver",
+    "name": "Wind Driver",
+    "rank": 99,
+    "target": "Self",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "hp-percent",
+      "value": 10
+    },
+    "description": "√100 pwr, 88% acc, 10% crit, dmg dealt x1.75 during New Moon",
+    "element": "slash",
+    "id": "zan-ei",
+    "name": "Zan-ei",
+    "rank": 3,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 2"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 4
+    },
+    "description": "√40 pwr, 15% Shock",
+    "element": "elec",
+    "id": "zio",
+    "name": "Zio",
+    "rank": 2,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [
+      "Sword 10"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "√220 pwr, 15% Shock",
+    "element": "elec",
+    "id": "ziodyne",
+    "name": "Ziodyne",
+    "rank": 6,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": {
+      "type": "sp",
+      "value": 14
+    },
+    "description": "√300 pwr, 15% Shock",
+    "element": "elec",
+    "id": "ziodyne-b",
+    "name": "Ziodyne B",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  },
+  {
+    "cardSources": [
+      "Sword 6"
+    ],
+    "cost": {
+      "type": "sp",
+      "value": 8
+    },
+    "description": "√100 pwr, 15% Shock",
+    "element": "elec",
+    "id": "zionga",
+    "name": "Zionga",
+    "rank": 4,
+    "target": "1 foe",
+    "unique": false
+  },
+  {
+    "cardSources": [],
+    "cost": null,
+    "description": "√100 pwr, 8% Shock",
+    "element": "elec",
+    "id": "zionga-gem",
+    "name": "Zionga Gem",
+    "rank": 99,
+    "target": "1 foe",
+    "unique": true
+  }
+]

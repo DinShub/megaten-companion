@@ -1,0 +1,75 @@
+{
+  "datasets": {
+    "fusion-chart": {
+      "bytes": 13197,
+      "entries": 22,
+      "file": "fusion-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/fusion-chart.json"
+      ]
+    },
+    "inherit-matrix": {
+      "bytes": 10121,
+      "entries": 32,
+      "file": "inherit-matrix.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/comp-config.json"
+      ]
+    },
+    "personas": {
+      "bytes": 252140,
+      "entries": 194,
+      "file": "personas.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/demon-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/demon-unlocks.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/special-recipes.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/comp-config.json"
+      ]
+    },
+    "shadows": {
+      "bytes": 332794,
+      "entries": 370,
+      "file": "shadows.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/enemy-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/comp-config.json"
+      ]
+    },
+    "skills": {
+      "bytes": 154921,
+      "entries": 602,
+      "file": "skills.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/compendium/data/skill-effects.json"
+      ]
+    },
+    "special-recipes": {
+      "bytes": 2979,
+      "entries": 22,
+      "file": "special-recipes.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/p3r/data/special-recipes.json"
+      ]
+    }
+  },
+  "game": "p3r",
+  "importedAt": "2026-10-29",
+  "notes": [
+    "Base game only: the aeg-* files (Episode Aigis) are not read; party-data.json is not imported because party personas are not fusable.",
+    "Fusion chart: fusion-chart.json is a lower triangle (row i pairs arcana i with every earlier arcana; the diagonal is \"-\"). Reload has no triangle (three-persona) chart.",
+    "Affinities: all ten upstream axes are kept; Almighty is neutral on every persona. Upstream resist codes also carry a damage rate the app does not model; each collapses to its category by the leading digit of comp-config resistCodes.",
+    "Inheritance: comp-config inheritTypes is a 12-bit mask per type over inheritElems. Almighty, special and passive skills are outside the mask and open to every type, as upstream treats them. Rank > 89 is never inheritable.",
+    "Theurgy: a learn level of 5217 (upstream renders it \"T1\") marks a Theurgy the persona grants; it imports as learn kind \"theurgy\". Theurgies have rank 0, so they are unique.",
+    "Shadows: bosses carry boss: true and a \" B\" race suffix; \" P\" marks a second set of ordinary shadows and is dropped; the \"Unknown\" race imports as a null arcana. Drops come from upstream \"dodds\". Ailment strings are not imported.",
+    "Heart items: demon-data heart / heartlvl import as heartItem { name, level }.",
+    "Enemy skill \"Phys Attack\" (Ancient Castle, Jin A, Jin B) has no row in skill-data.json and is dropped.",
+    "Skill cards: upstream c[2] lists where a skill card is found (Shuffle Time \"Sword\" cards, Skill Mutation); it imports as cardSources."
+  ],
+  "upstream": {
+    "licence": "The Unlicense (public domain)",
+    "repo": "aqiu384/megaten-fusion-tool",
+    "sha": "f7d41c3f947a232d41bd8272de4221eb55f721c8"
+  }
+}

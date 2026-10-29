@@ -11,6 +11,7 @@ import type { GameDefinition, GameFeature, GameTheme } from './games/game.model'
 import { DEFAULT_GAME_ID, GAMES, getGame } from './games/game.registry';
 import { FocusTrap } from './shared/a11y/focus-trap';
 import { bootTheme, gamePreset, THEME_OPTIONS } from './theme/app-preset';
+import { ensureSkinStylesheet } from './theme/skin-stylesheet';
 
 /** One entry in the app-agnostic navigation tree (§10). */
 interface NavEntry {
@@ -138,6 +139,8 @@ export class App {
   private applyGameTheme(theme: GameTheme): void {
     if (theme.primary === this.lastTheme.primary && theme.skin === this.lastTheme.skin) return;
     this.lastTheme = theme;
+    // The new game's skin sheet may not be loaded yet; it applies when it lands.
+    void ensureSkinStylesheet(theme.skin);
     setSkin(theme);
     this.primeng.setThemeConfig({ theme: { preset: gamePreset(theme), options: THEME_OPTIONS } });
   }
