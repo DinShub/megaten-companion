@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P3R Companion: four directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #16171b;
+    --panel: #1f2025;
+    --line: #33353c;
+    --text: #eceef2;
+    --muted: #a3a7b1;
+    --accent: #6ea2ff;          /* P3R blue */
+    color-scheme: dark;         /* single dark look, like the app */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 1rem/1.55 'Familjen Grotesk', system-ui, sans-serif;
+  }
+  main { max-width: 1180px; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; }
+  header { max-width: 62ch; margin-bottom: 2.75rem; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin: 0 0 1rem; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+  header p { color: var(--muted); margin: 0 0 0.75rem; }
+  header strong { color: var(--text); font-weight: 500; }
+  .swatch { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; background: var(--accent); vertical-align: -0.05em; margin-right: 0.3em; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+
+  .dir { display: flex; flex-direction: column; }
+  .dir__shot {
+    --s: 0.38;
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #000;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }
+  .dir__shot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 900px;
+    border: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--s));
+    pointer-events: none;
+    transition: transform 0.4s ease;
+  }
+  .dir__shot:hover, .dir__shot:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9);
+    transform: translateY(-3px);
+  }
+  .dir__shot:hover iframe { transform: scale(calc(var(--s) * 1.02)); }
+  .dir__shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .dir h2 { font-size: 1.5rem; margin: 1.1rem 0 0.15rem; font-weight: 700; letter-spacing: -0.01em; }
+  .dir h2 a { color: inherit; text-decoration: none; }
+  .dir h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .dir__lever { color: var(--accent); margin: 0 0 0.6rem; font-weight: 500; }
+  .dir p { margin: 0 0 0.6rem; max-width: 60ch; }
+  .dir__cost { color: var(--muted); font-size: 0.93rem; }
+  .dir__cost b { color: var(--text); font-weight: 500; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); max-width: 70ch; color: var(--muted); }
+  footer p { margin: 0 0 0.75rem; }
+  footer strong { color: var(--text); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dir__shot, .dir__shot iframe { transition: none; }
+    .dir__shot:hover, .dir__shot:focus-visible { transform: none; }
+    .dir__shot:hover iframe { transform: scale(var(--s)); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Four ways to give Persona 3 Reload its own skin</h1>
+    <p>Nocturne has COMP, P5R has Calling Card and P4G has Midnight Channel. P3R would be the fourth game, so it needs a fourth look that belongs to Iwatodai and the Dark Hour. All four use the <strong>same real screen</strong>: the fusion calculator with Orpheus + Jack Frost making Omoikane, plus a short persona list. The data comes from upstream's P3R files at the same commit the importer already pins. The app has no P3R data yet.</p>
+    <p>Every direction stays dark-only and uses <span class="swatch" aria-hidden="true"></span><strong>P3R blue</strong> as the game accent. Dark Hour has its own switch in the corner, Evening or Dark Hour, because that change of state is the whole idea of that skin.</p>
+  </header>
+
+  <div class="grid">
+    <article class="dir">
+      <a class="dir__shot" href="tide.html" aria-label="Open the Tide prototype">
+        <iframe src="tide.html#preview" title="Tide prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="tide.html">Tide</a></h2>
+      <p class="dir__lever">Personality from shape and attitude</p>
+      <p>Deep water blue, and nothing sits level. The header, buttons, chips and stat bars all lean forward at the same angle, and the type is a heavy italic. The result is a slab cut on the diagonal with its level huge and outlined behind the name. A wave of light crosses the slab to open it, and every click sends out a ripple.</p>
+      <p class="dir__cost"><b>Porting effort: low-medium.</b> It's mostly tokens and one skew mixin. PrimeNG SelectButton and Button need a skewed wrapper with the label skewed back, which is fiddly but contained. The ripple is a small shell listener, and the fused name and the slanted list rows lose a little width at 360 px.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="dark-hour.html" aria-label="Open the Dark Hour prototype">
+        <iframe src="dark-hour.html#preview" title="Dark Hour prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="dark-hour.html">Dark Hour</a></h2>
+      <p class="dir__lever">Personality from a change of state</p>
+      <p>The page opens as a calm, ordinary blue evening with a ticking clock in the header. At 11:59:59 a line of green light passes down the screen, the clock stops at 12:00, everything turns murky green, and a huge moon fills in behind the result. A thin red line along the result panel is the only blood. The switch flips between the two hours.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> It needs two full token sets and a <code>data-hour</code> attribute beside <code>data-skin</code>, plus a clock in the shell and a setting for which hour to show (or the real clock). Every surface has to crossfade, so stray hard-coded colours will show up. The type is a high-contrast Didone, which needs care at small sizes.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="velvet-room.html" aria-label="Open the Velvet Room prototype">
+        <iframe src="velvet-room.html#preview" title="Velvet Room prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="velvet-room.html">Velvet Room</a></h2>
+      <p class="dir__lever">Personality from typography and ornament</p>
+      <p>The fusion is a three-card tarot spread on blue velvet. Each card is printed with its arcana numeral, the arcana's name, an initial in a sunburst and a name banner. The result card is dealt face down and turns over. Cards lean toward the pointer with a gilt sheen, and the list is a compendium with numerals beside each arcana.</p>
+      <p class="dir__cost"><b>Porting effort: medium-high.</b> It needs a new card component for the calculator, the persona detail and the compendium, and the spread changes the calculator layout rather than just restyling it. It adds two old-style faces (IM Fell English and its small caps). Lists stay flat tables, because cards are no good for 194 rows.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="navigator.html" aria-label="Open the Navigator prototype">
+        <iframe src="navigator.html#preview" title="Navigator prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="navigator.html">Navigator</a></h2>
+      <p class="dir__lever">Personality from voice</p>
+      <p>The result is read off a round scanner with the nine affinities on its orbit, and a navigator says what it found in plain sentences: "It's weak to dark. Please be careful with that one!" A beam sweeps once to find each affinity, then the lines come in one by one. Hover a marker and its sentence lights up, and the other way round. Amber only ever means weak.</p>
+      <p class="dir__cost"><b>Porting effort: high.</b> The scanner is a new component that positions markers from live size, and the navigator needs a sentence generator per page (calculator, persona detail, route steps), written from data and tested. It's the most helpful to a new player and the most work to keep accurate.</p>
+    </article>
+  </div>
+
+  <footer>
+    <p><strong>Mixing is fair game.</strong> Each direction is built from separate parts: a palette, a typeface, one signature element, and a tone of voice. The navigator's sentences would work beside the Velvet Room cards, and the Dark Hour switch could flip any of the other three into a green midnight version.</p>
+    <p>These are mockups. The hovers, the search filter, the mode buttons, the Dark Hour switch and each page's opening moment all work: the wave, the clock striking twelve, the card turning over and the scanner sweep. No fusion logic is wired. The recipe was worked out from upstream's P3R chart with the normal level rule, not by the app's engine.</p>
+  </footer>
+</main>
+<script>
+  // Scale each 1440 × 900 live preview to its card's width.
+  const ro = new ResizeObserver((entries) => {
+    for (const e of entries) e.target.style.setProperty('--s', String(e.contentRect.width / 1440));
+  });
+  document.querySelectorAll('.dir__shot').forEach((el) => ro.observe(el));
+</script>
+</body>
+</html>

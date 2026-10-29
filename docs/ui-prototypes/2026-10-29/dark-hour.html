@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en" data-hour="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Dark Hour · P3R Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Tokens. The skin has two states and swaps one token set for the other.
+     Evening: --accent is the game accent (P3R = blue, --p-primary-400).
+     Dark Hour: the same tokens re-pointed at a green ramp and the moon.
+     In the app this is a `data-hour` attribute on :root beside `data-skin`,
+     set by the shell (a setting, or the real clock at midnight). Layout idea:
+     a calm, ordinary page that the stopped clock turns into something else.
+     ------------------------------------------------------------------ */
+  :root {
+    --night: #0f1d33;
+    --raise: #17294a;
+    --line: #2b4268;
+    --ink: #ecf1f8;
+    --dim: #a3b2c9;             /* 7.6:1 on --night */
+    --accent: #4d8dff;          /* P3R blue, --p-primary-400 */
+    --accent-ink: #071430;
+    --moon: #e9eef7;
+    --moon-glow: rgba(233, 238, 247, 0.18);
+    --blood: transparent;
+    --display: 'Bodoni Moda', 'Didot', serif;
+    --body: 'Hanken Grotesk', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  :root[data-hour='dark'] {
+    --night: #0b2219;           /* murky green: the Dark Hour sky */
+    --raise: #12301f;
+    --line: #2a4d36;
+    --ink: #e4f2d8;
+    --dim: #a9c49b;             /* 8.1:1 on --night */
+    --accent: #d6ef6a;          /* the moon */
+    --accent-ink: #142008;
+    --moon: #e2f48a;
+    --moon-glow: rgba(214, 239, 106, 0.35);
+    --blood: #8f1d2c;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--night);
+    color: var(--ink);
+    font: 400 15px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Everything that carries a token colour crossfades when the hour changes. */
+  body, .bar, .panel, .result, .modes, .modes button, .search input, .clock, .tag, .aff .v, .meter i {
+    transition: background-color 0.9s ease, color 0.9s ease, border-color 0.9s ease, box-shadow 0.9s ease;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  /* The moon. Small and pale in the evening; full, green and huge in the Dark Hour. */
+  .moon {
+    position: fixed;
+    z-index: 0;
+    top: -14rem;
+    right: -10rem;
+    width: 44rem;
+    height: 44rem;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle at 42% 40%, var(--moon), color-mix(in srgb, var(--moon) 70%, var(--night)) 62%, transparent 71%);
+    box-shadow: 0 0 140px 40px var(--moon-glow);
+    opacity: 0.1;
+    transform: scale(0.45);
+    transform-origin: 70% 30%;
+    transition: transform 1.6s cubic-bezier(0.2, 0.7, 0.1, 1), opacity 1.2s, box-shadow 1.2s;
+  }
+  :root[data-hour='dark'] .moon { opacity: 0.55; transform: scale(1); }
+
+  /* The seam: a line of green light that passes down the page as midnight arrives. */
+  .seam {
+    position: fixed;
+    z-index: 40;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    pointer-events: none;
+    background: #d6ef6a;
+    box-shadow: 0 0 24px 6px rgba(214, 239, 106, 0.6);
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  .seam.is-passing { animation: seam 0.9s cubic-bezier(0.6, 0, 0.4, 1) forwards; }
+  @keyframes seam {
+    0% { opacity: 1; transform: translateY(-4px); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(100vh); }
+  }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.85rem 2rem;
+    background: color-mix(in srgb, var(--night) 90%, transparent);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+  }
+  .brand { font: 700 1.55rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1;
+
+    a {
+      padding: 0.35rem 0.8rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dim);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+
+      &:hover { color: var(--ink); border-bottom-color: var(--line); }
+      &[aria-current='page'] { color: var(--ink); border-bottom-color: var(--accent); }
+    }
+  }
+  /* The clock: the signature element. It ticks in the evening and stops at 12:00. */
+  .clock {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0.8rem;
+    border: 1px solid var(--line);
+    white-space: nowrap;
+
+    time { font: 800 1.45rem/1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
+    .sec { font-size: 0.95rem; color: var(--dim); }
+    .state { font-size: 0.82rem; color: var(--dim); }
+  }
+  :root[data-hour='dark'] .clock { border-color: var(--accent); }
+  :root[data-hour='dark'] .clock .sec { display: none; }
+
+  /* ------------------------------------------------------------------ layout */
+  main { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 2.2rem 2rem 5rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 2rem;
+
+    h1 { margin: 0; font: 800 clamp(2.8rem, 6vw, 4.4rem)/0.95 var(--display); letter-spacing: -0.01em; }
+    p { margin: 0.5rem 0 0; color: var(--dim); }
+  }
+  .modes {
+    display: inline-flex;
+    border: 1px solid var(--line);
+
+    button {
+      font: 600 0.92rem/1 var(--body);
+      padding: 0.65rem 1.1rem;
+      border: 0;
+      background: transparent;
+      color: var(--dim);
+      cursor: pointer;
+
+      & + button { border-left: 1px solid var(--line); }
+      &:hover { color: var(--ink); background: var(--raise); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--accent); color: var(--accent-ink); }
+    }
+  }
+
+  .fusion > *, .parents > * { min-width: 0; }
+  .fusion {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.45fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  .panel {
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--raise) 88%, transparent);
+    padding: 1.1rem 1.3rem 1.2rem;
+
+    &:hover, &:focus-within { border-color: var(--dim); }
+  }
+  .parents { display: grid; gap: 0.8rem; }
+  .parent__label { margin: 0; font-size: 0.85rem; color: var(--dim); font-weight: 400; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      min-width: 0;
+      width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font: 700 1.9rem/1.2 var(--display);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--accent); }
+    }
+    button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--dim);
+      font: 600 0.78rem/1 var(--body);
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+
+      &:hover { color: var(--ink); border-color: var(--dim); }
+    }
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.1rem;
+    margin: 0 0 0.6rem;
+    font-size: 0.87rem;
+    color: var(--dim);
+
+    b { color: var(--ink); font-weight: 600; }
+  }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.1rem 1.2rem;
+    font-size: 0.9rem;
+
+    li { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .lv { color: var(--dim); font-variant-numeric: tabular-nums; }
+    .innate { font-weight: 700; }
+  }
+  .plus { justify-self: center; font: 500 2rem/1 var(--display); color: var(--dim); }
+
+  /* ------------------------------------------------------------------ result */
+  .result {
+    position: relative;
+    padding: 1.8rem 2rem 1.7rem;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--raise) 82%, transparent);
+    box-shadow: inset 0 3px 0 var(--blood);
+    backdrop-filter: blur(2px);
+  }
+  .result__eyebrow { margin: 0; color: var(--dim); font-weight: 600; }
+  .result__name { margin: 0.1rem 0 1.1rem; font: 800 clamp(3.6rem, 8vw, 6.2rem)/0.9 var(--display); letter-spacing: -0.015em; }
+  .readouts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 2rem;
+    margin-bottom: 1.4rem;
+    color: var(--dim);
+
+    b { color: var(--ink); font: 700 1.45rem/1 var(--display); margin-left: 0.4rem; }
+  }
+  .result-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr); gap: 1.25rem 2.2rem; }
+  .result h3 { margin: 0 0 0.5rem; font: 700 1.15rem/1 var(--display); }
+  .stats {
+    margin: 0;
+    display: grid;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+
+    div { display: grid; grid-template-columns: 1.8rem 1fr 2ch; align-items: center; gap: 0.6rem; }
+    dt { font-weight: 700; }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  }
+  .meter {
+    height: 3px;
+    background: var(--line);
+
+    i { display: block; height: 100%; width: calc(var(--v) / 99 * 100%); min-width: 3px; background: var(--accent); }
+  }
+  /* Weak is the signal: accent fill + the code. */
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(2.1rem, 1fr));
+    gap: 3px;
+    text-align: center;
+    font-size: 0.8rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { font-weight: 700; color: var(--dim); }
+    .v { padding: 0.2rem 0; background: color-mix(in srgb, var(--ink) 7%, transparent); font-weight: 700; }
+    .n { font-weight: 400; color: var(--dim); }
+    .wk { background: var(--accent); color: var(--accent-ink); }
+    .nu, .rp, .dr { box-shadow: inset 0 0 0 1px var(--ink); }
+  }
+  .legend { margin: 0.55rem 0 0; font-size: 0.78rem; color: var(--dim); }
+  .result .skills { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
+  .rule {
+    margin: 1.3rem 0 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 0.9rem;
+
+    b { color: var(--ink); font-weight: 600; }
+  }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.9rem;
+
+    h2 { margin: 0; font: 800 2.2rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { font-weight: 600; color: var(--dim); white-space: nowrap; }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--line);
+      background: var(--night);
+      color: var(--ink);
+      font: inherit;
+
+      &::placeholder { color: var(--dim); }
+      &:focus-visible { outline: none; border-color: var(--accent); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 48rem;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+
+    th {
+      text-align: left;
+      font-size: 0.8rem;
+      color: var(--dim);
+      padding: 0 0.75rem 0.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+    .lv { width: 3.5rem; font: 700 1.25rem/1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
+    td.name { font-weight: 600; }
+    td.arcana { color: var(--dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: color-mix(in srgb, var(--accent) 9%, transparent); }
+      &:focus-visible td.name { text-decoration: underline 2px var(--accent); text-underline-offset: 4px; }
+    }
+    .tag {
+      margin-left: 0.55rem;
+      padding: 0.05rem 0.45rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .aff { grid-template-columns: repeat(9, 2.3rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.45rem 0.6rem 0.45rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+    color: #ddd;
+
+    a { color: #ddd; }
+    .switch { display: inline-flex; border: 1px solid #555; border-radius: 4px; overflow: hidden; }
+    button {
+      font: inherit;
+      padding: 0.3rem 0.55rem;
+      border: 0;
+      background: transparent;
+      color: #ccc;
+      cursor: pointer;
+
+      &:hover { background: #2a2a2e; }
+      &[aria-pressed='true'] { background: #eee; color: #111; }
+    }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .fusion { grid-template-columns: 1fr; }
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.7rem 1rem 0; }
+    .clock { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: none; }
+    main { padding: 1.4rem 1rem 5rem; }
+    .moon { width: 30rem; height: 30rem; right: -12rem; top: -10rem; }
+  }
+  @media (max-width: 560px) {
+    .result { padding: 1.3rem 1.1rem; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result .aff { grid-template-columns: repeat(5, 1fr); }
+    .clock .state { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body, .bar, .panel, .result, .modes, .modes button, .search input, .clock, .tag, .aff .v, .meter i, .moon { transition: none; }
+    .seam { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="moon" aria-hidden="true"></div>
+<div class="seam" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="P3R Companion home">P3R Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Personas</a>
+    <a href="#">Skills</a>
+    <a href="#">Shadows</a>
+    <a href="#">Classroom</a>
+  </nav>
+  <div class="clock" role="timer" aria-live="off" aria-label="Clock">
+    <time data-clock>12:00</time><span class="sec" data-sec>:00</span>
+    <span class="state" data-state>Dark Hour</span>
+  </div>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p data-sub></p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Forward</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+      <button type="button" aria-pressed="false">Route</button>
+    </div>
+  </div>
+
+  <div class="fusion">
+    <div class="parents" data-parents></div>
+
+    <section class="result" aria-labelledby="r-name">
+      <p class="result__eyebrow">Result</p>
+      <h2 class="result__name" id="r-name" data-r-name></h2>
+      <div class="readouts">
+        <div>Arcana<b data-r-arcana></b></div>
+        <div>Lv<b data-r-level></b></div>
+        <div>Inherits<b data-r-inherits></b></div>
+      </div>
+      <div class="result-grid">
+        <div>
+          <h3>Stats</h3>
+          <dl class="stats" data-stats></dl>
+        </div>
+        <div>
+          <h3>Affinities</h3>
+          <div class="aff" data-aff></div>
+          <p class="legend">Wk weak (filled), Rs resist, Nu null (outlined)</p>
+        </div>
+      </div>
+      <h3 style="margin-top:1.3rem">Skills</h3>
+      <ul class="skills" data-r-skills></ul>
+      <p class="rule" data-rule></p>
+    </section>
+  </div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Personas</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name or arcana" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th class="lv">Lv</th><th>Name</th><th>Arcana</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+  <span class="switch" role="group" aria-label="Hour">
+    <button type="button" data-hour="evening" aria-pressed="false">Evening</button>
+    <button type="button" data-hour="dark" aria-pressed="true">Dark Hour</button>
+  </span>
+</div>
+
+<script src="p3r-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, PERSONAS, strip, stripHead, skillList, wireSearch, wireToggles, moment } = P3R;
+  const $ = (s) => document.querySelector(s);
+  const root = document.documentElement;
+
+  $('[data-parents]').innerHTML = PARENTS.map((p, i) => `
+    ${i ? '<div class="plus" aria-hidden="true">+</div>' : ''}
+    <section class="panel" aria-labelledby="p${i}-t">
+      <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+      <div class="slot">
+        <label for="p${i}">Parent ${i + 1} persona</label>
+        <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+      </div>
+      <p class="meta"><span>Arcana <b>${p.arcana}</b></span><span>Lv <b>${p.lv}</b></span><span>Inherits <b>${p.inherits}</b></span></p>
+      <ul class="skills">${skillList(p.skills)}</ul>
+    </section>`).join('');
+
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-arcana]').textContent = RESULT.arcana;
+  $('[data-r-level]').textContent = RESULT.lv;
+  $('[data-r-inherits]').textContent = RESULT.inherits;
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-aff]').innerHTML = strip(RESULT.aff, true);
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) =>
+    `<div><dt>${k}</dt><span class="meter" role="img" aria-label="${v} of 99" style="--v:${v}"><i></i></span><dd>${v}</dd></div>`).join('');
+  $('[data-rule]').innerHTML = `<b>${RULE.arcana.join(' + ')}</b> makes ${RULE.makes}. The first ${RULE.makes} from Lv ${RULE.from} is ${RESULT.name}.`;
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = PERSONAS.map((p) => `
+    <tr tabindex="0">
+      <td class="lv">${p.lv}</td>
+      <td class="name">${p.name}${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</td>
+      <td class="arcana">${p.arcana}</td>
+      <td><div class="aff">${strip(p.aff)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* ---- The two hours. ---- */
+  const COPY = {
+    evening: { clock: '11:59', state: 'Evening', sub: 'Pick two personas to see what they make.' },
+    dark: { clock: '12:00', state: 'Dark Hour', sub: 'The clock has stopped. Pick two personas to see what they make.' },
+  };
+  const switches = [...document.querySelectorAll('.proto [data-hour]')];
+  function setHour(h) {
+    root.dataset.hour = h;
+    $('[data-clock]').textContent = COPY[h].clock;
+    $('[data-state]').textContent = COPY[h].state;
+    $('[data-sub]').textContent = COPY[h].sub;
+    switches.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.hour === h)));
+  }
+  switches.forEach((b) => b.addEventListener('click', (e) => { e.stopPropagation(); sig.end(); setHour(b.dataset.hour); }));
+
+  /* ---- Signature: the clock strikes midnight. 11:59:57 → :58 → :59 → 12:00, the seam passes, the hour turns. ---- */
+  const sec = $('[data-sec]');
+  const seam = $('.seam');
+  const sig = moment((at, end) => {
+    setHour('evening');
+    sec.textContent = ':57';
+    at(600, () => { sec.textContent = ':58'; });
+    at(1200, () => { sec.textContent = ':59'; });
+    at(1800, () => { seam.classList.add('is-passing'); setHour('dark'); });
+    at(3200, end);
+  }, () => { seam.classList.remove('is-passing'); setHour('dark'); });
+  sig.play();
+</script>
+</body>
+</html>
