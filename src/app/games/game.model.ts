@@ -26,11 +26,12 @@ export type GameFeature =
  * layer expands the name into the `--p-primary-*` ramp; nothing else needs to
  * know the concrete colour.
  *
- * `ember` is the one app-defined ramp (a burnt, dark orange — see app-preset);
- * the rest are Lara's base primitives.
+ * `ember` (a burnt, dark orange) and `spot` (a print spot blue) are app-defined
+ * ramps — see app-preset; the rest are Lara's base primitives.
  */
 export type PrimaryColor =
   | 'ember'
+  | 'spot'
   | 'red'
   | 'orange'
   | 'amber'
@@ -63,8 +64,10 @@ export type PrimaryColor =
  * - `abyss` — deep water: bright blue at the surface darkening to the deep, light
  *   rays, frosted-glass panels, and the result as one solid white card that
  *   surfaces (P3R).
+ * - `guidebook` — a Japanese strategy guide of the PS1 era: a two-ink paper sheet
+ *   on a dark desk, katakana over names, data boxes and a thumb index (SMT1).
  */
-export type GameSkin = 'calling-card' | 'comp' | 'midnight-channel' | 'abyss';
+export type GameSkin = 'calling-card' | 'comp' | 'midnight-channel' | 'abyss' | 'guidebook';
 
 /** A game's visual identity (§4.8). */
 export interface GameTheme {

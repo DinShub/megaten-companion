@@ -1,0 +1,453 @@
+{
+  "rows": [
+    {
+      "pair": [
+        "deities",
+        "icons"
+      ],
+      "results": {
+        "aerials": "seraph",
+        "avians": "avian",
+        "beasts": "avatar",
+        "brutes": "femme",
+        "deities": "deity",
+        "dragons": "dragon",
+        "icons": "tenma",
+        "nethers": "tyrant"
+      }
+    },
+    {
+      "pair": [
+        "deities",
+        "nethers"
+      ],
+      "results": {
+        "aerials": "seraph",
+        "avians": "megami",
+        "beasts": "dragon",
+        "brutes": "kishin",
+        "deities": "tyrant",
+        "dragons": "dragon",
+        "icons": "kishin",
+        "nethers": "deity"
+      }
+    },
+    {
+      "pair": [
+        "deities",
+        "aerials"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "seraph",
+        "beasts": "holy",
+        "brutes": "kishin",
+        "deities": "seraph",
+        "dragons": "vile",
+        "icons": "femme",
+        "nethers": "megami"
+      }
+    },
+    {
+      "pair": [
+        "deities",
+        "dragons"
+      ],
+      "results": {
+        "aerials": "holy",
+        "avians": "megami",
+        "beasts": "avatar",
+        "brutes": "kishin",
+        "deities": "dragon",
+        "dragons": "dragon",
+        "icons": "dragon",
+        "nethers": "kishin"
+      }
+    },
+    {
+      "pair": [
+        "deities",
+        "avians"
+      ],
+      "results": {
+        "aerials": "seraph",
+        "avians": "divine",
+        "beasts": "dragon",
+        "brutes": "femme",
+        "deities": "avian",
+        "dragons": "femme",
+        "nethers": "divine"
+      }
+    },
+    {
+      "pair": [
+        "deities",
+        "beasts"
+      ],
+      "results": {
+        "aerials": "avatar",
+        "avians": "dragon",
+        "beasts": "avatar",
+        "brutes": "avatar",
+        "deities": "avatar",
+        "dragons": "kishin",
+        "icons": "drake",
+        "nethers": "snake"
+      }
+    },
+    {
+      "pair": [
+        "deities",
+        "brutes"
+      ],
+      "results": {
+        "avians": "night",
+        "beasts": "touki",
+        "brutes": "brute",
+        "deities": "dragon",
+        "dragons": "touki",
+        "icons": "brute",
+        "nethers": "megami"
+      }
+    },
+    {
+      "pair": [
+        "icons",
+        "nethers"
+      ],
+      "results": {
+        "avians": "night",
+        "beasts": "touki",
+        "brutes": "brute",
+        "deities": "dragon",
+        "dragons": "touki",
+        "icons": "brute",
+        "nethers": "megami"
+      }
+    },
+    {
+      "pair": [
+        "icons",
+        "aerials"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "divine",
+        "beasts": "beast",
+        "brutes": "touki",
+        "deities": "kishin",
+        "dragons": "yoma",
+        "icons": "megami",
+        "nethers": "night"
+      }
+    },
+    {
+      "pair": [
+        "icons",
+        "dragons"
+      ],
+      "results": {
+        "aerials": "drake",
+        "avians": "yoma",
+        "beasts": "holy",
+        "brutes": "kishin",
+        "deities": "dragon",
+        "dragons": "dragon",
+        "icons": "touki",
+        "nethers": "dragon"
+      }
+    },
+    {
+      "pair": [
+        "icons",
+        "avians"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "avian",
+        "beasts": "snake",
+        "brutes": "femme",
+        "deities": "divine",
+        "dragons": "megami",
+        "icons": "megami",
+        "nethers": "divine"
+      }
+    },
+    {
+      "pair": [
+        "icons",
+        "beasts"
+      ],
+      "results": {
+        "aerials": "holy",
+        "avians": "snake",
+        "beasts": "holy",
+        "brutes": "therian",
+        "deities": "avatar",
+        "dragons": "avatar",
+        "icons": "jaki",
+        "nethers": "drake"
+      }
+    },
+    {
+      "pair": [
+        "icons",
+        "brutes"
+      ],
+      "results": {
+        "aerials": "haunt",
+        "avians": "femme",
+        "beasts": "therian",
+        "brutes": "jaki",
+        "deities": "tenma",
+        "dragons": "kishin",
+        "icons": "vile",
+        "nethers": "jaki"
+      }
+    },
+    {
+      "pair": [
+        "nethers",
+        "aerials"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "yoma",
+        "brutes": "brute",
+        "deities": "seraph",
+        "dragons": "flight",
+        "nethers": "yoma"
+      }
+    },
+    {
+      "pair": [
+        "nethers",
+        "dragons"
+      ],
+      "results": {
+        "aerials": "raptor",
+        "avians": "fallen",
+        "beasts": "beast",
+        "brutes": "kishin",
+        "deities": "kishin",
+        "dragons": "dragon",
+        "icons": "megami",
+        "nethers": "yoma"
+      }
+    },
+    {
+      "pair": [
+        "nethers",
+        "avians"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "divine",
+        "beasts": "snake",
+        "brutes": "yoma",
+        "deities": "night",
+        "dragons": "megami",
+        "icons": "divine",
+        "nethers": "fairy"
+      }
+    },
+    {
+      "pair": [
+        "nethers",
+        "beasts"
+      ],
+      "results": {
+        "avians": "snake",
+        "beasts": "beast",
+        "brutes": "touki",
+        "deities": "yoma",
+        "dragons": "kishin",
+        "icons": "dragon",
+        "nethers": "brute"
+      }
+    },
+    {
+      "pair": [
+        "nethers",
+        "brutes"
+      ],
+      "results": {
+        "avians": "night",
+        "beasts": "touki",
+        "brutes": "brute",
+        "deities": "dragon",
+        "dragons": "touki",
+        "icons": "brute",
+        "nethers": "megami"
+      }
+    },
+    {
+      "pair": [
+        "aerials",
+        "dragons"
+      ],
+      "results": {
+        "aerials": "fallen",
+        "avians": "fallen",
+        "beasts": "wilder",
+        "brutes": "jaki",
+        "dragons": "drake",
+        "icons": "avian",
+        "nethers": "raptor"
+      }
+    },
+    {
+      "pair": [
+        "aerials",
+        "avians"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "divine",
+        "beasts": "holy",
+        "brutes": "femme",
+        "deities": "megami",
+        "dragons": "night",
+        "icons": "megami",
+        "nethers": "divine"
+      }
+    },
+    {
+      "pair": [
+        "aerials",
+        "beasts"
+      ],
+      "results": {
+        "aerials": "holy",
+        "avians": "yoma",
+        "beasts": "holy",
+        "deities": "kishin",
+        "dragons": "brute",
+        "icons": "holy",
+        "nethers": "yoma"
+      }
+    },
+    {
+      "pair": [
+        "aerials",
+        "brutes"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "divine",
+        "beasts": "beast",
+        "brutes": "touki",
+        "deities": "kishin",
+        "dragons": "yoma",
+        "icons": "megami",
+        "nethers": "night"
+      }
+    },
+    {
+      "pair": [
+        "dragons",
+        "avians"
+      ],
+      "results": {
+        "aerials": "drake",
+        "avians": "avian",
+        "beasts": "holy",
+        "brutes": "femme",
+        "deities": "divine",
+        "dragons": "dragon",
+        "icons": "femme",
+        "nethers": "fallen"
+      }
+    },
+    {
+      "pair": [
+        "dragons",
+        "beasts"
+      ],
+      "results": {
+        "aerials": "drake",
+        "avians": "snake",
+        "beasts": "avatar",
+        "brutes": "kishin",
+        "deities": "dragon",
+        "dragons": "dragon",
+        "icons": "dragon",
+        "nethers": "touki"
+      }
+    },
+    {
+      "pair": [
+        "dragons",
+        "brutes"
+      ],
+      "results": {
+        "aerials": "holy",
+        "avians": "snake",
+        "beasts": "holy",
+        "brutes": "therian",
+        "deities": "avatar",
+        "dragons": "avatar",
+        "icons": "jaki",
+        "nethers": "drake"
+      }
+    },
+    {
+      "pair": [
+        "avians",
+        "beasts"
+      ],
+      "results": {
+        "aerials": "fallen",
+        "avians": "avian",
+        "beasts": "snake",
+        "brutes": "touki",
+        "deities": "femme",
+        "dragons": "dragon",
+        "icons": "holy",
+        "nethers": "brute"
+      }
+    },
+    {
+      "pair": [
+        "avians",
+        "brutes"
+      ],
+      "results": {
+        "aerials": "divine",
+        "avians": "avian",
+        "beasts": "snake",
+        "brutes": "femme",
+        "deities": "divine",
+        "dragons": "megami",
+        "icons": "megami",
+        "nethers": "divine"
+      }
+    },
+    {
+      "pair": [
+        "beasts",
+        "brutes"
+      ],
+      "results": {
+        "aerials": "holy",
+        "avians": "snake",
+        "beasts": "holy",
+        "brutes": "therian",
+        "deities": "avatar",
+        "dragons": "avatar",
+        "icons": "jaki",
+        "nethers": "drake"
+      }
+    }
+  ],
+  "species": [
+    "deities",
+    "icons",
+    "nethers",
+    "aerials",
+    "dragons",
+    "avians",
+    "beasts",
+    "brutes"
+  ]
+}

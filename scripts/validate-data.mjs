@@ -259,6 +259,56 @@ const p3r = {
   }
 }
 
+// ---- Shin Megami Tensei (PS1) (public/data/smt1/) ---------------------------
+const SMT1_DIR = new URL('../public/data/smt1/', import.meta.url);
+const loadSmt1 = (name) => JSON.parse(readFileSync(new URL(`${name}.json`, SMT1_DIR), 'utf8'));
+const smt1 = {
+  demons: loadSmt1('demons'),
+  skills: loadSmt1('skills'),
+  races: loadSmt1('races'),
+  fusion: loadSmt1('fusion-chart'),
+  triple: loadSmt1('triple-chart'),
+  element: loadSmt1('element-chart'),
+  special: loadSmt1('special-recipes'),
+};
+{
+  const demonById = new Map(smt1.demons.map((d) => [d.id, d]));
+  const smt1SkillIds = idSet(smt1.skills);
+  const raceIds = new Set(smt1.races.races.map((r) => r.id));
+  const speciesIds = new Set(smt1.races.species.map((s) => s.id));
+  for (const [list, label] of [[smt1.demons, 'smt1 demon'], [smt1.skills, 'smt1 skill']]) {
+    const seen = new Set();
+    for (const x of list) {
+      if (seen.has(x.id)) fail(`duplicate ${label} id: ${x.id}`);
+      seen.add(x.id);
+    }
+  }
+  const demonRef = (id, where) => {
+    if (!demonById.has(id)) fail(`${where}: unresolved smt1 demon "${id}"`);
+  };
+  for (const d of smt1.demons) {
+    if (!raceIds.has(d.race)) fail(`smt1 demon ${d.id}: race ${d.race}`);
+    for (const sid of d.skillIds) ref(smt1SkillIds, sid, `smt1 demon ${d.id} skillIds`);
+    if (Object.keys(d.affinities).length !== 14) fail(`smt1 demon ${d.id}: ${Object.keys(d.affinities).length} affinity axes`);
+  }
+  for (const [a, row] of Object.entries(smt1.fusion.normal)) {
+    for (const [b, cell] of Object.entries(row)) {
+      if (JSON.stringify(smt1.fusion.normal[b]?.[a]) !== JSON.stringify(cell)) fail(`smt1 chart asymmetric at ${a} × ${b}`);
+      if (cell.kind === 'race' && !raceIds.has(cell.id)) fail(`smt1 chart ${a} × ${b}: race ${cell.id}`);
+      if (cell.kind === 'species' && !speciesIds.has(cell.id)) fail(`smt1 chart ${a} × ${b}: species ${cell.id}`);
+      if (cell.kind === 'element') demonRef(cell.id, `smt1 chart ${a} × ${b}`);
+    }
+  }
+  for (const row of smt1.triple.rows) {
+    for (const r of Object.values(row.results)) if (!raceIds.has(r)) fail(`smt1 triple chart ${row.pair.join('+')}: race ${r}`);
+  }
+  for (const e of smt1.element.elementIds) demonRef(e, 'smt1 element chart');
+  for (const r of smt1.special.recipes) {
+    demonRef(r.resultId, 'smt1 special recipe');
+    for (const id of r.ingredientIds) demonRef(id, `smt1 special recipe → ${r.resultId}`);
+  }
+}
+
 // ---- Report -----------------------------------------------------------------
 if (errors.length) {
   console.error(`✗ data validation FAILED — ${errors.length} error(s):`);
@@ -273,5 +323,6 @@ console.log(
     `fusion chart 24×24 symmetric; special/treasure gates and all id references resolve. ` +
     `SMT III: ${smt3.demons.length} demons, ${smt3.skills.length} skills, ${smt3.magatama.length} magatama; charts symmetric, recipes resolve. ` +
     `P4G: ${p4g.personas.length} personas, ${p4g.skills.length} skills, ${p4g.shadows.length} shadows; charts symmetric, recipes resolve. ` +
-    `P3R: ${p3r.personas.length} personas, ${p3r.skills.length} skills, ${p3r.shadows.length} shadows; chart symmetric, recipes resolve.`,
+    `P3R: ${p3r.personas.length} personas, ${p3r.skills.length} skills, ${p3r.shadows.length} shadows; chart symmetric, recipes resolve. ` +
+    `SMT1: ${smt1.demons.length} demons, ${smt1.skills.length} skills; charts resolve, recipes resolve.`,
 );

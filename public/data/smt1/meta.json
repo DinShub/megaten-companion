@@ -1,0 +1,80 @@
+{
+  "datasets": {
+    "demons": {
+      "bytes": 444046,
+      "entries": 252,
+      "file": "demons.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/demon-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/jap-demons.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/special-recipes.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/comp-config.json"
+      ]
+    },
+    "element-chart": {
+      "bytes": 3842,
+      "entries": 19,
+      "file": "element-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/element-chart.json"
+      ]
+    },
+    "fusion-chart": {
+      "bytes": 34625,
+      "entries": 22,
+      "file": "fusion-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/fusion-chart.json"
+      ]
+    },
+    "races": {
+      "bytes": 6628,
+      "entries": 37,
+      "file": "races.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/comp-config.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/alignments.json"
+      ]
+    },
+    "skills": {
+      "bytes": 23204,
+      "entries": 105,
+      "file": "skills.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/skill-data.json",
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/jap-skills.json"
+      ]
+    },
+    "special-recipes": {
+      "bytes": 4472,
+      "entries": 39,
+      "file": "special-recipes.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/special-recipes.json"
+      ]
+    },
+    "triple-chart": {
+      "bytes": 8910,
+      "entries": 28,
+      "file": "triple-chart.json",
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/f7d41c3f947a232d41bd8272de4221eb55f721c8/src/app/smt1/data/triple-chart.json"
+      ]
+    }
+  },
+  "game": "smt1",
+  "importedAt": "2026-11-03",
+  "notes": [
+    "PS1: upstream has one SMT1 dataset (its SmtSnesCompendiumModule). There is no PS1-specific data upstream; these are the SNES-era tables, believed unchanged on PS1 for demons and fusion.",
+    "Resistances: upstream's 15-character resist string drops its eighth character (always \"-\"), as upstream's SMT1 module does, leaving 14 elements. Each code decodes to a type and a percent: damage taken for resist/neutral/weak, how much is stopped or returned for null/repel/drain.",
+    "Levels keep upstream's decimal tie-breaks (Lakshmi 64.1): fusion level maths uses them; pages print the whole level.",
+    "Kinds: Messian and Gaean demons are recruit-only and Machines are enemy-only, as upstream's SMT1 compendium module marks them; upstream sets no other kind.",
+    "Special recipes all carry upstream fusion \"normal\", so their results stay in the race chart as well; the app applies the recipe first.",
+    "Race alignments come from alignments.json (upstream uses \"D\" for dark races); its \"darks\" map is not read by upstream's SMT1 calculators and is not imported."
+  ],
+  "upstream": {
+    "licence": "The Unlicense (public domain)",
+    "repo": "aqiu384/megaten-fusion-tool",
+    "sha": "f7d41c3f947a232d41bd8272de4221eb55f721c8"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "prereqs": [
+    {
+      "resultId": "corpses",
+      "text": "Undead x Undead x Undead"
+    }
+  ],
+  "recipes": [
+    {
+      "ingredientIds": [
+        "salamander",
+        "sylph"
+      ],
+      "resultId": "agni"
+    },
+    {
+      "ingredientIds": [
+        "sylph",
+        "gnome"
+      ],
+      "resultId": "angel"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "sylph"
+      ],
+      "resultId": "archangel"
+    },
+    {
+      "ingredientIds": [
+        "flaemis",
+        "aquans"
+      ],
+      "resultId": "bai-ze"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "erthys"
+      ],
+      "resultId": "berith"
+    },
+    {
+      "ingredientIds": [
+        "aquans",
+        "erthys"
+      ],
+      "resultId": "bogle"
+    },
+    {
+      "ingredientIds": [
+        "aeros",
+        "erthys"
+      ],
+      "resultId": "bugaboo"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "sylph",
+        "gnome"
+      ],
+      "resultId": "chimera"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "undine",
+        "sylph"
+      ],
+      "resultId": "dominion"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "erthys"
+      ],
+      "resultId": "dryad"
+    },
+    {
+      "ingredientIds": [
+        "gnome",
+        "flaemis"
+      ],
+      "resultId": "dwarf"
+    },
+    {
+      "ingredientIds": [
+        "sylph",
+        "flaemis"
+      ],
+      "resultId": "feng-huang"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "aquans"
+      ],
+      "resultId": "forneus"
+    },
+    {
+      "ingredientIds": [
+        "sylph",
+        "aeros"
+      ],
+      "resultId": "furiae"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "aeros"
+      ],
+      "resultId": "gandharva"
+    },
+    {
+      "ingredientIds": [
+        "flaemis",
+        "aquans",
+        "aeros"
+      ],
+      "resultId": "gnome"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "undine"
+      ],
+      "resultId": "itzamna"
+    },
+    {
+      "ingredientIds": [
+        "aquans",
+        "aeros"
+      ],
+      "resultId": "jack-frost"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "sylph",
+        "gnome"
+      ],
+      "resultId": "kikuri-hime"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "gnome"
+      ],
+      "resultId": "kotoshironushi"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "flaemis"
+      ],
+      "resultId": "lakhe"
+    },
+    {
+      "ingredientIds": [
+        "sylph",
+        "erthys"
+      ],
+      "resultId": "onkot"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "aquans"
+      ],
+      "resultId": "orobas"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "aeros"
+      ],
+      "resultId": "phoenix"
+    },
+    {
+      "ingredientIds": [
+        "gnome",
+        "aquans"
+      ],
+      "resultId": "qilin"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "gnome"
+      ],
+      "resultId": "raja-naga"
+    },
+    {
+      "ingredientIds": [
+        "aquans",
+        "aeros",
+        "erthys"
+      ],
+      "resultId": "salamander"
+    },
+    {
+      "ingredientIds": [
+        "barong",
+        "rangda"
+      ],
+      "resultId": "shiva"
+    },
+    {
+      "ingredientIds": [
+        "sylph",
+        "aquans"
+      ],
+      "resultId": "siren"
+    },
+    {
+      "ingredientIds": [
+        "flaemis",
+        "aquans",
+        "erthys"
+      ],
+      "resultId": "sylph"
+    },
+    {
+      "ingredientIds": [
+        "flaemis",
+        "aeros"
+      ],
+      "resultId": "sytry"
+    },
+    {
+      "ingredientIds": [
+        "flaemis",
+        "aeros",
+        "erthys"
+      ],
+      "resultId": "undine"
+    },
+    {
+      "ingredientIds": [
+        "flaemis",
+        "erthys"
+      ],
+      "resultId": "unicorn"
+    },
+    {
+      "ingredientIds": [
+        "cherub",
+        "throne",
+        "dominion"
+      ],
+      "resultId": "uriel"
+    },
+    {
+      "ingredientIds": [
+        "gnome",
+        "erthys"
+      ],
+      "resultId": "worm"
+    },
+    {
+      "ingredientIds": [
+        "gnome",
+        "aeros"
+      ],
+      "resultId": "wyrm"
+    },
+    {
+      "ingredientIds": [
+        "undine",
+        "flaemis"
+      ],
+      "resultId": "yaksini"
+    },
+    {
+      "ingredientIds": [
+        "salamander",
+        "undine",
+        "gnome"
+      ],
+      "resultId": "yama"
+    }
+  ]
+}

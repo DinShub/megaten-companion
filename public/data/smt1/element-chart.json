@@ -1,0 +1,225 @@
+{
+  "elementIds": [
+    "salamander",
+    "undine",
+    "sylph",
+    "gnome",
+    "flaemis",
+    "aquans",
+    "aeros",
+    "erthys"
+  ],
+  "races": [
+    "kishin",
+    "femme",
+    "yoma",
+    "night",
+    "fairy",
+    "seraph",
+    "divine",
+    "fallen",
+    "dragon",
+    "snake",
+    "avian",
+    "flight",
+    "avatar",
+    "holy",
+    "beast",
+    "touki",
+    "brute",
+    "jirae",
+    "therian"
+  ],
+  "shifts": {
+    "avatar": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": 1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": -1,
+      "undine": -1
+    },
+    "avian": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": -1,
+      "salamander": 1,
+      "sylph": 2,
+      "undine": -1
+    },
+    "beast": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": 1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "brute": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": 1,
+      "flaemis": -1,
+      "gnome": 2,
+      "salamander": -1,
+      "sylph": -1,
+      "undine": 2
+    },
+    "divine": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": 1,
+      "undine": 1
+    },
+    "dragon": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": -1,
+      "salamander": -1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "fairy": {
+      "aeros": 1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": 1,
+      "salamander": -1,
+      "sylph": 2,
+      "undine": 2
+    },
+    "fallen": {
+      "aeros": 1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": 1,
+      "gnome": -1,
+      "salamander": 2,
+      "sylph": 1,
+      "undine": 1
+    },
+    "femme": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": -1,
+      "salamander": 1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "flight": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": -1,
+      "salamander": 1,
+      "sylph": 2,
+      "undine": -1
+    },
+    "holy": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": 1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "jirae": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": 2,
+      "flaemis": -1,
+      "gnome": 2,
+      "salamander": -1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "kishin": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": -1,
+      "salamander": 1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "night": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": 1,
+      "flaemis": -1,
+      "gnome": 2,
+      "salamander": -1,
+      "sylph": 1,
+      "undine": 1
+    },
+    "seraph": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": 1,
+      "undine": 1
+    },
+    "snake": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": 1,
+      "undine": 1
+    },
+    "therian": {
+      "aeros": -1,
+      "aquans": 1,
+      "erthys": -1,
+      "flaemis": 1,
+      "gnome": 1,
+      "salamander": 1,
+      "sylph": 1,
+      "undine": 1
+    },
+    "touki": {
+      "aeros": -1,
+      "aquans": -1,
+      "erthys": 1,
+      "flaemis": -1,
+      "gnome": 2,
+      "salamander": 1,
+      "sylph": -1,
+      "undine": 1
+    },
+    "yoma": {
+      "aeros": 1,
+      "aquans": -1,
+      "erthys": -1,
+      "flaemis": -1,
+      "gnome": -1,
+      "salamander": 1,
+      "sylph": 2,
+      "undine": 1
+    }
+  }
+}

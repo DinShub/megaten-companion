@@ -63,6 +63,21 @@ const APP_PRIMITIVES = {
     900: '#60270f',
     950: '#361105',
   },
+  // A print spot blue (SMT1's Guidebook skin). 500 is the ink on paper; 400, the
+  // dark-mode primary, is lifted enough to read on the dark desk.
+  spot: {
+    50: '#eef3fc',
+    100: '#d6e1f7',
+    200: '#adc3ee',
+    300: '#8fb0f0',
+    400: '#7f9ee0',
+    500: '#1546a0',
+    600: '#123b88',
+    700: '#0e3478',
+    800: '#0c2a60',
+    900: '#0a2350',
+    950: '#06152f',
+  },
 } as const;
 
 /**

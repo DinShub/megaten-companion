@@ -35,7 +35,8 @@
               { "input": "src/styles/skin-bundles/calling-card.scss", "bundleName": "skin-calling-card", "inject": false },
               { "input": "src/styles/skin-bundles/comp.scss", "bundleName": "skin-comp", "inject": false },
               { "input": "src/styles/skin-bundles/midnight-channel.scss", "bundleName": "skin-midnight-channel", "inject": false },
-              { "input": "src/styles/skin-bundles/abyss.scss", "bundleName": "skin-abyss", "inject": false }
+              { "input": "src/styles/skin-bundles/abyss.scss", "bundleName": "skin-abyss", "inject": false },
+              { "input": "src/styles/skin-bundles/guidebook.scss", "bundleName": "skin-guidebook", "inject": false }
             ]
           },
           "configurations": {

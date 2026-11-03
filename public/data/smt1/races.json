@@ -1,0 +1,380 @@
+{
+  "races": [
+    {
+      "id": "deity",
+      "law": "law",
+      "light": "light",
+      "name": "Deity",
+      "species": "deities"
+    },
+    {
+      "id": "megami",
+      "law": "law",
+      "light": "light",
+      "name": "Megami",
+      "species": "deities"
+    },
+    {
+      "id": "tenma",
+      "law": "chaos",
+      "light": "light",
+      "name": "Tenma",
+      "species": "icons"
+    },
+    {
+      "id": "kishin",
+      "law": "chaos",
+      "light": "light",
+      "name": "Kishin",
+      "species": "icons"
+    },
+    {
+      "id": "femme",
+      "law": "chaos",
+      "light": "neutral",
+      "name": "Femme",
+      "species": "icons"
+    },
+    {
+      "id": "vile",
+      "law": "law",
+      "light": "dark",
+      "name": "Vile",
+      "species": "icons"
+    },
+    {
+      "id": "tyrant",
+      "law": "chaos",
+      "light": "dark",
+      "name": "Tyrant",
+      "species": "nethers"
+    },
+    {
+      "id": "yoma",
+      "law": "law",
+      "light": "neutral",
+      "name": "Yoma",
+      "species": "nethers"
+    },
+    {
+      "id": "night",
+      "law": "chaos",
+      "light": "neutral",
+      "name": "Night",
+      "species": "nethers"
+    },
+    {
+      "id": "fairy",
+      "law": "neutral",
+      "light": "neutral",
+      "name": "Fairy",
+      "species": "nethers"
+    },
+    {
+      "id": "seraph",
+      "law": "law",
+      "light": "light",
+      "name": "Seraph",
+      "species": "aerials"
+    },
+    {
+      "id": "divine",
+      "law": "law",
+      "light": "light",
+      "name": "Divine",
+      "species": "aerials"
+    },
+    {
+      "id": "fallen",
+      "law": "chaos",
+      "light": "neutral",
+      "name": "Fallen",
+      "species": "aerials"
+    },
+    {
+      "id": "dragon",
+      "law": "chaos",
+      "light": "light",
+      "name": "Dragon",
+      "species": "dragons"
+    },
+    {
+      "id": "snake",
+      "law": "chaos",
+      "light": "neutral",
+      "name": "Snake",
+      "species": "dragons"
+    },
+    {
+      "id": "drake",
+      "law": "chaos",
+      "light": "dark",
+      "name": "Drake",
+      "species": "dragons"
+    },
+    {
+      "id": "avian",
+      "law": "law",
+      "light": "light",
+      "name": "Avian",
+      "species": "avians"
+    },
+    {
+      "id": "flight",
+      "law": "law",
+      "light": "neutral",
+      "name": "Flight",
+      "species": "avians"
+    },
+    {
+      "id": "raptor",
+      "law": "law",
+      "light": "dark",
+      "name": "Raptor",
+      "species": "avians"
+    },
+    {
+      "id": "avatar",
+      "law": "neutral",
+      "light": "light",
+      "name": "Avatar",
+      "species": "beasts"
+    },
+    {
+      "id": "holy",
+      "law": "law",
+      "light": "light",
+      "name": "Holy",
+      "species": "beasts"
+    },
+    {
+      "id": "beast",
+      "law": "neutral",
+      "light": "neutral",
+      "name": "Beast",
+      "species": "beasts"
+    },
+    {
+      "id": "wilder",
+      "law": "neutral",
+      "light": "dark",
+      "name": "Wilder",
+      "species": "beasts"
+    },
+    {
+      "id": "touki",
+      "law": "neutral",
+      "light": "neutral",
+      "name": "Touki",
+      "species": "brutes"
+    },
+    {
+      "id": "brute",
+      "law": "chaos",
+      "light": "neutral",
+      "name": "Brute",
+      "species": "brutes"
+    },
+    {
+      "id": "jirae",
+      "law": "law",
+      "light": "neutral",
+      "name": "Jirae",
+      "species": "brutes"
+    },
+    {
+      "id": "jaki",
+      "law": "law",
+      "light": "dark",
+      "name": "Jaki",
+      "species": "brutes"
+    },
+    {
+      "id": "element",
+      "law": "neutral",
+      "light": "light",
+      "name": "Element",
+      "species": "elements"
+    },
+    {
+      "id": "haunt",
+      "law": "chaos",
+      "light": "dark",
+      "name": "Haunt",
+      "species": "spirits"
+    },
+    {
+      "id": "spirit",
+      "law": "chaos",
+      "light": "dark",
+      "name": "Spirit",
+      "species": "spirits"
+    },
+    {
+      "id": "undead",
+      "law": "neutral",
+      "light": "dark",
+      "name": "Undead",
+      "species": "spirits"
+    },
+    {
+      "id": "foul",
+      "law": "chaos",
+      "light": "dark",
+      "name": "Foul",
+      "species": "fouls"
+    },
+    {
+      "id": "therian",
+      "law": "neutral",
+      "light": "neutral",
+      "name": "Therian",
+      "species": "humans"
+    },
+    {
+      "id": "messian",
+      "law": "law",
+      "light": "neutral",
+      "name": "Messian",
+      "species": "humans"
+    },
+    {
+      "id": "gaean",
+      "law": "chaos",
+      "light": "neutral",
+      "name": "Gaean",
+      "species": "humans"
+    },
+    {
+      "id": "fiend",
+      "law": "neutral",
+      "light": "dark",
+      "name": "Fiend",
+      "species": "humans"
+    },
+    {
+      "id": "machine",
+      "law": "law",
+      "light": "dark",
+      "name": "Machine",
+      "species": "machines"
+    }
+  ],
+  "species": [
+    {
+      "id": "deities",
+      "name": "Deities",
+      "raceIds": [
+        "deity",
+        "megami"
+      ]
+    },
+    {
+      "id": "icons",
+      "name": "Icons",
+      "raceIds": [
+        "tenma",
+        "kishin",
+        "femme",
+        "vile"
+      ]
+    },
+    {
+      "id": "nethers",
+      "name": "Nethers",
+      "raceIds": [
+        "tyrant",
+        "yoma",
+        "night",
+        "fairy"
+      ]
+    },
+    {
+      "id": "aerials",
+      "name": "Aerials",
+      "raceIds": [
+        "seraph",
+        "divine",
+        "fallen"
+      ]
+    },
+    {
+      "id": "dragons",
+      "name": "Dragons",
+      "raceIds": [
+        "dragon",
+        "snake",
+        "drake"
+      ]
+    },
+    {
+      "id": "avians",
+      "name": "Avians",
+      "raceIds": [
+        "avian",
+        "flight",
+        "raptor"
+      ]
+    },
+    {
+      "id": "beasts",
+      "name": "Beasts",
+      "raceIds": [
+        "avatar",
+        "holy",
+        "beast",
+        "wilder"
+      ]
+    },
+    {
+      "id": "brutes",
+      "name": "Brutes",
+      "raceIds": [
+        "touki",
+        "brute",
+        "jirae",
+        "jaki"
+      ]
+    },
+    {
+      "id": "elements",
+      "name": "Elements",
+      "raceIds": [
+        "element"
+      ]
+    },
+    {
+      "id": "spirits",
+      "name": "Spirits",
+      "raceIds": [
+        "haunt",
+        "spirit",
+        "undead"
+      ]
+    },
+    {
+      "id": "fouls",
+      "name": "Fouls",
+      "raceIds": [
+        "foul"
+      ]
+    },
+    {
+      "id": "humans",
+      "name": "Humans",
+      "raceIds": [
+        "therian",
+        "messian",
+        "gaean",
+        "fiend"
+      ]
+    },
+    {
+      "id": "machines",
+      "name": "Machines",
+      "raceIds": [
+        "machine"
+      ]
+    }
+  ]
+}

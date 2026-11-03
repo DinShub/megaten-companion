@@ -1,0 +1,1924 @@
+{
+  "normal": {
+    "avatar": {
+      "avatar": {
+        "id": "salamander",
+        "kind": "element"
+      },
+      "avian": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "beasts",
+        "kind": "species"
+      },
+      "brute": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "beasts",
+        "kind": "species"
+      },
+      "jirae": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "night": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "therian",
+        "kind": "race"
+      }
+    },
+    "avian": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "sylph",
+        "kind": "element"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "night",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "avians",
+        "kind": "species"
+      },
+      "holy": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "night": {
+        "id": "raptor",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "snake",
+        "kind": "race"
+      }
+    },
+    "beast": {
+      "avatar": {
+        "id": "beasts",
+        "kind": "species"
+      },
+      "avian": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "flaemis",
+        "kind": "element"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "beasts",
+        "kind": "species"
+      },
+      "jirae": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "night": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "brute",
+        "kind": "race"
+      }
+    },
+    "brute": {
+      "avatar": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "night",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "gnome",
+        "kind": "element"
+      },
+      "deity": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "haunt",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brutes",
+        "kind": "species"
+      },
+      "kishin": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "night": {
+        "id": "jaki",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "brutes",
+        "kind": "species"
+      },
+      "yoma": {
+        "id": "touki",
+        "kind": "race"
+      }
+    },
+    "deity": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "night",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "deities",
+        "kind": "species"
+      },
+      "night": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "megami",
+        "kind": "race"
+      }
+    },
+    "divine": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "sylph",
+        "kind": "element"
+      },
+      "dragon": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "aerials",
+        "kind": "species"
+      },
+      "femme": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "night": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "aerials",
+        "kind": "species"
+      },
+      "snake": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "foul",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "fallen",
+        "kind": "race"
+      }
+    },
+    "dragon": {
+      "avatar": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "night": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "dragons",
+        "kind": "species"
+      },
+      "tenma": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "femme",
+        "kind": "race"
+      }
+    },
+    "fairy": {
+      "avatar": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "night",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "aeros",
+        "kind": "element"
+      },
+      "fallen": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "night",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "night": {
+        "id": "nethers",
+        "kind": "species"
+      },
+      "seraph": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "nethers",
+        "kind": "species"
+      }
+    },
+    "fallen": {
+      "avatar": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "haunt",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "aerials",
+        "kind": "species"
+      },
+      "dragon": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "flaemis",
+        "kind": "element"
+      },
+      "femme": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "night",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "jaki",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "night",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "night": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "aerials",
+        "kind": "species"
+      },
+      "snake": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "night",
+        "kind": "race"
+      }
+    },
+    "femme": {
+      "avatar": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "night",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "undine",
+        "kind": "element"
+      },
+      "flight": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "icons",
+        "kind": "species"
+      },
+      "megami": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "night": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "icons",
+        "kind": "species"
+      },
+      "therian": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "night",
+        "kind": "race"
+      }
+    },
+    "flight": {
+      "avatar": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "avians",
+        "kind": "species"
+      },
+      "beast": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "night",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "aeros",
+        "kind": "element"
+      },
+      "holy": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "raptor",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "night": {
+        "id": "raptor",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "fallen",
+        "kind": "race"
+      }
+    },
+    "holy": {
+      "avatar": {
+        "id": "beasts",
+        "kind": "species"
+      },
+      "avian": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "beasts",
+        "kind": "species"
+      },
+      "brute": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "flaemis",
+        "kind": "element"
+      },
+      "jirae": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "night": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "drake",
+        "kind": "race"
+      }
+    },
+    "jirae": {
+      "avatar": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "brutes",
+        "kind": "species"
+      },
+      "deity": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "jaki",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "raptor",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "erthys",
+        "kind": "element"
+      },
+      "kishin": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "night": {
+        "id": "spirit",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "brutes",
+        "kind": "species"
+      },
+      "yoma": {
+        "id": "brute",
+        "kind": "race"
+      }
+    },
+    "kishin": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "night",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "icons",
+        "kind": "species"
+      },
+      "flight": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "night": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "icons",
+        "kind": "species"
+      },
+      "therian": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "femme",
+        "kind": "race"
+      }
+    },
+    "megami": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "deities",
+        "kind": "species"
+      },
+      "divine": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "night": {
+        "id": "jirae",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "tenma",
+        "kind": "race"
+      }
+    },
+    "night": {
+      "avatar": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "raptor",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "jaki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "nethers",
+        "kind": "species"
+      },
+      "fallen": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "raptor",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "spirit",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "jirae",
+        "kind": "race"
+      },
+      "night": {
+        "id": "erthys",
+        "kind": "element"
+      },
+      "seraph": {
+        "id": "deity",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "haunt",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "nethers",
+        "kind": "species"
+      }
+    },
+    "seraph": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "aerials",
+        "kind": "species"
+      },
+      "dragon": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "aerials",
+        "kind": "species"
+      },
+      "femme": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "night": {
+        "id": "deity",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "deity",
+        "kind": "race"
+      }
+    },
+    "snake": {
+      "avatar": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "dragons",
+        "kind": "species"
+      },
+      "fairy": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "night": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "undine",
+        "kind": "element"
+      },
+      "tenma": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "avian",
+        "kind": "race"
+      }
+    },
+    "tenma": {
+      "avatar": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "divine",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "foul",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "icons",
+        "kind": "species"
+      },
+      "flight": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "icons",
+        "kind": "species"
+      },
+      "night": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "megami",
+        "kind": "race"
+      }
+    },
+    "therian": {
+      "avatar": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "holy",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "wilder",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "fairy",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "night": {
+        "id": "haunt",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "beast",
+        "kind": "race"
+      }
+    },
+    "touki": {
+      "avatar": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "brutes",
+        "kind": "species"
+      },
+      "deity": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "fallen": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "avatar",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brutes",
+        "kind": "species"
+      },
+      "kishin": {
+        "id": "dragon",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "night": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "seraph": {
+        "id": "yoma",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "kishin",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "gnome",
+        "kind": "element"
+      },
+      "yoma": {
+        "id": "femme",
+        "kind": "race"
+      }
+    },
+    "yoma": {
+      "avatar": {
+        "id": "therian",
+        "kind": "race"
+      },
+      "avian": {
+        "id": "snake",
+        "kind": "race"
+      },
+      "beast": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "brute": {
+        "id": "touki",
+        "kind": "race"
+      },
+      "deity": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "divine": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "dragon": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "fairy": {
+        "id": "nethers",
+        "kind": "species"
+      },
+      "fallen": {
+        "id": "night",
+        "kind": "race"
+      },
+      "femme": {
+        "id": "night",
+        "kind": "race"
+      },
+      "flight": {
+        "id": "fallen",
+        "kind": "race"
+      },
+      "holy": {
+        "id": "drake",
+        "kind": "race"
+      },
+      "jirae": {
+        "id": "brute",
+        "kind": "race"
+      },
+      "kishin": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "megami": {
+        "id": "tenma",
+        "kind": "race"
+      },
+      "night": {
+        "id": "nethers",
+        "kind": "species"
+      },
+      "seraph": {
+        "id": "deity",
+        "kind": "race"
+      },
+      "snake": {
+        "id": "avian",
+        "kind": "race"
+      },
+      "tenma": {
+        "id": "megami",
+        "kind": "race"
+      },
+      "therian": {
+        "id": "beast",
+        "kind": "race"
+      },
+      "touki": {
+        "id": "femme",
+        "kind": "race"
+      },
+      "yoma": {
+        "id": "aquans",
+        "kind": "element"
+      }
+    }
+  },
+  "races": [
+    "deity",
+    "megami",
+    "tenma",
+    "kishin",
+    "femme",
+    "yoma",
+    "night",
+    "fairy",
+    "seraph",
+    "divine",
+    "fallen",
+    "dragon",
+    "snake",
+    "avian",
+    "flight",
+    "avatar",
+    "holy",
+    "beast",
+    "touki",
+    "brute",
+    "jirae",
+    "therian"
+  ]
+}

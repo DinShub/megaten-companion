@@ -100,4 +100,24 @@ export const SKINS: Readonly<Record<GameSkin, SkinTokens>> = {
     },
     radius: { none: '0', xs: '6px', sm: '10px', md: '16px', lg: '22px', xl: '28px' },
   },
+  // The desk under a printed sheet: a warm grey-violet near-black. Text (0) is a
+  // soft off-white and muted text (400) clears AA on the 900 desk. Inside the
+  // sheet the skin flips to its paper tokens; the radii are print-sharp.
+  guidebook: {
+    surface: {
+      0: '#dedbe3',
+      50: '#d2cfd8',
+      100: '#c3bfca',
+      200: '#b4b0bc',
+      300: '#aba7b3',
+      400: '#9d99a6',
+      500: '#6f6b78',
+      600: '#4a4752',
+      700: '#3a3740',
+      800: '#2c2a31',
+      900: '#232127',
+      950: '#18171b',
+    },
+    radius: { none: '0', xs: '2px', sm: '3px', md: '4px', lg: '6px', xl: '14px' },
+  },
 };
