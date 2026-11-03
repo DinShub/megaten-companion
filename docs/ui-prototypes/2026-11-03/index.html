@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMT Companion: four directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #16161a;
+    --line: #34343c;
+    --text: #eceef2;
+    --muted: #a6a7b1;
+    --accent: #c9a45c;          /* provisional: SMT1 has no game accent yet */
+    color-scheme: dark;         /* single dark look, like the app */
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.55 'Familjen Grotesk', system-ui, sans-serif; }
+  main { max-width: 1180px; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; }
+  header { max-width: 62ch; margin-bottom: 2.75rem; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin: 0 0 1rem; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+  header p { color: var(--muted); margin: 0 0 0.75rem; }
+  header strong { color: var(--text); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+  .dir { display: flex; flex-direction: column; min-width: 0; }
+  .dir__shot {
+    --s: 0.38;
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #000;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }
+  .dir__shot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 900px;
+    border: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--s));
+    pointer-events: none;
+    transition: transform 0.4s ease;
+  }
+  .dir__shot:hover, .dir__shot:focus-visible { border-color: var(--accent); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9); transform: translateY(-3px); }
+  .dir__shot:hover iframe { transform: scale(calc(var(--s) * 1.02)); }
+  .dir__shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .dir h2 { font-size: 1.5rem; margin: 1.1rem 0 0.15rem; font-weight: 700; letter-spacing: -0.01em; }
+  .dir h2 a { color: inherit; text-decoration: none; }
+  .dir h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .dir__lever { color: var(--accent); margin: 0 0 0.6rem; font-weight: 500; }
+  .dir p { margin: 0 0 0.6rem; max-width: 60ch; }
+  .dir__cost { color: var(--muted); font-size: 0.93rem; }
+  .dir__cost b { color: var(--text); font-weight: 500; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); max-width: 70ch; color: var(--muted); }
+  footer p { margin: 0 0 0.75rem; }
+  footer strong { color: var(--text); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dir__shot, .dir__shot iframe { transition: none; }
+    .dir__shot:hover, .dir__shot:focus-visible { transform: none; }
+    .dir__shot:hover iframe { transform: scale(var(--s)); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Four looks for Shin Megami Tensei on the PS1</h1>
+    <p>The app has four games today, each with its own dark skin: COMP for Nocturne, Calling Card for P5R, Midnight Channel for P4G and Abyss for P3R. SMT1 needs one of its own, and COMP's terminal look is already taken, so none of these goes that way.</p>
+    <p>All four show the <strong>same real screen</strong>: Barong and Rangda making Shiva (a special recipe), with a short list of the Tenma race and the two parents. The data is upstream's SMT1 data at the pinned commit. Click or press a key to skip a page's opening moment.</p>
+  </header>
+
+  <div class="grid">
+    <article class="dir">
+      <a class="dir__shot" href="cathedral.html" aria-label="Open the Cathedral prototype">
+        <iframe src="cathedral.html#preview" title="Cathedral prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="cathedral.html">Cathedral</a></h2>
+      <p class="dir__lever">Personality from light through stained glass</p>
+      <p>The fusion page is the Cathedral of Shadows, laid out like a church front. The two parents are tall arched windows on either side of a rose window, and the result's name is in the rose's centre. When the page opens, the parent windows warm up first. Then the rose lights from the centre out, one ring at a time, and throws a pool of light on the floor. A candle glow follows the pointer across the dark stone.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The rose window is generated SVG and needs a small component. It only fits the pair calculator, so other pages use the stone panels and the gold accent. The blackletter font is for display only, and running text stays in a serif. Fonts are self-hosted Latin subsets as usual.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="law-and-chaos.html" aria-label="Open the Law and Chaos prototype">
+        <iframe src="law-and-chaos.html#preview" title="Law and Chaos prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="law-and-chaos.html">Law and Chaos</a></h2>
+      <p class="dir__lever">Personality from alignment, used as the layout</p>
+      <p>The top of the page is SMT1's 3×3 alignment grid, with Light, Neutral and Dark rows and Law, Neutral and Chaos columns. Each cell shows how many of the 252 demons sit there. Barong and Rangda appear in their own cells, lines draw from both, and Shiva drops into Light, Chaos as the Chaos column lights red. In the list, each row has a tiny 3×3 alignment mark.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The grid is plain CSS grid plus a small SVG overlay for the lines, and the counts come from the imported data. Alignment has to be in the data model, split into its two axes. The grid gets crowded when several results share a cell, so reverse mode would need a different view.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="tokyo-199x.html" aria-label="Open the Tokyo 199X prototype">
+        <iframe src="tokyo-199x.html#preview" title="Tokyo 199X prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="tokyo-199x.html">Tokyo 199X</a></h2>
+      <p class="dir__lever">Personality from first-person space</p>
+      <p>The top of the page is a first-person wireframe corridor, like SMT1's dungeons. The result waits in a doorway at the far end, and the two parents stand in a party strip along the bottom. When the page opens, you walk four steps down the corridor while a small map fills in. Then the doorway flashes and the message "Barong and Rangda fused." types out. Moving the pointer leans the corridor. Below it, everything sits in navy RPG windows with a yellow menu cursor.</p>
+      <p class="dir__cost"><b>Porting effort: medium-high.</b> The corridor is a canvas drawing that needs a component that resizes and redraws. The RPG window and the cursor are cheap CSS that every page can use. The pixel font is Japanese, so self-hosting it means a careful subset.</p>
+    </article>
+
+    <article class="dir">
+      <a class="dir__shot" href="guidebook.html" aria-label="Open the Guidebook prototype">
+        <iframe src="guidebook.html#preview" title="Guidebook prototype preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h2><a href="guidebook.html">Guidebook</a></h2>
+      <p class="dir__lever">Personality from two-colour print</p>
+      <p>The PS1 release came out only in Japan, so this one looks like a Japanese strategy guide from the time. It's a printed sheet on a dark desk, in black and one spot blue. The recipe is one big line, Barong ＋ Rangda ＝ Shiva, with each name's katakana printed above it. Each demon gets a guide-style data box, there's a "special" point box, and a fusion section tab sits on the edge. When the page opens, the blue plate prints out of register and the press pulls it into line in two jolts.</p>
+      <p class="dir__cost"><b>Porting effort: medium.</b> The sheet is a paper context, like Calling Card's token flip, so the dark-only rule still holds outside it. Katakana names come from upstream's jap-demons.json, so the importer has to keep them. The Mincho and Gothic fonts need subsets for only those glyphs, which is the biggest cost.</p>
+    </article>
+  </div>
+
+  <footer>
+    <p><strong>Mixing is fair game.</strong> Each direction is built from parts you can separate: palette, type, one signature element and a voice. For example, Law and Chaos's alignment grid could be the hero of the Cathedral's stone and gold, or the Guidebook's katakana readings could go into any of the other three.</p>
+    <p>These are mockups. The hovers, the search filter, the mode buttons and each page's opening moment all work: the rose window lighting, the result dropping into its cell, the walk down the corridor and the blue plate coming into register. No fusion logic is wired. The recipe is upstream's special recipe, not worked out by the app's engine. Upstream's SMT1 module is labelled SNES, and I haven't checked whether its numbers match the PS1 release.</p>
+  </footer>
+</main>
+<script>
+  // Scale each 1440 × 900 live preview to its card's width.
+  const ro = new ResizeObserver((entries) => {
+    for (const e of entries) e.target.style.setProperty('--s', String(e.contentRect.width / 1440));
+  });
+  document.querySelectorAll('.dir__shot').forEach((el) => ro.observe(el));
+</script>
+</body>
+</html>

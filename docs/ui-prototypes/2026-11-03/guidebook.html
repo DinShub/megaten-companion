@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Guidebook · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Guidebook: personality from two-colour print.
+     The PS1 release was Japanese-only, so the page borrows the look of a
+     Japanese strategy guide of the time: a sheet printed in black and one
+     spot blue, katakana readings over the names, demon data boxes, a
+     halftone tint, and a fusion section tab on the edge.
+     Layout idea: a printed sheet lying on a dark desk. The app stays
+     dark-only; the sheet is a "paper context" like Calling Card's
+     cc-paper-tokens, so everything outside it is the desk.
+     Tokens. --spot is the game accent (--p-primary-500 via a new `spot`
+     ramp); --paper/--ink are the paper context.
+     ------------------------------------------------------------------ */
+  :root {
+    --desk: #232127;
+    --desk-ink: #d9d6de;
+    --desk-dim: #a9a5b1;         /* 6.4:1 on desk */
+    --paper: #e6e4dc;
+    --ink: #17171a;              /* 14:1 on paper */
+    --ink-dim: #4a4a52;          /* 7.4:1 on paper */
+    --spot: #1546a0;             /* accent, spot blue: 6.9:1 on paper */
+    --tint: rgba(21, 70, 160, 0.16);
+    --mincho: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    --gothic: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', system-ui, sans-serif;
+    --mx: 0px;                   /* blue plate offset, for the registration moment */
+    --my: 0px;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; overflow-x: hidden; background: var(--desk); color: var(--desk-ink); font: 400 15px/1.6 var(--gothic); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--spot); outline-offset: 2px; }
+
+  /* Halftone: a dot screen in spot blue. */
+  .halftone { background-image: radial-gradient(var(--tint) 1.2px, transparent 1.5px); background-size: 5px 5px; }
+
+  /* The blue plate. Everything printed in spot blue moves together. */
+  .plate { translate: var(--mx) var(--my); transition: translate 0.18s steps(2, end); }
+
+  /* ------------------------------------------------------------------ desk header */
+  .bar { display: flex; align-items: center; gap: 2rem; padding: 1rem 3vw; }
+  .brand { font: 900 1.4rem/1 var(--mincho); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 1.2rem;
+    flex: 1;
+
+    a {
+      padding: 0.2rem 0;
+      color: var(--desk-dim);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+
+      &:hover { color: var(--desk-ink); }
+      &[aria-current='page'] { color: var(--desk-ink); border-bottom-color: #7f9ee0; }
+    }
+  }
+  .bar__count { color: var(--desk-dim); white-space: nowrap; b { color: var(--desk-ink); font-weight: 500; } }
+
+  /* ------------------------------------------------------------------ the sheet */
+  main { max-width: 1260px; margin: 0 auto; padding: 0.6rem 3vw 6rem; }
+  .sheet {
+    position: relative;
+    padding: 2rem 4.2rem 2.6rem 2.6rem;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8), 0 2px 0 rgba(0, 0, 0, 0.3);
+  }
+  .tab {
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    padding: 1rem 0.55rem;
+    background: var(--spot);
+    color: var(--paper);
+    font: 900 1.2rem/1.1 var(--mincho);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+  }
+  .runhead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.8rem 2rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 3px double var(--ink);
+
+    h1 { margin: 0; font: 900 clamp(2rem, 4vw, 2.9rem)/1 var(--mincho); }
+    h1 small { display: block; margin-bottom: 0.3rem; font: 500 0.85rem/1 var(--gothic); color: var(--spot); }
+    p { margin: 0.25rem 0 0; color: var(--ink-dim); }
+  }
+  .modes {
+    display: inline-flex;
+    border: 1.5px solid var(--ink);
+
+    button {
+      padding: 0.45rem 0.95rem;
+      border: 0;
+      border-right: 1.5px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font: 500 0.9rem/1 var(--gothic);
+      cursor: pointer;
+
+      &:last-child { border-right: 0; }
+      &:hover { background: var(--tint); }
+      &:active { translate: 0 1px; }
+      &[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+    }
+  }
+
+  /* The formula: the recipe as one printed line, katakana over each name. */
+  .formula {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 0.2rem 1.4rem;
+    margin: 1.6rem 0 1.5rem;
+    font: 900 clamp(2.6rem, 6vw, 4.8rem)/1 var(--mincho);
+
+    ruby { ruby-position: over; }
+    rt { font: 700 0.95rem/1.3 var(--mincho); color: var(--ink-dim); letter-spacing: 0.08em; ruby-align: center; }
+    .op { color: var(--spot); font-weight: 700; }
+    .is-result { color: var(--spot); }
+    .is-result rt { color: var(--spot); }
+  }
+
+  .spread { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 2rem 2.4rem; align-items: start; }
+  .spread > * { min-width: 0; }
+  .col { display: grid; gap: 1.4rem; }
+
+  /* A demon data box: spot header bar, vertical katakana down the left, the data on the right. */
+  .box { border: 1.5px solid var(--ink); transition: box-shadow 0.15s; }
+  .box:hover, .box:focus-within { box-shadow: 5px 5px 0 var(--tint); }
+  .box__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.2rem 1rem;
+    padding: 0.35rem 0.8rem;
+    background: var(--spot);
+    color: var(--paper);
+
+    h2, h3 { margin: 0; font: 700 0.85rem/1.3 var(--gothic); }
+    span { font-size: 0.85rem; }
+  }
+  .box__body { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+  .kana {
+    padding: 0.8rem 0.5rem;
+    border-right: 1.5px solid var(--ink);
+    font: 900 1.5rem/1 var(--mincho);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.08em;
+  }
+  .box__data { padding: 0.7rem 0.9rem 0.85rem; min-width: 0; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 1.5px dotted transparent;
+      background: transparent;
+      color: var(--ink);
+      font: 900 1.9rem/1.2 var(--mincho);
+
+      &:hover { border-bottom-color: var(--ink-dim); }
+      &:focus-visible { outline: none; border-bottom-color: var(--spot); }
+    }
+    button {
+      border: 1.5px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font: 500 0.75rem/1 var(--gothic);
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+
+      &:hover { background: var(--ink); color: var(--paper); }
+    }
+  }
+  .meta { margin: 0 0 0.5rem; color: var(--ink-dim); font-size: 0.88rem; b { color: var(--ink); } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.86rem;
+
+    li { display: grid; grid-template-columns: 1fr auto; column-gap: 0.6rem; padding: 0.3rem 0; border-top: 1px dotted var(--ink-dim); }
+    .sk { font-weight: 700; }
+    .mp { color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+    .fx { grid-column: 1 / -1; color: var(--ink-dim); font-size: 0.8rem; line-height: 1.35; }
+  }
+
+  .result .kana { font-size: 2.6rem; color: var(--spot); padding: 1rem 0.7rem; }
+  .result__name { margin: 0; font: 900 3.4rem/1 var(--mincho); }
+  .result__sub { margin: 0.2rem 0 0.9rem; color: var(--ink-dim); b { color: var(--ink); } }
+  .result h4 { margin: 0.9rem 0 0.35rem; font: 700 0.85rem/1 var(--gothic); color: var(--spot); }
+  .stats {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+
+    th { padding: 0.2rem; font: 500 0.75rem/1.2 var(--gothic); color: var(--ink-dim); border-bottom: 1.5px solid var(--ink); }
+    td { padding: 0.25rem 0.2rem; font: 900 1.35rem/1 var(--mincho); }
+  }
+  .aff-scroll { overflow-x: auto; }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(14, minmax(1.85rem, 1fr));
+    border-left: 1px solid var(--ink);
+    text-align: center;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+
+    > span { display: grid; border-right: 1px solid var(--ink); }
+    .h { padding: 0.1rem 0; border-bottom: 1px solid var(--ink); color: var(--ink-dim); }
+    .v { padding: 0.2rem 0; font-weight: 700; }
+    .n { color: var(--ink-dim); font-weight: 400; }
+    .wk { background: var(--ink); color: var(--paper); }
+    .nu, .rp, .dr { color: var(--spot); }
+  }
+  .result .aff, .listing .aff { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .legend { margin: 0.35rem 0 0; font-size: 0.75rem; color: var(--ink-dim); }
+  .result .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); column-gap: 1.2rem; }
+
+  /* The point box: what a guide prints next to a special recipe. */
+  .point {
+    position: relative;
+    padding: 1rem 1rem 0.9rem 4.4rem;
+    border: 1.5px solid var(--spot);
+    border-radius: 14px;
+
+    b { color: var(--spot); }
+    p { margin: 0; }
+  }
+  .point__mark {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.85rem;
+    display: grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: var(--spot);
+    color: var(--paper);
+    font: 900 0.95rem/1 var(--mincho);
+  }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 2.2rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.6rem 1.5rem;
+    margin-bottom: 0.6rem;
+
+    h2 { margin: 0; font: 900 1.9rem/1 var(--mincho); }
+    h2 small { margin-left: 0.6rem; font: 500 0.85rem/1 var(--gothic); color: var(--ink-dim); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--ink-dim); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.4rem 0.6rem;
+      border: 1.5px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+
+      &::placeholder { color: var(--ink-dim); }
+      &:focus-visible { outline: none; border-color: var(--spot); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table.demons {
+    width: 100%;
+    min-width: 66rem;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    border-top: 3px double var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+
+    th { text-align: left; font-weight: 500; font-size: 0.78rem; color: var(--ink-dim); padding: 0.5rem 0.55rem 0.35rem; border-bottom: 1.5px solid var(--ink); }
+    td { padding: 0.35rem 0.55rem; }
+    tbody tr:nth-child(even) td { background-image: radial-gradient(var(--tint) 1.2px, transparent 1.5px); background-size: 5px 5px; }
+    td.lvl { width: 3rem; font: 900 1.2rem/1 var(--mincho); font-variant-numeric: tabular-nums; }
+    td.dname { font-weight: 700; }
+    td.jp { font: 700 0.95rem/1 var(--mincho); color: var(--ink-dim); white-space: nowrap; }
+    td.race, td.al { color: var(--ink-dim); }
+    tbody tr {
+      cursor: pointer;
+      &:hover td, &:focus-visible td { background: var(--ink); color: var(--paper); }
+      &:hover .aff *, &:focus-visible .aff * { color: var(--paper); border-color: var(--paper); }
+    }
+    tbody tr:focus-visible { outline: 2px solid var(--spot); outline-offset: -2px; }
+    .tag { margin-left: 0.45rem; padding: 0 0.35rem; background: var(--spot); color: var(--paper); font-size: 0.7rem; font-weight: 500; }
+    .aff { grid-template-columns: repeat(14, 1.9rem); width: max-content; }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; }
+    main { padding: 0.4rem 1rem 5rem; }
+    .sheet { padding: 1.4rem 3rem 2rem 1.3rem; }
+    .spread { grid-template-columns: 1fr; }
+    .spread .result-col { order: -1; }
+  }
+  @media (max-width: 560px) {
+    .sheet { padding: 1.1rem 2.6rem 1.6rem 1rem; }
+    .tab { font-size: 1rem; padding: 0.8rem 0.4rem; }
+    .result .kana { font-size: 1.8rem; }
+    .result__name { font-size: 2.6rem; }
+    .stats td { font-size: 1.05rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plate, .box { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#" aria-label="SMT Companion home">SMT Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Demons</a>
+    <a href="#">Skills</a>
+  </nav>
+  <span class="bar__count"><b data-total></b> demons</span>
+</header>
+
+<main>
+  <article class="sheet" data-sheet>
+    <span class="tab plate" lang="ja" aria-hidden="true">悪魔合体</span>
+
+    <div class="runhead">
+      <div>
+        <h1><small class="plate" lang="ja">悪魔合体</small>Demon fusion</h1>
+        <p>Choose two demons. The guide shows what they make.</p>
+      </div>
+      <div class="modes" role="group" aria-label="Fusion mode">
+        <button type="button" aria-pressed="true">Pair</button>
+        <button type="button" aria-pressed="false">Triple</button>
+        <button type="button" aria-pressed="false">Reverse</button>
+      </div>
+    </div>
+
+    <p class="formula" data-formula></p>
+
+    <div class="spread">
+      <div class="col" data-parents></div>
+
+      <div class="col result-col">
+        <section class="box result" aria-labelledby="r-name">
+          <div class="box__bar plate"><h2>Result</h2><span data-r-bar></span></div>
+          <div class="box__body">
+            <span class="kana plate" lang="ja" data-r-kana></span>
+            <div class="box__data">
+              <h3 class="result__name" id="r-name" data-r-name></h3>
+              <p class="result__sub" data-r-sub></p>
+              <table class="stats"><thead><tr data-stat-h></tr></thead><tbody><tr data-stat-v></tr></tbody></table>
+              <h4 class="plate">Resistances</h4>
+              <div class="aff-scroll"><div class="aff" data-aff></div></div>
+              <p class="legend">Numbers are the share of damage taken. Wk weak (black), Nu null, Rp repel, Dr drain (blue).</p>
+              <h4 class="plate">Skills</h4>
+              <ul class="skills" data-r-skills></ul>
+            </div>
+          </div>
+        </section>
+        <aside class="point halftone" aria-label="Special recipe">
+          <span class="point__mark plate" lang="ja" aria-hidden="true">特殊</span>
+          <p data-rule></p>
+        </aside>
+      </div>
+    </div>
+
+    <section class="listing" aria-labelledby="list-title">
+      <div class="listing__head">
+        <h2 id="list-title">Demons<small>Tenma and the two parents</small></h2>
+        <div class="search">
+          <label for="q">Search</label>
+          <input id="q" placeholder="Name, katakana or race" autocomplete="off" />
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="demons">
+          <thead><tr><th>Lv</th><th>Name</th><th>Katakana</th><th>Race</th><th>Alignment</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+          <tbody data-rows></tbody>
+        </table>
+      </div>
+    </section>
+  </article>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="smt1-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, DEMONS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = SMT1;
+  const $ = (s) => document.querySelector(s);
+  $('[data-total]').textContent = TOTAL;
+
+  /* The formula: Barong + Rangda = Shiva, with katakana readings. */
+  const rb = (d, cls = '') => `<ruby class="${cls}">${d.name}<rt lang="ja">${d.jp}</rt></ruby>`;
+  $('[data-formula]').innerHTML = `${rb(PARENTS[0])}<span class="op plate" aria-label="plus">＋</span>${rb(PARENTS[1])}<span class="op plate" aria-label="makes">＝</span>${rb(RESULT, 'is-result plate')}`;
+
+  /* Parent boxes. */
+  $('[data-parents]').innerHTML = PARENTS.map((p, i) => `
+    <section class="box" aria-labelledby="p${i}-t">
+      <div class="box__bar plate"><h2 id="p${i}-t">Parent ${i + 1}</h2><span>${p.race}, Lv ${p.lv}</span></div>
+      <div class="box__body">
+        <span class="kana" lang="ja" aria-hidden="true">${p.jp}</span>
+        <div class="box__data">
+          <div class="slot">
+            <label for="p${i}">Parent ${i + 1} demon</label>
+            <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+            <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+          </div>
+          <p class="meta">${p.al.say}, HP <b>${p.stats[0][1]}</b> MP <b>${p.stats[1][1]}</b>${p.drop ? `, drops <b>${p.drop}</b>` : ''}</p>
+          <ul class="skills">${skillList(p.skills)}</ul>
+        </div>
+      </div>
+    </section>`).join('');
+
+  /* Result box. */
+  $('[data-r-bar]').textContent = `${RESULT.race}, Lv ${RESULT.lv}`;
+  $('[data-r-kana]').textContent = RESULT.jp;
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `<b>${RESULT.al.say}</b>`;
+  $('[data-stat-h]').innerHTML = RESULT.stats.map(([k]) => `<th scope="col">${k}</th>`).join('');
+  $('[data-stat-v]').innerHTML = RESULT.stats.map(([, v]) => `<td>${v}</td>`).join('');
+  $('[data-aff]').innerHTML = strip(RESULT.res, true);
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-rule]').innerHTML = `<b>Special recipe.</b> ${RULE.pair.join(' and ')} always make ${RULE.makes}, whatever the race chart says.`;
+
+  /* List. */
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = DEMONS.map((d) => `
+    <tr tabindex="0">
+      <td class="lvl">${d.lv}</td>
+      <td class="dname">${d.name}${d.tag ? `<span class="tag">${d.tag}</span>` : ''}</td>
+      <td class="jp" lang="ja">${d.jp}</td>
+      <td class="race">${d.race}</td>
+      <td class="al">${d.al.say}</td>
+      <td><div class="aff">${strip(d.res)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* ---- Signature: the blue plate prints out of register, then the press pulls it in, in two jolts. ---- */
+  const root = document.documentElement.style;
+  moment((at, end) => {
+    root.setProperty('--mx', '9px');
+    root.setProperty('--my', '-6px');
+    at(700, () => { root.setProperty('--mx', '3px'); root.setProperty('--my', '-2px'); });
+    at(1150, () => { root.setProperty('--mx', '0px'); root.setProperty('--my', '0px'); });
+    at(1500, end);
+  }, () => { root.setProperty('--mx', '0px'); root.setProperty('--my', '0px'); }).play();
+</script>
+</body>
+</html>

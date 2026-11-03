@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Cathedral · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700;800&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Cathedral: personality from light through stained glass.
+     Layout idea: the fusion is a church facade. The two parents are lancet
+     windows either side of a rose window, and the result is the rose's
+     centre medallion. The details sit below on plain stone.
+     Tokens. --amber is the game accent (would be --p-primary-500 via a new
+     `amber` ramp in APP_PRIMITIVES); --ruby/--cobalt/--verdigris are glass
+     only and never carry text. --soot/--stone map onto the skin's surface
+     ramp in theme/skins.ts.
+     ------------------------------------------------------------------ */
+  :root {
+    --soot: #0d0a10;
+    --stone: #1a161c;
+    --stone-line: #362f38;
+    --lead: #050307;
+    --bone: #efe6d4;             /* body text, 15:1 on soot */
+    --ash: #a99f92;              /* muted text, 7.5:1 on soot */
+    --amber: #e3a23b;            /* accent */
+    --ruby: #c0213f;
+    --cobalt: #2f4fd8;
+    --verdigris: #2f8f7a;
+    --display: 'Grenze Gotisch', 'Times New Roman', serif;
+    --body: 'Alegreya', Georgia, serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--soot);
+    color: var(--bone);
+    font: 400 17px/1.6 var(--body);
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  /* A candle carried by the pointer: a warm pool of light on the stone. */
+  .candle {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(420px circle at var(--x, 70%) var(--y, 20%), rgba(227, 162, 59, 0.09), transparent 70%);
+  }
+
+  /* ------------------------------------------------------------------ header */
+  .bar {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 3vw;
+    border-bottom: 1px solid var(--stone-line);
+  }
+  .brand { font: 700 1.6rem/1 var(--display); text-decoration: none; color: var(--amber); white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 1.4rem;
+    flex: 1;
+
+    a {
+      padding: 0.25rem 0;
+      color: var(--ash);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+
+      &:hover { color: var(--bone); }
+      &[aria-current='page'] { color: var(--bone); border-bottom-color: var(--amber); }
+    }
+  }
+  .bar__count { color: var(--ash); white-space: nowrap; b { color: var(--bone); font-weight: 500; } }
+
+  /* ------------------------------------------------------------------ layout */
+  main { position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 1.8rem 3vw 6rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 1.4rem;
+
+    h1 { margin: 0; font: 800 clamp(2.6rem, 5.5vw, 4.2rem)/0.95 var(--display); letter-spacing: 0.005em; }
+    p { margin: 0.35rem 0 0; color: var(--ash); font-style: italic; }
+  }
+  .modes {
+    display: inline-flex;
+    border: 1px solid var(--stone-line);
+
+    button {
+      padding: 0.55rem 1.1rem;
+      border: 0;
+      border-right: 1px solid var(--stone-line);
+      background: transparent;
+      color: var(--ash);
+      font: 500 0.95rem/1 var(--body);
+      cursor: pointer;
+
+      &:last-child { border-right: 0; }
+      &:hover { color: var(--bone); background: var(--stone); }
+      &:active { background: var(--lead); }
+      &[aria-pressed='true'] { color: var(--soot); background: var(--amber); }
+    }
+  }
+
+  /* The facade: lancet, rose, lancet. */
+  .facade {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: end;
+  }
+  .lancet {
+    position: relative;
+    border: 1px solid var(--stone-line);
+    border-radius: 999px 999px 4px 4px / 150px 150px 4px 4px;
+    background: var(--stone);
+    overflow: hidden;
+    transition: border-color 0.25s;
+
+    &:hover, &:focus-within { border-color: var(--amber); }
+  }
+  .lancet__glass {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 36px;
+    gap: 3px;
+    padding: 3px;
+    height: 155px;
+    background: var(--lead);
+
+    i { display: block; background: var(--c); opacity: 0.85; transition: filter 0.9s, opacity 0.9s; }
+  }
+  .lancet:hover .lancet__glass i { filter: brightness(1.25); }
+  [data-light='dark'] .lancet__glass i { filter: brightness(0.25) saturate(0.4); opacity: 0.6; }
+  .lancet__body { padding: 1rem 1.3rem 1.3rem; }
+  .parent__label { margin: 0; color: var(--ash); font-size: 0.85rem; font-style: italic; font-weight: 400; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: var(--bone);
+      font: 700 2.2rem/1.15 var(--display);
+
+      &:hover { border-bottom-color: var(--stone-line); }
+      &:focus-visible { outline: none; border-bottom-color: var(--amber); }
+    }
+    button {
+      border: 1px solid var(--stone-line);
+      background: transparent;
+      color: var(--ash);
+      font: 500 0.8rem/1 var(--body);
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+
+      &:hover { color: var(--bone); border-color: var(--ash); }
+      &:active { background: var(--lead); }
+    }
+  }
+  .meta { margin: 0 0 0.7rem; color: var(--ash); font-size: 0.95rem; b { color: var(--bone); font-weight: 500; } }
+
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+
+    li { display: grid; grid-template-columns: 1fr auto; column-gap: 0.8rem; }
+    .sk { font-weight: 700; }
+    .mp { color: var(--amber); font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+    .fx { grid-column: 1 / -1; color: var(--ash); font-size: 0.88rem; line-height: 1.35; }
+  }
+
+  /* The rose window. */
+  .rose {
+    position: relative;
+    margin: 0;
+    text-align: center;
+
+    svg { display: block; width: 100%; max-width: 520px; margin: 0 auto; overflow: visible; }
+    figcaption { margin-top: 0.4rem; color: var(--ash); font-style: italic; }
+  }
+  .rose::after {
+    /* The light the rose throws on the floor. */
+    content: '';
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: -3.5rem;
+    height: 5rem;
+    background: radial-gradient(closest-side, rgba(227, 162, 59, 0.22), rgba(192, 33, 63, 0.08) 60%, transparent);
+    filter: blur(6px);
+    transition: opacity 1.2s;
+    pointer-events: none;
+  }
+  [data-light='dark'] .rose::after { opacity: 0; }
+  .pane { stroke: var(--lead); stroke-width: 2.4; transition: filter 0.7s, opacity 0.7s; }
+  .ring { transition: filter 0.7s; }
+  .ring:not(.lit) .pane { filter: brightness(0.22) saturate(0.35); }
+  .ring.lit { filter: drop-shadow(0 0 6px rgba(227, 162, 59, 0.35)); }
+  .tracery { fill: none; stroke: var(--stone-line); stroke-width: 6; }
+  .medallion-name { font: 800 21px/1 var(--display); fill: var(--soot); text-anchor: middle; }
+  .medallion-sub { font: 500 9px/1 var(--body); fill: var(--soot); text-anchor: middle; }
+  .ring:not(.lit) text { opacity: 0; }
+  text { transition: opacity 0.6s; }
+
+  /* ------------------------------------------------------------------ result on stone */
+  .result {
+    margin-top: 4.2rem;
+    padding: 1.8rem 2rem 2rem;
+    border: 1px solid var(--stone-line);
+    background: var(--stone);
+  }
+  .result__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 1.4rem; margin-bottom: 1.4rem; }
+  .result__name { margin: 0; font: 800 3.4rem/1 var(--display); color: var(--amber); }
+  .result__sub { margin: 0; color: var(--ash); b { color: var(--bone); font-weight: 500; } }
+  .result h3 { margin: 0 0 0.6rem; font: 700 1.35rem/1.1 var(--display); }
+  .result-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem 2.6rem; }
+  .stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem 1rem;
+
+    div { border-top: 1px solid var(--stone-line); padding-top: 0.35rem; }
+    dt { color: var(--ash); font-size: 0.85rem; }
+    dd { margin: 0; font: 700 1.7rem/1 var(--display); font-variant-numeric: tabular-nums; }
+  }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(14, minmax(1.8rem, 1fr));
+    gap: 2px;
+    text-align: center;
+    font-size: 0.82rem;
+
+    > span { display: grid; gap: 2px; }
+    .h { color: var(--ash); }
+    .v { padding: 0.2rem 0; font-variant-numeric: tabular-nums; border: 1px solid var(--stone-line); }
+    .n { color: var(--ash); }
+    .rs { color: var(--bone); }
+    .wk { background: var(--ruby); border-color: var(--ruby); color: #fff; font-weight: 700; }
+    .nu, .rp, .dr { border-color: var(--amber); color: var(--amber); font-weight: 700; }
+  }
+  .aff-scroll { overflow-x: auto; }
+  .legend { margin: 0.45rem 0 0; font-size: 0.82rem; color: var(--ash); }
+  .result .skills { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.8rem 2rem; margin-top: 1.4rem; }
+  .rule { margin: 1.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--stone-line); font-style: italic; color: var(--ash); b { color: var(--amber); font-style: normal; font-weight: 500; } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3.6rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: 800 2.4rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--ash); font-style: italic; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--stone-line);
+      background: var(--stone);
+      color: var(--bone);
+      font: inherit;
+
+      &::placeholder { color: var(--ash); }
+      &:focus-visible { outline: none; border-color: var(--amber); }
+    }
+  }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--stone-line); }
+  table {
+    width: 100%;
+    min-width: 62rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+
+    th { text-align: left; color: var(--ash); font-weight: 400; font-style: italic; padding: 0.7rem 0.75rem 0.4rem; }
+    td { padding: 0.45rem 0.75rem; border-top: 1px solid var(--stone-line); }
+    td.lvl { width: 3.4rem; font: 700 1.3rem/1 var(--display); font-variant-numeric: tabular-nums; }
+    td.dname { font-weight: 700; }
+    td.race, td.al { color: var(--ash); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: var(--lead); box-shadow: inset 3px 0 0 var(--amber); }
+    }
+    .tag { margin-left: 0.5rem; padding: 0.05rem 0.45rem; border: 1px solid var(--amber); color: var(--amber); font-size: 0.75rem; font-weight: 500; }
+    .aff { grid-template-columns: repeat(14, 2rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  /* ------------------------------------------------------------------ responsive */
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; }
+    main { padding: 1.4rem 1rem 5rem; }
+    .facade { grid-template-columns: 1fr 1fr; }
+    .rose { grid-column: 1 / -1; order: -1; }
+    .result-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .facade { grid-template-columns: 1fr; }
+    .result { padding: 1.3rem 1.1rem; }
+    .result__name { font-size: 2.8rem; }
+    .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .stats dd { font-size: 1.35rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pane, .ring, text, .lancet__glass i, .rose::after { transition: none; }
+    .candle { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="candle" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="brand" href="#" aria-label="SMT Companion home">SMT Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Demons</a>
+    <a href="#">Skills</a>
+  </nav>
+  <span class="bar__count"><b data-total></b> demons</span>
+</header>
+
+<main data-light="lit">
+  <div class="modebar">
+    <div>
+      <h1>Cathedral of Shadows</h1>
+      <p>Bring two demons to the altar to see what they become.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Pair</button>
+      <button type="button" aria-pressed="false">Triple</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+    </div>
+  </div>
+
+  <div class="facade" data-facade>
+    <figure class="rose" aria-label="Result">
+      <svg viewBox="-100 -100 200 200" role="img" aria-labelledby="rose-t"><title id="rose-t">Rose window showing the result</title><g data-rose></g></svg>
+      <figcaption data-caption></figcaption>
+    </figure>
+  </div>
+
+  <section class="result" aria-labelledby="r-name">
+    <div class="result__top">
+      <h2 class="result__name" id="r-name" data-r-name></h2>
+      <p class="result__sub" data-r-sub></p>
+    </div>
+    <div class="result-grid">
+      <div>
+        <h3>Stats</h3>
+        <dl class="stats" data-stats></dl>
+      </div>
+      <div>
+        <h3>Resistances</h3>
+        <div class="aff-scroll"><div class="aff" data-aff></div></div>
+        <p class="legend">Numbers are the share of damage taken. Wk weak (red), Nu null, Rp repel, Dr drain (gold).</p>
+      </div>
+    </div>
+    <ul class="skills" data-r-skills></ul>
+    <p class="rule" data-rule></p>
+  </section>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Demons</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name, race or alignment" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Lv</th><th>Name</th><th>Race</th><th>Alignment</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="smt1-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, DEMONS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = SMT1;
+  const $ = (s) => document.querySelector(s);
+
+  $('[data-total]').textContent = TOTAL;
+
+  /* Lancets: one per parent, glass first then the details. */
+  const GLASS = ['var(--ruby)', 'var(--cobalt)', 'var(--amber)', 'var(--verdigris)'];
+  const lancet = (p, i) => {
+    const panes = Array.from({ length: 16 }, (_, k) => `<i style="--c:${GLASS[(k * (i + 2) + (k >> 2)) % 4]}"></i>`).join('');
+    return `<section class="lancet" aria-labelledby="p${i}-t">
+      <div class="lancet__glass" aria-hidden="true">${panes}</div>
+      <div class="lancet__body">
+        <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+        <div class="slot">
+          <label for="p${i}">Parent ${i + 1} demon</label>
+          <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+          <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+        </div>
+        <p class="meta">${p.race}, Lv <b>${p.lv}</b>, ${p.al.say}${p.drop ? `, drops <b>${p.drop}</b>` : ''}</p>
+        <ul class="skills">${skillList(p.skills)}</ul>
+      </div>
+    </section>`;
+  };
+  const facade = $('[data-facade]');
+  facade.insertAdjacentHTML('afterbegin', lancet(PARENTS[0], 0));
+  facade.insertAdjacentHTML('beforeend', lancet(PARENTS[1], 1));
+
+  /* The rose: annular sectors built from arcs, ring by ring. */
+  const pt = (r, a) => `${(r * Math.cos(a)).toFixed(2)} ${(r * Math.sin(a)).toFixed(2)}`;
+  const sector = (r0, r1, a0, a1) =>
+    `M${pt(r0, a0)} L${pt(r1, a0)} A${r1} ${r1} 0 0 1 ${pt(r1, a1)} L${pt(r0, a1)} A${r0} ${r0} 0 0 0 ${pt(r0, a0)}Z`;
+  const ring = (r0, r1, n, off, colours) => Array.from({ length: n }, (_, k) => {
+    const a0 = (k / n) * 2 * Math.PI + off - Math.PI / 2;
+    const a1 = ((k + 1) / n) * 2 * Math.PI + off - Math.PI / 2;
+    return `<path class="pane" d="${sector(r0, r1, a0, a1)}" fill="${colours[k % colours.length]}"/>`;
+  }).join('');
+  const C = { r: '#c0213f', b: '#2f4fd8', a: '#e3a23b', g: '#2f8f7a', d: '#7a1630' };
+  $('[data-rose]').innerHTML = `
+    <circle class="tracery" r="95"/>
+    <g class="ring" data-ring="3">${ring(80, 92, 32, 0, [C.b, C.d, C.b, C.g])}</g>
+    <g class="ring" data-ring="2">${ring(56, 80, 16, Math.PI / 16, [C.r, C.b, C.a, C.b])}</g>
+    <g class="ring" data-ring="1">${ring(31, 56, 8, 0, [C.g, C.r, C.b, C.r])}</g>
+    <g class="ring" data-ring="0">
+      <circle class="pane" r="31" fill="${C.a}"/>
+      <text class="medallion-name" y="4">${RESULT.name}</text>
+      <text class="medallion-sub" y="15">${RESULT.race}, Lv ${RESULT.lv}</text>
+    </g>`;
+  $('[data-caption]').textContent = `${RULE.pair.join(' and ')} make ${RULE.makes}`;
+
+  /* Result details. */
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `${RESULT.race}, Lv <b>${RESULT.lv}</b>, ${RESULT.al.say}`;
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+  $('[data-aff]').innerHTML = strip(RESULT.res, true);
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-rule]').innerHTML = `<b>${RULE.pair.join(' + ')}</b> is a special recipe. Together they always make ${RULE.makes}, whatever the race chart says.`;
+
+  /* List. */
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = DEMONS.map((d) => `
+    <tr tabindex="0">
+      <td class="lvl">${d.lv}</td>
+      <td class="dname">${d.name}${d.tag ? `<span class="tag">${d.tag}</span>` : ''}</td>
+      <td class="race">${d.race}</td>
+      <td class="al">${d.al.say}</td>
+      <td><div class="aff">${strip(d.res)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* The candle follows the pointer. */
+  const candle = $('.candle');
+  document.addEventListener('pointermove', (e) => {
+    candle.style.setProperty('--x', `${e.clientX}px`);
+    candle.style.setProperty('--y', `${e.clientY}px`);
+  });
+
+  /* ---- Signature: the lancets warm up, then the rose lights from its centre out, ring by ring. ---- */
+  const page = $('main');
+  const rings = [...document.querySelectorAll('[data-ring]')].sort((a, b) => a.dataset.ring - b.dataset.ring);
+  moment((at, end) => {
+    page.dataset.light = 'dark';
+    rings.forEach((r) => r.classList.remove('lit'));
+    at(400, () => { page.dataset.light = 'lit'; });
+    rings.forEach((r, i) => at(1100 + i * 450, () => r.classList.add('lit')));
+    at(1100 + rings.length * 450 + 500, end);
+  }, () => { page.dataset.light = 'lit'; rings.forEach((r) => r.classList.add('lit')); }).play();
+</script>
+</body>
+</html>

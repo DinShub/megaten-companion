@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Tokyo 199X · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+1:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Tokyo 199X: personality from first-person space.
+     Layout idea: the top of the page is a first-person wireframe corridor,
+     the way SMT1 draws its dungeons. The result waits in the doorway at the
+     far end, and the two parents stand in the party strip at the bottom of
+     the view. Everything below is RPG windows: navy fill, double white rule.
+     Tokens. --cursor is the game accent (--p-primary-500, a new `cursor`
+     ramp) and marks only the selection: the menu cursor, focus and the
+     pressed mode. --win/--win-2 map onto the skin's surface ramp.
+     ------------------------------------------------------------------ */
+  :root {
+    --night: #070917;
+    --win: #111b4d;
+    --win-2: #0a1135;
+    --wire: #8fb6ff;
+    --wire-dim: #2c3d78;
+    --text: #eef2ff;
+    --muted: #b0bde6;            /* 7.6:1 on --win */
+    --cursor: #ffd23f;           /* accent */
+    --weak: #ff6b8b;
+    --pixel: 'DotGothic16', 'MS Gothic', monospace;
+    --body: 'M PLUS 1', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; overflow-x: hidden; background: var(--night); color: var(--text); font: 400 15px/1.6 var(--body); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--cursor); outline-offset: 2px; }
+
+  /* The RPG window: navy fill with a double white rule. */
+  .win {
+    position: relative;
+    background: linear-gradient(to bottom, var(--win), var(--win-2));
+    border: 2px solid var(--text);
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 2px var(--win-2), inset 0 0 0 3px rgba(238, 242, 255, 0.45), 0 6px 0 rgba(0, 0, 0, 0.45);
+  }
+
+  /* ------------------------------------------------------------------ header */
+  .bar { display: flex; align-items: center; gap: 2rem; padding: 0.9rem 3vw; }
+  .brand { font: 400 1.35rem/1 var(--pixel); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1;
+
+    a {
+      position: relative;
+      padding: 0.3rem 0.8rem 0.3rem 1.3rem;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover { color: var(--text); }
+      &:hover::before, &[aria-current='page']::before { content: '▶'; position: absolute; left: 0.2rem; color: var(--cursor); font-size: 0.75rem; top: 0.5rem; }
+      &[aria-current='page'] { color: var(--text); }
+    }
+  }
+  .bar__count { color: var(--muted); white-space: nowrap; font-family: var(--pixel); b { color: var(--text); font-weight: 400; } }
+
+  /* ------------------------------------------------------------------ the corridor */
+  .view {
+    position: relative;
+    height: clamp(420px, 52vw, 560px);
+    margin: 0 3vw;
+    border: 2px solid var(--wire-dim);
+    background: var(--night);
+    overflow: hidden;
+  }
+  .view canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .door {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: min(30rem, 62%);
+    transform: translate(-50%, -50%);
+    padding: 1rem 1.3rem 1.1rem;
+    text-align: center;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .door[data-state='shut'] { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+  .door__msg { margin: 0 0 0.25rem; color: var(--muted); font: 400 0.95rem/1.4 var(--pixel); min-height: 1.4em; }
+  .door__name { margin: 0; font: 400 clamp(2.6rem, 5vw, 4rem)/1 var(--pixel); letter-spacing: 0.02em; }
+  .door__sub { margin: 0.35rem 0 0; color: var(--muted); b { color: var(--text); font-weight: 500; } }
+  .door__hpmp { display: flex; justify-content: center; gap: 1.6rem; margin-top: 0.4rem; font: 400 1.1rem/1 var(--pixel); span { color: var(--muted); } }
+
+  .hud {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    display: grid;
+    gap: 3px;
+    padding: 0.5rem;
+    font: 400 0.75rem/1 var(--pixel);
+    color: var(--muted);
+
+    .map { display: grid; grid-template-columns: repeat(3, 14px); gap: 2px; }
+    .map i { width: 14px; height: 14px; border: 1px solid var(--wire-dim); }
+    .map i.walked { background: var(--wire-dim); }
+    .map i.here { background: var(--cursor); border-color: var(--cursor); }
+  }
+
+  .party {
+    position: absolute;
+    left: 0.8rem;
+    right: 0.8rem;
+    bottom: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+  .member { padding: 0.6rem 0.9rem 0.7rem; min-width: 0; transition: transform 0.15s; }
+  .member:hover, .member:focus-within { transform: translateY(-2px); }
+  .member:focus-within { border-color: var(--cursor); }
+  .parent__label { margin: 0; color: var(--muted); font: 400 0.78rem/1.2 var(--pixel); }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font: 400 1.7rem/1.2 var(--pixel);
+
+      &:focus-visible { outline: none; color: var(--cursor); }
+    }
+    button {
+      border: 1px solid var(--muted);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--muted);
+      font: 500 0.75rem/1 var(--body);
+      padding: 0.3rem 0.55rem;
+      cursor: pointer;
+
+      &:hover { color: var(--night); background: var(--cursor); border-color: var(--cursor); }
+      &:active { transform: translateY(1px); }
+    }
+  }
+  .member__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 1rem; font-size: 0.85rem; color: var(--muted); }
+  .member__row b { color: var(--text); font: 400 1rem/1 var(--pixel); }
+
+  /* ------------------------------------------------------------------ below the view */
+  main { max-width: 1280px; margin: 0 auto; padding: 1.4rem 3vw 6rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin: 0 3vw 0.9rem;
+
+    h1 { margin: 0; font: 400 2.2rem/1 var(--pixel); }
+    p { margin: 0.25rem 0 0; color: var(--muted); }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 0.3rem;
+
+    button {
+      position: relative;
+      padding: 0.45rem 0.9rem 0.45rem 1.4rem;
+      border: 2px solid var(--wire-dim);
+      border-radius: 6px;
+      background: var(--win-2);
+      color: var(--muted);
+      font: 400 0.95rem/1 var(--pixel);
+      cursor: pointer;
+
+      &:hover { color: var(--text); border-color: var(--wire); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { color: var(--text); border-color: var(--text); }
+      &[aria-pressed='true']::before { content: '▶'; position: absolute; left: 0.45rem; color: var(--cursor); font-size: 0.7rem; top: 0.6rem; }
+    }
+  }
+
+  .details { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+  .details > * { min-width: 0; padding: 1.2rem 1.4rem 1.3rem; }
+  .details h2 { margin: 0 0 0.8rem; font: 400 1.5rem/1 var(--pixel); }
+  .details h3 { margin: 1.1rem 0 0.45rem; font: 400 1rem/1 var(--pixel); color: var(--muted); }
+  .stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.25rem 1.4rem;
+
+    div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--wire-dim); padding-bottom: 0.15rem; }
+    dt { color: var(--muted); }
+    dd { margin: 0; font: 400 1.25rem/1.2 var(--pixel); font-variant-numeric: tabular-nums; }
+  }
+  .aff-scroll { overflow-x: auto; }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(14, minmax(1.9rem, 1fr));
+    gap: 2px;
+    text-align: center;
+    font: 400 0.8rem/1.2 var(--pixel);
+
+    > span { display: grid; gap: 2px; }
+    .h { color: var(--muted); }
+    .v { padding: 0.2rem 0; border: 1px solid var(--wire-dim); border-radius: 3px; }
+    .n { color: var(--muted); }
+    .wk { background: var(--weak); border-color: var(--weak); color: var(--night); }
+    .nu, .rp, .dr { border-color: var(--text); background: var(--text); color: var(--night); }
+  }
+  .legend { margin: 0.4rem 0 0; font-size: 0.8rem; color: var(--muted); }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+
+    li { position: relative; display: grid; grid-template-columns: 1fr auto; column-gap: 0.6rem; padding-left: 1.1rem; }
+    li:hover::before { content: '▶'; position: absolute; left: 0; top: 0.2rem; color: var(--cursor); font-size: 0.7rem; }
+    .sk { font-weight: 700; }
+    .mp { color: var(--muted); font-family: var(--pixel); }
+    .fx { grid-column: 1 / -1; color: var(--muted); font-size: 0.82rem; line-height: 1.35; }
+  }
+  .result .skills { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); column-gap: 1.4rem; }
+  .parents-skills h3:first-of-type { margin-top: 0; }
+  .rule { margin: 1.1rem 0 0; color: var(--muted); font-size: 0.9rem; b { color: var(--text); } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 2.6rem; padding: 1.2rem 1.4rem 1.3rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.6rem;
+
+    h2 { margin: 0; font: 400 1.6rem/1 var(--pixel); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--muted); font-family: var(--pixel); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.45rem 0.7rem;
+      border: 2px solid var(--wire-dim);
+      border-radius: 6px;
+      background: var(--night);
+      color: var(--text);
+      font: inherit;
+
+      &::placeholder { color: var(--muted); }
+      &:focus-visible { outline: none; border-color: var(--cursor); }
+    }
+  }
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    min-width: 62rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th { text-align: left; color: var(--muted); font: 400 0.8rem/1 var(--pixel); padding: 0.6rem 0.6rem 0.4rem; }
+    td { padding: 0.4rem 0.6rem; border-top: 1px dashed var(--wire-dim); }
+    td.lvl { position: relative; width: 3.6rem; padding-left: 1.3rem; font: 400 1.15rem/1 var(--pixel); }
+    td.dname { font-weight: 700; }
+    td.race, td.al { color: var(--muted); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: rgba(143, 182, 255, 0.1); }
+      &:hover td.lvl::before, &:focus-visible td.lvl::before { content: '▶'; position: absolute; left: 0.2rem; top: 0.65rem; color: var(--cursor); font-size: 0.7rem; }
+    }
+    .tag { margin-left: 0.5rem; padding: 0 0.4rem; border: 1px solid var(--text); border-radius: 3px; font: 400 0.72rem/1.4 var(--pixel); }
+    .aff { grid-template-columns: repeat(14, 2rem); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; }
+    .view, .modebar { margin-left: 1rem; margin-right: 1rem; }
+    main { padding: 1.2rem 1rem 5rem; }
+    .details { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .view { height: 520px; }
+    .door { top: 30%; width: 82%; padding: 0.8rem; }
+    .party { grid-template-columns: 1fr; gap: 0.5rem; }
+    .member { padding: 0.45rem 0.7rem; }
+    .slot input { font-size: 1.3rem; }
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hud { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .door, .member { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#" aria-label="SMT Companion home">SMT Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Demons</a>
+    <a href="#">Skills</a>
+  </nav>
+  <span class="bar__count"><b data-total></b> demons</span>
+</header>
+
+<div class="modebar">
+  <div>
+    <h1>Fusion</h1>
+    <p>Two demons go in. One walks out of the doorway.</p>
+  </div>
+  <div class="modes" role="group" aria-label="Fusion mode">
+    <button type="button" aria-pressed="true">Pair</button>
+    <button type="button" aria-pressed="false">Triple</button>
+    <button type="button" aria-pressed="false">Reverse</button>
+  </div>
+</div>
+
+<section class="view" aria-label="Fusion view">
+  <canvas data-corridor aria-hidden="true"></canvas>
+  <div class="hud win" aria-hidden="true"><div class="map" data-map></div></div>
+  <div class="door win" data-door data-state="open" aria-labelledby="r-name">
+    <p class="door__msg" data-msg aria-live="polite"></p>
+    <h2 class="door__name" id="r-name" data-r-name></h2>
+    <p class="door__sub" data-r-sub></p>
+    <div class="door__hpmp" data-hpmp></div>
+  </div>
+  <div class="party" data-party></div>
+</section>
+
+<main>
+  <div class="details">
+    <section class="win result" aria-labelledby="det-t">
+      <h2 id="det-t" data-det-t></h2>
+      <dl class="stats" data-stats></dl>
+      <h3>Resistances</h3>
+      <div class="aff-scroll"><div class="aff" data-aff></div></div>
+      <p class="legend">Numbers are the share of damage taken. Wk weak (pink), Nu null, Rp repel, Dr drain (white).</p>
+      <h3>Skills</h3>
+      <ul class="skills" data-r-skills></ul>
+      <p class="rule" data-rule></p>
+    </section>
+    <section class="win parents-skills" aria-labelledby="ps-t">
+      <h2 id="ps-t">Parents' skills</h2>
+      <div data-p-skills></div>
+    </section>
+  </div>
+
+  <section class="win listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Demons</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name, race or alignment" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Lv</th><th>Name</th><th>Race</th><th>Alignment</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="smt1-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, DEMONS, TOTAL, strip, stripHead, skillList, wireSearch, wireToggles, moment } = SMT1;
+  const $ = (s) => document.querySelector(s);
+  const hp = (d) => d.stats[0][1];
+  const mp = (d) => d.stats[1][1];
+  $('[data-total]').textContent = TOTAL;
+
+  /* Party strip: the two parents, as party members. */
+  $('[data-party]').innerHTML = PARENTS.map((p, i) => `
+    <section class="win member" aria-labelledby="p${i}-t">
+      <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+      <div class="slot">
+        <label for="p${i}">Parent ${i + 1} demon</label>
+        <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+      </div>
+      <div class="member__row"><span>${p.race} Lv <b>${p.lv}</b></span><span>${p.al.say}</span><span>HP <b>${hp(p)}</b> MP <b>${mp(p)}</b></span></div>
+    </section>`).join('');
+
+  /* The doorway. */
+  const MSG = `${RULE.pair.join(' and ')} fused.`;
+  $('[data-msg]').textContent = MSG;
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `${RESULT.race} Lv <b>${RESULT.lv}</b>, ${RESULT.al.say}`;
+  $('[data-hpmp]').innerHTML = `<div><span>HP</span> ${hp(RESULT)}</div><div><span>MP</span> ${mp(RESULT)}</div>`;
+
+  /* Details. */
+  $('[data-det-t]').textContent = `${RESULT.name}, Lv ${RESULT.lv}`;
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+  $('[data-aff]').innerHTML = strip(RESULT.res, true);
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-rule]').innerHTML = `<b>${RULE.pair.join(' + ')}</b> is a special recipe. Together they always make ${RULE.makes}, whatever the race chart says.`;
+  $('[data-p-skills]').innerHTML = PARENTS.map((p) => `<h3>${p.name}${p.drop ? `, drops ${p.drop}` : ''}</h3><ul class="skills">${skillList(p.skills)}</ul>`).join('');
+
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = DEMONS.map((d) => `
+    <tr tabindex="0">
+      <td class="lvl">${d.lv}</td>
+      <td class="dname">${d.name}${d.tag ? `<span class="tag">${d.tag}</span>` : ''}</td>
+      <td class="race">${d.race}</td>
+      <td class="al">${d.al.say}</td>
+      <td><div class="aff">${strip(d.res)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* ---- The corridor: wireframe frames between the view's edge and the doorway. ---- */
+  const view = $('.view');
+  const canvas = $('[data-corridor]');
+  const door = $('[data-door]');
+  const ctx = canvas.getContext('2d');
+  const DEPTH = 6;
+  let phase = 0;              // 0..1 within the current step; frames slide toward the viewer as it grows
+  let lean = { x: 0, y: 0 };  // pointer parallax, applied to the near frame only
+  let glow = 0;               // doorway flash, 0..1
+
+  function draw() {
+    const w = view.clientWidth;
+    const h = view.clientHeight;
+    const dpr = devicePixelRatio || 1;
+    if (canvas.width !== Math.round(w * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    // The door's untransformed box (it is centred with translate(-50%, -50%) and scales while opening).
+    const dl = door.offsetLeft - door.offsetWidth / 2;
+    const dt = door.offsetTop - door.offsetHeight / 2;
+    const far = { l: dl - 18, t: dt - 18, r: dl + door.offsetWidth + 18, b: dt + door.offsetHeight + 18 };
+    const near = { l: -w * 0.08 + lean.x, t: -h * 0.1 + lean.y, r: w * 1.08 + lean.x, b: h * 1.1 + lean.y };
+    const at = (z) => {
+      const t = (1 / (z + 1) - 1 / (DEPTH + 1)) / (1 - 1 / (DEPTH + 1));
+      return { l: far.l + (near.l - far.l) * t, t: far.t + (near.t - far.t) * t, r: far.r + (near.r - far.r) * t, b: far.b + (near.b - far.b) * t };
+    };
+    const css = getComputedStyle(document.documentElement);
+    const wire = css.getPropertyValue('--wire').trim();
+    const dim = css.getPropertyValue('--wire-dim').trim();
+
+    // Rails: the four corners from near to far.
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = wire;
+    const n = at(0);
+    ctx.beginPath();
+    [['l', 't'], ['r', 't'], ['l', 'b'], ['r', 'b']].forEach(([x, y]) => { ctx.moveTo(n[x], n[y]); ctx.lineTo(far[x], far[y]); });
+    ctx.stroke();
+
+    // Floor and ceiling seams: lines from near-edge points toward the far frame.
+    ctx.strokeStyle = dim;
+    ctx.beginPath();
+    for (let k = 1; k < 6; k++) {
+      const f = k / 6;
+      ctx.moveTo(n.l + (n.r - n.l) * f, n.b); ctx.lineTo(far.l + (far.r - far.l) * f, far.b);
+      ctx.moveTo(n.l + (n.r - n.l) * f, n.t); ctx.lineTo(far.l + (far.r - far.l) * f, far.t);
+    }
+    ctx.stroke();
+
+    // Frames: one per step of depth, sliding toward the viewer with `phase`.
+    for (let k = 1; k <= DEPTH; k++) {
+      const z = k - phase;
+      if (z <= 0.02) continue;
+      const r = at(z);
+      ctx.globalAlpha = Math.min(1, 0.35 + (1 - z / DEPTH));
+      ctx.strokeStyle = wire;
+      ctx.lineWidth = z < 1.5 ? 2 : 1.2;
+      ctx.strokeRect(r.l, r.t, r.r - r.l, r.b - r.t);
+    }
+    ctx.globalAlpha = 1;
+
+    // The doorway.
+    const cur = css.getPropertyValue('--cursor').trim();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = glow > 0 ? cur : wire;
+    ctx.shadowColor = cur;
+    ctx.shadowBlur = 24 * glow;
+    ctx.strokeRect(far.l, far.t, far.r - far.l, far.b - far.t);
+    ctx.shadowBlur = 0;
+  }
+  new ResizeObserver(draw).observe(view);
+  document.fonts.ready.then(draw);
+
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still) {
+    view.addEventListener('pointermove', (e) => {
+      const r = view.getBoundingClientRect();
+      lean = { x: -((e.clientX - r.left) / r.width - 0.5) * 60, y: -((e.clientY - r.top) / r.height - 0.5) * 30 };
+      requestAnimationFrame(draw);
+    });
+    view.addEventListener('pointerleave', () => { lean = { x: 0, y: 0 }; requestAnimationFrame(draw); });
+  }
+
+  /* Map: a three-wide strip, filled as the walk goes. */
+  const STEPS = 4;
+  const map = $('[data-map]');
+  map.innerHTML = Array.from({ length: (STEPS + 1) * 3 }, () => '<i></i>').join('');
+  const cells = [...map.children];
+  function mapAt(step) {
+    cells.forEach((c, i) => {
+      const row = STEPS - Math.floor(i / 3);
+      const mid = i % 3 === 1;
+      c.className = mid && row === step ? 'here' : mid && row < step ? 'walked' : '';
+    });
+  }
+  mapAt(STEPS);
+
+  /* ---- Signature: four steps down the corridor, the doorway flashes, the result's message types in. ---- */
+  const msg = $('[data-msg]');
+  let raf = 0;
+  moment((at, end) => {
+    door.dataset.state = 'shut';
+    msg.textContent = '';
+    mapAt(0);
+    const t0 = performance.now();
+    const STEP_MS = 420;
+    const walk = (now) => {
+      const s = (now - t0) / STEP_MS;
+      if (s >= STEPS) { phase = 0; draw(); return; }
+      const f = s % 1;
+      phase = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;   // ease in-out per step
+      mapAt(Math.floor(s) + (f > 0.5 ? 1 : 0));
+      draw();
+      raf = requestAnimationFrame(walk);
+    };
+    raf = requestAnimationFrame(walk);
+    at(STEPS * STEP_MS + 80, () => { mapAt(STEPS); glow = 1; draw(); door.dataset.state = 'open'; });
+    at(STEPS * STEP_MS + 450, () => { glow = 0; draw(); });
+    [...MSG].forEach((_, i) => at(STEPS * STEP_MS + 300 + i * 32, () => { msg.textContent = MSG.slice(0, i + 1); }));
+    at(STEPS * STEP_MS + 300 + MSG.length * 32 + 300, end);
+  }, () => {
+    cancelAnimationFrame(raf);
+    phase = 0; glow = 0; mapAt(STEPS);
+    door.dataset.state = 'open';
+    msg.textContent = MSG;
+    draw();
+  }).play();
+</script>
+</body>
+</html>

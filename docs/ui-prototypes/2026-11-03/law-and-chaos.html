@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prototype — Law and Chaos · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ------------------------------------------------------------------
+     Law and Chaos: personality from alignment, used as the layout.
+     Layout idea: the hero is SMT1's own 3×3 alignment grid (Light/Neutral/
+     Dark rows × Law/Neutral/Chaos columns). Every demon has a cell, so the
+     parents and the result are placed by their real alignment and the
+     fusion reads as a move across the grid.
+     Tokens. --chaos is the game accent (--p-primary-500, a new `chaos`
+     ramp in APP_PRIMITIVES); --law is the only light surface, used for the
+     Law column and for chips, never for page background (dark-only).
+     ------------------------------------------------------------------ */
+  :root {
+    --void: #0b0c10;
+    --panel: #15171d;
+    --line: #2b2f39;
+    --text: #eef0f4;
+    --muted: #a5abb7;            /* 7.9:1 on void */
+    --law: #e4ecf7;
+    --law-ink: #0b1a33;          /* text on --law, 15:1 */
+    --neutral: #8d93a0;
+    --chaos: #d42a2f;            /* accent; white text on it is 4.9:1 */
+    --display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    --body: 'IBM Plex Sans', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; overflow-x: hidden; background: var(--void); color: var(--text); font: 400 15px/1.55 var(--body); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--law); outline-offset: 2px; }
+
+  /* ------------------------------------------------------------------ header */
+  .bar { display: flex; align-items: center; gap: 2rem; padding: 1rem 3vw; }
+  .brand { font: 900 1.6rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+
+    a {
+      padding: 0.35rem 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+
+      &:hover { color: var(--text); background: var(--panel); }
+      &[aria-current='page'] { color: var(--law-ink); background: var(--law); }
+    }
+  }
+  .bar__count { color: var(--muted); white-space: nowrap; b { color: var(--text); font-weight: 600; } }
+
+  main { max-width: 1280px; margin: 0 auto; padding: 1rem 3vw 6rem; }
+  .modebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 1.2rem;
+
+    h1 { margin: 0; font: 900 clamp(2.8rem, 6vw, 4.6rem)/0.9 var(--display); }
+    p { margin: 0.4rem 0 0; color: var(--muted); max-width: 52ch; }
+  }
+  .modes {
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px;
+    background: var(--line);
+
+    button {
+      padding: 0.55rem 1.1rem;
+      border: 0;
+      background: var(--void);
+      color: var(--muted);
+      font: 600 0.9rem/1 var(--body);
+      cursor: pointer;
+
+      &:hover { color: var(--text); background: var(--panel); }
+      &:active { transform: translateY(1px); }
+      &[aria-pressed='true'] { background: var(--law); color: var(--law-ink); }
+    }
+  }
+
+  /* ------------------------------------------------------------------ the alignment grid */
+  .align {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.5rem repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto repeat(3, minmax(9.5rem, auto));
+  }
+  .col-h, .row-h {
+    font: 900 clamp(2.4rem, 5vw, 4.4rem)/0.85 var(--display);
+    color: var(--muted);
+    transition: color 0.3s, background 0.3s;
+  }
+  .col-h { padding: 0 0.9rem 0.5rem; }
+  .row-h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .col-h.on, .row-h.on { color: var(--text); }
+  .col-h[data-col='c'].is-result { color: var(--chaos); }
+  .cell {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 0.6rem;
+    padding: 0.9rem;
+    border: 1px solid var(--line);
+    margin: 0 -1px -1px 0;
+    background: color-mix(in srgb, var(--hue) var(--a), var(--void));
+    transition: background 0.25s;
+
+    &:hover { background: color-mix(in srgb, var(--hue) calc(var(--a) + 10%), var(--void)); }
+  }
+  .cell[data-col='l'] { --hue: var(--law); }
+  .cell[data-col='n'] { --hue: var(--neutral); }
+  .cell[data-col='c'] { --hue: var(--chaos); }
+  .cell[data-row='l'] { --a: 18%; }
+  .cell[data-row='n'] { --a: 10%; }
+  .cell[data-row='d'] { --a: 4%; }
+  .count {
+    position: absolute;
+    right: 0.8rem;
+    bottom: 0.55rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+
+    b { font: 800 1.5rem/1 var(--display); color: var(--text); margin-right: 0.2rem; }
+  }
+  .chip {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    padding: 0.5rem 0.8rem 0.55rem;
+    background: var(--law);
+    color: var(--law-ink);
+    text-decoration: none;
+    transition: transform 0.2s;
+
+    &:hover { transform: translateY(-2px); }
+    .chip__name { font: 800 1.9rem/0.95 var(--display); }
+    .chip__sub { font-size: 0.8rem; }
+  }
+  .chip--result {
+    background: var(--chaos);
+    color: #fff;
+    box-shadow: 0 0 0 4px var(--void), 0 0 0 6px var(--chaos);
+    transition: transform 0.6s cubic-bezier(0.3, 1.6, 0.5, 1), opacity 0.3s;
+
+    .chip__name { font-size: 3.2rem; }
+  }
+  .chip--result[data-state='away'] { transform: translateY(-60px) scale(0.6); opacity: 0; }
+  .paths { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .paths path {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 2;
+    stroke-dasharray: var(--len) var(--len);
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.9s ease-in-out;
+  }
+  .paths[data-state='away'] path { stroke-dashoffset: var(--len); }
+  .paths circle { fill: var(--text); }
+
+  /* ------------------------------------------------------------------ details */
+  .details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+    gap: 1.5rem;
+    margin-top: 2.4rem;
+    align-items: start;
+  }
+  .details > * { min-width: 0; }
+  .card { padding: 1.1rem 1.2rem 1.2rem; background: var(--panel); border-top: 3px solid var(--hue); }
+  .card[data-col='n'] { --hue: var(--neutral); }
+  .card[data-col='c'] { --hue: var(--chaos); }
+  .card[data-col='l'] { --hue: var(--law); }
+  .parent__label { margin: 0; color: var(--muted); font-size: 0.82rem; font-weight: 500; }
+  .slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font: 800 2.2rem/1.1 var(--display);
+
+      &:focus-visible { outline: none; border-bottom-color: var(--law); }
+    }
+    button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      font: 500 0.75rem/1 var(--body);
+      padding: 0.35rem 0.55rem;
+      cursor: pointer;
+
+      &:hover { color: var(--law-ink); background: var(--law); border-color: var(--law); }
+    }
+  }
+  .meta { margin: 0 0 0.7rem; color: var(--muted); font-size: 0.88rem; b { color: var(--text); font-weight: 600; } }
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+
+    li { display: grid; grid-template-columns: 1fr auto; column-gap: 0.6rem; }
+    .sk { font-weight: 600; }
+    .mp { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .fx { grid-column: 1 / -1; color: var(--muted); font-size: 0.82rem; line-height: 1.35; }
+  }
+
+  .result { padding: 1.3rem 1.5rem 1.5rem; }
+  .result__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1rem; }
+  .result__name { margin: 0; font: 900 3.6rem/0.9 var(--display); color: var(--text); }
+  .result__sub { margin: 0 0 1rem; color: var(--muted); b { color: var(--text); font-weight: 600; } }
+  .result h3 { margin: 1rem 0 0.45rem; font: 800 1.25rem/1 var(--display); }
+  .stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+
+    div { padding: 0.35rem 0.5rem; background: var(--panel); }
+    dt { color: var(--muted); font-size: 0.78rem; }
+    dd { margin: 0; font: 800 1.5rem/1 var(--display); font-variant-numeric: tabular-nums; }
+  }
+  .aff-scroll { overflow-x: auto; }
+  .aff {
+    display: grid;
+    grid-template-columns: repeat(14, minmax(1.85rem, 1fr));
+    gap: 2px;
+    text-align: center;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+
+    > span { display: grid; gap: 2px; }
+    .h { color: var(--muted); }
+    .v { padding: 0.2rem 0; background: var(--void); }
+    .n { color: var(--muted); }
+    .wk { background: var(--chaos); color: #fff; font-weight: 600; }
+    .nu, .rp, .dr { background: var(--law); color: var(--law-ink); font-weight: 600; }
+  }
+  .legend { margin: 0.4rem 0 0; font-size: 0.78rem; color: var(--muted); }
+  .result .skills { grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); column-gap: 1.5rem; }
+  .rule { margin: 1.1rem 0 0; color: var(--muted); font-size: 0.88rem; b { color: var(--text); } }
+
+  /* ------------------------------------------------------------------ list */
+  .listing { margin-top: 3.2rem; }
+  .listing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0.8rem;
+
+    h2 { margin: 0; font: 900 2.6rem/1 var(--display); }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 1 22rem;
+
+    label { color: var(--muted); font-weight: 500; }
+    input {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+
+      &::placeholder { color: var(--muted); }
+      &:focus-visible { outline: none; border-color: var(--law); }
+    }
+  }
+  .table-scroll { overflow-x: auto; background: var(--panel); }
+  table {
+    width: 100%;
+    min-width: 64rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th { text-align: left; color: var(--muted); font-weight: 500; font-size: 0.8rem; padding: 0.75rem 0.7rem 0.45rem; }
+    td { padding: 0.45rem 0.7rem; border-top: 1px solid var(--line); }
+    td.lvl { width: 3.2rem; font: 800 1.35rem/1 var(--display); font-variant-numeric: tabular-nums; }
+    td.dname { font-weight: 600; }
+    td.race { color: var(--muted); }
+    tbody tr {
+      cursor: pointer;
+      &:hover, &:focus-visible { outline: none; background: var(--void); }
+    }
+    .tag { margin-left: 0.5rem; padding: 0.05rem 0.4rem; background: var(--law); color: var(--law-ink); font-size: 0.7rem; font-weight: 600; }
+    .tag--result { background: var(--chaos); color: #fff; }
+    .aff { grid-template-columns: repeat(14, 2rem); }
+  }
+  /* A 3×3 glyph of the alignment grid with the demon's cell filled. */
+  .al { display: flex; align-items: center; gap: 0.55rem; color: var(--muted); white-space: nowrap; }
+  .glyph {
+    display: grid;
+    grid-template-columns: repeat(3, 6px);
+    gap: 2px;
+
+    i { width: 6px; height: 6px; background: var(--line); }
+    i.on { background: var(--text); }
+    i.on.c { background: var(--chaos); }
+  }
+
+  /* ------------------------------------------------------------------ prototype bar */
+  .proto {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.75rem;
+    font: 500 12px/1 system-ui, sans-serif;
+    background: rgba(20, 20, 22, 0.92);
+    border: 1px solid #3a3a3e;
+    border-radius: 6px;
+
+    a { color: #ddd; }
+  }
+  html.is-preview .proto { display: none; }
+
+  @media (max-width: 1000px) {
+    .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.9rem 1rem; }
+    .bar__count { margin-left: auto; }
+    .nav { order: 3; flex-basis: 100%; overflow-x: auto; }
+    main { padding: 0.8rem 1rem 5rem; }
+    .details { grid-template-columns: 1fr 1fr; }
+    .result { grid-column: 1 / -1; order: -1; }
+  }
+  @media (max-width: 640px) {
+    .align { grid-template-columns: 2.2rem repeat(3, minmax(0, 1fr)); grid-template-rows: auto repeat(3, minmax(7rem, auto)); }
+    .col-h { font-size: 1.5rem; padding: 0 0.4rem 0.3rem; }
+    .row-h { font-size: 1.1rem; }
+    .cell { padding: 0.45rem; }
+    .chip { padding: 0.35rem 0.45rem; .chip__name { font-size: 1.15rem; } .chip__sub { display: none; } }
+    .chip--result .chip__name { font-size: 1.6rem; }
+    .count b { font-size: 1.1rem; }
+    .details { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chip, .chip--result, .paths path, .cell, .col-h { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#" aria-label="SMT Companion home">SMT Companion</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#" aria-current="page">Fusion</a>
+    <a href="#">Compendium</a>
+    <a href="#">Demons</a>
+    <a href="#">Skills</a>
+  </nav>
+  <span class="bar__count"><b data-total></b> demons</span>
+</header>
+
+<main>
+  <div class="modebar">
+    <div>
+      <h1>Fusion</h1>
+      <p>Every demon has a side. Pick two and see where the result lands.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Fusion mode">
+      <button type="button" aria-pressed="true">Pair</button>
+      <button type="button" aria-pressed="false">Triple</button>
+      <button type="button" aria-pressed="false">Reverse</button>
+    </div>
+  </div>
+
+  <section class="align" aria-label="Alignment grid" data-grid>
+    <svg class="paths" data-paths aria-hidden="true"></svg>
+  </section>
+
+  <div class="details">
+    <div data-parent="0"></div>
+    <div data-parent="1"></div>
+    <section class="card result" data-col="c" aria-labelledby="r-name">
+      <p class="parent__label">Result</p>
+      <div class="result__top">
+        <h2 class="result__name" id="r-name" data-r-name></h2>
+      </div>
+      <p class="result__sub" data-r-sub></p>
+      <dl class="stats" data-stats></dl>
+      <h3>Resistances</h3>
+      <div class="aff-scroll"><div class="aff" data-aff></div></div>
+      <p class="legend">Numbers are the share of damage taken. Wk weak (red), Nu null, Rp repel, Dr drain (white).</p>
+      <h3>Skills</h3>
+      <ul class="skills" data-r-skills></ul>
+      <p class="rule" data-rule></p>
+    </section>
+  </div>
+
+  <section class="listing" aria-labelledby="list-title">
+    <div class="listing__head">
+      <h2 id="list-title">Demons</h2>
+      <div class="search">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Name, race or alignment" autocomplete="off" />
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Lv</th><th>Name</th><th>Race</th><th>Alignment</th><th><div class="aff" data-aff-head></div></th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="proto" aria-label="Prototype controls">
+  <a href="index.html">All prototypes</a>
+</div>
+
+<script src="smt1-data.js"></script>
+<script>
+  const { PARENTS, RESULT, RULE, DEMONS, TOTAL, ALIGN_COUNTS, LIGHT, LAW, strip, stripHead, skillList, wireSearch, wireToggles, moment } = SMT1;
+  const $ = (s) => document.querySelector(s);
+  $('[data-total]').textContent = TOTAL;
+
+  /* The grid: column heads, then each row's head and three cells. */
+  const grid = $('[data-grid]');
+  const COLS = ['l', 'n', 'c'];
+  const ROWS = ['l', 'n', 'd'];
+  const chip = (d, result) => `<a class="chip${result ? ' chip--result' : ''}" href="#" data-chip="${d.name}" ${result ? 'data-state="here"' : ''}>
+      <span class="chip__name">${d.name}</span><span class="chip__sub">${result ? 'Result' : 'Parent'}, ${d.race} Lv ${d.lv}</span></a>`;
+  const placed = [...PARENTS, RESULT];
+  let html = '<span></span>' + COLS.map((c) => `<span class="col-h" data-col="${c}">${LAW[c]}</span>`).join('');
+  for (const r of ROWS) {
+    html += `<span class="row-h" data-row="${r}">${LIGHT[r]}</span>`;
+    for (const c of COLS) {
+      const key = r + c;
+      const here = placed.filter((d) => d.align === key).map((d) => chip(d, d === RESULT)).join('');
+      html += `<div class="cell" data-row="${r}" data-col="${c}" role="group" aria-label="${LIGHT[r]}, ${LAW[c]}: ${ALIGN_COUNTS[key]} demons">
+        ${here}<span class="count"><b>${ALIGN_COUNTS[key]}</b>demons</span></div>`;
+    }
+  }
+  grid.insertAdjacentHTML('beforeend', html);
+
+  /* Crosshair: hovering a cell lights its row and column heads. */
+  grid.addEventListener('pointerover', (e) => {
+    const cell = e.target.closest('.cell');
+    grid.querySelectorAll('.on').forEach((x) => x.classList.remove('on'));
+    if (!cell) return;
+    grid.querySelector(`.col-h[data-col="${cell.dataset.col}"]`).classList.add('on');
+    grid.querySelector(`.row-h[data-row="${cell.dataset.row}"]`).classList.add('on');
+  });
+  grid.addEventListener('pointerleave', () => grid.querySelectorAll('.on').forEach((x) => x.classList.remove('on')));
+
+  /* Paths from each parent to the result, measured from the laid-out chips. */
+  const svg = $('[data-paths]');
+  function drawPaths() {
+    const g = grid.getBoundingClientRect();
+    const centre = (n) => {
+      const r = grid.querySelector(`[data-chip="${n}"]`).getBoundingClientRect();
+      return [r.left - g.left + r.width / 2, r.top - g.top + r.height / 2];
+    };
+    const [rx, ry] = centre(RESULT.name);
+    svg.innerHTML = PARENTS.map((p) => {
+      const [x, y] = centre(p.name);
+      const mx = (x + rx) / 2;
+      const my = Math.min(y, ry) - 30;
+      return `<path d="M${x} ${y} Q${mx} ${my} ${rx} ${ry}"/><circle cx="${x}" cy="${y}" r="4"/>`;
+    }).join('');
+    svg.querySelectorAll('path').forEach((p) => p.style.setProperty('--len', p.getTotalLength()));
+  }
+  new ResizeObserver(drawPaths).observe(grid);
+  document.fonts.ready.then(drawPaths);
+
+  /* Details. */
+  PARENTS.forEach((p, i) => {
+    $(`[data-parent="${i}"]`).outerHTML = `<section class="card" data-col="${p.align[1]}" aria-labelledby="p${i}-t">
+      <h2 class="parent__label" id="p${i}-t">Parent ${i + 1}</h2>
+      <div class="slot">
+        <label for="p${i}">Parent ${i + 1} demon</label>
+        <input id="p${i}" value="${p.name}" autocomplete="off" spellcheck="false" />
+        <button type="button" aria-label="Clear parent ${i + 1}">Clear</button>
+      </div>
+      <p class="meta">${p.race}, Lv <b>${p.lv}</b>, <b>${p.al.say}</b>${p.drop ? `, drops ${p.drop}` : ''}</p>
+      <ul class="skills">${skillList(p.skills)}</ul>
+    </section>`;
+  });
+  $('[data-r-name]').textContent = RESULT.name;
+  $('[data-r-sub]').innerHTML = `${RESULT.race}, Lv <b>${RESULT.lv}</b>, <b>${RESULT.al.say}</b>`;
+  $('[data-stats]').innerHTML = RESULT.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+  $('[data-aff]').innerHTML = strip(RESULT.res, true);
+  $('[data-r-skills]').innerHTML = skillList(RESULT.skills);
+  $('[data-rule]').innerHTML = `<b>${RULE.pair.join(' + ')}</b> is a special recipe: a Neutral and a Chaos demon that together always make ${RULE.makes}.`;
+
+  /* List, with the alignment glyph. */
+  const glyph = (a) => ROWS.map((r) => COLS.map((c) => `<i class="${r + c === a ? `on ${c}` : ''}"></i>`).join('')).join('');
+  $('[data-aff-head]').innerHTML = stripHead();
+  const rows = $('[data-rows]');
+  rows.innerHTML = DEMONS.map((d) => `
+    <tr tabindex="0">
+      <td class="lvl">${d.lv}</td>
+      <td class="dname">${d.name}${d.tag ? `<span class="tag${d.tag === 'Result' ? ' tag--result' : ''}">${d.tag}</span>` : ''}</td>
+      <td class="race">${d.race}</td>
+      <td><span class="al"><span class="glyph" aria-hidden="true">${glyph(d.align)}</span>${d.al.say}</span></td>
+      <td><div class="aff">${strip(d.res)}</div></td>
+    </tr>`).join('');
+  wireSearch($('#q'), rows);
+  wireToggles($('.modes'));
+
+  /* ---- Signature: the paths draw from both parents, the result drops into Light, Chaos, and Chaos lights. ---- */
+  const res = grid.querySelector('.chip--result');
+  const chaosHead = grid.querySelector('.col-h[data-col="c"]');
+  moment((at, end) => {
+    drawPaths();
+    res.dataset.state = 'away';
+    svg.dataset.state = 'away';
+    at(350, () => { svg.dataset.state = 'drawn'; });
+    at(1250, () => { res.dataset.state = 'here'; chaosHead.classList.add('is-result'); });
+    at(2000, end);
+  }, () => { res.dataset.state = 'here'; svg.dataset.state = 'drawn'; chaosHead.classList.add('is-result'); }).play();
+</script>
+</body>
+</html>
