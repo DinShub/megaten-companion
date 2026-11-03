@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Demon entry · Guidebook · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="guidebook.css" />
+<style>
+  /* One demon, as a full guide entry: the big data box, then how to make it. */
+  .entry { display: grid; grid-template-columns: auto minmax(0, 1fr); margin-top: 1.4rem; border: var(--rule-box); }
+  .entry__kana {
+    padding: 1.2rem 0.9rem;
+    border-right: var(--rule-box);
+    background: var(--spot);
+    color: var(--paper);
+    font: 900 clamp(2.4rem, 5vw, 4rem)/1 var(--mincho);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+  }
+  .entry__main { padding: 1.2rem 1.4rem 1.4rem; min-width: 0; }
+  .entry__top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.4rem 2rem; padding-bottom: 0.8rem; border-bottom: var(--rule-box); }
+  .entry__name { margin: 0; font: 900 var(--t-3xl)/0.95 var(--mincho); }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.3rem 1.4rem; margin: 0; }
+  .facts div { display: grid; }
+  .facts dt { font-size: var(--t-xs); color: var(--ink-dim); }
+  .facts dd { margin: 0; font: 900 1.25rem/1.2 var(--mincho); }
+  .entry__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem 2rem; margin-top: 1rem; }
+  .entry__grid > * { min-width: 0; }
+  .entry h3 { margin: 0 0 0.4rem; font: 700 var(--t-s)/1 var(--gothic); color: var(--spot); }
+  .wide { grid-column: 1 / -1; }
+
+  .makes { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.4rem 2rem; margin-top: 1.8rem; align-items: start; }
+  .makes > * { min-width: 0; }
+  .pairs { margin: 0; padding: 0; list-style: none; columns: 2 12rem; column-gap: 1.6rem; font-size: var(--t-s); }
+  .pairs li { padding: 0.22rem 0; border-top: var(--rule-row); break-inside: avoid; }
+  .pairs .op { color: var(--spot); margin: 0 0.25rem; font-weight: 700; }
+  .mates { margin: 0; padding: 0; list-style: none; font-size: var(--t-s); }
+  .mates li { display: flex; justify-content: space-between; gap: 0.6rem; padding: 0.25rem 0.4rem; border-top: var(--rule-row); }
+  .mates li.is-here { background: var(--ink); color: var(--paper); }
+  .mates li.is-here a { color: var(--paper); }
+  .mates a { font-weight: 700; text-decoration: none; &:hover { text-decoration: underline; } }
+  .mates span { font-variant-numeric: tabular-nums; }
+  .turn { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.6rem; font-size: var(--t-s); }
+  .turn a { text-decoration: none; color: var(--ink-dim); &:hover { color: var(--spot); } b { color: var(--ink); font-family: var(--mincho); font-weight: 900; font-size: 1.1rem; } }
+  @media (max-width: 860px) { .entry__grid, .makes { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .entry { grid-template-columns: 1fr; } .entry__kana { writing-mode: horizontal-tb; border-right: 0; border-bottom: var(--rule-box); font-size: 2rem; padding: 0.6rem 1rem; } }
+</style>
+</head>
+<body data-section="demons">
+<header class="desk" data-desk></header>
+<div class="page">
+  <nav><ol class="thumbs" data-thumbs></ol></nav>
+  <main class="sheet">
+    <div class="runhead">
+      <div>
+        <h1><span class="runhead__jp plate" lang="ja">悪魔データ</span><span data-title></span></h1>
+        <ul class="chapters" aria-label="Demon pages">
+          <li><a href="demons.html">All demons</a></li>
+          <li><a href="#" aria-current="page" data-here>Entry</a></li>
+        </ul>
+      </div>
+      <button type="button" class="btn" data-register aria-pressed="false">Add to compendium</button>
+    </div>
+
+    <article class="entry" aria-labelledby="d-name">
+      <span class="entry__kana plate" lang="ja" aria-hidden="true" data-kana></span>
+      <div class="entry__main">
+        <div class="entry__top">
+          <h2 class="entry__name" id="d-name" data-name></h2>
+          <dl class="facts" data-facts></dl>
+        </div>
+        <div class="entry__grid">
+          <div class="wide"><h3 class="plate">Stats</h3><div data-stats></div></div>
+          <div class="wide">
+            <h3 class="plate">Resistances</h3>
+            <div class="aff-scroll"><div class="aff" data-aff></div></div>
+            <p class="legend">Numbers are the share of damage taken. Wk weak (black), Nu null, Rp repel, Dr drain (blue).</p>
+          </div>
+          <div><h3 class="plate">Skills</h3><ul class="skills" data-skills></ul></div>
+          <div><h3 class="plate">Combat</h3><div data-atks></div></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="makes">
+      <section aria-labelledby="mk-t">
+        <h2 class="section-title" id="mk-t">How to make it<small data-mk-sub></small></h2>
+        <div data-make></div>
+      </section>
+      <section aria-labelledby="mt-t">
+        <h2 class="section-title" id="mt-t" data-mt-title></h2>
+        <ul class="mates" data-mates></ul>
+      </section>
+    </div>
+
+    <nav class="turn" aria-label="Next and previous in this race" data-turn></nav>
+    <p class="foot">From upstream's SMT1 demon-data.json, fusion-chart.json and special-recipes.json (SNES-labelled). Upstream's combat labels are shown as given.</p>
+  </main>
+</div>
+
+<div class="proto" aria-label="Prototype controls"><a href="index.html">Overview</a></div>
+
+<script src="smt1-data.js"></script>
+<script src="gb.js"></script>
+<script>
+  const { DEMONS, byId, CHART, ELEM, esc, strip, skillList, statsTable, demonLink } = GB;
+  const $ = (s) => document.querySelector(s);
+  const titleCase = (s) => s[0] + s.slice(1).toLowerCase();
+
+  function render() {
+    const d = byId[location.hash.slice(1)] || byId.shiva;
+    document.title = `${d.name} · Guidebook · SMT Companion`;
+    $('[data-title]').textContent = d.name;
+    $('[data-here]').textContent = d.name;
+    $('[data-here]').href = `#${d.id}`;
+    $('[data-kana]').textContent = d.jp;
+    $('[data-name]').textContent = d.name;
+    $('[data-facts]').innerHTML = [['Race', d.race], ['Species', titleCase(d.species)], ['Level', d.lv], ['Alignment', d.al.say], ['Drops', d.drop || '–']]
+      .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+    $('[data-stats]').innerHTML = statsTable(d);
+    $('[data-aff]').innerHTML = strip(d.res, true);
+    $('[data-skills]').innerHTML = skillList(d.skills);
+    $('[data-atks]').innerHTML = `<table class="stats"><thead><tr>${d.atks.slice(2).map(([k]) => `<th scope="col">${k}</th>`).join('')}</tr></thead>
+      <tbody><tr>${d.atks.slice(2).map(([, v]) => `<td>${v}</td>`).join('')}</tr></tbody></table>`;
+
+    /* How to make it: the special recipe, the race-chart pairs, or why it can't be fused. */
+    const make = $('[data-make]');
+    if (['Messian', 'Gaean'].includes(d.race) || d.race === 'Machine') {
+      $('[data-mk-sub]').textContent = '';
+      make.innerHTML = `<p class="empty">${d.name} can't be fused. ${d.race === 'Machine' ? 'It only appears as an enemy.' : 'Recruit it instead.'}</p>`;
+    } else if (d.special) {
+      $('[data-mk-sub]').textContent = 'special recipe';
+      const what = d.special.parts
+        ? d.special.parts.map((p) => DEMONS.find((x) => x.name === p)).map((p, i) => (p ? demonLink(p) : esc(d.special.parts[i]))).join(' <span style="color:var(--spot)">＋</span> ')
+        : esc(d.special.prereq);
+      make.innerHTML = `<aside class="point halftone"><span class="point__mark plate" lang="ja" aria-hidden="true">特殊</span>
+        <p><b>Special recipe.</b> ${what} always make ${esc(d.name)}, whatever the race chart says.</p></aside>`;
+    } else {
+      const pairs = [];
+      CHART.races.forEach((a, i) => CHART.races.forEach((b, j) => { if (j <= i && CHART.table[i][j] === d.race) pairs.push([b, a]); }));
+      const sp = CHART.races.flatMap((a, i) => CHART.races.map((b, j) => (j <= i && CHART.table[i][j] === d.species ? [b, a] : null))).filter(Boolean);
+      $('[data-mk-sub]').textContent = `${pairs.length + sp.length} race pairs make a ${d.race}`;
+      make.innerHTML = pairs.length + sp.length
+        ? `<ul class="pairs">${[...pairs, ...sp].map(([a, b]) => `<li>${a}<span class="op">×</span>${b}</li>`).join('')}</ul>
+           <p class="legend">Which ${d.race} you get depends on the parents' levels.${sp.length ? ` ${sp.length} of these give any ${titleCase(d.species)}.` : ''}</p>`
+        : (() => {
+          const same = CHART.races.filter((r, k) => CHART.table[k][k] === d.name);
+          return `<p class="empty">No race pair on the chart makes a ${d.race}.${same.length ? ` Two demons of the same race make ${esc(d.name)}: ${same.join(', ')}.` : ''}</p>`;
+        })();
+    }
+
+    /* Race-mates, with this one inked. */
+    const mates = DEMONS.filter((x) => x.race === d.race);
+    $('[data-mt-title]').innerHTML = `${d.race}<small>the whole race, ${mates.length}</small>`;
+    $('[data-mates]').innerHTML = mates.map((m) => `<li class="${m === d ? 'is-here' : ''}">${demonLink(m)}<span>Lv ${m.lv}</span></li>`).join('');
+    const i = mates.indexOf(d);
+    const prev = mates[i - 1];
+    const next = mates[i + 1];
+    $('[data-turn]').innerHTML = `${prev ? `<a href="#${prev.id}">← Previous <b>${esc(prev.name)}</b></a>` : '<span></span>'}${next ? `<a href="#${next.id}">Next <b>${esc(next.name)}</b> →</a>` : ''}`;
+
+    /* Compendium toggle: per-viewer, kept in this browser. */
+    const reg = $('[data-register]');
+    let owned = [];
+    try { owned = JSON.parse(localStorage.getItem('gb-owned') || 'null') || ['Barong', 'Rangda']; } catch { owned = ['Barong', 'Rangda']; }
+    const has = owned.includes(d.name);
+    reg.setAttribute('aria-pressed', String(has));
+    reg.textContent = has ? 'In your compendium' : 'Add to compendium';
+    reg.classList.toggle('btn--spot', has);
+  }
+  $('[data-register]').addEventListener('click', () => {
+    const d = byId[location.hash.slice(1)] || byId.shiva;
+    let owned;
+    try { owned = JSON.parse(localStorage.getItem('gb-owned') || 'null') || ['Barong', 'Rangda']; } catch { owned = ['Barong', 'Rangda']; }
+    owned = owned.includes(d.name) ? owned.filter((n) => n !== d.name) : [...owned, d.name];
+    try { localStorage.setItem('gb-owned', JSON.stringify(owned)); } catch { /* fine: the button still flips */ }
+    render();
+  });
+
+  /* Moving between entries within the page: a short re-print of the blue plate. */
+  addEventListener('hashchange', () => {
+    const go = () => { render(); scrollTo({ top: 0 }); };
+    if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.startViewTransition(go);
+    else go();
+  });
+  render();
+  GB.boot();
+</script>
+</body>
+</html>

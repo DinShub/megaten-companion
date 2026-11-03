@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Skills · Guidebook · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="guidebook.css" />
+<style>
+  .tbl { min-width: 60rem; }
+  .tbl td.fx { color: var(--ink-dim); max-width: 22rem; }
+  .tbl td.users { font-size: var(--t-xs); max-width: 18rem; }
+  .tbl td.users a { color: var(--ink); }
+  .tbl td.users .more { color: var(--ink-dim); }
+  .tbl ruby rt { font-size: 0.62rem; color: var(--ink-dim); }
+  /* A skill opened from a link keeps the reader's marker on it. */
+  .tbl tr.is-marked td { background: var(--tint); }
+  .tbl tr.is-marked td:first-child { box-shadow: inset 4px 0 0 var(--spot); }
+  .count-line { margin: 0; color: var(--ink-dim); font-size: var(--t-s); b { color: var(--ink); } }
+</style>
+</head>
+<body data-section="skills">
+<header class="desk" data-desk></header>
+<div class="page">
+  <nav><ol class="thumbs" data-thumbs></ol></nav>
+  <main class="sheet">
+    <div class="runhead">
+      <div>
+        <h1><span class="runhead__jp plate" lang="ja">スキル一覧</span>Skills</h1>
+      </div>
+      <p>Every skill, by element. In SMT1 a demon's skills come with it, so each skill lists the demons that have it.</p>
+    </div>
+
+    <ul class="chips" style="margin-top:1.2rem" aria-label="Element" data-chips></ul>
+    <div class="toolbar">
+      <div class="field">
+        <label for="q">Search</label>
+        <input id="q" placeholder="Skill, katakana, effect or demon" autocomplete="off" />
+      </div>
+      <p class="count-line" data-count aria-live="polite"></p>
+    </div>
+
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>Skill</th><th>MP</th><th>Power</th><th>Target</th><th>Effect</th><th>Demons</th></tr></thead>
+        <tbody data-rows></tbody>
+      </table>
+    </div>
+    <p class="foot">105 skills from upstream's SMT1 skill-data.json and jap-skills.json (SNES-labelled data). Two skills belong to no demon.</p>
+  </main>
+</div>
+
+<div class="proto" aria-label="Prototype controls"><a href="index.html">Overview</a></div>
+
+<script src="smt1-data.js"></script>
+<script src="gb.js"></script>
+<script>
+  const { SKILLS, SKILL_ELEMS, ELEM_NAME, byName, esc, demonLink } = GB;
+  const $ = (s) => document.querySelector(s);
+  const order = SKILL_ELEMS.map(([k]) => k);
+  const sorted = [...SKILLS].sort((a, b) => order.indexOf(a.el) - order.indexOf(b.el) || a.name.localeCompare(b.name));
+
+  const rows = $('[data-rows]');
+  let html = '';
+  let el = null;
+  for (const s of sorted) {
+    if (s.el !== el) {
+      el = s.el;
+      html += `<tr class="group" data-el="${el}"><td colspan="6">${ELEM_NAME[el]}<small>${SKILLS.filter((x) => x.el === el).length}</small></td></tr>`;
+    }
+    const users = s.users.map((n) => byName[n]);
+    const shown = users.slice(0, 4).map((d) => demonLink(d)).join(', ');
+    html += `<tr id="${s.id}" tabindex="0" data-el="${s.el}" data-text="${esc(`${s.name} ${s.jp} ${s.effect} ${s.target} ${s.users.join(' ')}`.toLowerCase())}">
+      <td class="strong"><ruby>${esc(s.name)}<rt lang="ja">${s.jp}</rt></ruby></td>
+      <td class="num">${s.mp || '–'}</td>
+      <td class="num">${s.power || '–'}</td>
+      <td class="dim">${esc(s.target || '–')}</td>
+      <td class="fx">${esc(s.effect || '–')}</td>
+      <td class="users">${users.length ? `${shown}${users.length > 4 ? ` <span class="more">and ${users.length - 4} more</span>` : ''}` : '<span class="more">No demon</span>'}</td>
+    </tr>`;
+  }
+  rows.innerHTML = html;
+
+  const chips = $('[data-chips]');
+  const used = order.filter((k) => SKILLS.some((s) => s.el === k));
+  chips.innerHTML = `<li><button type="button" class="chip" aria-pressed="true" data-el="">All<small>${SKILLS.length}</small></button></li>` +
+    used.map((k) => `<li><button type="button" class="chip" aria-pressed="false" data-el="${k}">${ELEM_NAME[k]}<small>${SKILLS.filter((s) => s.el === k).length}</small></button></li>`).join('');
+  let pick = '';
+  function apply() {
+    const t = $('#q').value.trim().toLowerCase();
+    let n = 0;
+    const els = new Set();
+    rows.querySelectorAll('tr[id]').forEach((tr) => {
+      const ok = (!pick || tr.dataset.el === pick) && (!t || tr.dataset.text.includes(t));
+      tr.hidden = !ok;
+      if (ok) { n++; els.add(tr.dataset.el); }
+    });
+    rows.querySelectorAll('tr.group').forEach((tr) => { tr.hidden = !els.has(tr.dataset.el); });
+    $('[data-count]').innerHTML = `<b>${n}</b> of ${SKILLS.length}`;
+  }
+  chips.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    pick = b.dataset.el;
+    chips.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    apply();
+  });
+  $('#q').addEventListener('input', apply);
+  apply();
+
+  /* Arriving from a skill link: mark that row and bring it into view. */
+  function mark() {
+    rows.querySelectorAll('.is-marked').forEach((x) => x.classList.remove('is-marked'));
+    const tr = location.hash && location.hash !== '#preview' && document.getElementById(location.hash.slice(1));
+    if (!tr) return;
+    tr.classList.add('is-marked');
+    tr.scrollIntoView({ block: 'center' });
+  }
+  addEventListener('hashchange', mark);
+  mark();
+
+  GB.boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+/* ==========================================================================
+   Guidebook — the SMT1 (PS1) skin, as a design system.
+
+   The PS1 release came out only in Japan, so the skin borrows the look of a
+   Japanese strategy guide of the time: a sheet printed in black and one spot
+   blue, katakana readings over names, demon data boxes, halftone tints and a
+   thumb index down the page edge.
+
+   Layout idea: every page is one printed sheet lying on a dark desk. The app
+   stays dark-only; the sheet is a "paper context" (like Calling Card's
+   cc-paper-tokens), so the desk is the dark surface and the sheet flips the
+   tokens to ink on paper.
+
+   Porting map (theme/skins.ts + styles/skins/_guidebook.scss):
+     --spot        → --p-primary-500 (new `spot` ramp in APP_PRIMITIVES)
+     --desk/-2     → the skin's surface ramp (surface-900/800)
+     --paper/-2    → the paper context's surface-0/50
+     --ink/-dim    → the paper context's text / muted text
+   ========================================================================== */
+
+:root {
+  /* Colour: two inks on paper, on a desk. */
+  --desk: #232127;
+  --desk-2: #2c2a31;
+  --desk-ink: #dedbe3;
+  --desk-dim: #aba7b3;          /* 6.5:1 on desk */
+  --paper: #e6e4dc;
+  --paper-2: #d6d3c8;           /* back pages: inactive thumb tabs, sunken wells */
+  --ink: #17171a;               /* 14:1 on paper */
+  --ink-dim: #4a4a52;           /* 7.4:1 on paper */
+  --spot: #1546a0;              /* the accent: 6.9:1 on paper */
+  --spot-deep: #0e3478;
+  --tint: rgba(21, 70, 160, 0.16);
+  --tint-2: rgba(21, 70, 160, 0.08);
+
+  /* Type: Mincho for display and names, Gothic for everything you read. */
+  --mincho: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --gothic: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', system-ui, sans-serif;
+  --t-xs: 0.75rem;
+  --t-s: 0.86rem;
+  --t-m: 1rem;
+  --t-l: 1.25rem;
+  --t-xl: 1.9rem;
+  --t-2xl: 2.8rem;
+  --t-3xl: clamp(2.6rem, 6vw, 4.6rem);
+
+  /* Rules: double = a section starts, solid = a box, dotted = a row. */
+  --rule-section: 3px double var(--ink);
+  --rule-box: 1.5px solid var(--ink);
+  --rule-row: 1px dotted var(--ink-dim);
+
+  /* Motion. One curve for things settling, one for ink. */
+  --settle: cubic-bezier(0.2, 0.9, 0.25, 1);
+  --jolt: cubic-bezier(0.3, 1.6, 0.5, 1);
+  --t-ink: 160ms;
+
+  /* The blue plate's offset during the press run; 0 when in register. */
+  --mx: 0px;
+  --my: 0px;
+  --mr: 0deg;
+  --ink-in: 1;                  /* halftone coverage, 0 → 1 during the press run */
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--desk);
+  color: var(--desk-ink);
+  font: 400 15px/1.6 var(--gothic);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--spot); outline-offset: 2px; }
+.desk :focus-visible { outline-color: #8fb0f0; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* --------------------------------------------------------------------------
+   Desk: the app bar. Brand, game switcher, global search.
+   -------------------------------------------------------------------------- */
+.desk {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding-block: 0.9rem;
+}
+.desk__brand { font: 900 1.3rem/1 var(--mincho); text-decoration: none; white-space: nowrap; }
+.desk__game {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #4a4752;
+  border-radius: 3px;
+  background: var(--desk-2);
+  color: var(--desk-ink);
+  font: inherit;
+  font-size: var(--t-s);
+}
+.desk__search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  flex: 0 1 20rem;
+
+  input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #4a4752;
+    border-radius: 3px;
+    background: var(--desk-2);
+    color: var(--desk-ink);
+    font: inherit;
+    font-size: var(--t-s);
+
+    &::placeholder { color: var(--desk-dim); }
+  }
+}
+.desk__count { color: var(--desk-dim); font-size: var(--t-s); white-space: nowrap; b { color: var(--desk-ink); font-weight: 500; } }
+
+/* --------------------------------------------------------------------------
+   The sheet, and its thumb index.
+   -------------------------------------------------------------------------- */
+.page { position: relative; max-width: 1290px; margin: 0 auto; padding: 0 3.4rem 5rem 0; }
+.sheet {
+  position: relative;
+  min-height: 70vh;
+  padding: 2rem 2.6rem 2.2rem;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85), 0 2px 0 rgba(0, 0, 0, 0.3);
+  view-transition-name: sheet;
+}
+/* The set-down: the sheet lands on the desk at the start of the press run. */
+.sheet.is-lifted { transform: translateY(14px); box-shadow: 0 8px 14px -8px rgba(0, 0, 0, 0.9); }
+.sheet.is-landing { transition: transform 320ms var(--settle), box-shadow 320ms var(--settle); }
+
+/* Thumb index: one tab per section, protruding past the sheet's right edge onto
+   the desk. The current section's tab is spot blue and sticks out furthest. */
+.sheet { z-index: 1; }
+.thumbs {
+  position: absolute;
+  z-index: 0;
+  top: 2.2rem;
+  right: 1rem;                   /* each tab's root is tucked 1rem under the sheet */
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  /* At rest only the Japanese shows; hovering slides the tab out far enough to
+     reveal the English name beside it. The current tab is always out. */
+  a {
+    display: grid;
+    justify-items: center;
+    gap: 0.4rem;
+    width: 3.7rem;
+    padding: 0.8rem 0.35rem 0.75rem 1.3rem;
+    border-radius: 0 6px 6px 0;
+    background: var(--paper-2);
+    color: var(--ink);
+    text-decoration: none;
+    writing-mode: vertical-rl;
+    transform: translateX(-0.95rem);
+    transition: transform 220ms var(--settle), background 220ms;
+
+    &:hover, &:focus-visible { transform: translateX(0.35rem); background: var(--paper); }
+    &:active { transform: translateX(0.1rem); }
+  }
+  .jp { font: 900 1.1rem/1 var(--mincho); letter-spacing: 0.12em; }
+  .en { font-size: var(--t-xs); letter-spacing: 0.04em; }
+  a[aria-current='page'] {
+    background: var(--spot);
+    color: var(--paper);
+    transform: translateX(0.55rem);
+    view-transition-name: thumb-current;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Running head: section in Japanese (spot), title in Mincho, a one-line lede.
+   -------------------------------------------------------------------------- */
+.runhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.8rem 2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: var(--rule-section);
+
+  h1 { margin: 0; font: 900 clamp(2rem, 4vw, 2.9rem)/1.05 var(--mincho); text-wrap: balance; }
+  .runhead__jp { display: block; margin-bottom: 0.3rem; font: 500 var(--t-s)/1 var(--gothic); color: var(--spot); }
+  p { margin: 0.3rem 0 0; color: var(--ink-dim); max-width: 60ch; }
+}
+/* Chapters: a section's sub-pages, set as the guide's chapter line. */
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.4rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: inline-block;
+    padding: 0.2rem 0;
+    color: var(--ink-dim);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+
+    &:hover { color: var(--ink); border-bottom-color: var(--ink-dim); }
+    &[aria-current='page'] { color: var(--spot); border-bottom-color: var(--spot); font-weight: 700; }
+  }
+}
+.section-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.8rem;
+  margin: 0 0 0.6rem;
+  font: 900 var(--t-xl)/1.1 var(--mincho);
+
+  small { font: 500 var(--t-s)/1 var(--gothic); color: var(--ink-dim); }
+}
+
+/* --------------------------------------------------------------------------
+   Controls.
+   -------------------------------------------------------------------------- */
+/* Ink-outline button. Pressing bites it 1px into the paper. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: var(--rule-box);
+  background: transparent;
+  color: var(--ink);
+  font: 500 var(--t-s)/1 var(--gothic);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: background var(--t-ink), box-shadow 80ms, translate 80ms;
+
+  &:hover { background: var(--tint-2); }
+  &:active { translate: 2px 2px; box-shadow: 0 0 0 var(--ink); }
+}
+.btn--spot { border-color: var(--spot); background: var(--spot); color: var(--paper); box-shadow: 2px 2px 0 var(--spot-deep); &:hover { background: var(--spot-deep); } }
+.btn--small { padding: 0.28rem 0.5rem; font-size: var(--t-xs); box-shadow: 1.5px 1.5px 0 var(--ink); }
+.linkbtn { padding: 0; border: 0; background: none; color: var(--spot); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* Segmented: pressed = solid ink. */
+.seg {
+  display: inline-flex;
+  border: var(--rule-box);
+
+  button {
+    padding: 0.45rem 0.95rem;
+    border: 0;
+    border-right: var(--rule-box);
+    background: transparent;
+    color: var(--ink);
+    font: 500 var(--t-s)/1 var(--gothic);
+    cursor: pointer;
+    transition: background var(--t-ink), color var(--t-ink);
+
+    &:last-child { border-right: 0; }
+    &:hover { background: var(--tint); }
+    &[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+  }
+}
+
+/* Chips: race / element filters. */
+.chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0; padding: 0; list-style: none; }
+.chip {
+  padding: 0.18rem 0.55rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: 500 var(--t-xs)/1.4 var(--gothic);
+  cursor: pointer;
+  transition: background var(--t-ink), color var(--t-ink);
+
+  &:hover { background: var(--tint); }
+  &[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+  small { opacity: 0.7; margin-left: 0.2rem; font-variant-numeric: tabular-nums; }
+}
+
+/* Fields: a dotted write-in line, like a guide's fill-in blank. */
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  label { color: var(--ink-dim); white-space: nowrap; }
+  input, select {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    padding: 0.4rem 0.6rem;
+    border: var(--rule-box);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+
+    &::placeholder { color: var(--ink-dim); }
+    &:focus-visible { outline: none; border-color: var(--spot); box-shadow: 2px 2px 0 var(--tint); }
+  }
+}
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1.5px dotted transparent;
+    background: transparent;
+    color: var(--ink);
+    font: 900 1.9rem/1.2 var(--mincho);
+
+    &:hover { border-bottom-color: var(--ink-dim); }
+    &:focus-visible { outline: none; border-bottom-color: var(--spot); }
+  }
+}
+
+/* Checklist tick: a box the reader marks with a pen. The mark draws itself. */
+.tick {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+
+  input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+  i { position: absolute; inset: 0; border: 1.5px solid var(--ink); pointer-events: none; }
+  svg { position: relative; width: 1.25rem; height: 1.25rem; overflow: visible; pointer-events: none; }
+  path { fill: none; stroke: var(--spot); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset 240ms var(--settle); }
+  input:checked ~ svg path { stroke-dashoffset: 0; }
+  input:focus-visible ~ i { outline: 2px solid var(--spot); outline-offset: 2px; }
+  input:hover ~ i { background: var(--tint); }
+}
+
+/* --------------------------------------------------------------------------
+   Print devices.
+   -------------------------------------------------------------------------- */
+/* The blue plate: everything printed in spot blue moves together. */
+.plate { translate: var(--mx) var(--my); rotate: var(--mr); }
+.press-jolt .plate { transition: translate 200ms var(--jolt), rotate 200ms var(--jolt); }
+
+/* Halftone tint: a spot-blue dot screen, inked in during the press run. */
+.halftone { position: relative; isolation: isolate; }
+.halftone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--tint) 1.2px, transparent 1.5px);
+  background-size: 5px 5px;
+  opacity: var(--ink-in);
+  translate: var(--mx) var(--my);
+  pointer-events: none;
+}
+.press-ink .halftone::before { transition: opacity 420ms ease-out; }
+
+/* Ruby: katakana over a name. */
+ruby { ruby-position: over; }
+rt { font-family: var(--mincho); font-weight: 700; letter-spacing: 0.08em; ruby-align: center; }
+
+/* Data box: spot header bar, vertical katakana, then the data. */
+.box { border: var(--rule-box); background: var(--paper); transition: box-shadow var(--t-ink); }
+.box:hover, .box:focus-within { box-shadow: 5px 5px 0 var(--tint); }
+.box__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  padding: 0.35rem 0.8rem;
+  background: var(--spot);
+  color: var(--paper);
+
+  h2, h3 { margin: 0; font: 700 var(--t-s)/1.3 var(--gothic); }
+  span { font-size: var(--t-s); }
+}
+.box__body { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+.kana {
+  padding: 0.8rem 0.5rem;
+  border-right: var(--rule-box);
+  font: 900 1.5rem/1 var(--mincho);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.08em;
+}
+.kana--spot { color: var(--spot); }
+.box__data { padding: 0.7rem 0.9rem 0.85rem; min-width: 0; }
+.box__data > h4 { margin: 0.9rem 0 0.35rem; font: 700 var(--t-s)/1 var(--gothic); color: var(--spot); }
+.meta { margin: 0 0 0.5rem; color: var(--ink-dim); font-size: var(--t-s); b { color: var(--ink); } }
+
+/* Point box: the note a guide prints beside something special. */
+.point {
+  position: relative;
+  padding: 0.95rem 1rem 0.9rem 4.4rem;
+  border: 1.5px solid var(--spot);
+  border-radius: 14px;
+
+  b { color: var(--spot); }
+  p { margin: 0; }
+  p + p { margin-top: 0.3rem; }
+}
+.point__mark {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.8rem;
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--spot);
+  color: var(--paper);
+  font: 900 0.9rem/1 var(--mincho);
+}
+
+/* Stats: a printed row of eight. */
+.stats {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+
+  th { padding: 0.2rem; font: 500 var(--t-xs)/1.2 var(--gothic); color: var(--ink-dim); border-bottom: var(--rule-box); }
+  td { padding: 0.3rem 0.2rem; font: 900 1.35rem/1 var(--mincho); }
+}
+
+/* Resistances: 14 ruled columns. Weak prints solid black; null, repel and drain print in spot blue. */
+.aff-scroll { overflow-x: auto; }
+.aff {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(1.85rem, 1fr));
+  width: max-content;
+  min-width: 100%;
+  border: 1px solid var(--ink);
+  border-right: 0;
+  text-align: center;
+  font-size: var(--t-xs);
+  font-variant-numeric: tabular-nums;
+
+  > span { display: grid; border-right: 1px solid var(--ink); }
+  .h { padding: 0.1rem 0; border-bottom: 1px solid var(--ink); color: var(--ink-dim); }
+  .v { padding: 0.2rem 0; font-weight: 700; }
+  .n { color: var(--ink-dim); font-weight: 400; }
+  .wk { background: var(--ink); color: var(--paper); }
+  .nu, .rp, .dr { color: var(--spot); }
+}
+.aff--row { grid-template-columns: repeat(14, 1.9rem); min-width: 0; }
+.legend { margin: 0.35rem 0 0; font-size: var(--t-xs); color: var(--ink-dim); }
+
+/* Skill rows. */
+.skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--t-s);
+
+  li { display: grid; grid-template-columns: 1fr auto; column-gap: 0.6rem; padding: 0.3rem 0; border-top: var(--rule-row); }
+  .sk { font-weight: 700; }
+  .sk a { text-decoration: none; &:hover { color: var(--spot); text-decoration: underline; } }
+  .mp { color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+  .fx { grid-column: 1 / -1; color: var(--ink-dim); font-size: var(--t-xs); line-height: 1.4; }
+}
+
+/* Dense table: double top rule, halftone on every other row, a tint that
+   sweeps across a row under the pointer. */
+.tbl-scroll { overflow-x: auto; }
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-s);
+  border-top: var(--rule-section);
+  border-bottom: var(--rule-box);
+
+  th { text-align: left; font-weight: 500; font-size: var(--t-xs); color: var(--ink-dim); padding: 0.5rem 0.55rem 0.35rem; border-bottom: var(--rule-box); white-space: nowrap; }
+  td { padding: 0.32rem 0.55rem; }
+  tbody tr:nth-child(even) td { background-image: radial-gradient(var(--tint) 1.2px, transparent 1.5px); background-size: 5px 5px; }
+  tbody tr {
+    cursor: pointer;
+    background: linear-gradient(var(--tint), var(--tint)) no-repeat left / 0% 100%;
+    transition: background-size 180ms var(--settle);
+
+    &:hover, &:focus-visible { background-size: 100% 100%; outline: none; }
+    &:focus-visible { box-shadow: inset 3px 0 0 var(--spot); }
+  }
+  tbody tr.group td { padding-top: 0.9rem; border-bottom: var(--rule-box); background: none; cursor: default; font: 900 var(--t-l)/1 var(--mincho); }
+  .group td small { margin-left: 0.6rem; font: 500 var(--t-xs)/1 var(--gothic); color: var(--ink-dim); }
+  tr.group { background: none; cursor: default; }
+  .num { font: 900 1.15rem/1 var(--mincho); font-variant-numeric: tabular-nums; width: 3rem; }
+  .strong { font-weight: 700; }
+  .dim { color: var(--ink-dim); }
+  .jp { font: 700 0.92rem/1 var(--mincho); color: var(--ink-dim); white-space: nowrap; }
+  a { text-decoration: none; }
+  a:hover { color: var(--spot); text-decoration: underline; }
+}
+.tag { margin-left: 0.45rem; padding: 0 0.35rem; background: var(--spot); color: var(--paper); font-size: 0.7rem; font-weight: 500; white-space: nowrap; }
+.tag--ink { background: var(--ink); }
+
+/* Toolbar above a list. */
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1.5rem; margin: 1.4rem 0 0.7rem; }
+.toolbar .field { flex: 0 1 22rem; }
+
+/* The guide's foot line: where the numbers come from. */
+.foot { margin-top: 2rem; padding-top: 0.5rem; border-top: var(--rule-row); color: var(--ink-dim); font-size: var(--t-xs); }
+
+/* Empty state, in the guide's voice. */
+.empty { padding: 1.2rem; border: 1.5px dashed var(--ink-dim); color: var(--ink-dim); text-align: center; }
+
+/* --------------------------------------------------------------------------
+   Prototype bar (not part of the skin).
+   -------------------------------------------------------------------------- */
+.proto {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  font: 500 12px/1 system-ui, sans-serif;
+  background: rgba(20, 20, 22, 0.92);
+  border: 1px solid #3a3a3e;
+  border-radius: 6px;
+
+  a { color: #ddd; }
+}
+html.is-preview .proto { display: none; }
+
+/* --------------------------------------------------------------------------
+   Page turn between sections (cross-document view transition). The old sheet
+   is lifted off to the left; the new one is already lying underneath. The
+   current thumb tab slides from its old height to its new one.
+   -------------------------------------------------------------------------- */
+@view-transition { navigation: auto; }
+::view-transition-group(sheet) { animation-duration: 0s; }
+::view-transition-old(sheet) { z-index: 2; animation: sheet-off 380ms cubic-bezier(0.5, 0, 0.75, 0) both; transform-origin: 0 100%; }
+::view-transition-new(sheet) { animation: sheet-under 380ms ease-out both; }
+::view-transition-group(thumb-current) { animation-duration: 340ms; animation-timing-function: var(--settle); z-index: 3; }
+@keyframes sheet-off { to { transform: translate(-45px, -6px) rotate(-1.6deg); opacity: 0; } }
+@keyframes sheet-under { from { filter: brightness(0.82); } }
+
+/* --------------------------------------------------------------------------
+   Responsive.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .page { padding: 3rem 0 4rem; }
+  .sheet { padding: 1.3rem 1rem 1.6rem; }
+  .thumbs {
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    a {
+      flex: none;
+      grid-auto-flow: column;
+      align-items: baseline;
+      width: auto;
+      height: 2.85rem;
+      padding: 0.55rem 0.7rem 0;
+      gap: 0.4rem;
+      border-radius: 6px 6px 0 0;
+      writing-mode: horizontal-tb;
+      transform: translateY(0.6rem);
+
+      &:hover { transform: translateY(0.4rem); }
+    }
+    a[aria-current='page'] { transform: translateY(0.25rem); }
+    .jp { font-size: 1rem; letter-spacing: 0.04em; white-space: nowrap; }
+    /* Only the current tab spells out its English name, so all five fit at phone width. */
+    .en { white-space: nowrap; }
+    a:not([aria-current='page']) .en { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  }
+  .desk__search { flex-basis: 100%; margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

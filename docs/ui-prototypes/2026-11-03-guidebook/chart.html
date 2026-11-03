@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Fusion chart · Guidebook · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="guidebook.css" />
+<style>
+  /* The quick-reference chart (早見表): a staircase triangle of race × race. */
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 1.6rem 2rem; align-items: start; margin-top: 1.4rem; }
+  .layout > * { min-width: 0; }
+  .tri {
+    border-collapse: collapse;
+    font-size: 0.7rem;
+    line-height: 1.15;
+
+    th, td { padding: 0; }
+    thead th {
+      height: 5.6rem;
+      vertical-align: bottom;
+      padding-bottom: 0.3rem;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: left;
+      font-weight: 500;
+      color: var(--ink-dim);
+      transition: color var(--t-ink), background var(--t-ink);
+    }
+    tbody th { padding: 0 0.5rem 0 0; text-align: right; font-weight: 500; color: var(--ink-dim); white-space: nowrap; transition: color var(--t-ink), background var(--t-ink); }
+    th.on { color: var(--ink); background: var(--tint); }
+    td button {
+      display: block;
+      width: 3.35rem;
+      height: 2rem;
+      padding: 0 2px;
+      border: 1px solid var(--ink);
+      margin: 0 -1px -1px 0;
+      background: transparent;
+      color: var(--ink);
+      font: 500 0.68rem/1.1 var(--gothic);
+      cursor: pointer;
+      overflow: hidden;
+      transition: background var(--t-ink), color var(--t-ink);
+
+      &:hover { background: var(--tint); }
+      &.sp { color: var(--spot); font-weight: 700; }
+      &.el { font-family: var(--mincho); font-weight: 900; }
+      &.none { color: var(--ink-dim); }
+      &[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+      &.sp[aria-pressed='true'] { background: var(--spot); }
+    }
+    td.diag button { border-width: 1.5px; }
+  }
+  .pick { position: sticky; top: 1rem; display: grid; gap: 1rem; }
+  .pick__formula { margin: 0; font: 900 1.9rem/1.15 var(--mincho); }
+  .pick__formula .op { color: var(--spot); font-weight: 700; }
+  .pick__formula .res { color: var(--spot); }
+  .pick__list { margin: 0; padding: 0; list-style: none; font-size: var(--t-s); }
+  .pick__list li { display: flex; justify-content: space-between; gap: 0.6rem; padding: 0.25rem 0; border-top: var(--rule-row); }
+  .pick__list a { font-weight: 700; text-decoration: none; &:hover { color: var(--spot); text-decoration: underline; } }
+  .pick__list .lv { color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+  .key { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.2rem; font-size: var(--t-xs); color: var(--ink-dim); }
+  .key b { color: var(--ink); }
+  .key .sp { color: var(--spot); font-weight: 700; }
+  .key .el { font-family: var(--mincho); font-weight: 900; color: var(--ink); }
+
+  .shift { margin-top: 2.2rem; }
+  .shift table { font-size: var(--t-s); text-align: center; }
+  .shift th:first-child, .shift td:first-child { text-align: left; }
+  .shift td.up { color: var(--spot); font-weight: 700; }
+  .shift td.up2 { background: var(--spot); color: var(--paper); font-weight: 700; }
+  @media (max-width: 1100px) { .layout { grid-template-columns: 1fr; } .pick { position: static; } }
+</style>
+</head>
+<body data-section="fusion">
+<header class="desk" data-desk></header>
+<div class="page">
+  <nav><ol class="thumbs" data-thumbs></ol></nav>
+  <main class="sheet">
+    <div class="runhead">
+      <div>
+        <h1><span class="runhead__jp plate" lang="ja">合体早見表</span>Fusion chart</h1>
+        <ul class="chapters" aria-label="Fusion pages">
+          <li><a href="fusion.html">Calculator</a></li>
+          <li><a href="chart.html" aria-current="page">Fusion chart</a></li>
+          <li><a href="specials.html">Special fusions</a></li>
+        </ul>
+      </div>
+      <p>Find one race down the side and the other along the top. Pick a square to see what it makes.</p>
+    </div>
+
+    <div class="layout">
+      <div class="tbl-scroll" data-scroll>
+        <table class="tri" data-tri aria-label="Race fusion chart"></table>
+      </div>
+      <aside class="pick" aria-live="polite">
+        <section class="box">
+          <div class="box__bar plate"><h2>This square</h2><span data-pick-kind></span></div>
+          <div class="box__data">
+            <p class="pick__formula" data-pick-formula></p>
+            <p class="meta" data-pick-note></p>
+            <ul class="pick__list" data-pick-list></ul>
+          </div>
+        </section>
+        <ul class="key" aria-label="Key">
+          <li><b>Race name</b>: the result is a demon of that race.</li>
+          <li><span class="sp">Species</span> (blue): any race in that species group.</li>
+          <li><span class="el">Element</span> (Mincho, on the diagonal): two of the same race make this element.</li>
+          <li>– : these two races don't fuse.</li>
+          <li>Dark races (Drake, Foul, Haunt and others) aren't on this chart.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="shift" aria-labelledby="shift-t">
+      <h2 class="section-title" id="shift-t">Element fusion<small>a demon fused with an element moves up or down within its race</small></h2>
+      <div class="tbl-scroll"><table class="tbl" data-shift></table></div>
+    </section>
+
+    <p class="foot">Chart from upstream's SMT1 fusion-chart.json and element-chart.json at the pinned commit (SNES-labelled).</p>
+  </main>
+</div>
+
+<div class="proto" aria-label="Prototype controls"><a href="index.html">Overview</a></div>
+
+<script src="smt1-data.js"></script>
+<script src="gb.js"></script>
+<script>
+  const { CHART, ELEM, SPECIES, DEMONS, demonLink, esc } = GB;
+  const $ = (s) => document.querySelector(s);
+  const races = CHART.races;
+  const speciesNames = new Set(SPECIES.map(([s]) => s));
+  const titleCase = (s) => s[0] + s.slice(1).toLowerCase();
+  const kindOf = (v) => v === '-' ? 'none' : speciesNames.has(v) ? 'sp' : ELEM.elems.includes(v) ? 'el' : 'race';
+  const label = (v) => v === '-' ? '–' : speciesNames.has(v) ? titleCase(v) : v;
+
+  /* The staircase: row i has cells for columns 0..i. */
+  const tri = $('[data-tri]');
+  tri.innerHTML = `<thead><tr><td></td>${races.map((r, j) => `<th scope="col" data-col="${j}">${r}</th>`).join('')}</tr></thead>
+    <tbody>${races.map((r, i) => `<tr><th scope="row" data-row="${i}">${r}</th>${races.map((c, j) => {
+      if (j > i) return '<td></td>';
+      const v = CHART.table[i][j];
+      return `<td class="${i === j ? 'diag' : ''}"><button type="button" class="${kindOf(v)}" data-i="${i}" data-j="${j}" aria-pressed="false" aria-label="${r} with ${c}: ${label(v)}">${label(v)}</button></td>`;
+    }).join('')}</tr>`).join('')}</tbody>`;
+
+  /* Crosshair on hover. */
+  tri.addEventListener('pointerover', (e) => {
+    tri.querySelectorAll('th.on').forEach((x) => x.classList.remove('on'));
+    const b = e.target.closest('button');
+    if (!b) return;
+    tri.querySelector(`[data-row="${b.dataset.i}"]`).classList.add('on');
+    tri.querySelector(`[data-col="${b.dataset.j}"]`).classList.add('on');
+  });
+  tri.addEventListener('pointerleave', () => tri.querySelectorAll('th.on').forEach((x) => x.classList.remove('on')));
+
+  /* Picking a square fills the side box with what it makes. */
+  function pick(i, j) {
+    tri.querySelectorAll('[aria-pressed="true"]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+    const b = tri.querySelector(`[data-i="${i}"][data-j="${j}"]`);
+    b.setAttribute('aria-pressed', 'true');
+    const v = CHART.table[i][j];
+    const k = kindOf(v);
+    $('[data-pick-formula]').innerHTML = `${races[i]}<span class="op"> × </span>${races[j]}<br><span class="op">＝ </span><span class="res">${label(v)}</span>`;
+    const pool = k === 'race' ? DEMONS.filter((d) => d.race === v)
+      : k === 'sp' ? DEMONS.filter((d) => d.species === v)
+      : k === 'el' ? DEMONS.filter((d) => d.name === v) : [];
+    $('[data-pick-kind]').textContent = { race: 'A race', sp: 'A species', el: 'An element', none: 'No fusion' }[k];
+    $('[data-pick-note]').textContent = {
+      race: `Makes a ${v}. Which one depends on the parents' levels.`,
+      sp: `Makes a demon from the ${titleCase(v)} species, from any of its races.`,
+      el: `Two ${races[i]} demons make this element.`,
+      none: 'These two races refuse to fuse.',
+    }[k];
+    $('[data-pick-list]').innerHTML = pool.map((d) => `<li>${demonLink(d)}<span class="lv">${d.race}, Lv ${d.lv}</span></li>`).join('');
+  }
+  tri.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) pick(+b.dataset.i, +b.dataset.j); });
+  // Start on the calculator's parents: Avatar × Femme.
+  pick(Math.max(races.indexOf('Avatar'), races.indexOf('Femme')), Math.min(races.indexOf('Avatar'), races.indexOf('Femme')));
+
+  /* Element rank shifts. */
+  const sign = (n) => n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0';
+  $('[data-shift]').innerHTML = `<thead><tr><th>Race</th>${ELEM.elems.map((e) => `<th>${e}</th>`).join('')}</tr></thead>
+    <tbody>${ELEM.races.map((r, i) => `<tr><td class="strong">${r}</td>${ELEM.table[i].map((n) => `<td class="${n > 1 ? 'up2' : n > 0 ? 'up' : ''}">${sign(n)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+
+  GB.boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>SMT Companion: Guidebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #16161a;
+    --panel: #1e1e23;
+    --line: #34343c;
+    --text: #eceef2;
+    --muted: #a6a7b1;
+    --accent: #8fb0f0;          /* the Guidebook's spot blue, lifted to read on dark */
+    /* The Guidebook's own tokens, for the swatches and specimens. */
+    --paper: #e6e4dc;
+    --ink: #17171a;
+    --spot: #1546a0;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.55 'Familjen Grotesk', system-ui, sans-serif; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  main { max-width: 1180px; margin: 0 auto; padding-block: 3.5rem 4rem; }
+  header { max-width: 64ch; margin-bottom: 2.5rem; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin: 0 0 1rem; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+  h2 { font-size: 1.6rem; margin: 3.4rem 0 0.4rem; font-weight: 700; letter-spacing: -0.01em; }
+  h2 + p { margin-top: 0; color: var(--muted); max-width: 64ch; }
+  p { margin: 0 0 0.75rem; }
+  header p { color: var(--muted); }
+  strong { color: var(--text); font-weight: 500; }
+  a { color: inherit; }
+
+  /* Pages: live previews. */
+  .pages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem 1.2rem; margin-top: 1.2rem; }
+  @media (max-width: 1000px) { .pages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .pages { grid-template-columns: 1fr; } }
+  .pg { min-width: 0; }
+  .pg__shot {
+    --s: 0.18;
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #232127;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }
+  .pg__shot iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; transform: scale(var(--s)); pointer-events: none; }
+  .pg__shot:hover, .pg__shot:focus-visible { border-color: var(--accent); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9); transform: translateY(-3px); }
+  .pg__shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .pg h3 { margin: 0.7rem 0 0.1rem; font-size: 1.05rem; }
+  .pg h3 a { text-decoration: none; &:hover { text-decoration: underline; text-underline-offset: 3px; } }
+  .pg p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+  /* System. */
+  .sys { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.2rem; }
+  @media (max-width: 860px) { .sys { grid-template-columns: 1fr; } }
+  .card { min-width: 0; padding: 1.2rem 1.3rem; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+  .card h3 { margin: 0 0 0.7rem; font-size: 1.05rem; }
+  .card p, .card li { color: var(--muted); font-size: 0.93rem; }
+  .card ul { margin: 0; padding-left: 1.1rem; }
+  .card li + li { margin-top: 0.35rem; }
+  .card li b { color: var(--text); font-weight: 500; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 0.6rem; }
+  .sw { display: grid; gap: 0.15rem; font-size: 0.82rem; color: var(--muted); }
+  .sw i { display: block; height: 3rem; border-radius: 4px; border: 1px solid var(--line); background: var(--c); }
+  .sw b { color: var(--text); font-weight: 500; }
+  .specimen { padding: 1rem 1.1rem; background: var(--paper); color: var(--ink); border-radius: 4px; }
+  .specimen .d { margin: 0; font: 900 2.6rem/1 'Zen Old Mincho', serif; color: var(--ink); }
+  .specimen .d span { color: var(--spot); }
+  .specimen .k { margin: 0 0 0.2rem; font: 700 0.85rem/1 'Zen Old Mincho', serif; color: #4a4a52; letter-spacing: 0.1em; }
+  .specimen .b { margin: 0.6rem 0 0; font: 400 0.95rem/1.6 'Zen Kaku Gothic New', sans-serif; color: var(--ink); }
+  .specimen .rules { display: grid; gap: 0.5rem; margin-top: 0.8rem; font: 400 0.78rem/1 'Zen Kaku Gothic New', sans-serif; color: #4a4a52; }
+  .specimen .rules span { display: block; padding-top: 0.35rem; }
+  .r1 { border-top: 3px double #17171a; }
+  .r2 { border-top: 1.5px solid #17171a; }
+  .r3 { border-top: 1px dotted #4a4a52; }
+
+  .tbl-scroll { overflow-x: auto; margin-top: 1.2rem; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; min-width: 52rem; border-collapse: collapse; font-size: 0.92rem; }
+  th { text-align: left; color: var(--muted); font-weight: 500; padding: 0.7rem 0.8rem 0.5rem; border-bottom: 1px solid var(--line); }
+  td { padding: 0.6rem 0.8rem; border-top: 1px solid var(--line); vertical-align: top; color: var(--muted); }
+  td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+  td.t { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); max-width: 70ch; color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { .pg__shot { transition: none; } .pg__shot:hover, .pg__shot:focus-visible { transform: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Guidebook, carried through every tab</h1>
+    <p>This round takes the Guidebook direction from one fusion page to the whole SMT1 game. All eight pages are linked to each other, so you can move around them like you would in the app. Every number comes from upstream's SMT1 data: all 252 demons, 105 skills, the race chart and 39 special recipes.</p>
+    <p>New in this round: <strong>a thumb index</strong> takes the place of the section nav, with one tab per section sticking out past the page edge. <strong>Moving between sections turns the page.</strong> <strong>The press run</strong>, where the sheet lands on the desk and the blue ink pulls into line, is now smoother and plays only on the first page you open. Click or press a key to skip it.</p>
+  </header>
+
+  <section aria-labelledby="pages-t">
+    <h2 id="pages-t">The pages</h2>
+    <p>Open any of them, then move around with the thumb index on the right edge. Demon names and skill names link through to their own entries.</p>
+    <div class="pages" data-pages></div>
+  </section>
+
+  <section aria-labelledby="sys-t">
+    <h2 id="sys-t">The system</h2>
+    <p>Two inks on a paper sheet, on a dark desk. The app stays dark-only. The sheet is a paper context that flips the tokens, like Calling Card's paper, and the desk is the skin's dark surface.</p>
+    <div class="sys">
+      <div class="card">
+        <h3>Colour</h3>
+        <div class="swatches">
+          <span class="sw"><i style="--c:#232127"></i><b>Desk</b>#232127, the dark surface</span>
+          <span class="sw"><i style="--c:#e6e4dc"></i><b>Paper</b>#e6e4dc, the sheet</span>
+          <span class="sw"><i style="--c:#d6d3c8"></i><b>Back page</b>#d6d3c8, resting tabs</span>
+          <span class="sw"><i style="--c:#17171a"></i><b>Ink</b>#17171a, 14:1 on paper</span>
+          <span class="sw"><i style="--c:#1546a0"></i><b>Spot blue</b>#1546a0, the accent, 6.9:1</span>
+          <span class="sw"><i style="--c:radial-gradient(rgba(21,70,160,.35) 1.2px, #e6e4dc 1.5px) 0 0/5px 5px"></i><b>Halftone</b>spot blue at 16%, a dot screen</span>
+        </div>
+        <p style="margin-top:0.8rem">Black ink carries text and data. Spot blue marks only the second plate: section bars, katakana that matters, the result and the current tab. Weak resistances print solid black, and null, repel and drain print in blue, so colour is never the only signal.</p>
+      </div>
+      <div class="card">
+        <h3>Type and rules</h3>
+        <div class="specimen">
+          <p class="k" lang="ja">シヴァ</p>
+          <p class="d">Shiva <span>＝</span></p>
+          <p class="b">Zen Old Mincho is for names, titles and numbers. Zen Kaku Gothic New is for everything you read. Katakana readings sit over the names as ruby.</p>
+          <div class="rules">
+            <span class="r1">Double rule: a section starts</span>
+            <span class="r2">Solid rule: a box</span>
+            <span class="r3">Dotted rule: a row</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Components</h3>
+        <ul>
+          <li><b>Thumb index</b>: section tabs on the page edge. At rest only the Japanese shows, hovering slides a tab out to reveal its English name, and the current tab is spot blue.</li>
+          <li><b>Running head</b>: the section in Japanese, the title in Mincho, and the section's chapters (Calculator, Fusion chart, Special fusions).</li>
+          <li><b>Data box</b>: a blue bar, the katakana written down the side, then the data. Used for parents, results, the demon entry, backup and settings.</li>
+          <li><b>Point box</b>: a rounded blue frame with a halftone fill and a round mark (特殊, 注意), for special recipes and caveats.</li>
+          <li><b>Dense table</b>: a double top rule, halftone on every other row, and group rows for each race or element.</li>
+          <li><b>Chips, segmented buttons, ink buttons</b>: the pressed state is solid ink, and pressing a button sinks it 2 px into the paper.</li>
+          <li><b>Checklist tick</b>: a square the reader marks, with a blue pen stroke that draws itself.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Voice</h3>
+        <ul>
+          <li>Titles get the guide's Japanese section name above an English title: 悪魔合体 Demon fusion, 合体早見表 Fusion chart.</li>
+          <li>Buttons, labels and errors stay plain: "Add to compendium", "Untick all 2", "No demon matches that filter."</li>
+          <li>Every page ends with a short source line saying where its numbers come from.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="motion-t">
+    <h2 id="motion-t">Motion</h2>
+    <p>Each animation is tied to something printed or handled: a sheet, a plate of ink, a pen. With reduced motion turned on, every one of them shows its end state.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Moment</th><th>When</th><th>What moves</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Press run</td><td>The first page you open (and every preview here)</td><td>The sheet lands on the desk and its shadow spreads. The blue plate starts 8 px out of line and pulls in with two springy jolts. Then the halftone tints ink in. A click or key skips to the end.</td><td class="t">1.3 s</td></tr>
+          <tr><td>Page turn</td><td>Moving between sections and chapters</td><td>The old sheet lifts off to the left with a slight tilt and fades, and the new sheet is already underneath. The current thumb tab slides from its old height to its new one. This uses cross-document view transitions; older browsers just change pages.</td><td class="t">380 ms</td></tr>
+          <tr><td>Entry turn</td><td>Previous or next demon on an entry</td><td>The same page turn within the page, as a same-document view transition.</td><td class="t">380 ms</td></tr>
+          <tr><td>Thumb tab</td><td>Hover or focus</td><td>The tab slides out to show its English name.</td><td class="t">220 ms</td></tr>
+          <tr><td>Row tint</td><td>Hover or focus on a row</td><td>A blue tint sweeps across the row from the left.</td><td class="t">180 ms</td></tr>
+          <tr><td>Ink bite</td><td>Pressing a button</td><td>The button sinks 2 px and its printed shadow disappears.</td><td class="t">80 ms</td></tr>
+          <tr><td>Pen tick</td><td>Ticking a compendium box</td><td>A blue check stroke draws itself, and the tally bar grows.</td><td class="t">240 ms</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="port-t">
+    <h2 id="port-t">Porting it</h2>
+    <div class="sys">
+      <div class="card">
+        <h3>What maps where</h3>
+        <ul>
+          <li><b>Tokens</b>: spot blue becomes a new <code>spot</code> ramp in APP_PRIMITIVES. The desk is the skin's surface ramp in <code>theme/skins.ts</code>, and the paper context flips the tokens inside the sheet.</li>
+          <li><b>Skin</b>: a new <code>guidebook</code> GameSkin, with its partial, lazy bundle entry and angular.json entry, the same as Abyss.</li>
+          <li><b>Thumb index</b>: the shell's section nav, restyled. Chapters are the existing <code>SectionLayout</code> sub-tabs.</li>
+          <li><b>Page turn</b>: Angular's <code>withViewTransitions()</code> router feature, with the CSS from the prototype.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What it costs</h3>
+        <ul>
+          <li><b>Fonts</b>: the two Japanese families need subsets for the kana and kanji that are actually used: 252 demon names, 105 skill names and the section titles. This is the largest cost.</li>
+          <li><b>Data</b>: the importer has to keep the katakana from <code>jap-demons.json</code> and <code>jap-skills.json</code>.</li>
+          <li><b>New views</b>: the staircase chart, the checklist compendium and the "how to make it" list on each entry.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>What works:</strong> the thumb index and chapter links, the page turn, the press run, every demon entry (from any name link), skill links that jump to and mark their row, search and filters on every list, picking squares on the fusion chart, the compendium ticks (kept in this browser only), the calculator's empty states and the inline confirms. <strong>Not wired:</strong> any fusion other than Barong + Rangda, triple and reverse fusion, export, import, backup, restore and reset.</p>
+    <p><strong>Assumptions to confirm:</strong> upstream's SMT1 data is labelled SNES, and I haven't checked whether it matches the PS1 release. The compendium treats an SMT1 demon as having a fixed level and skills, so an entry is only a tick.</p>
+  </footer>
+</main>
+<script>
+  const PAGES = [
+    ['fusion.html', 'Fusion calculator', 'The recipe as one printed line, with data boxes for the parents and the result.'],
+    ['chart.html', 'Fusion chart', 'The staircase chart of race against race, plus element rank shifts.'],
+    ['specials.html', 'Special fusions', 'All 39 recipes as cards, plus the demons you can only recruit or meet.'],
+    ['demons.html', 'Demons', 'All 252 by race, with species chips and resistance strips.'],
+    ['demon.html#shiva', 'Demon entry', 'The full entry: stats, resistances, skills, how to make it, the rest of the race.'],
+    ['skills.html', 'Skills', 'All 105 by element, with the katakana and the demons that have each one.'],
+    ['compendium.html', 'Compendium', "The guide's checklist: tick the demons you have."],
+    ['settings.html', 'Settings', 'The reader\'s page at the back: hero level and your data.'],
+  ];
+  const root = document.querySelector('[data-pages]');
+  root.innerHTML = PAGES.map(([href, name, line]) => {
+    const preview = href.replace(/#.*$/, '') + '#preview';
+    return `<article class="pg">
+      <a class="pg__shot" href="${href}" aria-label="Open ${name}">
+        <iframe src="${preview}" title="${name} preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      </a>
+      <h3><a href="${href}">${name}</a></h3>
+      <p>${line}</p>
+    </article>`;
+  }).join('');
+  const ro = new ResizeObserver((entries) => {
+    for (const e of entries) e.target.style.setProperty('--s', String(e.contentRect.width / 1440));
+  });
+  document.querySelectorAll('.pg__shot').forEach((el) => ro.observe(el));
+</script>
+</body>
+</html>

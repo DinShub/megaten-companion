@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Compendium · Guidebook · SMT Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="guidebook.css" />
+<style>
+  /* The compendium is the guide's demon checklist: a box per demon, ticked in pen. */
+  .tally { text-align: right; }
+  .tally__n { display: block; font: 900 var(--t-2xl)/1 var(--mincho); font-variant-numeric: tabular-nums; }
+  .tally__n small { font-size: 1.2rem; color: var(--ink-dim); }
+  .tally__bar { display: block; width: 12rem; height: 0.45rem; margin: 0.4rem 0 0 auto; border: 1px solid var(--ink); }
+  .tally__bar i { display: block; height: 100%; width: var(--p); background: var(--spot); transition: width 300ms var(--settle); }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 1.6rem 2.2rem; align-items: start; margin-top: 1.2rem; }
+  .layout > * { min-width: 0; }
+  .side { display: grid; gap: 1rem; position: sticky; top: 1rem; }
+  .side .box__data p { margin: 0 0 0.6rem; font-size: var(--t-s); color: var(--ink-dim); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .list { columns: 3 13.5rem; column-gap: 1.8rem; }
+  .race { break-inside: avoid; margin: 0 0 1rem; }
+  .race h2 { margin: 0 0 0.15rem; padding-bottom: 0.15rem; border-bottom: var(--rule-box); font: 900 var(--t-l)/1.1 var(--mincho); display: flex; justify-content: space-between; align-items: baseline; }
+  .race h2 small { font: 500 var(--t-xs)/1 var(--gothic); color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+  .race ul { margin: 0; padding: 0; list-style: none; }
+  .item {
+    display: grid;
+    grid-template-columns: auto 2rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.25rem;
+    border-bottom: var(--rule-row);
+    font-size: var(--t-s);
+    cursor: pointer;
+    background: linear-gradient(var(--tint), var(--tint)) no-repeat left / 0% 100%;
+    transition: background-size 180ms var(--settle);
+
+    &:hover { background-size: 100% 100%; }
+    .lv { font: 900 0.95rem/1 var(--mincho); font-variant-numeric: tabular-nums; color: var(--ink-dim); text-align: right; }
+    .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  }
+  .item:has(input:checked) .nm { font-weight: 700; }
+  .item:has(input:checked) .lv { color: var(--ink); }
+  @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } .side { position: static; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); } }
+</style>
+</head>
+<body data-section="compendium">
+<header class="desk" data-desk></header>
+<div class="page">
+  <nav><ol class="thumbs" data-thumbs></ol></nav>
+  <main class="sheet">
+    <div class="runhead">
+      <div>
+        <h1><span class="runhead__jp plate" lang="ja">悪魔全書</span>Compendium</h1>
+        <p>Tick the demons you have. The calculator fuses from your ticked demons.</p>
+      </div>
+      <p class="tally" aria-live="polite"><span class="tally__n" data-n></span><span class="tally__bar" aria-hidden="true"><i data-bar></i></span></p>
+    </div>
+
+    <div class="layout">
+      <div>
+        <div class="toolbar" style="margin-top:0">
+          <div class="field">
+            <label for="q">Filter</label>
+            <input id="q" placeholder="Name, katakana or race" autocomplete="off" />
+          </div>
+          <div class="seg" role="group" aria-label="Show" data-show>
+            <button type="button" aria-pressed="true" data-v="all">All</button>
+            <button type="button" aria-pressed="false" data-v="have">Ticked</button>
+            <button type="button" aria-pressed="false" data-v="missing">Not yet</button>
+          </div>
+        </div>
+        <div class="list" data-list></div>
+        <p class="empty" hidden data-none></p>
+      </div>
+
+      <aside class="side">
+        <section class="box" aria-labelledby="bk-t">
+          <div class="box__bar plate"><h2 id="bk-t">Backup</h2></div>
+          <div class="box__data">
+            <p>Save your ticks to a file, or load them on another device.</p>
+            <div class="actions" data-actions>
+              <button type="button" class="btn btn--small">Export</button>
+              <button type="button" class="btn btn--small">Import</button>
+              <button type="button" class="btn btn--small" data-clear>Untick all</button>
+            </div>
+            <p class="legend" role="status" data-msg></p>
+          </div>
+        </section>
+        <aside class="point halftone" aria-label="About entries">
+          <span class="point__mark plate" lang="ja" aria-hidden="true">注意</span>
+          <p>An SMT1 demon keeps its level and skills, so an entry is only a tick. Levels and skills come from the demon's data.</p>
+          <p>Barong and Rangda start ticked as an example.</p>
+        </aside>
+      </aside>
+    </div>
+
+    <p class="foot">Ticks are kept in this browser only. In the app they live in the SMT1 compendium store and go into the whole-app backup.</p>
+  </main>
+</div>
+
+<div class="proto" aria-label="Prototype controls"><a href="index.html">Overview</a></div>
+
+<script src="smt1-data.js"></script>
+<script src="gb.js"></script>
+<script>
+  const { DEMONS, esc } = GB;
+  const $ = (s) => document.querySelector(s);
+  const EXAMPLE = ['Barong', 'Rangda'];
+  let owned;
+  try { owned = new Set(JSON.parse(localStorage.getItem('gb-owned') || 'null') || EXAMPLE); } catch { owned = new Set(EXAMPLE); }
+  const save = () => { try { localStorage.setItem('gb-owned', JSON.stringify([...owned])); } catch { /* ticks still show */ } };
+
+  const races = [...new Set(DEMONS.map((d) => d.race))];
+  const list = $('[data-list]');
+  list.innerHTML = races.map((r) => {
+    const ds = DEMONS.filter((d) => d.race === r);
+    return `<section class="race" data-race="${r}"><h2>${r}<small data-rc="${r}"></small></h2><ul>${ds.map((d) => `
+      <li><label class="item" data-name="${esc(d.name)}" data-text="${esc(`${d.name} ${d.jp} ${d.race}`.toLowerCase())}">
+        <span class="tick"><input type="checkbox" data-tick="${esc(d.name)}"${owned.has(d.name) ? ' checked' : ''} /><i></i><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 10.5 8 15 17 3.5" /></svg></span>
+        <span class="lv">${d.lv}</span><span class="nm">${esc(d.name)}</span>
+      </label></li>`).join('')}</ul></section>`;
+  }).join('');
+
+  let show = 'all';
+  function apply() {
+    const t = $('#q').value.trim().toLowerCase();
+    let any = 0;
+    list.querySelectorAll('.race').forEach((sec) => {
+      let n = 0;
+      sec.querySelectorAll('.item').forEach((it) => {
+        const has = owned.has(it.dataset.name);
+        const ok = (!t || it.dataset.text.includes(t)) && (show === 'all' || (show === 'have') === has);
+        it.parentElement.hidden = !ok;
+        if (ok) n++;
+      });
+      sec.hidden = !n;
+      any += n;
+      const total = DEMONS.filter((d) => d.race === sec.dataset.race);
+      sec.querySelector('[data-rc]').textContent = `${total.filter((d) => owned.has(d.name)).length}/${total.length}`;
+    });
+    $('[data-none]').hidden = !!any;
+    $('[data-none]').textContent = show === 'have' && !owned.size ? 'Nothing ticked yet. Tick a demon you have and it shows up here.' : 'No demon matches that filter.';
+    $('[data-n]').innerHTML = `${owned.size}<small> / ${DEMONS.length}</small>`;
+    $('[data-bar]').style.setProperty('--p', `${(owned.size / DEMONS.length) * 100}%`);
+  }
+  list.addEventListener('change', (e) => {
+    const n = e.target.dataset.tick;
+    if (!n) return;
+    e.target.checked ? owned.add(n) : owned.delete(n);
+    save();
+    apply();
+  });
+  $('#q').addEventListener('input', apply);
+  $('[data-show]').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    show = b.dataset.v;
+    $('[data-show]').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    apply();
+  });
+
+  /* Untick all asks once, inline. Export and Import only say what they would do. */
+  const actions = $('[data-actions]');
+  const msg = $('[data-msg]');
+  actions.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    if (b.dataset.clear != null) {
+      actions.innerHTML = `<button type="button" class="btn btn--small btn--spot" data-yes>Untick all ${owned.size}</button><button type="button" class="btn btn--small" data-no>Keep them</button>`;
+      return;
+    }
+    if (b.dataset.yes != null) { owned.clear(); save(); apply(); list.querySelectorAll('input').forEach((i) => { i.checked = false; }); msg.textContent = 'Unticked everything.'; }
+    else if (b.dataset.no == null) msg.textContent = `${b.textContent} isn't wired in this prototype.`;
+    actions.innerHTML = '<button type="button" class="btn btn--small">Export</button><button type="button" class="btn btn--small">Import</button><button type="button" class="btn btn--small" data-clear>Untick all</button>';
+  });
+  apply();
+
+  GB.boot();
+</script>
+</body>
+</html>
