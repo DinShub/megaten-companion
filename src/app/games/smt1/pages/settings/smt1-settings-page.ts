@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
 import { BackupService, type ValidBackup } from '../../../../core/backup/backup.service';
+import { DriveBackupService } from '../../../../core/backup/drive-backup.service';
 import { Smt1CompendiumStore } from '../../compendium/smt1-compendium.store';
 import { Smt1SettingsStore } from '../../settings/smt1-settings.store';
 
@@ -43,6 +44,14 @@ import { Smt1SettingsStore } from '../../settings/smt1-settings.store';
             <label class="g1-row__label" for="restore-file"><b>Restore from backup</b><small>Replaces the data in the backup, for every game it covers. The app reloads afterwards.</small></label>
             <label class="g1-btn g1-btn--small">Restore…<input id="restore-file" type="file" accept="application/json,.json" hidden (change)="pickBackup($event)" /></label>
           </div>
+          <div class="g1-row">
+            <span class="g1-row__label"><b>Google Drive</b><small>{{ drive.status() }}</small></span>
+            <span class="g1-actions">
+              <button type="button" class="g1-btn g1-btn--small" [disabled]="drive.busy()" (click)="drive.save()">Save to Drive</button>
+              <button type="button" class="g1-btn g1-btn--small" [disabled]="drive.busy()" (click)="loadFromDrive()">Load from Drive</button>
+            </span>
+          </div>
+          @if (drive.error(); as err) { <p class="g1-legend g1-row" role="alert">{{ err }}</p> }
           @if (restoring(); as r) {
             <div class="g1-row g1-row--confirm">
               <div>
@@ -81,6 +90,7 @@ export class Smt1SettingsPage {
   protected readonly settings = inject(Smt1SettingsStore);
   private readonly compendium = inject(Smt1CompendiumStore);
   protected readonly backup = inject(BackupService);
+  protected readonly drive = inject(DriveBackupService);
 
   protected readonly confirming = signal(false);
   protected readonly restoring = signal<ValidBackup | null>(null);
@@ -101,6 +111,13 @@ export class Smt1SettingsPage {
       const result = this.backup.parse(text);
       this.restoring.set(result.ok ? result : null);
       this.backupError.set(result.ok ? null : result.error);
+    });
+  }
+
+  protected loadFromDrive(): void {
+    void this.drive.load().then((backup) => {
+      this.restoring.set(backup);
+      this.backupError.set(null);
     });
   }
 

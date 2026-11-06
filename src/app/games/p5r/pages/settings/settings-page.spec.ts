@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { BackupService } from '../../../../core/backup/backup.service';
+import { DriveBackupService } from '../../../../core/backup/drive-backup.service';
 import type { StorageBackend } from '../../../../core/storage/storage-envelope';
 import { STORAGE_BACKEND } from '../../../../core/storage/storage.service';
 import { SettingsStore } from '../../settings/settings.store';
@@ -46,6 +47,30 @@ describe('SettingsPage', () => {
     const text = (mount().nativeElement as HTMLElement).textContent ?? '';
     expect(text).toContain('Back up everything');
     expect(text).toContain('Restore from backup');
+  });
+
+  it('offers Drive save and load, and asks before restoring a Drive backup', async () => {
+    const fixture = mount();
+    const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
+    expect(text).toContain('Save to Drive');
+    expect(text).toContain('Load from Drive');
+
+    const drive = TestBed.inject(DriveBackupService);
+    const backup = TestBed.inject(BackupService).parse(TestBed.inject(BackupService).build());
+    drive.load = () => Promise.resolve(backup.ok ? backup : null);
+    fixture.componentInstance['loadFromDrive']();
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect((fixture.nativeElement as HTMLElement).textContent).toContain('Restore and reload');
+  });
+
+  it('shows why a Drive press failed', () => {
+    const fixture = mount();
+    TestBed.inject(DriveBackupService).error.set('Nothing has been saved to Drive yet.');
+    fixture.detectChanges();
+    const alert = (fixture.nativeElement as HTMLElement).querySelector('[role="alert"]');
+    expect(alert?.textContent).toContain('Nothing has been saved to Drive yet.');
   });
 
   it('shows a rejected backup’s reason and applies nothing', async () => {

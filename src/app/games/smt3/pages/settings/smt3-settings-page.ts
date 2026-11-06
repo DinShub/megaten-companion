@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
 import { BackupService, type ValidBackup } from '../../../../core/backup/backup.service';
+import { DriveBackupService } from '../../../../core/backup/drive-backup.service';
 import { Smt3CompendiumStore } from '../../compendium/smt3-compendium.store';
 import type { UnlockGroup } from '../../model';
 import { Smt3SettingsStore } from '../../settings/smt3-settings.store';
@@ -56,6 +57,14 @@ const UNLOCK_GROUPS: readonly { id: UnlockGroup; label: string; blurb: string }[
           <label for="restore-file"><span>Restore from backup</span><small class="s3-muted">Replaces the data in the backup — every game it covers. The app reloads afterwards.</small></label>
           <label class="s3-btn"><i class="pi pi-upload" aria-hidden="true"></i> Restore…<input id="restore-file" type="file" accept="application/json,.json" hidden (change)="pickBackup($event)" /></label>
         </div>
+        <div class="st__row">
+          <label><span>Google Drive</span><small class="s3-muted">{{ drive.status() }}</small></label>
+          <span class="s3-actions">
+            <button type="button" class="s3-btn" [disabled]="drive.busy()" (click)="drive.save()"><i class="pi pi-cloud-upload" aria-hidden="true"></i> Save to Drive</button>
+            <button type="button" class="s3-btn" [disabled]="drive.busy()" (click)="loadFromDrive()"><i class="pi pi-cloud-download" aria-hidden="true"></i> Load from Drive</button>
+          </span>
+        </div>
+        @if (drive.error(); as err) { <p class="s3-note" role="alert">{{ err }}</p> }
         @if (restoring(); as r) {
           <div class="s3-info st__restore">
             <p>Backup from {{ savedWhen(r.savedAt) }}:</p>
@@ -101,6 +110,7 @@ export class Smt3SettingsPage {
   private readonly compendium = inject(Smt3CompendiumStore);
 
   protected readonly backup = inject(BackupService);
+  protected readonly drive = inject(DriveBackupService);
 
   protected readonly groups = UNLOCK_GROUPS;
   protected readonly confirming = signal(false);
@@ -123,6 +133,13 @@ export class Smt3SettingsPage {
       const result = this.backup.parse(text);
       this.restoring.set(result.ok ? result : null);
       this.backupError.set(result.ok ? null : result.error);
+    });
+  }
+
+  protected loadFromDrive(): void {
+    void this.drive.load().then((backup) => {
+      this.restoring.set(backup);
+      this.backupError.set(null);
     });
   }
 

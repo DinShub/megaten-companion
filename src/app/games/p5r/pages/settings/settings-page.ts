@@ -6,6 +6,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 import { BackupService, type ValidBackup } from '../../../../core/backup/backup.service';
+import { DriveBackupService } from '../../../../core/backup/drive-backup.service';
 import { SettingsStore } from '../../settings/settings.store';
 
 /** Settings page (§4.8 / task 17). The game settings store, persisted
@@ -128,6 +129,36 @@ import { SettingsStore } from '../../settings/settings.store';
           />
         </div>
 
+        <div class="row">
+          <label class="row__label">
+            <span>Google Drive</span>
+            <small>{{ drive.status() }}</small>
+          </label>
+          <div class="row__confirm row__drive">
+            <p-button
+              label="Save to Drive"
+              icon="pi pi-cloud-upload"
+              severity="secondary"
+              [outlined]="true"
+              size="small"
+              [disabled]="drive.busy()"
+              (onClick)="drive.save()"
+            />
+            <p-button
+              label="Load from Drive"
+              icon="pi pi-cloud-download"
+              severity="secondary"
+              [outlined]="true"
+              size="small"
+              [disabled]="drive.busy()"
+              (onClick)="loadFromDrive()"
+            />
+          </div>
+        </div>
+        @if (drive.error(); as err) {
+          <p class="restore__error" role="alert"><i class="pi pi-exclamation-triangle" aria-hidden="true"></i> {{ err }}</p>
+        }
+
         @if (restoring(); as r) {
           <div class="restore" role="group" aria-label="Confirm restore">
             <p>Backup from {{ savedWhen(r.savedAt) }}:</p>
@@ -242,12 +273,22 @@ import { SettingsStore } from '../../settings/settings.store';
       flex-wrap: wrap;
       justify-content: flex-end;
     }
+    // Stacked on phones, so the labels stay on one line.
+    .row__drive {
+      flex-shrink: 0;
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
   `,
 })
 export class SettingsPage {
   protected readonly settings = inject(SettingsStore);
 
   protected readonly backup = inject(BackupService);
+  protected readonly drive = inject(DriveBackupService);
 
   protected readonly confirming = signal(false);
   /** A validated backup awaiting the user's confirmation. */
@@ -285,6 +326,13 @@ export class SettingsPage {
     const result = this.backup.parse(await file.text());
     this.restoring.set(result.ok ? result : null);
     this.backupError.set(result.ok ? null : result.error);
+  }
+
+  protected loadFromDrive(): void {
+    void this.drive.load().then((backup) => {
+      this.restoring.set(backup);
+      this.backupError.set(null);
+    });
   }
 
   protected restore(backup: ValidBackup): void {
