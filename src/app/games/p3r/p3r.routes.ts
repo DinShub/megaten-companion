@@ -59,6 +59,7 @@ const featureRoutes: Routes = [
     ],
   },
 
+  { path: 'chat', loadComponent: () => import('./pages/chat/p3r-chat-page').then((m) => m.P3rChatPage) },
   { path: 'settings', loadComponent: () => import('./pages/settings/p3r-settings-page').then((m) => m.P3rSettingsPage) },
   { path: 'about', loadComponent: () => import('./pages/about/p3r-about-page').then((m) => m.P3rAboutPage) },
 

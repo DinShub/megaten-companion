@@ -37,7 +37,7 @@
   }
 
   <nav class="app-nav app-desktop-only" aria-label="Sections">
-    @for (entry of navEntries(); track entry.feature) {
+    @for (entry of sectionTabs(); track entry.feature) {
       <a class="app-nav__link" [routerLink]="link(entry.segments)" routerLinkActive="is-active">
         <i [class]="entry.icon" aria-hidden="true"></i>
         <span>{{ entry.label }}</span>
@@ -46,6 +46,11 @@
   </nav>
 
   <div class="app-bar__actions">
+    @for (entry of barIcons(); track entry.feature) {
+      <a class="app-iconbtn" [routerLink]="link(entry.segments)" [attr.aria-label]="entry.label" [title]="entry.label">
+        <i [class]="entry.icon" aria-hidden="true"></i>
+      </a>
+    }
     <a class="app-iconbtn" [routerLink]="settingsLink()" aria-label="Settings">
       <i class="pi pi-cog" aria-hidden="true"></i>
     </a>

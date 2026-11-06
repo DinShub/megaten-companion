@@ -22,6 +22,8 @@ interface NavEntry {
   readonly segments: readonly string[];
   /** Shown in the mobile bottom tab bar. */
   readonly primary?: boolean;
+  /** An icon beside Settings on desktop rather than a section tab, which the row can't fit. */
+  readonly barIcon?: boolean;
 }
 
 /**
@@ -41,6 +43,7 @@ const NAV: readonly NavEntry[] = [
   { feature: 'shadows', label: 'Shadows', icon: 'pi pi-eye', segments: ['shadows'], primary: true },
   { feature: 'skills', label: 'Skills', icon: 'pi pi-sparkles', segments: ['skills'] },
   { feature: 'classroom', label: 'Classroom', icon: 'pi pi-graduation-cap', segments: ['classroom'] },
+  { feature: 'chat', label: 'Chat', icon: 'pi pi-comments', segments: ['chat'], barIcon: true },
 ];
 
 @Component({
@@ -82,6 +85,12 @@ export class App {
   protected readonly navEntries = computed(() =>
     NAV.filter((entry) => this.game().features.includes(entry.feature)),
   );
+
+  /** Desktop nav: the section tabs. */
+  protected readonly sectionTabs = computed(() => this.navEntries().filter((e) => !e.barIcon));
+
+  /** Desktop app bar: the entries shown as icons. */
+  protected readonly barIcons = computed(() => this.navEntries().filter((e) => e.barIcon));
 
   /** Mobile bottom tab bar: the primary destinations. */
   protected readonly primaryNav = computed(() => this.navEntries().filter((e) => e.primary));

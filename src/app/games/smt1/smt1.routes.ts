@@ -50,6 +50,7 @@ const featureRoutes: Routes = [
     ],
   },
 
+  { path: 'chat', loadComponent: () => import('./pages/chat/smt1-chat-page').then((m) => m.Smt1ChatPage) },
   { path: 'settings', loadComponent: () => import('./pages/settings/smt1-settings-page').then((m) => m.Smt1SettingsPage) },
   { path: 'about', loadComponent: () => import('./pages/about/smt1-about-page').then((m) => m.Smt1AboutPage) },
 

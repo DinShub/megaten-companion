@@ -24,7 +24,7 @@ export const smt3Game: GameDefinition = {
   id: 'smt3',
   title: 'Shin Megami Tensei III: Nocturne',
   shortTitle: 'Nocturne',
-  features: ['fusion', 'compendium', 'demons', 'magatama', 'skills'],
+  features: ['fusion', 'compendium', 'demons', 'magatama', 'skills', 'chat'],
   // Burnt dark orange: the Vortex World's scorched, sunset-lit Tokyo and Kagutsuchi's glow.
   // Its skin is the demon-summoning program (COMP) the series grew out of.
   theme: { primary: 'ember', skin: 'comp' },

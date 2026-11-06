@@ -106,6 +106,24 @@ Skins are lazy: each builds to its own `skin-<name>.css` (`src/styles/skin-bundl
 `inject: false`) and only the active game's sheet loads (`src/app/theme/skin-stylesheet.ts`), so a
 new skin costs nothing in the initial bundle.
 
+## AI chat
+
+Every game has a chat (`/<game>/chat`, the comments icon in the top bar, or **More** on mobile) that
+can see your level, settings and compendium and look things up with the game's own fusion engine and
+route finder. There is no backend: the browser calls the provider directly using your own API key.
+
+- **Providers:** Claude and Gemini, chosen under **Connection** on the chat page. Usage is billed to
+  your account with that provider.
+- **Your key** is kept in this browser's `localStorage`. It isn't declared in any game's `storedData`,
+  so backups and Drive sync never carry it. Anyone with access to this browser profile can read it.
+- **What gets sent:** your messages, level, settings and compendium, and the results of lookups, go to
+  the provider you chose and nowhere else.
+- **Lookups are read-only.** The model can't change your compendium or settings.
+- **Conversations aren't saved.** One lasts until you reload the page.
+
+To add a game, implement `GameAi` (`src/app/core/ai/game-ai.ts`) in the game's `ai/` folder, usually
+by mapping it onto `rosterTools`, and provide it from a thin `pages/chat/` page.
+
 ## Game data
 
 `public/data/p5r/` holds the committed P5R datasets — personas, skills, traits, shadows, the fusion

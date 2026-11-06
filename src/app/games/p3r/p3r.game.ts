@@ -24,7 +24,7 @@ export const p3rGame: GameDefinition = {
   id: 'p3r',
   title: 'Persona 3 Reload',
   shortTitle: 'P3R',
-  features: ['fusion', 'compendium', 'personas', 'shadows', 'skills'],
+  features: ['fusion', 'compendium', 'personas', 'shadows', 'skills', 'chat'],
   // Reload's deep blue, from the menus to the box art. Its skin is the Abyss:
   // the deep-water look of the game's own menus, light coming down from the surface.
   theme: { primary: 'blue', skin: 'abyss' },

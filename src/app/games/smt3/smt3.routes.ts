@@ -59,6 +59,7 @@ const featureRoutes: Routes = [
     ],
   },
 
+  { path: 'chat', loadComponent: () => import('./pages/chat/smt3-chat-page').then((m) => m.Smt3ChatPage) },
   { path: 'settings', loadComponent: () => import('./pages/settings/smt3-settings-page').then((m) => m.Smt3SettingsPage) },
   { path: 'about', loadComponent: () => import('./pages/about/smt3-about-page').then((m) => m.Smt3AboutPage) },
 

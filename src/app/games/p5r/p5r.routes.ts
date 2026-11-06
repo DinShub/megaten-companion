@@ -91,6 +91,11 @@ const featureRoutes: Routes = [
   },
 
   {
+    path: 'chat',
+    loadComponent: () => import('./pages/chat/p5r-chat-page').then((m) => m.P5rChatPage),
+  },
+
+  {
     path: 'settings',
     loadComponent: () => import('./pages/settings/settings-page').then((m) => m.SettingsPage),
   },

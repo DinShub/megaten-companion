@@ -1861,6 +1861,28 @@
     }
   }
 
+  /* ---- Chat: printed on the sheet, so it takes paper tones, not the desk's ---- */
+  .ai-chat {
+    --ai-panel: var(--g1-paper-2);
+    --ai-panel-2: var(--g1-paper);
+    --ai-border: var(--g1-ink-dim);
+    --ai-accent: var(--g1-spot);
+    --ai-on-accent: var(--g1-paper);
+    --ai-danger: #a3211a; /* 6.9:1 on paper */
+
+    /* The running head is taller than other skins' page titles. */
+    height: calc(100dvh - var(--app-bar-h) - 11.5rem);
+
+    @media (max-width: #{$nav-breakpoint}) {
+      height: calc(100dvh - var(--app-tabbar-h) - 12.5rem);
+    }
+
+    .ai-msg__body code {
+      color: var(--g1-spot);
+      background: transparent;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

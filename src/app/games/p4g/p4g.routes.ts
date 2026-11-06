@@ -59,6 +59,7 @@ const featureRoutes: Routes = [
     ],
   },
 
+  { path: 'chat', loadComponent: () => import('./pages/chat/p4g-chat-page').then((m) => m.P4gChatPage) },
   { path: 'settings', loadComponent: () => import('./pages/settings/p4g-settings-page').then((m) => m.P4gSettingsPage) },
   { path: 'about', loadComponent: () => import('./pages/about/p4g-about-page').then((m) => m.P4gAboutPage) },
 

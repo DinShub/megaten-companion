@@ -25,7 +25,7 @@ export const smt1Game: GameDefinition = {
   id: 'smt1',
   title: 'Shin Megami Tensei (PS1)',
   shortTitle: 'SMT',
-  features: ['fusion', 'compendium', 'demons', 'skills'],
+  features: ['fusion', 'compendium', 'demons', 'skills', 'chat'],
   // Spot blue: the second ink of a two-colour Japanese strategy guide, since the
   // PS1 release was Japan-only. Its skin is that guide (Guidebook).
   theme: { primary: 'spot', skin: 'guidebook' },

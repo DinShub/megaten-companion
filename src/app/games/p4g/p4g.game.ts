@@ -24,7 +24,7 @@ export const p4gGame: GameDefinition = {
   id: 'p4g',
   title: 'Persona 4 Golden',
   shortTitle: 'P4G',
-  features: ['fusion', 'compendium', 'personas', 'shadows', 'skills'],
+  features: ['fusion', 'compendium', 'personas', 'shadows', 'skills', 'chat'],
   // Inaba yellow: the series' colour for Persona 4, from the box art to the TV world.
   // Its skin is the Midnight Channel — the late-night broadcast that starts the story.
   theme: { primary: 'yellow', skin: 'midnight-channel' },
